@@ -1,0 +1,360 @@
+{% comment %}
+  @param product {Product}
+
+  @param show_social_media_icons {Boolean}
+
+  @param show_payment_button {Boolean}
+    Show the DPBs in the product form
+{% endcomment %}
+
+{% assign product_id = product.id %}
+{% assign selected_variant = product.selected_or_first_available_variant %}
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'vendor' %}
+      <a class="product-vendor" href="{{ product.vendor | url_for_vendor }}" {{ block.shopify_attributes }}>{{ product.vendor }}</a>
+
+    {% when 'title' %}
+      <h1 class="product-title" {{ block.shopify_attributes }}>
+        {% if product != blank %}
+          {% if link_to %}
+            <a href="{{ product.url }}">
+              {{ product.title }}
+            </a>
+          {% else %}
+            {{ product.title }}
+          {% endif %}
+        {% else %}
+          {{ 'products.product.onboarding.title' | t }}
+        {% endif %}
+      </h1>
+
+    {% when '@app' %}
+      <div class="product-app" {{ block.shopify_attributes }}>
+        {% render block %}
+      </div>
+
+    {% when 'custom-liquid' %}
+      {% if block.settings.custom_liquid != blank %}
+        <div class="product__custom-liquid" {{ block.shopify_attributes }}>
+          {{ block.settings.custom_liquid }}
+        </div>
+      {% endif %}
+
+    {% when 'collapsible-tab' %}
+      {% if block.settings.collapsible_tab_heading != blank %}
+        <details class="collapsible-tab" {{ block.shopify_attributes }}>
+          <summary class="collapsible-tab__heading">
+            <span>{{ block.settings.collapsible_tab_heading | escape }}</span>
+            {%
+              render 'icons',
+              id: 'chevron-right',
+            %}
+          </summary>
+
+          {% if block.settings.collapsible_tab_text != blank %}
+            <div class="collapsible-tab__text rte">
+              {{ block.settings.collapsible_tab_text }}
+            </div>
+          {% endif %}
+        </details>
+      {% endif %}
+
+    {% when 'tabs' %}
+      {% assign tab_counter = 1 %}
+      <div class="product-tabs" {{ block.shopify_attributes }}>
+        {% if block.settings.show_product_description %}
+          <input
+            class="product-tabs__radio"
+            id="product-tabs__radio-{{ section.id }}"
+            name="{{ section.id }}"
+            tabindex="0"
+            type="radio"
+            checked="checked"
+          >
+
+          <label class="product-tabs__label" for="product-tabs__radio-{{ section.id }}">
+            {{ 'onboarding.tab_title'| t }}
+          </label>
+
+          <div class="product-tabs__panel rte" tabindex="0">
+            {% if onboarding %}
+              {{ 'onboarding.tab_content'| t }}
+            {% else %}
+              {% if product.description != blank %}
+                {{ product.description }}
+              {% else %}
+                {{ 'onboarding.tab_content'| t }}
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% for i in (1..3) %}
+          {% assign tab_text_key = 'tab_text_' | append: i %}
+          {% assign tab_heading_key = 'tab_heading_' | append: i %}
+          {% assign tab_heading_value = block.settings[tab_heading_key] %}
+          {% assign tab_text_value = block.settings[tab_text_key] %}
+
+          {% if tab_heading_value != blank %}
+            <input
+              class="product-tabs__radio"
+              id="product-tabs__radio-{{ i }}-{{ section.id }}"
+              name="{{ section.id }}"
+              tabindex="0"
+              type="radio"
+              {% if tab_counter == 1 and block.settings.show_product_description == false %}
+                checked
+              {% endif %}
+            >
+
+            <label class="product-tabs__label" for="product-tabs__radio-{{ i }}-{{ section.id }}">
+              {{ tab_heading_value | escape }}
+            </label>
+
+            <div class="product-tabs__panel rte" tabindex="0">
+              {{ tab_text_value }}
+            </div>
+
+            {% assign tab_counter = tab_counter | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    {% when 'price' %}
+      <div class="product__price" {{ block.shopify_attributes }}>
+        <p class="product-price">
+          <span class="product-price-minimum money">
+            {% if product != blank %}
+              {{ selected_variant.price | money }}
+            {% else %}
+              {{ 'products.product.onboarding.price' | t }}
+            {% endif %}
+          </span>
+          <span
+            class="product-price-compare money original {% if selected_variant.compare_at_price > selected_variant.price %}visible{% endif %}"
+          >
+            {{ selected_variant.compare_at_price | money }}
+          </span>
+        </p>
+
+        {% assign variant_for_unit_price = selected_variant %}
+        {% comment %}Inject unit-price begin{% endcomment %}
+        {% comment %}
+          @param variant_for_unit_price
+            Product variant for price
+          @param tax_text
+            String containing 'tax included' text
+        {% endcomment %}
+        
+        {% capture total_quantity %}
+          <span class="product-price__unit-price-total-quantity" data-unit-price-quantity>
+            {{ variant_for_unit_price.unit_price_measurement.quantity_value }}{{ variant_for_unit_price.unit_price_measurement.quantity_unit }}
+          </span>
+        {% endcapture %}
+        
+        
+        {% capture unit_price %}
+          <span class="product-price__unit-price-amount money" data-unit-price-amount>
+            {{ variant_for_unit_price.unit_price | money }}
+          </span>
+        {% endcapture %}
+        {% capture unit_measure %}
+          <span class="product-price__unit-price-measure" data-unit-price-measure>
+            {%- if variant_for_unit_price.unit_price_measurement.reference_value != 1 -%}
+              {{ variant_for_unit_price.unit_price_measurement.reference_value }}
+            {%- endif %}
+            {{ variant_for_unit_price.unit_price_measurement.reference_unit }}
+          </span>
+        {% endcapture %}
+        
+        <div
+          class="
+            product-price__unit-price
+            {% unless variant_for_unit_price.unit_price_measurement %}hidden{% endunless %}
+          "
+          data-unit-price
+        >
+          {{ 'products.product.price_per_unit_html' | t: total_quantity: total_quantity, unit_price: unit_price, unit_measure: unit_measure | strip_newlines }}
+        </div>
+        
+        {% assign variant_for_unit_price = blank %}
+        {% comment %}Inject unit-price end{% endcomment %}
+
+
+        {%- capture tax_text -%}
+        {{ 'products.product.tax_line_html' | t }}
+        {%- endcapture -%}
+
+        {%- if tax_text != blank -%}
+          <div class="
+            product-price__tax
+            {% unless selected_variant.taxable %}hidden{% endunless %}
+            "
+            data-tax-line
+          >
+            {{ tax_text }}
+          </div>
+        {%- endif -%}
+
+        {{ form | payment_terms }}
+      </div>
+
+    {% when 'form' %}
+      <div class="product__form" {{ block.shopify_attributes }}>
+
+        {% unless product.has_only_default_variant %}
+          <div class="product-options">
+            {%-
+              render 'product-options-dropdown',
+              product: product,
+              form_id: product_id
+            -%}
+
+            <label
+              class="
+                product-option-column-1
+                product-option-row-4
+                product-option-quantity-label
+              "
+              for="default-variant-quantity-input"
+            >
+              <strong>{{ 'general.general.quantity' | t }}:</strong>
+            </label>
+
+            <input
+              class="product-option-quantity"
+              id="default-variant-quantity-input"
+              data-product-quantity-input
+              type="number"
+              inputmode="numeric"
+              name="quantity"
+              value="1"
+            >
+
+            <div class="selector-wrapper no-js-required">
+              <label for="product-select-{{ product_id }}"></label>
+              <select
+                class="product-select"
+                name="id"
+                id="product-select-{{ product_id }}"
+                data-select-ignore
+              >
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option
+                      {% if variant == selected_variant %}selected="selected"{% endif %}
+                      value="{{ variant.id }}" data-variant-id="{{ variant.id }}" data-sku="{{ variant.sku }}">
+                      {{ variant.title }} - {{ variant.price | money }}
+                    </option>
+                  {% else %}
+                    <option disabled="disabled" data-variant-id="{{ variant.id }}" value="{{ variant.id }}">
+                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                    </option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        {% else %}
+          <div class="product-options product-options-default-only">
+            <input
+              class="product-select"
+              name="id"
+              value="{{ product.variants[0].id }}"
+              type="hidden"
+              data-variant-title="{{ product.variants[0].title }}"
+            />
+
+            <label
+              class="
+                product-option-column-1
+                product-option-row-1
+                product-option-quantity-label
+              "
+              for="quantity-input"
+            >
+              <strong>{{ 'general.general.quantity' | t }}:</strong>
+            </label>
+
+            <input
+              class="product-option-quantity"
+              id="quantity-input"
+              data-product-quantity-input
+              type="number"
+              inputmode="numeric"
+              name="quantity"
+              value="1"
+            >
+          </div>
+        {% endunless %}
+
+        {% if product.available %}
+          <div id="infiniteoptions-container"></div>
+          <div id="uploadery-container"></div>
+        {% endif %}
+
+        <div
+          class="
+            product-add-to-cart
+            {% if product != blank and show_payment_button %}
+              product-smart-payments
+            {% endif %}
+          "
+        >
+          {% if selected_variant.available and template.name != 'password' %}
+            <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
+          {% else %}
+            <input class="add-to-cart disabled" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled/>
+          {% endif %}
+
+          {% if show_payment_button %}
+            {{ form | payment_button }}
+          {% endif %}
+        </div>
+        <div class="product-message"></div>
+
+        <div data-surface-pick-up></div>
+        {%-
+          render 'modal',
+          modal_id: 'surface-pick-up',
+          modal_class: 'surface-pick-up-modal',
+        -%}
+      </div>
+
+    {% when 'social' %}
+      <div class="product__social" {{ block.shopify_attributes }}>
+        {% render 'share-buttons' %}
+      </div>
+
+    {% when 'description' %}
+      {% if product != blank and product.description != blank %}
+        <div class="product-description rte" {{ block.shopify_attributes }}>
+          {{ product.description }}
+        </div>
+      {% elsif product == blank %}
+        <div class="product-description rte" {{ block.shopify_attributes }}>
+          {{ 'products.product.onboarding.description' | t }}
+        </div>
+      {% endif %}
+
+    {%- when 'rating' -%}
+      {%- if product.metafields.reviews.rating.value != blank -%}
+        <div class="product__rating rating" {{ block.shopify_attributes }}>
+          {%
+            render 'rating-stars',
+            value: product.metafields.reviews.rating.value.rating,
+            scale_max: product.metafields.reviews.rating.value.scale_max,
+          %}
+          <p class="rating__text">
+            <span aria-hidden="true">{{ product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max }}</span>
+          </p>
+          <p class="rating__count">
+            <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
+            <span class="visually-hidden">{{ product.metafields.reviews.rating_count }} {{ "general.accessibility.total_reviews" | t }}</span>
+          </p>
+        </div>
+      {%- endif -%}
+  {% endcase %}
+{% endfor %}
