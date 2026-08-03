@@ -1,0 +1,28 @@
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1502498177340": { "type": "menu", "settings": { "menu": "main-menu" } },
+        "1533934963004": { "type": "menu", "settings": { "menu": "customer-service-menu" } },
+        "1502498172836": { "type": "social-links", "settings": {} },
+        "269592ca-4e34-4d4b-b5a3-3d3bf8c8fc0b": { "type": "newsletter", "settings": {} }
+      },
+      "block_order": [
+        "1502498177340",
+        "1533934963004",
+        "1502498172836",
+        "269592ca-4e34-4d4b-b5a3-3d3bf8c8fc0b"
+      ],
+      "settings": {
+        "headings": true,
+        "footer-payment-options": false,
+        "show_locale_selector": true,
+        "show_currency_selector": true
+      }
+    }
+  },
+  "order": ["footer"]
+}
