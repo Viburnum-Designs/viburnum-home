@@ -13,6 +13,14 @@
     <!-- Preconnect Domains -->
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    >
+
     <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
 
     <!-- Preload Assets -->
@@ -73,7 +81,10 @@
     {% render 'social-meta-tags', twitter_handle: twitter_handle, default_image: page_image %}
 
     <!-- Theme CSS -->
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'viburnum-home.css' | asset_url }}">
+
     {% if settings['custom-css'] != blank %}
       <style>
         {{ settings.custom-css }}
@@ -168,7 +179,8 @@
     </svg>
     {% comment %}Inject icon-star-symbol end{% endcomment %}
 
-    {% section 'header' %}
+    {% comment %} {% section 'header' %} {% endcomment %}
+    {% section 'v-header' %}
 
     <div class="main-content">
       {{ content_for_layout }}
