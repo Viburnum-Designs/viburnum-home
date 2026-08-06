@@ -41,16 +41,58 @@
       </h1>
 
       <div class="v--header-grid__grid-item__nav">
-        <button class="js--toggle-mobile-menu">Menu</button>
-        <nav class="main-nav-bar__links">
-          <ul class="main-nav-bar__links__menu">
-            {% for link in linklists['header-main-nav'].links %}
-              <li class="main-nav-bar__links__menu__item">
-                <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </nav>
+        <div class="mobile-navbar__wrapper">
+          <nav class="main-nav-bar__links">
+            <ul class="main-nav-bar__links__menu">
+              {% for link in linklists['header-main-nav'].links %}
+                <li class="main-nav-bar__links__menu__item">
+                  {% if link.links.size > 0 %}
+                    <div class="main-nav-bar__top-level-grid">
+                      <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                      <button
+                        type="button"
+                        class="main-nav-bar__submenu-toggle js--submenu-toggle"
+                        aria-expanded="false"
+                        aria-controls="submenu-{{ forloop.index }}"
+                      >
+                        <span class="visually-hidden">Show submenu for {{ link.title }}</span>
+                        <svg
+                          class="main-nav-bar__submenu-toggle__icon"
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          aria-hidden="true"
+                        >
+                          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <ul id="submenu-{{ forloop.index }}" class="main-nav-bar__submenu">
+                      {% for sublink in link.links %}
+                        <li class="main-nav-bar__submenu__item">
+                          <a href="{{ sublink.url }}" class="main-nav-bar__submenu__item__link">{{ sublink.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+
+            <div class="mobile-secondary-links">
+              <ul class="secondary-nav-bar__menu">
+                {% for link in linklists['header-secondary-nav'].links %}
+                  <li class="main-nav-bar__links__menu__item">
+                    <a href="{{ link.url }}" class="secondary-nav-bar__menu_link">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- mobile-nav-wrapper -->
       </div>
       <div class="v--header-grid__grid-item__account-items">
         {% if shop.customer_accounts_enabled %}
@@ -106,6 +148,12 @@
           </form>
         {% endcomment %}
       </div>
+
+      <div class="v--header-grid__grid-item__menu-btn">
+        <button class="js--toggle-mobile-menu" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
     </section>
   </header>
 </section>
@@ -113,7 +161,8 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.querySelector('.js--toggle-mobile-menu');
-    const menuNav = document.querySelector('.main-nav-bar__links');
+    const menuNav = document.querySelector('.mobile-navbar__wrapper');
+    const subMenuBtns = document.querySelectorAll('.js--submenu-toggle');
 
     function closeMenu() {
       menuNav.classList.remove('is-open');
@@ -125,6 +174,18 @@
       event.stopPropagation();
       const isOpen = menuNav.classList.toggle('is-open');
       toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    //ToggleSubMenu Button Click
+    subMenuBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let subMenu = btn.closest('.main-nav-bar__links__menu__item');
+        if (subMenu.classList.contains('is-open')) {
+          subMenu.classList.remove('is-open');
+        } else {
+          subMenu.classList.add('is-open');
+        }
+      });
     });
 
     // Close menu when clicking directly on the overlay background

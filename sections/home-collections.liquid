@@ -2,8 +2,7 @@
   type="application/json"
   data-section-type="dynamic-collections-list"
   data-section-id="{{ section.id }}"
->
-</script>
+></script>
 
 {% comment %}
   Determine if there is an uneven amount of blocks
@@ -60,12 +59,11 @@
               {% endif %}
             {% endif %}
 
-            {%
-              render 'home-collection',
+            {% render 'home-collection',
               block: block,
               aspect_ratio: aspect_ratio,
               collection: collection,
-              onboard_image: image,
+              onboard_image: image
             %}
         {% endcase %}
       {% endfor %}
@@ -76,10 +74,7 @@
         {% assign collectionImage = 'collection-' | append: i %}
         {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
 
-        {%
-          render 'home-collection',
-          onboard_image: image,
-        %}
+        {% render 'home-collection', onboard_image: image %}
       {% endfor %}
     {% endunless %}
   </div>
@@ -95,6 +90,11 @@
       "id": "title",
       "label": "Heading",
       "default": "Collection list"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
     },
     {
       "type": "range",
@@ -151,13 +151,8 @@
     {
       "category": "Collection",
       "name": "Collection list",
-      "blocks": [
-        { "type": "collection" },
-        { "type": "collection" },
-        { "type": "collection" }
-      ]
+      "blocks": [{ "type": "collection" }, { "type": "collection" }, { "type": "collection" }]
     }
   ]
 }
-
 {% endschema %}
