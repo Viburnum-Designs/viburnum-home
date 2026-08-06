@@ -1,0 +1,219 @@
+<script
+  type="application/json"
+  data-section-type="static-header"
+  data-section-id="{{ section.id }}"
+  data-section-data
+>
+  {
+    "stickyHeader": {{ section.settings.sticky_header }},
+    "compactCenter": "{{ section.settings.header_layout }}"
+  }
+</script>
+<section data-section-header>
+  <header
+    class="v--main-header"
+    role="banner"
+    data-header-main
+  >
+    <section class="secondary-nav-bar ">
+      <nav class=" __container  __container-bleed">
+        <ul class="secondary-nav-bar__menu">
+          {% for link in linklists['header-secondary-nav'].links %}
+            <li class="main-nav-bar__links__menu__item">
+              <a href="{{ link.url }}" class="secondary-nav-bar__menu_link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </section>
+    <section class="v--header-grid  __container  __container-bleed">
+      <h1 class="v--header-grid__grid-item__logo">
+        <a href="/" class="v--header-grid__grid-item__logo__link">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/header-logo.avif?v=1785773201"
+            width="138"
+            height="150"
+            class="v--header-grid__grid-item__logo__image"
+            alt="A minimalist white circular logo with the text 'V & C O.' in a light gray serif font, set against a solid white background."
+          >
+          <div class="v--header-grid__grid-item__logo__text">VIBURNUM HOME</div>
+        </a>
+      </h1>
+
+      <div class="v--header-grid__grid-item__nav">
+        <div class="mobile-navbar__wrapper">
+          <nav class="main-nav-bar__links">
+            <ul class="main-nav-bar__links__menu">
+              {% for link in linklists['header-main-nav'].links %}
+                <li class="main-nav-bar__links__menu__item">
+                  {% if link.links.size > 0 %}
+                    <div class="main-nav-bar__top-level-grid">
+                      <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                      <button
+                        type="button"
+                        class="main-nav-bar__submenu-toggle js--submenu-toggle"
+                        aria-expanded="false"
+                        aria-controls="submenu-{{ forloop.index }}"
+                      >
+                        <span class="visually-hidden">Show submenu for {{ link.title }}</span>
+                        <svg
+                          class="main-nav-bar__submenu-toggle__icon"
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          aria-hidden="true"
+                        >
+                          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <ul id="submenu-{{ forloop.index }}" class="main-nav-bar__submenu">
+                      {% for sublink in link.links %}
+                        <li class="main-nav-bar__submenu__item">
+                          <a href="{{ sublink.url }}" class="main-nav-bar__submenu__item__link">{{ sublink.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+
+            <div class="mobile-secondary-links">
+              <ul class="secondary-nav-bar__menu">
+                {% for link in linklists['header-secondary-nav'].links %}
+                  <li class="main-nav-bar__links__menu__item">
+                    <a href="{{ link.url }}" class="secondary-nav-bar__menu_link">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- mobile-nav-wrapper -->
+      </div>
+      <div class="v--header-grid__grid-item__account-items">
+        {% if shop.customer_accounts_enabled %}
+          <div class="customer-links">
+            {% if customer %}
+              <a href="{{ routes.account_url }}">
+                Account
+                {% comment %} {{ 'layout.header.my_account' | t }} {% endcomment %}
+              </a>
+              <div class="customer-links-inner">
+                <span class="arrow"></span>
+                <ul>
+                  <li>
+                    <a href="{{ routes.account_url }}">
+                      {{ 'customers.general.purchases' | t -}}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ routes.account_addresses_url }}">{{ 'customers.addresses.header' | t }}</a>
+                  </li>
+                  <li>
+                    {{ 'layout.header.logout' | t | customer_logout_link -}}
+                    <br>
+                    Account
+                  </li>
+                </ul>
+              </div>
+
+            {% else %}
+              <a class="customer-login-link" href="{{ routes.account_login_url }}">
+                Login
+                {% comment %} {% render 'icons', id: 'account' %} {% endcomment %}
+                {% comment %} <span class="__screen-reader">{{ 'layout.header.account' | t -}}</span> {% endcomment %}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class="mini-cart-wrapper">
+          <a class="cart-count" href="{{ routes.cart_url }}" data-cart-count>
+            {% render 'icons', id: 'cart' %}
+            <span class="cart-count-text __screen-reader">{{ 'layout.header.cart' | t }}</span>
+            <span class="cart-bubble"
+              ><span class="cart-count-number">{{ cart.item_count }}</span></span
+            >
+          </a>
+
+          {% render 'mini-cart' %}
+        </div>
+        {% comment %}
+          <form class="checkout-link" action="{{ routes.cart_url }}" method="POST">
+            <button class="checkout-link__button" type="submit" name="checkout">{{ 'layout.header.checkout' | t }}</button>
+          </form>
+        {% endcomment %}
+      </div>
+
+      <div class="v--header-grid__grid-item__menu-btn">
+        <button class="js--toggle-mobile-menu" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </section>
+  </header>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.js--toggle-mobile-menu');
+    const menuNav = document.querySelector('.mobile-navbar__wrapper');
+    const subMenuBtns = document.querySelectorAll('.js--submenu-toggle');
+
+    function closeMenu() {
+      menuNav.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Toggle button click
+    toggleBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isOpen = menuNav.classList.toggle('is-open');
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    //ToggleSubMenu Button Click
+    subMenuBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let subMenu = btn.closest('.main-nav-bar__links__menu__item');
+        if (subMenu.classList.contains('is-open')) {
+          subMenu.classList.remove('is-open');
+        } else {
+          subMenu.classList.add('is-open');
+        }
+      });
+    });
+
+    // Close menu when clicking directly on the overlay background
+    menuNav.addEventListener('click', (event) => {
+      // Check if the click target is the overlay container itself (and not its children)
+      if (event.target === menuNav) {
+        closeMenu();
+      }
+    });
+
+    // Close menu on Escape key press
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuNav.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "V Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "V Footer",
+      "category": "Viburnum Sections"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{%- if section.settings.css_name != blank -%}
+  {{ section.settings.css_name | asset_url | stylesheet_tag }}
+{%- endif %}
+{%- if section.settings.js_name != blank -%}
+  <script src="{{ section.settings.js_name | asset_url }}" async></script>
+{%- endif %}
+{% schema %}
+{
+  "name": "CSS & JS File Name",
+  "settings": [
+    {
+      "type": "text",
+      "label": "CSS Name (Include File Extension)",
+      "id": "css_name"
+    },
+    {
+      "type": "text",
+      "label": "JS Name (Include File Extension)",
+      "id": "js_name"
+    }
+  ],
+  "presets": [
+    {
+      "name": "V CSS & JS Files Loader",
+      "category": "Viburnum Sections"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,168 @@
+<footer
+  class="v--main-footer "
+>
+  <div class="  __container-bleed">
+    <div class="footer-grid">
+      <div class="footer-grid__item footer-grid__image">
+        <img
+          src=" https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-image-smaller.webp?v=1786037312"
+          class="footer-image"
+          alt="empty"
+          width="536"
+          height="552"
+        >
+      </div>
+
+      <div class="footer-grid__item">
+        <div class="footer-grid__links __padding-t ">
+          <div class="footer-grid__links-item ">
+            <h2 class="footer-grid__links-heading">INFO</h2>
+            <ul class="footer-info-menu">
+              {% for link in linklists['footer-info-menu'].links %}
+                <li class="footer-info-menu__item">
+                  <a href="{{ link.url }}" class="footer-info-menu__item__link">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="footer-grid__links-item">
+            <h2 class="footer-grid__links-heading">FOLLOW US</h2>
+
+            <div class="upper-footer-item footer-linklist">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'social-links' -%}
+                  {%- render 'social' -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="footer-grid__links-item">
+            <h2 class="footer-grid__links-heading">CONNECT</h2>
+            {% if section.settings.connect_info != blank %}
+              <div class="connect-info-wrapper">
+                {{ section.settings.connect_info }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="footer-grid__logo-and-signup">
+          <div class="footer-grid__logo-and-signup__item">
+            <div class="footer-logo">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-logo.avif?v=1785438917"
+                class="footer-logo__image"
+                width="182"
+                height="193"
+              >
+              <div class="footer-logo__site-name">VIBURNUM HOME</div>
+            </div>
+          </div>
+          <div class="footer-grid__logo-and-signup__item">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'newsletter' -%}
+                <div class="v--mailing-list">
+                  <h2 class="signup-heading">Subscribe to our newsletter!</h2>
+                  {% form 'customer' %}
+                    {% if form.posted_successfully? %}
+                      <p class="mailing-list-success">
+                        {{ 'general.newsletter.success' | t }}
+                      </p>
+                    {% else %}
+                      <p class="mailing-list-error">
+                        {{ form.errors | default_errors }}
+                      </p>
+                    {% endif %}
+
+                    <div class="mailing-list-input">
+                      <input
+                        class="mailing-list-email"
+                        name="contact[email]"
+                        type="email"
+                        placeholder="your@email.com"
+                        value=""
+                      >
+                      <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter" />
+                      <div class="mailing-list-submit">
+                        <input
+                          class="submit"
+                          name="subscribe"
+                          type="submit"
+                          value="{{ 'general.newsletter.subscribe'| t }}"
+                        >
+                      </div>
+                    </div>
+                  {% endform %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <ul class="footer-policy-menu">
+          {% for link in linklists['footer-policy-menu'].links %}
+            <li class="footer-policy-menu__item">
+              <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="v--copyright-bar __container-v-padding">
+    <div class="__container __container-bleed">
+      <div class="">
+        {% capture year %}
+          {{ "now" | date: "%Y" }}
+        {% endcapture %}
+        {% capture shopName %}
+          {{ shop.name }}
+        {% endcapture %}
+        <div class="copyright" role="contentinfo">
+          {{ 'general.general.copyright_html' | t: year: year, shop_name: shopName }}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "V Footer",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "connect_info",
+      "label": "Connect Info",
+      "default": "<h2>Heading</h2><p>Add your detailed connection info and paragraphs here.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social-links",
+      "name": "Social links",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Social media account settings can be found in the \"social media\" section of \"theme settings\"."
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": [],
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "V Footer",
+      "category": "Viburnum Sections"
+    }
+  ]
+}
+{% endschema %}
