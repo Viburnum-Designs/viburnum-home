@@ -15,7 +15,7 @@ Pages
 
 :root {
     --heading-font: 'Cormorant Garamond', serif;
-    --body-font: ;
+    --body-font: 'Montserrat';
     --footer-link-color: #fff;
     --footer-link-color-hover: #ccc;
     --spacing: 25px;
@@ -23,9 +23,9 @@ Pages
     --secondary-color: #edece6;
 }
 
-/* Custom Properties
+/* Custom Fonts
 ==================== */
-
+ 
 @font-face {
   font-family: "chiko-icons";
   font-style: normal;
@@ -60,15 +60,34 @@ Pages
   position: fixed; 
   top: -100vh;
 }
+
+.__x-overflow{
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 100%;
+  display: flex;
+  justify-items: flex-start
+}
+
+.__heading-font{
+  var(----heading-font);
+}
  
-.button{
+.button, .__cta{
   background-color: var(--secondary-color); 
   color: #333;
 }
-.button.secondary{
+
+.__secondary-button{
+
+}
+
+.button.secondary,
+.__cta.__secondary{
   background-color: transparent; 
   text-decoration: none;
 }
+
 
 /* Header
 ==================== */

@@ -1,0 +1,227 @@
+<script
+  type="application/json"
+  data-section-type="dynamic-collections-list"
+  data-section-id="{{ section.id }}"
+></script>
+
+{% comment %}
+  Determine if there is an uneven amount of blocks
+  If there are no blocks, 3 onboarding blocks will be shown
+{% endcomment %}
+
+{% assign block_count = 3 %}
+{% if section.blocks.size != 0 %}
+  {% assign block_count = section.blocks.size %}
+{% endif %}
+
+{% assign has_remainder = true %}
+{% assign block_remainder = block_count | modulo: 2 %}
+{% if block_remainder == 0 %}
+  {% assign has_remainder = false %}
+{% endif %}
+
+{% capture section_clases %}
+  home-collections
+  home-collections-columns-{{ section.settings.columns_range }}
+
+  {% if has_remainder %}
+    home-collections-has-remainder
+  {% endif %}
+{% endcapture %}
+
+<section
+  class="{{ section_clases | strip_newlines }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="home-collection-list"
+>
+  {% if section.settings.title %}
+    <h2 class="section-title">
+      {{ section.settings.title | escape }}
+    </h2>
+  {% endif %}
+
+  {% assign columns = section.settings.columns_range %}
+  <style>
+    .section-title{
+      text-align: center;
+      font-size: 40px;
+      font-family: var(--heading-font);
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+    .v--home-collections-content {
+      display: grid;
+      align-items: stretch;
+      justify-content: center;
+      justify-self: center;
+      gap: var(--spacing);
+      grid-template-columns:  repeat({{columns}}, 1fr) ;
+      width: 140vw;
+      max-width: 1200px;
+      img{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      @media screen and (max-width: 1000px){
+        padding-left: var(--spacing);
+      }
+    }
+
+    .empty-column{
+      width: var(--spacing);
+    }
+
+    .v--home-collections-content .home-collection{
+      height: 100%;
+      display: grid;
+      gap: var(--min-spacing);
+    }
+
+    .v--home-collection__link{
+      display: block;
+    }
+
+    .v-home-collection {
+      display: grid;
+      gap: var(--min-spacing);
+    }
+
+    .v--home-collection-overlay {
+      margin-top: var(--min-spacing);
+    }
+  </style>
+
+  <div class="__x-overflow">
+    <div class="empty-column"></div>
+    <div class="v--home-collections-content" data-collections>
+      {% unless section.blocks.size == 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'collection' %}
+              {% assign collectionIndex = collectionIndex | plus: 1 %}
+              {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
+              {% assign collectionImage = 'collection-' | append: collectionImageIndex %}
+              {% assign collection = collections[block.settings.collection] %}
+              {% assign custom_image = block.settings.collection_custom_image %}
+
+              {% if custom_image %}
+                {% assign image = custom_image %}
+              {% else %}
+                {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
+              {% endif %}
+
+              {% if forloop.first == true %}
+                {% if custom_image %}
+                  {% assign aspect_ratio = custom_image.aspect_ratio %}
+                {% elsif collection.image %}
+                  {% assign aspect_ratio = collection.image.aspect_ratio %}
+                {% elsif collection.products.first.featured_media.preview_image %}
+                  {% assign aspect_ratio = collection.products.first.featured_media.preview_image.aspect_ratio %}
+                {% endif %}
+              {% endif %}
+
+              {% render 'v-home-collection',
+                block: block,
+                aspect_ratio: aspect_ratio,
+                collection: collection,
+                onboard_image: image
+              %}
+          {% endcase %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..block_count) %}
+          {% assign collectionIndex = collectionIndex | plus: 1 %}
+          {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
+          {% assign collectionImage = 'collection-' | append: i %}
+          {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
+
+          {% render 'v-home-collection', onboard_image: image %}
+        {% endfor %}
+      {% endunless %}
+    </div>
+    <div class="empty-column"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "V Collection list",
+  "class": "shopify-section--collection-list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "range",
+      "id": "columns_range",
+      "label": "Columns",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_custom_image",
+          "label": "Custom Image"
+        },
+        {
+          "type": "select",
+          "id": "overlay-color",
+          "label": "Overlay text color",
+          "options": [
+            {
+              "value": "black",
+              "label": "Black"
+            },
+            {
+              "value": "white",
+              "label": "White"
+            }
+          ],
+          "default": "black"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Collection subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Text",
+          "default": "<p>Help guide customers to the products they're looking for by featuring collections on your homepage.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Collection list",
+      "blocks": [{ "type": "collection" }, { "type": "collection" }, { "type": "collection" }]
+    }
+  ]
+}
+{% endschema %}
