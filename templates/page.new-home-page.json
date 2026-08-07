@@ -234,6 +234,7 @@
           "type": "collection",
           "settings": {
             "collection": "preserved-moss",
+            "collection_custom_image": "shopify://shop_images/signature-moss.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -243,6 +244,7 @@
           "type": "collection",
           "settings": {
             "collection": "faux-trees-and-plants",
+            "collection_custom_image": "shopify://shop_images/faux-trees-and-plants.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -252,6 +254,7 @@
           "type": "collection",
           "settings": {
             "collection": "signature-designs",
+            "collection_custom_image": "shopify://shop_images/signature-designs.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -261,6 +264,7 @@
           "type": "collection",
           "settings": {
             "collection": "faux-floral",
+            "collection_custom_image": "shopify://shop_images/faux-floral.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -270,6 +274,7 @@
           "type": "collection",
           "settings": {
             "collection": "home-decor",
+            "collection_custom_image": "shopify://shop_images/home-decor.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
