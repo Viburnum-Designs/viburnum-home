@@ -42,61 +42,106 @@
 
   {% assign columns = section.settings.columns_range %}
   <style>
-    .home-collections-content {
+    .section-title{
+      text-align: center;
+      font-size: 40px;
+      font-family: var(--heading-font);
+      font-weight: 600;
+      letter-spacing: .1em;
+    }
+    .v--home-collections-content {
       display: grid;
       align-items: stretch;
-      grid-template-columns: repeat({{columns}}, 1fr);
-      @media screen and (max-width: 900px){
-        display: flex;
-        justify-content: center;
+      justify-content: center;
+      justify-self: center;
+      gap: var(--spacing);
+      grid-template-columns:  repeat({{columns}}, 1fr) ;
+      width: 140vw;
+      max-width: 1200px;
+
+      img{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      @media screen and (max-width: 1000px){
+        padding-left: var(--spacing);
       }
     }
 
+    .empty-column{
+      width: var(--spacing);
+    }
 
-    .home-collections-content .home-collection{
+    .v--home-collections-content .home-collection{
       height: 100%;
       display: grid;
-      grid-template-row: auto 300px
+      gap: var(--min-spacing);
+    }
+
+    .v--home-collection__link{
+      display: block;
+    }
+
+    .v-home-collection {
+      display: grid;
+      gap: var(--min-spacing);
+    }
+
+    .v--home-collection-overlay {
+      margin-top: var(--min-spacing);
     }
   </style>
 
-  <div class="home-collections-content" data-collections>
-    {% unless section.blocks.size == 0 %}
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'collection' %}
-            {% assign collectionIndex = collectionIndex | plus: 1 %}
-            {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
-            {% assign collectionImage = 'collection-' | append: collectionImageIndex %}
-            {% assign collection = collections[block.settings.collection] %}
-            {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
+  <div class="__x-overflow">
+    <div class="empty-column"></div>
+    <div class="v--home-collections-content" data-collections>
+      {% unless section.blocks.size == 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'collection' %}
+              {% assign collectionIndex = collectionIndex | plus: 1 %}
+              {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
+              {% assign collectionImage = 'collection-' | append: collectionImageIndex %}
+              {% assign collection = collections[block.settings.collection] %}
+              {% assign custom_image = block.settings.collection_custom_image %}
 
-            {% if forloop.first == true %}
-              {% if collection.image %}
-                {% assign aspect_ratio = collection.image.aspect_ratio %}
-              {% elsif collection.products.first.featured_media.preview_image %}
-                {% assign aspect_ratio = collection.products.first.featured_media.preview_image.aspect_ratio %}
+              {% if custom_image %}
+                {% assign image = custom_image %}
+              {% else %}
+                {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
               {% endif %}
-            {% endif %}
 
-            {% render 'v-home-collection',
-              block: block,
-              aspect_ratio: aspect_ratio,
-              collection: collection,
-              onboard_image: image
-            %}
-        {% endcase %}
-      {% endfor %}
-    {% else %}
-      {% for i in (1..block_count) %}
-        {% assign collectionIndex = collectionIndex | plus: 1 %}
-        {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
-        {% assign collectionImage = 'collection-' | append: i %}
-        {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
+              {% if forloop.first == true %}
+                {% if custom_image %}
+                  {% assign aspect_ratio = custom_image.aspect_ratio %}
+                {% elsif collection.image %}
+                  {% assign aspect_ratio = collection.image.aspect_ratio %}
+                {% elsif collection.products.first.featured_media.preview_image %}
+                  {% assign aspect_ratio = collection.products.first.featured_media.preview_image.aspect_ratio %}
+                {% endif %}
+              {% endif %}
 
-        {% render 'home-collection', onboard_image: image %}
-      {% endfor %}
-    {% endunless %}
+              {% render 'v-home-collection',
+                block: block,
+                aspect_ratio: aspect_ratio,
+                collection: collection,
+                onboard_image: image
+              %}
+          {% endcase %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..block_count) %}
+          {% assign collectionIndex = collectionIndex | plus: 1 %}
+          {% assign collectionImageIndex = collectionIndex | modulo: 6 | plus: 1 %}
+          {% assign collectionImage = 'collection-' | append: i %}
+          {% assign image = collectionImage | placeholder_svg_tag: 'placeholder-svg' %}
+
+          {% render 'v-home-collection', onboard_image: image %}
+        {% endfor %}
+      {% endunless %}
+    </div>
+    <div class="empty-column"></div>
   </div>
 </section>
 
@@ -135,6 +180,11 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_custom_image",
+          "label": "Custom Image"
         },
         {
           "type": "select",
