@@ -40,6 +40,26 @@
     </h2>
   {% endif %}
 
+  {% assign columns = section.settings.columns_range %}
+  <style>
+    .home-collections-content {
+      display: grid;
+      align-items: stretch;
+      grid-template-columns: repeat({{columns}}, 1fr);
+      @media screen and (max-width: 900px){
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+
+    .home-collections-content .home-collection{
+      height: 100%;
+      display: grid;
+      grid-template-row: auto 300px
+    }
+  </style>
+
   <div class="home-collections-content" data-collections>
     {% unless section.blocks.size == 0 %}
       {% for block in section.blocks %}
@@ -59,7 +79,7 @@
               {% endif %}
             {% endif %}
 
-            {% render 'home-collection',
+            {% render 'v-home-collection',
               block: block,
               aspect_ratio: aspect_ratio,
               collection: collection,

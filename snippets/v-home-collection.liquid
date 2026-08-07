@@ -37,12 +37,17 @@
     class="home-collection-image"
     style="--home-collection-image-aspect-ratio: {{ aspect_ratio | default: '1/1' }}"
   >
-    {% if collection %}
-      <a class="home-collection__link" href="{{ collection.url }}"></a>
+    {% comment %}
+      {% if collection %}
+        <a class="home-collection__link" href="{{ collection.url }}"></a>
+      {% endif %}
+    {% endcomment %}
+
+    {% if image %}
+      <div>{{ image }}</div>
+    {% else %}
+      <div>Placeholder</div>
     {% endif %}
-
-    {{ image }}
-
     <div
       class="
         home-collection-overlay-wrapper
@@ -50,16 +55,21 @@
       "
       data-url="{{ collection.url }}"
     >
-      <div class="home-collection-overlay">
-        <h3 class="home-collection-title">
-          {{ title }}
-        </h3>
+      <div class="--home-collection-overlay">
+        {% comment %}
+          <h3 class="home-collection-title">
+            {{ title }}
+          </h3>
+        {% endcomment %}
 
         {% if subheading != blank %}
           <span class="home-collection-subtitle">
             {{ subheading }}
           </span>
         {% endif %}
+        <a class="home-collection__link button" href="{{ collection.url }}">
+          {{ title }}
+        </a>
       </div>
     </div>
   </figure>
