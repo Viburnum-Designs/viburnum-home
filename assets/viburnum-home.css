@@ -65,6 +65,8 @@ Pages
   overflow-x: auto;
   scrollbar-width: none;
   width: 100%;
+  display: flex;
+  justify-items: flex-start
 }
 
 .__heading-font{

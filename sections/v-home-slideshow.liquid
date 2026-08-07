@@ -31,7 +31,12 @@
             {{ lifestyleImage | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endcapture -%}
 
-          {%- render 'home-slideshow-slide', block: block, slideIndex: slideIndex, onboard_image: image -%}
+          {%- render 'v-home-slideshow-slide',
+            block: block,
+            slideIndex: slideIndex,
+            onboard_image: image,
+            content_bg: block.settings.content_bg
+          -%}
       {%- endcase -%}
     {%- endfor -%}
   {%- else -%}
@@ -47,9 +52,10 @@
         {%- cycle 'left', 'center', 'right' -%}
       {%- endcapture -%}
 
-      {%- render 'home-slideshow-slide',
+      {%- render 'v-home-slideshow-slide',
         slideIndex: slideIndex,
         contentAlignment: contentAlignment,
+        content_bg: block.settings.content_bg,
         onboard_image: image
       -%}
     {%- endfor -%}
@@ -135,6 +141,11 @@
           "info": "2880 x 1280px recommended"
         },
         {
+          "type": "color",
+          "id": "content_bg",
+          "label": "Content Background"
+        },
+        {
           "type": "select",
           "id": "content-alignment",
           "label": "Align text",
@@ -188,8 +199,8 @@
   ],
   "presets": [
     {
-      "category": "Image",
-      "name": "Slideshow",
+      "category": "Viburnum Sections",
+      "name": "V Slideshow",
       "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }]
     }
   ]
