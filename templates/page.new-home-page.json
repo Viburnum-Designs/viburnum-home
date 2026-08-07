@@ -181,6 +181,7 @@
         "slide_kbTayW": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/slider-image1.avif",
             "content-alignment": "center",
             "overlay-color": "#262626",
             "title": "Slide",
@@ -232,7 +233,7 @@
         "collection_AyxwAF": {
           "type": "collection",
           "settings": {
-            "collection": "signature-designs",
+            "collection": "preserved-moss",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
