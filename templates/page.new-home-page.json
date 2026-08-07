@@ -181,12 +181,12 @@
         "slide_kbTayW": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-image1.avif",
-            "content-alignment": "center",
-            "overlay-color": "#262626",
-            "title": "Slide",
-            "subheading": "Introduce customers to your shop with lifestyle imagery and product photography",
-            "cta": "Button",
+            "image": "shopify://shop_images/slider-image-1v2.webp",
+            "content-alignment": "left",
+            "overlay-color": "#FFFFFF",
+            "title": "Artistry in Full Bloom",
+            "subheading": "Sculptural, premium faux greenery crafted to complement modern luxury living spaces.",
+            "cta": "Shop Home Decor",
             "url": ""
           }
         },
@@ -330,12 +330,33 @@
         "heading": "Explore our Decor Collection"
       }
     },
+    "home_products_znFfpt": {
+      "type": "home-products",
+      "name": "Featured collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "home-decor",
+        "product-columns": 3,
+        "product-rows": 3
+      }
+    },
     "home_message_e6Tyy4": {
       "type": "home-message",
+      "blocks": {
+        "rich_text_pPcVjy": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>Follow Us | @viburnum.home</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_pPcVjy"
+      ],
       "name": "Rich text",
       "settings": {
         "border": false,
-        "heading": "Follow Us | @viburnum.home"
+        "heading": ""
       }
     }
   },
@@ -347,6 +368,7 @@
     "v_home_collections_F4AJx3",
     "pxs_image_with_text_overlay_ERN8kB",
     "home_message_jymXnQ",
+    "home_products_znFfpt",
     "home_message_e6Tyy4"
   ]
 }
