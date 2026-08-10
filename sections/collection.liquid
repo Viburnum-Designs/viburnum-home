@@ -2,8 +2,7 @@
   type="application/json"
   data-section-id="{{ section.id }}"
   data-section-type="static-collection"
->
-</script>
+></script>
 
 {% liquid
   assign products_per_page = section.settings.products_per_row | times: section.settings.number_of_rows
@@ -39,30 +38,27 @@
     <section
       class="collection collection-image--{{ show_collection_image }}"
       data-product-hover="{{ settings.product_hover }}"
-      {% if use_masonry %}data-collection-masonry{% endif %}
+      {% if use_masonry %}
+        data-collection-masonry
+      {% endif %}
       data-section-id="{{ section.id }}"
-      data-section-type="collection">
-
+      data-section-type="collection"
+    >
       {% if use_masonry or show_collection_image or collection.description != blank or show_sorting or show_filters %}
         <div
           class="
-          collection-header
-          {% if use_masonry %}
-            collection-header-alternate
-          {% endif %}
-          {% if show_filters and show_sorting %}
-            collection-header--filters-sort-enabled
-          {% endif %}
+            collection-header
+            {% if use_masonry %}
+              collection-header-alternate
+            {% endif %}
+            {% if show_filters and show_sorting %}
+              collection-header--filters-sort-enabled
+            {% endif %}
           "
         >
           {% if show_collection_image %}
             <div class="collection-featured-image">
-              {%
-                render 'rimg',
-                img: collection.image,
-                size: '1024x1024',
-                lazy: true,
-              %}
+              {% render 'rimg', img: collection.image, size: '1024x1024', lazy: true %}
             </div>
           {% endif %}
 
@@ -82,20 +78,13 @@
               <div class="collection-filters">
                 {% if show_filters and collection.filters.size > 0 %}
                   <div class="faceted-filters" data-faceted-filter>
-                    {%
-                      render "faceted-filters",
-                      filters: collection.filters,
-                      class_prefix: 'collection',
-                    %}
+                    {% render 'faceted-filters', filters: collection.filters, class_prefix: 'collection' %}
                   </div>
                 {% endif %}
                 {% if show_sorting %}
                   <div class="collection-sorting__wrapper">
-                    <div class="collection-filters__title">
-                        {{ 'collections.collection.sort_title' | t }}:
-                    </div>
+                    <div class="collection-filters__title">{{ 'collections.collection.sort_title' | t }}:</div>
                     <div class="collection-dropdown collection-dropdown--sort select-wrapper {% if collection.current_vendor %}vendor-collection{% endif %}">
-
                       {% assign current_sort = collection.sort_by | default: collection.default_sort_by %}
 
                       <span class="selected-text"></span>
@@ -118,14 +107,13 @@
           {% if show_filters and collection.filters.size > 0 %}
             {% for filter in collection.filters %}
               {% if filter.active_values.size > 0 or filter.min_value.value or filter.max_value.value %}
-                  {%-
-                    render 'faceted-filters-active',
-                    show_sorting: show_sorting,
-                    filter: filter,
-                    filters: collection.filters,
-                    class_prefix: 'collection',
-                    clear_url: collection.url,
-                  %}
+                {%- render 'faceted-filters-active',
+                  show_sorting: show_sorting,
+                  filter: filter,
+                  filters: collection.filters,
+                  class_prefix: 'collection',
+                  clear_url: collection.url
+                %}
                 {% break %}
               {% endif %}
             {% endfor %}
@@ -134,13 +122,8 @@
       {% endif %}
 
       <div
-        class="collection-products rows-of-{{ section.settings.products_per_row }}"
-        {% if use_masonry %}data-masonry-grid{% endif %}
+        class="collection-products "
       >
-        {%- if use_masonry -%}
-          <div class="product-grid-masonry-sizer" data-masonry-sizer></div>
-        {%- endif -%}
-
         {%- if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 -%}
           {%- for i in (1..section.settings.products_per_row) -%}
             {%- capture productImage -%}
@@ -152,24 +135,18 @@
           {%- endfor -%}
         {%- else -%}
           {% for product in collection.products %}
-            {%
-              render 'product-list-item',
-              product: product,
-            %}
+            {% render 'product-list-item', product: product %}
           {% else %}
             {% capture continueLink %}
               <a href="{{ routes.all_products_collection_url }}">{{ 'collections.collection.continue_link' | t }}</a>
             {% endcapture %}
-             <p class="empty">{{ 'collections.collection.empty_html' | t: continue_link: continueLink }}</p>
+            <p class="empty">{{ 'collections.collection.empty_html' | t: continue_link: continueLink }}</p>
           {% endfor %}
         {%- endif -%}
       </div>
     </section>
 
-    {%
-      render 'pagination',
-      paginate: paginate,
-    %}
+    {% render 'pagination', paginate: paginate %}
   {% endpaginate %}
 </div>
 
@@ -235,5 +212,4 @@
     }
   ]
 }
-
 {% endschema %}

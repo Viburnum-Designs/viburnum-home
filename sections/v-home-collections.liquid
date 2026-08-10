@@ -52,19 +52,23 @@
     .v--home-collections-content {
       display: grid;
       align-items: stretch;
-      justify-content: center;
+      justify-content: start;
       justify-self: center;
       gap: var(--spacing);
       grid-template-columns:  repeat({{columns}}, 1fr) ;
-      width: 140vw;
       max-width: 1200px;
       img{
         display: block;
         width: 100%;
         height: auto;
       }
+
       @media screen and (max-width: 1000px){
         padding-left: var(--spacing);
+      }
+      @media screen and (min-width: 1001px){
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -80,11 +84,19 @@
 
     .v--home-collection__link{
       display: block;
+      background-color: #fff;
     }
 
     .v-home-collection {
       display: grid;
       gap: var(--min-spacing);
+      width: 75vw;
+      @media screen and (min-width:768px){
+        width: 25vw;
+      }
+      @media screen and (min-width:1000px){
+        width: 100%;
+      }
     }
 
     .v--home-collection-overlay {

@@ -8,6 +8,7 @@ Viburnum Home Index
 
 Pages
 - Home
+- Collections
 */
 
 /* Custom Properties
@@ -76,6 +77,11 @@ Pages
 .button, .__cta{
   background-color: var(--secondary-color); 
   color: #333;
+  line-height: normal;
+  padding: 15px 20px;
+  border-radius: 2px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .__secondary-button{
@@ -87,6 +93,7 @@ Pages
   background-color: transparent; 
   text-decoration: none;
 }
+
 
 
 /* Header
@@ -552,7 +559,7 @@ Pages
 
   @media screen and (max-width: 1000px){
     .footer-grid__image{
-      height: 30vw;
+      /* height: 30vw; */
       overflow: hidden;
     }
   }
@@ -562,7 +569,7 @@ Pages
     display: block;
     object-fit: cover;
     @media screen and (max-width: 999px) {
-      margin-top: -77vw;
+      /* margin-top: -77vw; */
       width: 100%;
       height: auto;
     }
@@ -723,3 +730,108 @@ Pages
     margin: 0;
     padding: 0;
   }
+
+/* Body 
+==================== */
+.main-content{
+  background-color: var(--secondary-color);
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+/* Product Lists
+===================*/
+
+@media (min-width: 1260px) {
+    .product-recommendations,
+    .home-slideshow.home-slideshow-layout-full-width {
+        width: 100vw;
+        margin-left: 0;
+    }
+}
+
+.product-recommendations,
+.home-products-content{
+  @media screen and (min-width:770px){ 
+    gap: var(--min-spacing);
+    display: grid;
+    grid-template-columns: repeat(1fr, 3);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and ( min-width: 1000px){
+    gap: var(--spacing);
+    grid-template-columns: repeat(4,1fr);
+    max-width: 1260px;
+  }
+  
+}
+
+
+:has(.home-products-content ,.product-recommendations, .product-recommendations-wrapper--section .rows-of-4 ) 
+.product-list-item {
+  @media screen and (min-width:540px){ 
+    width: 100%;
+  }
+}
+
+/* Collections
+====================== */
+.collection-header-content{
+  max-width: 1260px;
+  align-self: center;
+  padding-top: calc( var(--spacing) * 2);
+}
+
+.main-content > .shopify-section{
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+
+.collection-products {
+  display: grid;
+  gap: var(--min-spacing);
+  grid-template-columns: repeat(2,1fr);
+  justify-self: center;
+  @media screen and ( min-width: 750px){
+    grid-template-columns: repeat(3,1fr);
+    max-width: 750px;
+  }
+  @media screen and ( min-width: 1000px){
+    grid-template-columns: repeat(4,1fr);
+    max-width: 1260px;
+    gap: var(--spacing);
+  }
+}
+
+.product-list-item{
+  background-color: #fff;
+  display: grid;
+  margin: 0;
+  padding: 0;
+}
+
+.product-list-item-details{
+  padding: var(--min-spacing);
+}
+
+.product-list-item-details{
+  display: flex;
+  padding: var(--min-spacing);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.product-list-item-details>*:first-child {
+  font-size: 15px;
+}
+
+
+.pagination{
+  margin-bottom :0;
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
+}
