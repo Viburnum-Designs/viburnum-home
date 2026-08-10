@@ -1,0 +1,89 @@
+{% assign block = block | default: null %}
+{% assign collection = collection | default: null %}
+{% assign custom_image = onboard_image | default: null %}
+
+{% if block and collection %}
+  {% if custom_image %}
+    {% capture image %}
+      {% render 'rimg', img: custom_image, size: '1024x1024', lazy: true %}
+    {% endcapture %}
+  {% else %}
+    {% capture image %}
+      {% if collection.image %}
+        {%
+          render 'rimg',
+          img: collection.image,
+          size: '1024x1024',
+          lazy: true,
+        %}
+      {% elsif collection.products.first.featured_media.preview_image %}
+        {%
+          render 'rimg',
+          img: collection.products.first.featured_media.preview_image,
+          size: '1024x1024',
+          lazy: true,
+        %}
+      {% endif %}
+    {% endcapture %}
+  {% endif %}
+
+  {% assign title = collection.title %}
+  {% assign subheading = block.settings.subheading | escape %}
+  {% assign description = block.settings.description %}
+  {% assign overlayColor = block.settings['overlay-color'] %}
+{% else %}
+  {% assign image = onboard_image %}
+  {% assign title = 'onboarding.home_collections.collection_title' | t %}
+  {% assign subheading = 'onboarding.home_collections.collection_subtitle' | t %}
+  {% assign description = 'onboarding.home_collections.collection_description' | t %}
+  {% assign overlayColor = 'black' %}
+{% endif %}
+
+<article class="v-home-collection" {{ block.shopify_attributes }}>
+  <figure
+    class="v-home-collection-image"
+    style="--home-collection-image-aspect-ratio: {{ aspect_ratio | default: '1/1' }}"
+  >
+    {% comment %}
+      {% if collection %}
+        <a class="home-collection__link" href="{{ collection.url }}"></a>
+      {% endif %}
+    {% endcomment %}
+
+    <div>
+      {% if image %}
+        {{ image }}
+      {% else %}
+        Placeholder
+      {% endif %}
+    </div>
+
+    <div
+      class="v--home-collection-overlay-wrapper"
+      data-url="{{ collection.url }}"
+    >
+      <div class="v--home-collection-overlay">
+        {% comment %}
+          <h3 class="home-collection-title">
+            {{ title }}
+          </h3>
+        {% endcomment %}
+
+        {% if subheading != blank %}
+          <span class="home-collection-subtitle">
+            {{ subheading }}
+          </span>
+        {% endif %}
+        <a class="v--home-collection__link button __secondary-button" href="{{ collection.url }}">
+          {{ title }}
+        </a>
+      </div>
+    </div>
+  </figure>
+
+  {% if description != blank %}
+    <div class="home-collection-description">
+      {{ description }}
+    </div>
+  {% endif %}
+</article>
