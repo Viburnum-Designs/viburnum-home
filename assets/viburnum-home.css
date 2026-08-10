@@ -559,7 +559,7 @@ Pages
 
   @media screen and (max-width: 1000px){
     .footer-grid__image{
-      height: 30vw;
+      /* height: 30vw; */
       overflow: hidden;
     }
   }
@@ -569,7 +569,7 @@ Pages
     display: block;
     object-fit: cover;
     @media screen and (max-width: 999px) {
-      margin-top: -77vw;
+      /* margin-top: -77vw; */
       width: 100%;
       height: auto;
     }
@@ -739,16 +739,18 @@ Pages
   margin-bottom: 0;
 }
 
-/* 
+/* Product Lists
 ===================*/
 
 @media (min-width: 1260px) {
+    .product-recommendations,
     .home-slideshow.home-slideshow-layout-full-width {
         width: 100vw;
         margin-left: 0;
     }
 }
 
+.product-recommendations,
 .home-products-content{
   @media screen and (min-width:770px){ 
     gap: var(--min-spacing);
@@ -765,7 +767,9 @@ Pages
   
 }
 
-.home-products-content .product-list-item{
+
+:has(.home-products-content ,.product-recommendations, .product-recommendations-wrapper--section .rows-of-4 ) 
+.product-list-item {
   @media screen and (min-width:540px){ 
     width: 100%;
   }
