@@ -21,9 +21,9 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/slider-image-1v2.webp",
-            "content_bg": "#CED7B5",
+            "content_bg": "#474D48",
             "content-alignment": "left",
-            "overlay-color": "#272121",
+            "overlay-color": "#FFFFFF",
             "title": "Artistry In Full Bloom",
             "subheading": "Sculptural, premium faux greenery crafted to complement modern luxury living spaces.",
             "cta": "Shop Decor",
