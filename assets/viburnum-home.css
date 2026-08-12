@@ -19,11 +19,12 @@ Pages
     --body-font: 'Montserrat';
     --footer-link-color: #fff;
     --footer-link-color-hover: #ccc;
-    --spacing: 25px;
-    --min-spacing: 10px;
-    --max-spacing: 50px;
+    --spacing: 24px;
+    --min-spacing: 8px;
+    --max-spacing: 48px;
     --secondary-color: #edece6;
     --footer-bg: #474d48;
+    --text-color: rgb(44 44 44);
 }
 
 /* Custom Fonts
@@ -73,7 +74,7 @@ Pages
 }
 
 .__heading-font{
-  var(----heading-font);
+  font: var(--heading-font);
 }
  
 .button, .__cta{
@@ -101,11 +102,13 @@ Pages
   text-align: center;
   font-size: 40px;
   font-family: var(--heading-font);
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: .05em;
 }
 
-
+body{
+  color: var(--text-color);
+}
 
 /* Header
 ==================== */
@@ -746,8 +749,16 @@ Pages
   background-color: #f9f7f3;
   max-width: 100%;
   margin-bottom: 0;
-  padding-bottom: var(--spacing);
+  padding-bottom: var(--max-spacing);
   display: flow-root;
+}
+
+.flickity-page-dots .dot{
+  outline: 1px solid #fff;
+}
+.flickity-page-dots .dot:not(.is-selected){
+  opacity: 1;
+  background-color: var(--footer-bg)!important;
 }
 
 /* Product Lists
