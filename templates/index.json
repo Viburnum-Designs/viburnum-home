@@ -142,14 +142,15 @@
       "type": "pxs-image-with-text-overlay",
       "name": "Image with text overlay",
       "settings": {
-        "section_height": "medium",
+        "section_height": "original",
+        "image": "shopify://shop_images/beauty-styled-v2.webp",
         "position": "center center",
         "title": "BEAUTIFULLY STYLED",
         "text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
-        "overlay_opacity": 50,
+        "overlay_opacity": 53,
         "link": "",
         "button_text": ""
       }
@@ -167,6 +168,7 @@
       "block_order": [
         "rich_text_h63K6Y"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "border": true,
