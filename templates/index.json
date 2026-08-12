@@ -21,9 +21,9 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/slider-image-1v2.webp",
-            "content_bg": "#474D48",
+            "content_bg": "#474d48",
             "content-alignment": "left",
-            "overlay-color": "#FFFFFF",
+            "overlay-color": "#ffffff",
             "title": "Artistry In Full Bloom",
             "subheading": "Sculptural, premium faux greenery crafted to complement modern luxury living spaces.",
             "cta": "Shop Decor",
@@ -33,13 +33,14 @@
         "slide_HktfCb": {
           "type": "slide",
           "settings": {
-            "content_bg": "",
+            "image": "shopify://shop_images/featured-moss__slide2.webp",
+            "content_bg": "#776f55",
             "content-alignment": "center",
-            "overlay-color": "#262626",
-            "title": "Slide",
-            "subheading": "Introduce customers to your shop with lifestyle imagery and product photography",
-            "cta": "Button",
-            "url": ""
+            "overlay-color": "#ffffff",
+            "title": "Modern living greenery",
+            "subheading": "Elevate your space with timeless, hand-crafted botanical art.",
+            "cta": "Shop Signature Moss",
+            "url": "shopify://collections/preserved-moss"
           }
         },
         "slide_6mjcBW": {
@@ -172,11 +173,82 @@
         "heading": "Explore our Decor Collection"
       }
     },
+    "v_grid_pFxBLk": {
+      "type": "v-grid",
+      "blocks": {
+        "feature_card_YVhVLX": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/square-image3.webp",
+            "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease. </p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "feature_card_CBbTbw": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/square-image2.webp",
+            "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home. </p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "feature_card_Rdj77N": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/square-image1.webp",
+            "feature_card_text": "<p>Our moss and preserved pieces are created by hand, so no two are quite alike.</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_YVhVLX",
+        "feature_card_CBbTbw",
+        "feature_card_Rdj77N"
+      ],
+      "name": "V Grid",
+      "settings": {
+        "layout": "content-width",
+        "bleed": true,
+        "section-css-class": "",
+        "detect_when_in_view": false,
+        "column-gap": "25px",
+        "text_alignment": "center",
+        "row-gap": "0",
+        "section_heading": "Bring The Beauty Of Nature Indoors",
+        "columns_desktop": "3",
+        "custom-breakpoint": "767",
+        "columns_mobile": "2",
+        "reverse-on-mobile": false
+      }
+    },
+    "home_message_3LtUrB": {
+      "type": "home-message",
+      "blocks": {
+        "rich_text_DA6jB6": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>Learn More About Us</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_DA6jB6"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "border": false,
+        "heading": ""
+      }
+    },
     "home_products_znFfpt": {
       "type": "home-products",
       "name": "Featured collection",
       "settings": {
-        "title": "Featured collection",
+        "title": "Featured Collection",
         "collection": "home-decor",
         "product-columns": 3,
         "product-rows": 3
@@ -208,6 +280,8 @@
     "v_home_collections_F4AJx3",
     "pxs_image_with_text_overlay_ERN8kB",
     "home_message_jymXnQ",
+    "v_grid_pFxBLk",
+    "home_message_3LtUrB",
     "home_products_znFfpt",
     "home_message_e6Tyy4"
   ]
