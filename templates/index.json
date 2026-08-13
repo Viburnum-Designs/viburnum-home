@@ -34,7 +34,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/featured-moss__slide2.webp",
-            "content_bg": "#474D48",
+            "content_bg": "#474d48",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
             "title": "Modern living greenery",
@@ -286,7 +286,7 @@
       "type": "home-products",
       "name": "Featured collection",
       "settings": {
-        "title": "Featured Collection",
+        "title": "Fall New Arrivals",
         "collection": "home-decor",
         "product-columns": 3,
         "product-rows": 3
