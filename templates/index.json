@@ -33,8 +33,8 @@
         "slide_HktfCb": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-banner-2__v4.webp",
-            "content_bg": "#776f55",
+            "image": "shopify://shop_images/featured-moss__slide2.webp",
+            "content_bg": "#474D48",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
             "title": "Modern living greenery",
