@@ -97,8 +97,9 @@ Pages
   text-decoration: none;
 }
 
-.section-title{
-  padding-top:var(--max-spacing); 
+
+
+.section-title, .__h1{
   text-align: center;
   font-size: 40px;
   font-family: var(--heading-font);
@@ -106,9 +107,33 @@ Pages
   letter-spacing: .05em;
 }
 
+
+.__justify-start{
+  justify-items: start;
+}
+.__justify-center{
+  justify-items: center;
+}
+.__justify-end{
+  justify-items: end;
+}
+
+.__align-start{
+  align-items: start;
+}
+.__align-center{
+  align-items: center;
+}
+.__align-end{
+  align-items: end;
+}
+
+
 body{
   color: var(--text-color);
 }
+
+
 
 /* Header
 ==================== */
@@ -119,7 +144,7 @@ body{
 }
 
   .v--header-grid__grid-item__nav{
-    justify-content: flex-end;
+    justify-items: flex-end;
     height: 100%;
     align-items: stretch; 
   }
@@ -127,7 +152,7 @@ body{
   .mobile-navbar__wrapper,
   .main-nav-bar__links__menu{
     display: flex;
-    justify-content: flex-end; 
+    justify-items: flex-end; 
     align-items: stretch;
     @media screen and (min-width: 1100px){
       height: 100%;
@@ -137,7 +162,7 @@ body{
   .main-nav-bar__links__menu__item{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-items: center;
   }
 
   .secondary-nav-bar {
@@ -159,7 +184,7 @@ body{
       justify-self: center;
     }
     @media screen and (max-width: 550px){
-      justify-content: space-between;
+      justify-items: space-between;
       width: 100%;
       gap: var(--min-spacing);
       padding-left: 8px;
@@ -315,7 +340,7 @@ body{
  
   .mini-cart-footer{
     align-items: center;
-    justify-content: center;
+    justify-items: center;
   }
 
   .mini-cart-item{
@@ -362,7 +387,7 @@ body{
 @media screen and (max-width: 1099px) {
   .v--header-grid__grid-item__nav {
     display: flex;
-    justify-content: flex-end;
+    justify-items: flex-end;
   }
 
   .js--toggle-mobile-menu {
@@ -493,7 +518,7 @@ body{
 
   .main-nav-bar__links__menu {
     display: flex;
-    justify-content: flex-end; /* Standard syntax: flex-end instead of end */
+    justify-items: flex-end; /* Standard syntax: flex-end instead of end */
     gap: var(--spacing);
     margin-top: 0;
     margin-bottom: 0; 
@@ -506,6 +531,8 @@ body{
 
   .main-nav-bar__links__menu__item{
     position: relative;
+    justify-content: center
+    
   }
 
   .main-nav-bar__links__menu__item:hover .main-nav-bar__submenu{
@@ -645,7 +672,7 @@ body{
   /* @media screen and (max-width: 769px) { 
     display: flex;*/
     align-items: center;
-    /* justify-content: center; */
+    /* justify-items: center; */
     gap: 20px;
     padding-bottom: 20px; 
   /* }  */
@@ -680,7 +707,7 @@ body{
 .footer-policy-menu {
   display: flex;
   gap: 20px;
-  justify-content: space-between;
+  justify-items: space-between;
   max-width: 850px;
   width: 100%;
   align-self: center;
@@ -747,6 +774,7 @@ body{
 ==================== */
 .main-content{
   background-color: #f9f7f3;
+  /* background-color: #f00; */
   max-width: 100%;
   margin-bottom: 0;
   padding-bottom: var(--max-spacing);
@@ -777,7 +805,7 @@ body{
 }
 
 .product-recommendations,
-.home-products-content{
+.home-products-items{
   @media screen and (min-width:770px){ 
     gap: var(--min-spacing);
     display: grid;
@@ -794,7 +822,7 @@ body{
 }
 
 
-:has(.home-products-content ,.product-recommendations, .product-recommendations-wrapper--section .rows-of-4 ) 
+:has(.home-products-items ,.product-recommendations, .product-recommendations-wrapper--section .rows-of-4 ) 
 .product-list-item {
   @media screen and (min-width:540px){ 
     width: 100%;
@@ -803,13 +831,13 @@ body{
 
 /* Collections
 ====================== */
-.collection-header-content{
+.collection-header-items{
   max-width: 1260px;
   align-self: center;
   padding-top: calc( var(--spacing) * 2);
 }
 
-.main-content > .shopify-section{
+.main-items > .shopify-section{
   margin-top: 0;
   padding-top: 0;
   margin-bottom: 0;
@@ -848,7 +876,7 @@ body{
   padding: var(--min-spacing);
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-items: end;
 }
 
 .product-list-item-details>*:first-child {
@@ -864,6 +892,6 @@ body{
 
 /* Product Template
 ==================== */
-.template-product .main-content{
+.template-product .main-items{
   margin-bottom: 0;
 }

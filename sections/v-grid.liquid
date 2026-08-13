@@ -3,37 +3,37 @@
 
   }
 
+
   .v-grid__image{
     width: 100%;
     height: auto;
     display: block;
   }
   #shopify-section-{{ section.id }} .v-grid{
-        display: grid;
-        grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        max-width: {{ section.settings.max-width }};
-        column-gap: {{ section.settings.column-gap }};
-        row-gap: {{ section.settings.row-gap }};
-        text-align: {{ section.settings.text_alignment }};
-        img{
-          display: block;
-        }
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: {{ section.settings.max-width }};
+    column-gap: {{ section.settings.column-gap }};
+    row-gap: {{ section.settings.row-gap }};
+    text-align: {{ section.settings.text_alignment }};
+    img{
+      display: block;
+    }
+
+    @media screen and (max-width: {{ section.settings.custom-breakpoint }}px) {
+
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
 
 
-        @media screen and (max-width: {{ section.settings.custom-breakpoint }}px) {
-        #shopify-section-{{ section.id }} .v-grid{
-            grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
-        }
-
-        {% if section.settings.reverse-on-mobile %}
-        #shopify-section-{{ section.id }} .v-grid{
-            display: flex;
-            flex-flow: column-reverse;
-        }
-        {%  endif %}
+      {% if section.settings.reverse-on-mobile %}
+      #shopify-section-{{ section.id }} .v-grid{
+          display: flex;
+          flex-flow: column-reverse;
+      }
+      {%  endif %}
     }
   }
 {%- endstyle -%}
@@ -41,13 +41,14 @@
 {% comment %} {% assign detect_when_in_view = section.settings.detect_when_in_view %} {% endcomment %}
 
 <section class="v-grid__section {% if section.settings.bleed %} __container-bleed {% endif %}">
-  <div class="title-wrapper">
-    <h2 class="section-title">
-      {{- section.settings.section_heading | escape -}}
-    </h2>
-  </div>
-
-  <ul class="v-grid">
+  {% if section.settings.section_heading != blank %}
+    <div class="title-wrapper">
+      <h2 class="section-title">
+        {{- section.settings.section_heading | escape -}}
+      </h2>
+    </div>
+  {% endif %}
+  <ul class="v-grid    __align-{{section.settings.align_items}}">
     {%- for block in section.blocks -%}
       <li class="v-grid__grid-item">
         {%- liquid
@@ -65,12 +66,20 @@
               alt: card_alt,
               class: 'v-grid__image'
           }}
-        {%- else -%}
-          {{ 'image' | placeholder_svg_tag: 'v-grid__image v-grid__image--placeholder' }}
+          {% comment %}
+            {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'v-grid__image v-grid__image--placeholder' }}
+          {% endcomment %}
+        {%- endif -%}
+
+        {%- if block.settings.feature_card_heading != blank -%}
+          <h1 class="feature-card__heading __h1">
+            {{ block.settings.feature_card_heading }}
+          </h1>
         {%- endif -%}
 
         {%- if block.settings.feature_card_text -%}
-          <div>{{ block.settings.feature_card_text }}</div>
+          <div class="feature-card__text">{{ block.settings.feature_card_text }}</div>
         {%- endif -%}
         {%- if block.settings.feature_card_url -%}
           <div>
@@ -145,6 +154,26 @@
       ],
       "default": "center",
       "label": "Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "align_items",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center",
+      "label": "Align Items"
     },
     {
       "type": "text",
@@ -263,6 +292,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Feature Card Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_card_heading",
+          "label": "Feature Card Heading"
         },
         {
           "type": "richtext",
