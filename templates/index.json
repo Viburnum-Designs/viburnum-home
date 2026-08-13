@@ -20,7 +20,7 @@
         "slide_DAiX6d": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-image-1v2.webp",
+            "image": "shopify://shop_images/slider-banner-1__v4.webp",
             "content_bg": "#474d48",
             "content-alignment": "left",
             "overlay-color": "#ffffff",
@@ -42,24 +42,11 @@
             "cta": "Shop Signature Moss",
             "url": "shopify://collections/preserved-moss"
           }
-        },
-        "slide_6mjcBW": {
-          "type": "slide",
-          "settings": {
-            "content_bg": "",
-            "content-alignment": "center",
-            "overlay-color": "#262626",
-            "title": "Slide",
-            "subheading": "Introduce customers to your shop with lifestyle imagery and product photography",
-            "cta": "Button",
-            "url": ""
-          }
         }
       },
       "block_order": [
         "slide_DAiX6d",
-        "slide_HktfCb",
-        "slide_6mjcBW"
+        "slide_HktfCb"
       ],
       "name": "V Slideshow",
       "settings": {
@@ -138,8 +125,53 @@
         "columns_range": 5
       }
     },
+    "v_grid_BUc7Tt": {
+      "type": "v-grid",
+      "blocks": {
+        "feature_card_L37zMY": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/beautifly-styled__portrait.webp",
+            "feature_card_heading": "",
+            "feature_card_text": "",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "feature_card_8twitn": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "BEAUTIFULLY STYLED",
+            "feature_card_text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_L37zMY",
+        "feature_card_8twitn"
+      ],
+      "name": "V Grid",
+      "settings": {
+        "layout": "content-width",
+        "bleed": true,
+        "section-css-class": "",
+        "detect_when_in_view": false,
+        "column-gap": "50px",
+        "text_alignment": "center",
+        "align_items": "center",
+        "row-gap": "0",
+        "section_heading": "",
+        "columns_desktop": "2",
+        "custom-breakpoint": "767",
+        "columns_mobile": "1",
+        "reverse-on-mobile": false
+      }
+    },
     "pxs_image_with_text_overlay_ERN8kB": {
       "type": "pxs-image-with-text-overlay",
+      "disabled": true,
       "name": "Image with text overlay",
       "settings": {
         "section_height": "original",
@@ -182,6 +214,7 @@
           "type": "feature_card",
           "settings": {
             "image": "shopify://shop_images/square-image3.webp",
+            "feature_card_heading": "",
             "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease. </p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
@@ -191,6 +224,7 @@
           "type": "feature_card",
           "settings": {
             "image": "shopify://shop_images/square-image2.webp",
+            "feature_card_heading": "",
             "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home. </p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
@@ -200,6 +234,7 @@
           "type": "feature_card",
           "settings": {
             "image": "shopify://shop_images/square-image1.webp",
+            "feature_card_heading": "",
             "feature_card_text": "<p>Our moss and preserved pieces are created by hand, so no two are quite alike.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
@@ -219,11 +254,12 @@
         "detect_when_in_view": false,
         "column-gap": "25px",
         "text_alignment": "center",
+        "align_items": "start",
         "row-gap": "0",
         "section_heading": "Bring The Beauty Of Nature Indoors",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "reverse-on-mobile": false
       }
     },
@@ -280,6 +316,7 @@
     "main",
     "v_home_slideshow_nKq3G9",
     "v_home_collections_F4AJx3",
+    "v_grid_BUc7Tt",
     "pxs_image_with_text_overlay_ERN8kB",
     "home_message_jymXnQ",
     "v_grid_pFxBLk",
