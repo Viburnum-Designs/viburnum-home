@@ -20,7 +20,7 @@
         "slide_DAiX6d": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-banner-2__v4.webp",
+            "image": "shopify://shop_images/slider-banner-1__v4.webp",
             "content_bg": "#474d48",
             "content-alignment": "left",
             "overlay-color": "#ffffff",
@@ -33,7 +33,7 @@
         "slide_HktfCb": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-banner-1__v4.webp",
+            "image": "shopify://shop_images/slider-banner-2__v4.webp",
             "content_bg": "#474d48",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
@@ -84,7 +84,7 @@
           "type": "collection",
           "settings": {
             "collection": "signature-designs",
-            "collection_custom_image": "shopify://shop_images/signature-designs.webp",
+            "collection_custom_image": "shopify://shop_images/signature-designs-collection.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -131,7 +131,7 @@
         "feature_card_L37zMY": {
           "type": "feature_card",
           "settings": {
-            "video": "shopify://files/videos/bautifuly-styled.mp4",
+            "image": "shopify://shop_images/beautifly-styled__portrait.webp",
             "feature_card_heading": "",
             "feature_card_text": "",
             "feature_card_url": "",
@@ -287,7 +287,7 @@
       "name": "Featured collection",
       "settings": {
         "title": "Fall New Arrivals",
-        "collection": "home-decor",
+        "collection": "holiday",
         "product-columns": 3,
         "product-rows": 3
       }
