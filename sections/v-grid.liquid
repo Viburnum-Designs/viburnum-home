@@ -55,6 +55,10 @@
           assign card_alt = block.settings.image.alt | default: block.settings.feature_card_text | strip_html
         -%}
 
+        {% if block.settings.video != blank %}
+          {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+        {% endif %}
+
         {%- if block.settings.image -%}
           {{
             block.settings.image
@@ -292,6 +296,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Feature Card Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Feature Card Video"
         },
         {
           "type": "text",
