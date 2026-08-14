@@ -28,34 +28,10 @@
 {%- endif -%}
 
 <style>
-  .v-home-slideshow-slide__grid{
-    display: flex;
-    align-content: stretch;
-    flex-direction: column;
-    @media screen and (min-width: 750px){
-      flex-direction: row-reverse;
-    }
-  }
-
-  .v-home-slideshow-slide__grid img{
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  @media screen and (min-width: 750px){
-    .v-home-slideshow-slide-content{
-      width: 40%;
-    }
-
-    .v-home-slideshow-slide-image{
-      width: 60%;
-
-    }
-  }
-  {% comment %} .home-slideshow-slide-content,
+  .home-slideshow-slide-content,
   .v-home-slideshow-slide-content {
-    max-width: 40vw;
-    width: 100%;
+    max-width: 50vw;
+    width: 50vw;
     left: 0;
     top: 0;
     right: 0;
@@ -65,26 +41,26 @@
     flex-direction: column;
     justify-content: center;
     position: absolute;
-  } {% endcomment %}
+  }
 
   .v-home-slideshow-slide-content-inner {
     left: 0;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 50vw;
+    max-width: 50vw;
     padding: var(--spacing) 60px;
-    padding-right: 30px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     height: 100%;
-    background-color: {{content_bg}};
+    background-color: {{content_bg}}
   }
 
   .v-home-slideshow-slide-content-inner {
-    font-size: clamp(15px, 1.5vw, 25px);
+    font-size: clamp(15px, 1.5vw, 30px);
     .home-slideshow-slide-heading {
       font-size: 2em;
       padding-left: 20px;
@@ -100,13 +76,6 @@
       margin-left: 20px;
     }
   }
-
-  @media screen and (max-width: 750px){
-    .v-home-slideshow-slide-content-inner {
-      padding: var(--spacing);
-      padding-right: var(--spacing);
-    }
-  }
 </style>
 
 <article
@@ -115,53 +84,48 @@
   data-slide-index="{{ slideIndex | minus: 1 }}"
   {{ block.shopify_attributes }}
 >
-  <div class="v-home-slideshow-slide__grid">
-    <figure class="v-home-slideshow-slide-image">
-      {% comment %}
-        {%- if url != blank -%}
-          <a href="{{ url }}">
-            {{ image }}
-          </a>
-        {%- else -%}
-      {% endcomment %}
+  <figure class="home-slideshow-slide-image">
+    {%- if url != blank -%}
+      <a href="{{ url }}">
+        {{ image }}
+      </a>
+    {%- else -%}
       {{ image }}
-      {% comment %} {%- endif -%} {% endcomment %}
-    </figure>
+    {%- endif -%}
+  </figure>
 
-    {% if heading != blank or subheading != blank or cta != blank %}
-      <div class="v-home-slideshow-slide-content">
-        <div class="v-home-slideshow-slide-content-inner">
-          {% if heading != blank %}
-            <h1
-              class="home-slideshow-slide-heading"
-              style="{%- if overlayColor -%}color: {{ overlayColor }};{%- endif -%}"
-            >
-              {{ heading }}
-            </h1>
-          {% endif %}
+  {% if heading != blank or subheading != blank or cta != blank %}
+    <div class="v-home-slideshow-slide-content">
+      <div class="v-home-slideshow-slide-content-inner">
+        {% if heading != blank %}
+          <h1
+            class="home-slideshow-slide-heading"
+            style="{%- if overlayColor -%}color: {{ overlayColor }};{%- endif -%}"
+          >
+            {{ heading }}
+          </h1>
+        {% endif %}
 
-          {% if subheading != blank %}
-            <p
-              class="home-slideshow-slide-subheading"
-              style="{%- if overlayColor -%}color: {{ overlayColor }};{%- endif -%}"
-            >
-              {{ subheading }}
-            </p>
-          {% endif %}
+        {% if subheading != blank %}
+          <p
+            class="home-slideshow-slide-subheading"
+            style="{%- if overlayColor -%}color: {{ overlayColor }};{%- endif -%}"
+          >
+            {{ subheading }}
+          </p>
+        {% endif %}
 
-          {% if cta != blank %}
-            <a
-              class="home-slideshow-slide-cta button"
-              {% if url != blank %}
-                href="{{ url }}"
-              {% endif %}
-            >
-              {{- cta -}}
-            </a>
-          {% endif %}
-        </div>
+        {% if cta != blank %}
+          <a
+            class="home-slideshow-slide-cta button"
+            {% if url != blank %}
+              href="{{ url }}"
+            {% endif %}
+          >
+            {{- cta -}}
+          </a>
+        {% endif %}
       </div>
-    {% endif %}
-  </div>
-  <!-- v-home-slideshow-slide__grid -->
+    </div>
+  {% endif %}
 </article>
