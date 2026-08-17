@@ -284,12 +284,26 @@
     },
     "home_products_znFfpt": {
       "type": "home-products",
+      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "title": "Fall New Arrivals",
         "collection": "holiday",
         "product-columns": 3,
         "product-rows": 3
+      }
+    },
+    "v_featured_collection_carousel_myXTbe": {
+      "type": "v-featured-collection-carousel",
+      "name": "V Featured Collection Carousel",
+      "settings": {
+        "title": "Fall New Arrivals",
+        "collection": "holiday",
+        "controls-color": "#000000",
+        "autoplay": false,
+        "autoplay_delay": 3,
+        "autoplay-hover-pause": false,
+        "product-columns": 4
       }
     },
     "home_message_e6Tyy4": {
@@ -322,6 +336,7 @@
     "v_grid_pFxBLk",
     "home_message_3LtUrB",
     "home_products_znFfpt",
+    "v_featured_collection_carousel_myXTbe",
     "home_message_e6Tyy4"
   ]
 }
