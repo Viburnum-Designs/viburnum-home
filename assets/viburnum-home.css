@@ -62,6 +62,16 @@ Pages
     padding-top: var(--spacing);
 }
 
+*:has( > .__link-covered){
+  position: relative;
+}
+.__link-covered{
+  display: block;
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 10;
+}
+
 .__screen-reader{
   position: fixed; 
   top: -100vh;
