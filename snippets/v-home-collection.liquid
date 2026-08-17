@@ -44,17 +44,14 @@
     class="v-home-collection-image"
     style="--home-collection-image-aspect-ratio: {{ aspect_ratio | default: '1/1' }}"
   >
-    {% comment %}
-      {% if collection %}
-        <a class="home-collection__link" href="{{ collection.url }}"></a>
-      {% endif %}
-    {% endcomment %}
-
-    <div>
+    <div class="v-home-collection__image">
       {% if image %}
         {{ image }}
       {% else %}
         Placeholder
+      {% endif %}
+      {% if collection.url != blank %}
+        <a class="home-collection__link __link-covered" href="{{ collection.url }}"></a>
       {% endif %}
     </div>
 
