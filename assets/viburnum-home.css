@@ -27,7 +27,12 @@ Pages
     --secondary-color: #edece6;
     --footer-bg: #474d48;
     --text-color: rgb(44 44 44);
+    --icon-color: #aaa;
 }
+/* 
+.customer-links, .mini-cart-wrapper, .toggle-search-section{
+  outline: 1px solid #f00
+} */
 
 /* Custom Fonts
 ==================== */
@@ -167,7 +172,6 @@ video{
 
   .v--header-grid__grid-item__nav{
     justify-items: flex-end;
-    padding-right: 20px;
     height: 100%;
     align-items: stretch; 
   }
@@ -275,6 +279,17 @@ video{
     }
   }
 
+  .customer-login-link, .__account-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--icon-color);
+  }
+
+  .account-icon{
+    width: 24px;
+  }
+
   .v--header-grid__grid-item__account-items{
     display: grid;
     grid-template-columns: repeat(3,40px);
@@ -288,13 +303,6 @@ video{
       border-right: none;
       padding-right: 0;
       /* border-left: 1px solid #ccc;  */
-    }
-    .icon{ 
-      width: 20px;
-      height: auto;
-    }
-    .icon-cart{
-      width: 25px;
     }
   }
 
@@ -327,7 +335,7 @@ video{
     display: flex;
     justify-content: center;
     align-items: center; 
-    top: -20px;
+    top: -15px;
     right: -20px;
   }
 
@@ -469,6 +477,7 @@ video{
 
   .main-nav-bar__links__menu__item.is-open   .main-nav-bar__submenu-toggle__icon{
     transform: rotate(180deg);
+    color: var(--icon-color);
   } 
 
   .main-nav-bar__submenu{
@@ -590,6 +599,7 @@ video{
 .search-icon__btn {
   background-color: transparent;
   border: none;
+  color: var(--icon-color);
 }
 
 .search-form-section {
@@ -854,7 +864,6 @@ input[type='submit'].header-search-button {
 ==================== */
 .main-content{
   background-color: #f9f7f3;
-  /* background-color: #f00; */
   max-width: 100%;
   margin-bottom: 0;
   padding-bottom: var(--max-spacing);
@@ -923,6 +932,21 @@ input[type='submit'].header-search-button {
   margin-bottom: 0;
 }
 
+.collection-header-content .page-title{
+  font-family: var(--heading-font);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: .05em;
+  color: #444;
+  padding-left: 0;
+  padding-right: 0;
+  @media screen and (min-width: 768px){
+    text-align: left;
+  }
+  @media screen and (min-width: 1200px){ 
+    font-size: 48px;
+  }
+}
 
 .collection-products {
   display: grid;
