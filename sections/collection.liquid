@@ -36,7 +36,7 @@
 
   {% paginate collection.products by products_per_page %}
     <section
-      class="collection collection-image--{{ show_collection_image }}"
+      class="collection collection-image--{{ show_collection_image }} __container __container-bleed"
       data-product-hover="{{ settings.product_hover }}"
       {% if use_masonry %}
         data-collection-masonry
@@ -48,9 +48,9 @@
         <div
           class="
             collection-header
-            {% if use_masonry %}
+            {% comment %} {% if use_masonry %}
               collection-header-alternate
-            {% endif %}
+            {% endif %} {% endcomment %}
             {% if show_filters and show_sorting %}
               collection-header--filters-sort-enabled
             {% endif %}
