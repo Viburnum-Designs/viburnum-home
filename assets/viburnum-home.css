@@ -975,3 +975,22 @@ input[type='submit'].header-search-button {
 .template-product .main-items{
   margin-bottom: 0;
 }
+
+
+/* Product Images 
+==================== */
+.product-list-item-thumbnail{
+
+}
+
+.product-list-item-thumbnail__link__image-container{
+  outline: 1px solid #efefef;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.product-list-item-thumbnail__link__image-container img{
+  object-fit: cover;
+}
