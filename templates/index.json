@@ -303,7 +303,9 @@
         "autoplay": false,
         "autoplay_delay": 3,
         "autoplay-hover-pause": false,
-        "product-columns": 4
+        "product-columns": 4,
+        "product-limit": 6,
+        "view_more_image": "shopify://shop_images/holiday-collection--thumbnail.webp"
       }
     },
     "home_message_e6Tyy4": {
