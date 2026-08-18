@@ -23,11 +23,13 @@ Pages
     --footer-link-color-hover: #ccc;
     --spacing: 24px;
     --min-spacing: 8px;
-    --max-spacing: 48px;
+    --max-spacing: 48px; 
+    --primary-color: #6e3d13;
     --secondary-color: #edece6;
     --footer-bg: #474d48;
     --text-color: rgb(44 44 44);
     --icon-color: #aaa;
+    --hover-color: rgb(117, 71, 56);
 }
 /* 
 .customer-links, .mini-cart-wrapper, .toggle-search-section{
@@ -102,6 +104,12 @@ Pages
   border-radius: 2px;
   font-style: normal;
   font-weight: 400;
+  &:hover{
+    background-color: var(--hover-color); 
+  }
+  :active{
+    translate: 0,-1px;
+  }
 }
 
 .__secondary-button{
@@ -156,6 +164,9 @@ video{
   height: auto;
 }
 
+button:active{
+  translate: 0 1px;
+}
 
 
 /* Header
