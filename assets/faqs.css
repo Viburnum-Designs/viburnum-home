@@ -7,6 +7,9 @@
 .home-message-content h2{
   font-family: var(--heading-font);
   font-size: 56px;
+  @media screen and (max-width: 767px){
+    font-size: 24px;
+  }
 }
 
 .faqs-grid{ 
