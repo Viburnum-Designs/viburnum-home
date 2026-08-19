@@ -37,7 +37,7 @@
             "content_bg": "#474d48",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
-            "title": "Modern living greenery",
+            "title": "Modern Living Greenery",
             "subheading": "Elevate your space with timeless, hand-crafted botanical art.",
             "cta": "Shop Signature Moss",
             "url": "shopify://collections/preserved-moss"
@@ -156,7 +156,7 @@
       "settings": {
         "layout": "content-width",
         "bleed": true,
-        "section-css-class": "",
+        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "50px",
         "text_alignment": "center",
@@ -250,7 +250,7 @@
       "settings": {
         "layout": "content-width",
         "bleed": true,
-        "section-css-class": "",
+        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "25px",
         "text_alignment": "center",
