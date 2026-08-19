@@ -1,0 +1,16 @@
+.faq-grid{
+  background-color: #edebec;
+  color: #333;
+  padding: 25px;
+
+}
+
+.faq-grid .v-grid{
+  max-width: 800px;
+  place-self: center;
+}
+
+.faq-grid  .v-grid__grid-item:nth-child(2n){
+  border-left: 1px solid #333;
+ 
+}

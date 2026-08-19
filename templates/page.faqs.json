@@ -1,0 +1,210 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "v_file_loader_LnLc8J": {
+      "type": "v-file-loader",
+      "name": "V CSS & JS Files Loader",
+      "settings": {
+        "css_name": "faqs.css",
+        "js_name": ""
+      }
+    },
+    "home_message_FApCTx": {
+      "type": "home-message",
+      "blocks": {
+        "rich_text_3hnTWc": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_3hnTWc"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "border": true,
+        "heading": "Frequently Asked Questions."
+      }
+    },
+    "v_grid_4QmpRH": {
+      "type": "v-grid",
+      "blocks": {
+        "feature_card_Jggram": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>How do I care for faux plants and stems?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_97gBxj": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>We recommend dusting them with a dry microfiber cloth or a damp paper towel; use compressed air for delicate areas. Avoid harsh cleaning agents unless stated otherwise.</p>"
+          }
+        },
+        "feature_card_wHQPkL": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>How do I care for preserved moss?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_N3FGm3": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>Preserved moss is completely maintenance-free - no watering, trimming, or sunlight needed. It’s real moss that’s been naturally preserved to stay soft and vibrant for years. To keep it looking its best, display it indoors, out of direct sunlight and humidity. Dust gently with a soft brush or compressed air if needed. Avoid water and cleaning products, as they can damage the moss. With proper care, it will remain beautiful and lush without any effort.<br/></p>"
+          }
+        },
+        "feature_card_UdKXqG": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Do you ship internationally?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_EhrUx3": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>We currently only ship within the U.S.</p>"
+          }
+        },
+        "feature_card_b7y7pV": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Where can I shop Viburnum Home?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_C7cHnp": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>You can shop online, by email, or in-store at one of  our locations: Princeton, NJ or Summit, NJ.</p>"
+          }
+        },
+        "feature_card_y8QyX7": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Can I bring my clients into your studio to see the products in person?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_VGaVaL": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>The items you see in the Viburnum Home store are often custom made once an order is placed. We cannot guarantee that we will have samples of the same products in our studio locations however, we often have similar designs and products for examples. If you are looking to see something specific we would suggest reaching out to us directly by phone to check our studio availability before coming in. Bringing a client into one of our studios will be of great help to understand our capabilities for custom designs.</p>"
+          }
+        },
+        "feature_card_PftBK9": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Do you charge sales tax?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_8dfD4H": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>Viburnum & Co. is required to collect sales tax based on the laws and regulations of the state or province indicated in the shipping address. As tax regulations continue to evolve, we will continue to monitor state and local tax laws to ensure compliance.</p>"
+          }
+        },
+        "feature_card_KTNDLa": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Do I qualify for Viburnum & Co. Trade Program?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_EqNBgd": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>Interior designers working on commercial or residential projects with a valid resale license or other professional certification often qualify for the Viburnum Home Trade Program. Applicants must provide their valid tax ID & a portfolio of their work in order to be approved. [Portfolio of work can be submitted in the form of social media account, PDF, jpeg, or storefront location/information]</p>"
+          }
+        },
+        "feature_card_MnNm3E": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Do you charge sales tax?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_riYCHw": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>Yes, however we only offer in-person styling sessions in the Tri-State Area to help you curate pieces that perfectly suit your space.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_Jggram",
+        "read_more_text_97gBxj",
+        "feature_card_wHQPkL",
+        "read_more_text_N3FGm3",
+        "feature_card_UdKXqG",
+        "read_more_text_EhrUx3",
+        "feature_card_b7y7pV",
+        "read_more_text_C7cHnp",
+        "feature_card_y8QyX7",
+        "read_more_text_VGaVaL",
+        "feature_card_PftBK9",
+        "read_more_text_8dfD4H",
+        "feature_card_KTNDLa",
+        "read_more_text_EqNBgd",
+        "feature_card_MnNm3E",
+        "read_more_text_riYCHw"
+      ],
+      "name": "V Grid",
+      "settings": {
+        "layout": "full-width",
+        "bleed": true,
+        "section_css_class": "faqs-grid",
+        "detect_when_in_view": false,
+        "column-gap": "0",
+        "text_alignment": "left",
+        "align_items": "start",
+        "row-gap": "0",
+        "section_heading": "",
+        "columns_desktop": "2",
+        "custom-breakpoint": "767",
+        "columns_mobile": "2",
+        "reverse-on-mobile": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "v_file_loader_LnLc8J",
+    "home_message_FApCTx",
+    "v_grid_4QmpRH"
+  ]
+}
