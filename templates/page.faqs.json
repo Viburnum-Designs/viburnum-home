@@ -37,7 +37,7 @@
       ],
       "name": "Rich text",
       "settings": {
-        "border": true,
+        "border": false,
         "heading": "Frequently Asked Questions."
       }
     },
@@ -185,7 +185,7 @@
       ],
       "name": "V Grid",
       "settings": {
-        "layout": "full-width",
+        "layout": "content-width",
         "bleed": true,
         "section_css_class": "faqs-grid",
         "detect_when_in_view": false,
@@ -196,7 +196,7 @@
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "reverse-on-mobile": false
       }
     }
