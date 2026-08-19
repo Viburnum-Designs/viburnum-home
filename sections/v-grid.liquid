@@ -20,16 +20,12 @@
     img{
       display: block;
     }
-
     @media screen and (max-width: {{ section.settings.custom-breakpoint }}px) {
-
-      grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
-
       {% if section.settings.reverse-on-mobile %}
-      #shopify-section-{{ section.id }} .v-grid{
-          display: flex;
-          flex-flow: column-reverse;
-      }
+        display: flex;
+        flex-flow: column-reverse;
+      {%  else %}
+        grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
       {%  endif %}
     }
   }
@@ -104,7 +100,10 @@
                 color: inherit;
                 text-decoration: underline;
                 cursor: pointer;
-                font-weight: 600;
+                font-weight: normal;
+                &:hover {
+                  text-decoration: none;
+                }
               }
             </style>
             {% assign raw_text = block.settings.read_more_text_description | strip_html %}
@@ -125,7 +124,9 @@
                     {{ block.settings.read_more_text_description }}
                   </div>
 
-                  <button type="button" class="read-more-text__toggle" aria-expanded="false">Read more</button>
+                  <button type="button" class="read-more-text__toggle js--read-more-text__toggle" aria-expanded="false">
+                    Read more
+                  </button>
                 {% else %}
                   {% comment %} {%- Text is short enough, display directly -%} {% endcomment %}
                   <div class="read-more-text__full">
@@ -134,35 +135,34 @@
                 {% endif %}
               {% endif %}
             </div>
-
-            <script>
-              document.addEventListener('click', function (e) {
-                if (e.target && e.target.classList.contains('read-more-text__toggle')) {
-                  const button = e.target;
-                  const container = button.closest('.read-more-text__container');
-                  const shortText = container.querySelector('.read-more-text__short');
-                  const fullText = container.querySelector('.read-more-text__full');
-
-                  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-                  if (isExpanded) {
-                    shortText.style.display = 'block';
-                    fullText.style.display = 'none';
-                    button.textContent = 'Read more';
-                    button.setAttribute('aria-expanded', 'false');
-                  } else {
-                    shortText.style.display = 'none';
-                    fullText.style.display = 'block';
-                    button.textContent = 'Read less';
-                    button.setAttribute('aria-expanded', 'true');
-                  }
-                }
-              });
-            </script>
         {% endcase %}
       </li>
     {%- endfor -%}
   </ul>
+
+  <script>
+    let readMoreTextBtns = document.querySelectorAll('.js--read-more-text__toggle');
+
+    readMoreTextBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const container = btn.closest('.read-more-text__description');
+        const shortText = container.querySelector('.read-more-text__short');
+        const fullText = container.querySelector('.read-more-text__full');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          shortText.style.display = 'block';
+          fullText.style.display = 'none';
+          btn.textContent = 'Read more';
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          shortText.style.display = 'none';
+          fullText.style.display = 'block';
+          btn.textContent = 'Read less';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 </section>
 {% schema %}
 {
