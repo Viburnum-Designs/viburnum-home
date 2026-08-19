@@ -2,8 +2,6 @@
   #shopify-section-{{ section.id }} {
 
   }
-
-
   .v-grid__image{
     width: 100%;
     height: auto;
@@ -27,7 +25,6 @@
 
       grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
 
-
       {% if section.settings.reverse-on-mobile %}
       #shopify-section-{{ section.id }} .v-grid{
           display: flex;
@@ -40,7 +37,13 @@
 
 {% comment %} {% assign detect_when_in_view = section.settings.detect_when_in_view %} {% endcomment %}
 
-<section class="v-grid__section {% if section.settings.bleed %} __container-bleed {% endif %}">
+<section
+  class="
+    v-grid__section
+    {% if section.settings.bleed %} __container-bleed {% endif %}
+    {%if section.settings.section_css_class %} {{section.settings.section_css_class}} {% endif %}
+  "
+>
   {% if section.settings.section_heading != blank %}
     <div class="title-wrapper">
       <h2 class="section-title">
@@ -48,50 +51,115 @@
       </h2>
     </div>
   {% endif %}
-  <ul class="v-grid    __align-{{section.settings.align_items}}">
+  <ul class="v-grid __align-{{section.settings.align_items}}">
     {%- for block in section.blocks -%}
       <li class="v-grid__grid-item">
-        {%- liquid
-          assign card_alt = block.settings.image.alt | default: block.settings.feature_card_text | strip_html
-        -%}
+        {% case block.type %}
+          {% when 'feature_card' %}
+            {%- liquid
+              assign card_alt = block.settings.image.alt | default: block.settings.feature_card_text | strip_html
+            -%}
 
-        {% if block.settings.video != blank %}
-          {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-        {% endif %}
+            {% if block.settings.video != blank %}
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+            {% endif %}
 
-        {%- if block.settings.image -%}
-          {{
-            block.settings.image
-            | image_url: width: 3200
-            | image_tag:
-              loading: 'lazy',
-              widths: '200, 400, 600, 800, 1200, 1600, 2000, 3200',
-              sizes: '(min-width: 990px) 33vw, 100vw',
-              alt: card_alt,
-              class: 'v-grid__image'
-          }}
-          {% comment %}
-            {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'v-grid__image v-grid__image--placeholder' }}
-          {% endcomment %}
-        {%- endif -%}
+            {%- if block.settings.image -%}
+              {{
+                block.settings.image
+                | image_url: width: 3200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '200, 400, 600, 800, 1200, 1600, 2000, 3200',
+                  sizes: '(min-width: 990px) 33vw, 100vw',
+                  alt: card_alt,
+                  class: 'v-grid__image'
+              }}
+            {%- endif -%}
 
-        {%- if block.settings.feature_card_heading != blank -%}
-          <h1 class="feature-card__heading __h1">
-            {{ block.settings.feature_card_heading }}
-          </h1>
-        {%- endif -%}
+            {%- if block.settings.feature_card_heading != blank -%}
+              <h1 class="feature-card__heading __h1">
+                {{ block.settings.feature_card_heading }}
+              </h1>
+            {%- endif -%}
 
-        {%- if block.settings.feature_card_text -%}
-          <div class="feature-card__text">{{ block.settings.feature_card_text }}</div>
-        {%- endif -%}
-        {%- if block.settings.feature_card_url -%}
-          <div>
-            <a href="{{ block.settings.feature_card_url }}" class="__cta">
-              {{ block.settings.feature_card_button_text }}
-            </a>
-          </div>
-        {%- endif -%}
+            {%- if block.settings.feature_card_text -%}
+              <div class="feature-card__text">{{ block.settings.feature_card_text }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_card_url -%}
+              <div>
+                <a href="{{ block.settings.feature_card_url }}" class="__cta">
+                  {{ block.settings.feature_card_button_text }}
+                </a>
+              </div>
+            {%- endif -%}
+
+          {% when 'read_more_text' %}
+            <style>
+              .read-more-text__toggle {
+                background: none;
+                border: none;
+                padding: 0;
+                margin-top: 8px;
+                color: inherit;
+                text-decoration: underline;
+                cursor: pointer;
+                font-weight: 600;
+              }
+            </style>
+            {% assign raw_text = block.settings.read_more_text_description | strip_html %}
+            {% assign word_limit = 30 %}
+            {% comment %} Adjust desired word limit here {% endcomment %}
+            <div class="read-more-text__description">
+              {% if raw_text.size > 0 %}
+                {% assign word_count = raw_text | split: ' ' | size %}
+
+                {% if word_count > word_limit %}
+                  {% comment %} {%- Shortened version shown by default -%} {% endcomment %}
+                  <div class="read-more-text__short">
+                    <p>{{ raw_text | truncatewords: word_limit, '...' }}</p>
+                  </div>
+
+                  {% comment %} {%- Full rich text version hidden by default -%} {% endcomment %}
+                  <div class="read-more-text__full" style="display: none;">
+                    {{ block.settings.read_more_text_description }}
+                  </div>
+
+                  <button type="button" class="read-more-text__toggle" aria-expanded="false">Read more</button>
+                {% else %}
+                  {% comment %} {%- Text is short enough, display directly -%} {% endcomment %}
+                  <div class="read-more-text__full">
+                    {{ block.settings.read_more_text_description }}
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+
+            <script>
+              document.addEventListener('click', function (e) {
+                if (e.target && e.target.classList.contains('read-more-text__toggle')) {
+                  const button = e.target;
+                  const container = button.closest('.read-more-text__container');
+                  const shortText = container.querySelector('.read-more-text__short');
+                  const fullText = container.querySelector('.read-more-text__full');
+
+                  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                  if (isExpanded) {
+                    shortText.style.display = 'block';
+                    fullText.style.display = 'none';
+                    button.textContent = 'Read more';
+                    button.setAttribute('aria-expanded', 'false');
+                  } else {
+                    shortText.style.display = 'none';
+                    fullText.style.display = 'block';
+                    button.textContent = 'Read less';
+                    button.setAttribute('aria-expanded', 'true');
+                  }
+                }
+              });
+            </script>
+        {% endcase %}
       </li>
     {%- endfor -%}
   </ul>
@@ -124,7 +192,7 @@
     },
     {
       "type": "text",
-      "id": "section-css-class",
+      "id": "section_css_class",
       "label": "Section CSS Class"
     },
     {
@@ -322,6 +390,17 @@
           "type": "text",
           "id": "feature_card_button_text",
           "label": "Feature Card Button Text"
+        }
+      ]
+    },
+    {
+      "type": "read_more_text",
+      "name": "Read More Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "read_more_text_description",
+          "label": "Read More Text Description"
         }
       ]
     }
