@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "home_message_pXAhkB": {
+      "type": "home-message",
+      "blocks": {
+        "rich_text_fhNw3A": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<h2>For Designers and Architects: Join the Viburnum Trade Program</h2><p>The Viburnum Trade Program is thoughtfully developed to support design professionals with exclusive benefits that simplify procurement and elevate project execution. Members receive preferential pricing and dedicated assistance tailored to the needs of the trade.</p><p>Program Benefits Include:</p><ul><li>10% discount on all full-priced Viburnum Home purchases, both online and in-store</li><li>Personalized support from our knowledgeable design team for customization, volume orders, and expedited timelines</li></ul><p>We welcome qualified professionals to apply and experience a streamlined, service-focused approach to sourcing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_fhNw3A"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "border": false,
+        "heading": "Trade Program"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_message_pXAhkB"
+  ]
+}
