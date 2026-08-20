@@ -17,26 +17,38 @@
 }
 
 .faqs-grid .v-grid{
+  --p: 20px 20px;
   max-width: 1000px;
   place-self: center;
   background-color: #edebec;
-  padding: 50px!important;
+  padding: var(--p)!important;
+  @media screen and (min-width: 768px){
+    --p: 50px;
+  }
 }
 
-.faqs-grid  .v-grid__grid-item:nth-child(1n){
-  padding-right: calc(var(--spacing) * 2)
-}
-
-.faqs-grid  .v-grid__grid-item:nth-child(2n){
-  border-left: 1px solid #888;
-  padding-left: calc(var(--spacing) * 2)
-}
-/* 
-.read-more-text__description p{
-  margin-top: 0;
+.faqs-grid p{
   margin-bottom: 0;
 }
 
-.read-more-text__description p + p{
-  margin-bottom: var(--spacing);
-} */
+.faqs-grid  .v-grid__grid-item:nth-child(odd){ 
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px){
+  .faqs-grid  .v-grid__grid-item:nth-child(odd){
+    padding-right: calc(var(--spacing) * 2);
+    text-align: left;
+    font-weight: bold;
+  }
+  .faqs-grid  .v-grid__grid-item:nth-child(odd) p{
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: 0; 
+  }
+  .faqs-grid  .v-grid__grid-item:nth-child(even){
+    border-left: 1px solid #888;
+    padding-left: calc(var(--spacing) * 2);
+    text-align: left;
+  }
+}

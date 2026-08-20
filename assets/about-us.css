@@ -1,0 +1,35 @@
+.mission__grid .v-grid{
+
+}
+ 
+
+.pxs-image-with-text-wrapper{
+  overflow: hidden;
+  
+}
+
+@media screen and (min-width: 999px){
+  .pxs-image-with-text-background{
+    background-image: none!important;
+  }
+}
+
+
+
+.mission__grid  .v-grid__grid-item:nth-child(even){ 
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  .feature-card__heading, .feature-card__text{
+    max-width: 600px;
+    padding-inline: var(--spacing);
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.about-us__grid {
+  padding: 50px;  
+}
+ 
