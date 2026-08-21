@@ -99,7 +99,10 @@
           <div class="customer-links">
             {% if customer %}
               <a href="{{ routes.account_url }}">
-                Account
+                <div class="account-icon">
+                  {% render 'icons', id: 'account_logged_in' %}
+                </div>
+
                 {% comment %} {{ 'layout.header.my_account' | t }} {% endcomment %}
               </a>
               <div class="customer-links-inner">
@@ -123,7 +126,9 @@
 
             {% else %}
               <a class="customer-login-link" href="{{ routes.account_login_url }}">
-                Login
+                <div class="account-icon">
+                  {% render 'icons', id: 'account_logged_out' %}
+                </div>
                 {% comment %} {% render 'icons', id: 'account' %} {% endcomment %}
                 {% comment %} <span class="__screen-reader">{{ 'layout.header.account' | t -}}</span> {% endcomment %}
               </a>
@@ -133,14 +138,33 @@
 
         <div class="mini-cart-wrapper">
           <a class="cart-count" href="{{ routes.cart_url }}" data-cart-count>
-            {% render 'icons', id: 'cart' %}
+            {% render 'icons', id: 'v-cart' %}
             <span class="cart-count-text __screen-reader">{{ 'layout.header.cart' | t }}</span>
             <span class="cart-bubble"
               ><span class="cart-count-number">{{ cart.item_count }}</span></span
             >
           </a>
-
           {% render 'mini-cart' %}
+        </div>
+
+        <div class="toggle-search-section js--toggle-search-btn">
+          <button class="search-icon__btn" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: inline-block; vertical-align: middle;"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
         </div>
         {% comment %}
           <form class="checkout-link" action="{{ routes.cart_url }}" method="POST">

@@ -1,0 +1,445 @@
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-carousel-config
+>
+  {
+    "autoplay": {{ section.settings.autoplay }},
+    "autoplayDelay": {{ section.settings.autoplay_delay }},
+    "autoplayHoverPause": {{ section.settings.autoplay-hover-pause }}
+  }
+</script>
+
+{%- assign product_count = section.settings['product-limit'] | default: 6 -%}
+{%- assign collection = collections[section.settings.collection] -%}
+
+<section
+  class="home-products home-products-columns-{{ section.settings['product-columns'] }}"
+  data-product-hover="{{ settings.product_hover | default: 'quick-shop' }}"
+>
+  {% if section.settings.title != blank %}
+    <h2 class="section-title">{{ section.settings.title | escape }}</h2>
+  {% endif %}
+
+  <div
+    id="featured-collection-carousel__{{ section.id }}"
+    class="carousel"
+  >
+    <div class="carousel-track" data-carousel-track>
+      {%- if collection != blank and collection.all_products_count > 0 -%}
+        {%- for product in collection.products limit: product_count -%}
+          <div class="carousel-slide slide-container" data-carousel-slide>
+            {% render 'product-list-item', collection: collection, product: product %}
+          </div>
+        {%- endfor -%}
+
+        {%- if collection.all_products_count > product_count -%}
+          <div class="carousel-slide slide-container" data-carousel-slide>
+            <div class="product-list-item product-list-item-view-all">
+              {% if section.settings.view_more_image != blank %}
+                <div class="product-list-item-view-all__image">
+                  {% render 'rimg',
+                    img: section.settings.view_more_image,
+                    alt: section.settings.view_more_image.alt,
+                    size: '300x400',
+                    lazy: false
+                  %}
+                </div>
+              {% endif %}
+
+              <div class=" __h1 carousel-slide__title">Shop {{ collection.title }} Collection</div>
+              <div class="__cta view-all-link">View More</div>
+              <a href="{{ collection.url }}" class="__link-covered"></a>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    <button
+      type="button"
+      class="carousel-arrow carousel-arrow-prev"
+      data-carousel-prev
+      aria-label="Previous"
+    >
+      &lsaquo;
+    </button>
+    <button
+      type="button"
+      class="carousel-arrow carousel-arrow-next"
+      data-carousel-next
+      aria-label="Next"
+    >
+      &rsaquo;
+    </button>
+
+    <div class="carousel-dots" data-carousel-dots></div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} .carousel {
+    position: relative;
+    padding: 0 50px;
+  }
+
+
+  #shopify-section-{{ section.id }} .carousel-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: {{ 100.0 | divided_by: section.settings['product-columns'] }}%;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-slide {
+    scroll-snap-align: start;
+    padding-inline: 10px;
+  }
+
+  .carousel-slide__title{
+    line-height: 1;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 0em .25em rgba(0,0,0,1);
+  }
+
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .carousel-track {
+      grid-auto-columns: 33.333%;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .carousel-track {
+      grid-auto-columns: 66.666%;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid {{ section.settings.controls-color | default: '#000' }};
+    background: #fff;
+    color: {{ section.settings.controls-color | default: '#000' }};
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+
+  }
+
+  #shopify-section-{{ section.id }} .carousel-arrow-prev {
+    left: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-arrow-next {
+    right: 8px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .carousel {
+      padding: 0 0 0 0;
+    }
+    #shopify-section-{{ section.id }} .carousel-arrow-prev,
+    #shopify-section-{{ section.id }} .carousel-arrow-next {
+      display: none;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .carousel-arrow[disabled] {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-dot.is-active {
+    background: {{ section.settings.controls-color | default: '#000' }};
+  }
+
+  {% comment %} #shopify-section-{{ section.id }} .product-list-item-view-all,
+  #shopify-section-{{ section.id }} .product-list-item-view-all .product-list-item-thumbnail {
+    aspect-ratio: 1 / 1;
+  } {% endcomment %}
+
+  #shopify-section-{{ section.id }} .product-list-item-view-all{
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: var(--spacing);
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .__link-covered{
+    z-index: 5;
+    position: absolute;
+  }
+
+  .product-list-item-view-all *:not(.product-list-item-view-all__image ){
+    position: relative;
+    z-index: 1;
+  }
+
+
+  #shopify-section-{{ section.id }} .product-list-item-view-all:hover .view-all-link{
+    background-color: #6e3d13;
+  }
+  #shopify-section-{{ section.id }} .view-all-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--footer-bg);
+    color: #fff;
+    &:hover{
+      background-color: #6e3d13;
+    }
+  }
+
+  .product-list-item-view-all__image{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+
+  .product-list-item-view-all__image img{
+    object-fit: cover;
+    transform: scale(1.25);
+  }
+
+  .product-list-item-view-all__image:after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.3);
+    inset: 0 0 0 0;
+    z-index: 3;
+    position: absolute;
+  }
+
+  .carousel-dots{
+    display: none!important;
+  }
+</style>
+
+<script>
+  (function () {
+    var sectionId = 'featured-collection-carousel__{{ section.id }}';
+
+    function initCarousel() {
+      var root = document.getElementById(sectionId);
+      if (!root || root.dataset.carouselInit) return;
+      root.dataset.carouselInit = 'true';
+
+      var track = root.querySelector('[data-carousel-track]');
+      var slides = Array.prototype.slice.call(root.querySelectorAll('[data-carousel-slide]'));
+      var prevBtn = root.querySelector('[data-carousel-prev]');
+      var nextBtn = root.querySelector('[data-carousel-next]');
+      var dotsContainer = root.querySelector('[data-carousel-dots]');
+
+      if (!track || !slides.length) return;
+
+      var configEl = document.querySelector('[data-section-id="{{ section.id }}"][data-carousel-config]');
+      var config = configEl ? JSON.parse(configEl.textContent) : {};
+      var autoplayTimer = null;
+
+      var dots = slides.map(function (slide, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function () {
+          scrollToSlide(i);
+        });
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+
+      function currentIndex() {
+        var trackRect = track.getBoundingClientRect();
+        var closestIndex = 0;
+        var closestDistance = Infinity;
+        slides.forEach(function (slide, i) {
+          var distance = Math.abs(slide.getBoundingClientRect().left - trackRect.left);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = i;
+          }
+        });
+        return closestIndex;
+      }
+
+      function updateActive() {
+        var index = currentIndex();
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+        });
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+      }
+
+      function scrollToSlide(index) {
+        index = Math.max(0, Math.min(index, slides.length - 1));
+        slides[index].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      }
+
+      function startAutoplay() {
+        if (!config.autoplay) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(function () {
+          var next = currentIndex() + 1;
+          if (next >= slides.length) next = 0;
+          scrollToSlide(next);
+        }, (config.autoplayDelay || 3) * 1000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+      }
+
+      prevBtn.addEventListener('click', function () {
+        scrollToSlide(currentIndex() - 1);
+      });
+      nextBtn.addEventListener('click', function () {
+        scrollToSlide(currentIndex() + 1);
+      });
+
+      var scrollTimeout;
+      track.addEventListener('scroll', function () {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActive, 100);
+      });
+
+      window.addEventListener('resize', updateActive);
+
+      if (config.autoplayHoverPause) {
+        root.addEventListener('mouseenter', stopAutoplay);
+        root.addEventListener('mouseleave', startAutoplay);
+      }
+
+      updateActive();
+      startAutoplay();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+      initCarousel();
+    }
+
+    document.addEventListener('shopify:section:load', initCarousel);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Viburnum Slideshow",
+  "class": "shopify-section--slideshow",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "color",
+      "id": "controls-color",
+      "label": "Controls",
+      "default": "#000"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Rotation interval",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay-hover-pause",
+      "label": "Pause auto-rotate on hover",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "product-columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "product-limit",
+      "label": "Number of products",
+      "info": "If the collection has more products than this, a \"View more\" card is added at the end.",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "image_picker",
+      "id": "view_more_image",
+      "label": "Custom Collection Image",
+      "info": "Pick a custom image for the View More Link"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Featured Collection Carousel"
+    }
+  ]
+}
+{% endschema %}

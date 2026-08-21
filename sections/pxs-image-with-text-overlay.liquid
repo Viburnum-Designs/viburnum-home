@@ -4,22 +4,64 @@
   {% assign onboarding = true %}
 {% endif %}
 
+<style>
+  .pxs-video-wrapper {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+  }
+</style>
+
 <section
   class="
     pxs-image-with-text
     pxs-image-with-text-section-height-{{ section.settings.section_height }}
   "
 >
-  <div class="pxs-image-with-text-wrapper">
-    <div
-      class="pxs-image-with-text-background"
-      {% if section.settings.image != blank %}
+  <div class="pxs-image-with-text-wrapper"> 
+      {% if section.settings.video != blank and section.settings.image != blank %}
+        <div class="pxs-video-wrapper __hide-on-tablet __hide-on-mobile">
+          {{
+            section.settings.video
+            | video_tag:
+              autoplay: true,
+              loop: true,
+              muted: true,
+              controls: false,
+              playsinline: true,
+              class: 'pxs-video-element'
+          }}
+        </div>
+        <div class=" __hide-on-desktop">
+        <div
+          class="pxs-image-with-text-background"
+          {% render 'rimg',
+            img: section.settings.image,
+            size: '1400x',
+            crop: 'center',
+            style: background_style,
+            lazy: true,
+            background: true
+          %}
+        ></div>
+      {% elsif section.settings.video != blank %}
+        {{
+          section.settings.video
+          | video_tag:
+            autoplay: true,
+            loop: true,
+            muted: true,
+            controls: false,
+            playsinline: true,
+            class: 'pxs-video-element'
+        }}
+      {% elsif section.settings.image != blank %}
         {% capture background_style %}
-          {% if section.settings.section_height == 'original' %}
-            padding-bottom: {{- 100 | divided_by: section.settings.image.aspect_ratio -}}%;
-          {% endif %}
-          background-position: {{ section.settings.position }};
-        {% endcapture %}
+            {% if section.settings.section_height == 'original' %}
+              padding-bottom: {{- 100 | divided_by: section.settings.image.aspect_ratio -}}%;
+            {% endif %}
+            background-position: {{ section.settings.position }};
+          {% endcapture %}
 
         {%
           render 'rimg',
@@ -30,9 +72,7 @@
           lazy: true,
           background: true
         %}
-      {% endif %}
-      >
-      {% if onboarding %}
+      {% elsif onboarding %}
         {{ 'lifestyle-1' | placeholder_svg_tag }}
       {% endif %}
     </div>
@@ -89,6 +129,10 @@
         </div>
     </div>
   </div>
+
+
+
+
 </section>
 
 {% schema %}
@@ -128,6 +172,32 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video (Overrides Image)"
+    },
+    {
+      "type": "select",
+      "id": "video_behavior",
+      "label": "Video/Image Behavior",
+      "options": [
+        {
+          "label": "Image Shows on Mobile and Video On Desktop",
+          "value": "image_on_mobile_video_on_desktop"
+        },
+        {
+          "label": "Video Shows on Mobile and Image On Desktop",
+          "value": "video_on_mobile_video_on_desktop"
+        }
+      ],
+      "default": "image_on_mobile_video_on_desktop"
     },
     {
       "type": "select",
@@ -275,5 +345,4 @@
     }
   ]
 }
-
-{% endschema %}        
+{% endschema %}
