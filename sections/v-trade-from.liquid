@@ -1,0 +1,163 @@
+{% comment %} Custom Dynamic Form Section {% endcomment %}
+<div class="custom-form-container page-width">
+  {% if section.settings.title != blank %}
+    <h2>{{ section.settings.title }}</h2>
+  {% endif %}
+
+  {% form 'contact', class: 'custom-builder-form' %}
+    {% if form.posted_successfully? %}
+      <p class="form-status form-status-list form__message">Thanks for submitting!</p>
+    {% endif %}
+
+    {{ form.errors | default_errors }}
+
+    <div class="form-grid">
+      {% for block in section.blocks %}
+        {% assign field_name = block.settings.label | handleize %}
+        <div class="form-field-wrapper" {{ block.shopify_attributes }}>
+          <label for="field-{{ block.id }}">
+            {{ block.settings.label }}
+            {% if block.settings.required %} *{% endif %}
+          </label>
+
+          {% case block.type %}
+            {% when 'text_input' %}
+              <input
+                type="text"
+                id="field-{{ block.id }}"
+                name="contact[{{ block.settings.label }}]"
+                placeholder="{{ block.settings.placeholder }}"
+                {% if block.settings.required %}
+                  required
+                {% endif %}
+              >
+
+            {% when 'textarea' %}
+              <textarea
+                id="field-{{ block.id }}"
+                name="contact[{{ block.settings.label }}]"
+                rows="4"
+                placeholder="{{ block.settings.placeholder }}"
+                {% if block.settings.required %}
+                  required
+                {% endif %}
+              ></textarea>
+
+            {% when 'file_upload' %}
+              <!--
+                Note: Standard Shopify native forms ignore file binaries.
+                Hook this input up to Cloudinary/Uploadcare JS if you need actual file attachments.
+              -->
+              <input
+                type="file"
+                id="field-{{ block.id }}"
+                name="contact[{{ block.settings.label }}]"
+                accept="{{ block.settings.accept }}"
+                {% if block.settings.required %}
+                  required
+                {% endif %}
+              >
+
+            {% when 'radio_group' %}
+              {% assign options = block.settings.options | split: ',' %}
+              <div class="radio-options">
+                {% for option in options %}
+                  {% assign clean_option = option | strip %}
+                  <label class="radio-label">
+                    <input
+                      type="radio"
+                      name="contact[{{ block.settings.label }}]"
+                      value="{{ clean_option }}"
+                      {% if block.settings.required and forloop.first %}
+                        required
+                      {% endif %}
+                    >
+                    <span>{{ clean_option }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <button type="submit" class="button button--primary">
+      {{ section.settings.submit_label | default: 'Submit' }}
+    </button>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "V Dynamic Form Builder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Form Heading",
+      "default": "APPLY FOR A TRADE MEMBERSHIP"
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit Button Text",
+      "default": "Apply"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_input",
+      "name": "Text Field",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Field Label", "default": "Company Name" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder" },
+        { "type": "checkbox", "id": "required", "label": "Required?", "default": false }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "Textarea Field",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Field Label", "default": "Additional Information" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder" },
+        { "type": "checkbox", "id": "required", "label": "Required?", "default": false }
+      ]
+    },
+    {
+      "type": "file_upload",
+      "name": "File Upload",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Field Label", "default": "Resale Tax ID (PDF or JPG)" },
+        { "type": "text", "id": "accept", "label": "Accepted Formats", "default": ".pdf,.jpg,.png" },
+        { "type": "checkbox", "id": "required", "label": "Required?", "default": false }
+      ]
+    },
+    {
+      "type": "radio_group",
+      "name": "Radio Choices",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Field Label", "default": "Projects per year" },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options (Comma Separated)",
+          "default": "1-3 projects, 5-10 projects, 10+ projects"
+        },
+        { "type": "checkbox", "id": "required", "label": "Required?", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Dynamic Form Builder",
+      "blocks": [
+        { "type": "text_input", "settings": { "label": "Company name" } },
+        { "type": "text_input", "settings": { "label": "First name" } },
+        { "type": "text_input", "settings": { "label": "Last name" } },
+        { "type": "file_upload", "settings": { "label": "Resale Tax ID (Jpg. or PDF)" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

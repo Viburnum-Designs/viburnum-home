@@ -135,34 +135,103 @@
                 {% endif %}
               {% endif %}
             </div>
+          {% when 'gallery_image' %}
+            <button
+              type="button"
+              class="v-gallery-thumb"
+              data-index="{{ forloop.index0 }}"
+              data-full-src="{{ block.settings.image | image_url: width: 1600 }}"
+              data-alt="{{ block.settings.image.alt | escape }}"
+              aria-label="Open image {{ forloop.index }} in lightbox"
+            >
+              <img
+                src="{{ block.settings.image | image_url: width: 400 }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+              />
+            </button>
         {% endcase %}
       </li>
     {%- endfor -%}
   </ul>
 
-  <script>
-    let readMoreTextBtns = document.querySelectorAll('.js--read-more-text__toggle');
+  {%- comment -%}
+    ======================================================
+    CONDITIONAL MODAL & SCRIPTS (Rendered once outside loop)
+    ======================================================
+  {%- endcomment -%}
 
-    readMoreTextBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const container = btn.closest('.read-more-text__description');
-        const shortText = container.querySelector('.read-more-text__short');
-        const fullText = container.querySelector('.read-more-text__full');
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        if (isExpanded) {
-          shortText.style.display = 'block';
-          fullText.style.display = 'none';
-          btn.textContent = 'Read more';
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
-          shortText.style.display = 'none';
-          fullText.style.display = 'block';
-          btn.textContent = 'Read less';
-          btn.setAttribute('aria-expanded', 'true');
-        }
+  {%- assign gallery_blocks = section.blocks | where: 'type', 'gallery_image' -%}
+  {%- if gallery_blocks.size > 0 -%}
+    <!-- Single Modal Markup -->
+    <div
+      id="v-gallery-modal"
+      class="v-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image Gallery"
+      aria-hidden="true"
+    >
+      <div class="v-modal-overlay" data-close></div>
+      <div class="v-modal-content">
+        <div class="v-modal-top-bar">
+          <button type="button" class="icon-btn close-btn" data-close aria-label="Close modal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="v-modal-image-wrapper">
+          <img id="modal-active-img" src="" alt="" />
+        </div>
+
+        <button type="button" class="icon-btn nav-btn prev-btn" id="modal-prev" aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn nav-btn next-btn" id="modal-next" aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script></script>
+  {%- endif -%}
+
+  {%- assign read_more_blocks = section.blocks | where: 'type', 'read_more_text' -%}
+  {%- if read_more_blocks.size > 0 -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Event delegation handles all 'read more' buttons at once
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.js--read-more-text__toggle');
+          if (!btn) return;
+
+          const container = btn.closest('.read-more-text__description');
+          const shortText = container.querySelector('.read-more-text__short');
+          const fullText = container.querySelector('.read-more-text__full');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+          if (isExpanded) {
+            shortText.style.display = 'block';
+            fullText.style.display = 'none';
+            btn.textContent = 'Read more';
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            shortText.style.display = 'none';
+            fullText.style.display = 'block';
+            btn.textContent = 'Read less';
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
-    });
-  </script>
+    </script>
+  {%- endif -%}
 </section>
 {% schema %}
 {
@@ -402,6 +471,17 @@
           "type": "richtext",
           "id": "read_more_text_description",
           "label": "Read More Text Description"
+        }
+      ]
+    },
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Gallery Image"
         }
       ]
     }
