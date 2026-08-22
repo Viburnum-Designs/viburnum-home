@@ -159,9 +159,9 @@
         "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "50px",
+        "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
-        "row-gap": "0",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
@@ -176,6 +176,7 @@
       "settings": {
         "section_height": "original",
         "image": "shopify://shop_images/beauty-styled-v2.webp",
+        "video_behavior": "image_on_mobile_video_on_desktop",
         "position": "center center",
         "title": "BEAUTIFULLY STYLED",
         "text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
@@ -213,7 +214,7 @@
         "feature_card_YVhVLX": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/square-image3.webp",
+            "image": "shopify://shop_images/square_image4.webp",
             "feature_card_heading": "",
             "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease. </p>",
             "feature_card_url": "",
@@ -253,9 +254,9 @@
         "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "25px",
+        "row-gap": "0",
         "text_alignment": "center",
         "align_items": "start",
-        "row-gap": "0",
         "section_heading": "Bring The Beauty Of Nature Indoors",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
@@ -276,6 +277,7 @@
       "block_order": [
         "rich_text_DA6jB6"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "border": false,

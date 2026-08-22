@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "pxs_image_with_text_overlay_DqVXkp": {
+      "type": "pxs-image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "section_height": "medium",
+        "image": "shopify://shop_images/about-us__mobile-bg.avif",
+        "video": "shopify://files/videos/about-us-video-bg__optimized__v5.mp4",
+        "video_behavior": "image_on_mobile_video_on_desktop",
+        "position": "center center",
+        "title": "INSPIRATION",
+        "text": "<p><em>Styles come and go. Good design is a language, not a style.”  <br/>— Massimo Vignelli</em></p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "v_grid_DFUXac": {
+      "type": "v-grid",
+      "blocks": {
+        "gallery_image_X48BVw": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_3rwR69": {
+          "type": "gallery_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_image_X48BVw",
+        "gallery_image_3rwR69"
+      ],
+      "name": "V Grid",
+      "settings": {
+        "layout": "full-width",
+        "bleed": false,
+        "section_css_class": "",
+        "detect_when_in_view": false,
+        "column-gap": "0",
+        "row-gap": "0",
+        "text_alignment": "center",
+        "align_items": "center",
+        "section_heading": "",
+        "columns_desktop": "3",
+        "custom-breakpoint": "767",
+        "columns_mobile": "4",
+        "reverse-on-mobile": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pxs_image_with_text_overlay_DqVXkp",
+    "v_grid_DFUXac"
+  ]
+}
