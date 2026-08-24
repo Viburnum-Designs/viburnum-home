@@ -47,7 +47,7 @@
       </h2>
     </div>
   {% endif %}
-  <ul class="v-grid __align-{{section.settings.align_items}}">
+  <ul class="v-grid __align-{{section.settings.align_items}} __justify-{{section.settings.justify_items}}">
     {%- for block in section.blocks -%}
       <li class="v-grid__grid-item">
         {% case block.type %}
@@ -91,7 +91,7 @@
             {%- endif -%}
 
           {% when 'read_more_text' %}
-            <style>
+            {% style %}
               .read-more-text__toggle {
                 background: none;
                 border: none;
@@ -105,7 +105,7 @@
                   text-decoration: none;
                 }
               }
-            </style>
+            {% endstyle %}
             {% assign raw_text = block.settings.read_more_text_description | strip_html %}
             {% assign word_limit = 30 %}
             {% comment %} Adjust desired word limit here {% endcomment %}
@@ -136,9 +136,23 @@
               {% endif %}
             </div>
           {% when 'gallery_image' %}
+            {% style %}
+              .v-gallery-thumb__btn {
+                display: block;
+                padding: 0;
+                border: 0;
+                aspect-ratio: 1 / 1;
+              }
+              .v-gallery-thumb__img {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+              }
+            {% endstyle %}
             <button
               type="button"
-              class="v-gallery-thumb"
+              class="v-gallery-thumb__btn"
               data-index="{{ forloop.index0 }}"
               data-full-src="{{ block.settings.image | image_url: width: 1600 }}"
               data-alt="{{ block.settings.image.alt | escape }}"
@@ -147,6 +161,7 @@
               <img
                 src="{{ block.settings.image | image_url: width: 400 }}"
                 alt="{{ block.settings.image.alt | escape }}"
+                class="v-gallery-thumb__img"
                 loading="lazy"
               />
             </button>
@@ -321,6 +336,26 @@
       ],
       "default": "center",
       "label": "Align Items"
+    },
+    {
+      "type": "select",
+      "id": "justify_items",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center",
+      "label": "Justify Items"
     },
 
     {

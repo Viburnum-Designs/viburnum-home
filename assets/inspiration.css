@@ -1,6 +1,16 @@
 .pxs-image-with-text{
   position: relative;
+  overflow: hidden;
+
 }
+ 
+
+@media screen and (min-width: 999px){
+  .pxs-image-with-text-background{
+    background-image: none!important;
+  }
+}
+
 
 .pxs-image-with-text-wrapper{
   position: static;
@@ -27,3 +37,4 @@
         padding: 12px 0;
     }
 }
+
