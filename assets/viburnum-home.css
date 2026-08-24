@@ -1000,6 +1000,10 @@ input[type='submit'].header-search-button {
   pointer-events: auto !important;
 }
 
+.surface-pick-up-modal.modal-opened {
+  display: block;
+}
+
 .modal-inner{
   opacity: 1 
 }
