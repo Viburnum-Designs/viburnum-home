@@ -1,0 +1,130 @@
+<style>
+  .main-content .shopify-section {
+    margin: 0;
+  }
+
+  .contact-form__grid {
+    display: flex;
+    flex-direction: column-reverse;
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contact-grid__item {
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-form-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .form-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .field-wrap label {
+    font-family: var(--heading-font);
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  .field-wrap input,
+  .field-wrap textarea {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #666;
+    width: 100%;
+    max-width: 100%;
+  }
+</style>
+
+<div class="contact-form__grid">
+  <div class="contact-grid__item">
+    {% render 'rimg', img: section.settings.image, class: 'contact-form-image', size: '490x754' %}
+  </div>
+  <div class="contact-grid__item">
+    <div class="form-container">
+      <h1 class="page-title section-title">{{ page.title }}</h1>
+      {% form 'contact' %}
+        {% if form.errors %}
+          <div class="error-message">
+            <span>{{ 'general.contact.error' | t }}</span>
+          </div>
+        {% endif %}
+
+        {% if form.posted_successfully? %}
+          <div class="success-message">{{ 'general.contact.success' | t }}</div>
+        {% else %}
+          <div class="field-wrap name">
+            <label for="contact[name]">{{ 'general.general.name' | t }}*</label>
+            <input
+              type="text"
+
+              value=""
+              name="contact[name]"
+              class="{% if form.errors contains "author" %}error{% endif %}"
+            >
+          </div>
+
+          <div class="field-wrap email">
+            <label for="contact[email]">{{ 'general.general.email' | t }}*</label>
+            <input
+              type="text"
+
+              value=""
+              name="contact[email]"
+              class="{% if form.errors contains "email" %}error{% endif %}"
+            >
+          </div>
+
+          <div class="field-wrap message">
+            <label for="contact[body]">{{ 'general.general.message' | t }}</label>
+            <textarea name="contact[body]" class="{% if form.errors contains "body" %}error{% endif %}"></textarea>
+          </div>
+
+          <input type="hidden" class="comment-check" value="" />
+          <input type="submit" value="Send">
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% comment %}
+   <div class="page-content rte">
+    {% comment %} {{ page.content }} {% endcomment %}
+  </div>
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "V Contact Form",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Contact Form Image"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Contact Form"
+    }
+  ]
+}
+{% endschema %}
