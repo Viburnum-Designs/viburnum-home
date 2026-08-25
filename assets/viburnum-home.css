@@ -166,6 +166,17 @@ Pages
   }
 }
 
+.__text-left{
+  text-align: left;
+}
+
+.__text-center{
+  text-align: center;
+}
+
+.__text-right{
+  text-align: right;
+}
 
 /* Components
 =============*/
