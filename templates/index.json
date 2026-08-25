@@ -198,7 +198,7 @@
           "settings": {
             "image": "shopify://shop_images/square_image4.webp",
             "feature_card_heading": "",
-            "feature_card_text": "<p>Shop Online</p>",
+            "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -208,7 +208,7 @@
           "settings": {
             "image": "shopify://shop_images/square-image2.webp",
             "feature_card_heading": "",
-            "feature_card_text": "<p>Summit Studio</p>",
+            "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -218,7 +218,7 @@
           "settings": {
             "image": "shopify://shop_images/square-image1.webp",
             "feature_card_heading": "",
-            "feature_card_text": "<p>Princeton Studio</p>",
+            "feature_card_text": "<p>Our moss and preserved pieces are created by hand, so no two are quite alike.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -306,7 +306,7 @@
         "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
-        "overlay_background": "#683A05",
+        "overlay_background": "#683a05",
         "overlay_opacity": 35,
         "link": "shopify://collections/holiday",
         "button_text": "Shop Fall"
