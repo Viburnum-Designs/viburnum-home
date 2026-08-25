@@ -102,6 +102,7 @@ Pages
   font-weight: 400;
   &:hover{
     background-color: var(--hover-color); 
+    color: #fff;
   }
   :active{
     translate: 0,-1px;
