@@ -37,6 +37,7 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": false,
         "heading": "Frequently Asked Questions."
       }
@@ -44,6 +45,21 @@
     "v_grid_4QmpRH": {
       "type": "v-grid",
       "blocks": {
+        "feature_card_dRhKU7": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Can I cancel my order?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_fyxbg6": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>We offer a 24-hour grace period for order cancellations as long as your order has not shipped. Should you wish to cancel your order, please contact us at <a href=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a> or call us at 908 6798855within 24 hours for assistance.</p>"
+          }
+        },
         "feature_card_Jggram": {
           "type": "feature_card",
           "settings": {
@@ -166,6 +182,8 @@
         }
       },
       "block_order": [
+        "feature_card_dRhKU7",
+        "read_more_text_fyxbg6",
         "feature_card_Jggram",
         "read_more_text_97gBxj",
         "feature_card_wHQPkL",
@@ -185,14 +203,15 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "faqs-grid",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "faqs-grid",
         "detect_when_in_view": false,
         "column-gap": "0",
+        "row-gap": "0",
         "text_alignment": "left",
         "align_items": "start",
-        "row-gap": "0",
+        "justify_items": "center",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
