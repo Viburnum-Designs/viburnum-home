@@ -1,1 +1,596 @@
-{"sections":{"home_image_with_text_overlay":{"type":"pxs-image-with-text-overlay","disabled":true,"settings":{"section_height":"large","image":"shopify:\/\/shop_images\/mossPanelOnWall.jpg","position":"center left","title":"Bring the Beauty of Nature Indoors","text":"","content_position":"center-center","color":"#ffffff","overlay_background":"#000000","overlay_opacity":50,"link":"shopify:\/\/collections","button_text":"Shop Now"}},"pxs_image_with_text_overlay_6TgDKd":{"type":"pxs-image-with-text-overlay","disabled":true,"settings":{"section_height":"small","image":"shopify:\/\/shop_images\/IMG_4597.jpg","position":"bottom center","title":"Holiday Elegance Awaits!","text":"<p>This holiday season, let Viburnum Designs bring elegance and warmth to your celebrations. Shop our WINTER COLLECTION, with stunning faux stems and festive arrangements, we create magic for every moment. Make your holidays bloom with beauty!<\/p><p>Coming November 2024!<\/p>","content_position":"center-center","color":"#ffffff","overlay_background":"#000000","overlay_opacity":50,"link":"shopify:\/\/collections\/winter","button_text":"SHOP NOW"}},"1658862662062fc7f4":{"type":"pxs-image-with-text-overlay","custom_css":[".pxs-image-with-text-content {width: 25%; border-style: none; background: #fffff0aa; text-align: left; padding-left: 15px; font-size: 14px; font-style: \"garamond\";}",".pxs-image-with-text-heading {font-size: 20px; font-style: \"garamond\";}"],"settings":{"section_height":"original","image":"shopify:\/\/shop_images\/IMG_4558_2.jpg","position":"top center","title":"FAUX ORCHID ARRANGEMENT","text":"<p>Bring the Beauty of Nature Indoors to Any Space<\/p>","content_position":"top-right","color":"#313131","overlay_background":"#000000","overlay_opacity":10,"link":"shopify:\/\/collections\/faux-arrangements","button_text":"Shop Now"}},"1658951788a00a7e69":{"type":"custom-liquid","settings":{"custom_liquid":"<div>\n<h2 align=\"center\">Bring the Beauty of Nature Indoors<\/h2>\n<p style=\"\ntext-align:center;\npadding: 0px 50px 0px;\n\">Inspired by nature, our designers create stunning faux succulent gardens \n\nand preserved moss arrangements that are exclusive to Viburnum Home.   \n\nWith the beauty and style of our faux arrangements, you can bring a \n\nnatural aesthetic into your home with ease. Our moss and preserved pieces are created by hand, so no two are quite \n\nalike.\n<br>\n<span class=\"pxs-image-with-text-button\"><a href=\/collections\/preserved-moss style=\"color:white;\">\n            Shop our Moss Pieces <\/a>\n          <\/span>\n<\/p>\n<\/div>"}},"1656616785f8d7d132":{"type":"home-message","blocks":{"1656616785559ed98d-0":{"type":"rich-text","settings":{"rich_text":"<p>We feature a wide collection of dried, faux and preserved moss pieces which require no maintenance, without losing any of the magic of bringing the beauty of natural and organic elements to your home or office.<\/p>"}}},"block_order":["1656616785559ed98d-0"],"disabled":true,"settings":{"border":false,"heading":"Bring the Beauty of Nature Indoors"}},"pxs_image_with_text_overlay_LB6DnR":{"type":"pxs-image-with-text-overlay","disabled":true,"settings":{"section_height":"small","image":"shopify:\/\/shop_images\/Screenshot_2024-07-09_161437_c4980fe1-4699-4552-94c7-b64ef5f75a6d.png","position":"center center","title":"Fall Collection","text":"<p>This collection contains a beautiful, wide variety of species selected especially for the season of fall. Each stem designed with lifelike petals and realistic foliage, ensuring that your arrangements look as natural as possible. The durability of our faux stems, branches, and greenery means they’ll stay fresh and beautiful season after season, with no need for watering or maintenance.<\/p><p>Coming August 2024!<\/p>","content_position":"center-center","color":"#ffffff","overlay_background":"#000000","overlay_opacity":50,"link":"shopify:\/\/collections\/fall-collection-1","button_text":"SHOW NOW"}},"home_products-2":{"type":"home-products","settings":{"title":"Shop Our Favorites","collection":"preserved-moss","product-columns":4,"product-rows":1}},"home_masonry":{"type":"home-masonry","blocks":{"block_1":{"type":"image_feature","settings":{"title":"Our Story","subheading":"","url":"shopify:\/\/pages\/about-us","color":"white","mobile":true,"image":"shopify:\/\/shop_images\/271491370_388942223002615_6656967018234691111_n.jpg","show_overlay":false,"overlay_color":"#000000","opacity":1}},"block_2":{"type":"image_feature","settings":{"title":"Styling Inspiration","subheading":"","url":"shopify:\/\/pages\/styling","color":"white","mobile":true,"image":"shopify:\/\/shop_images\/IMG_7495_90235469-b8ba-4d29-9e6b-678b9f686a0c.jpg","show_overlay":false,"overlay_color":"#000000","opacity":50}},"block_3":{"type":"image_feature","settings":{"title":"Shop Preserved Moss","subheading":"","url":"shopify:\/\/collections\/preserved-moss","color":"white","mobile":true,"image":"shopify:\/\/shop_images\/283740133_375682901254036_6176179174705309275_n.jpg","show_overlay":false,"overlay_color":"#000000","opacity":15}},"block_4":{"type":"image_feature","settings":{"title":"Shop Faux Stems","subheading":"","url":"shopify:\/\/collections\/faux-stems","color":"white","mobile":true,"image":"shopify:\/\/shop_images\/ets.jpg","show_overlay":false,"overlay_color":"#000000","opacity":100}},"block_5":{"type":"image_feature","disabled":true,"settings":{"title":"Tabletop Pieces","subheading":"","url":"","color":"white","mobile":true,"image":"shopify:\/\/shop_images\/frontPage2.jpg","show_overlay":false,"overlay_color":"#000000","opacity":50}},"da968052-6e34-4020-8a9a-933608fad985":{"type":"image_feature","disabled":true,"settings":{"title":"Masonry feature","subheading":"Showcase up to six features with overlaying text","url":"","color":"black","mobile":true,"show_overlay":false,"overlay_color":"#000000","opacity":50}}},"block_order":["block_1","block_2","block_3","block_4","block_5","da968052-6e34-4020-8a9a-933608fad985"],"settings":{"layout":"content-width","gutters":true,"hover":true,"hover-animation":true}},"34b94f90-185e-44ee-b800-f3154b80c838":{"type":"home-slideshow","blocks":{"7cf4a07b-d664-450d-8fb8-ca236f0250a5":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/frontPage2.jpg","content-alignment":"center","overlay-color":"#262626","title":"PRESERVED MOSS PIECES","subheading":"Bring the Beauty of Nature Indoors to any space","cta":"Shop Now","url":"shopify:\/\/collections\/preserved-moss"}},"template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-1":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/IMG_4558_2.jpg","content-alignment":"center","overlay-color":"#262626","title":"PRESERVED MOSS PIECES","subheading":"Bring the Beauty of Nature Indoors to any space","cta":"Shop Now","url":"shopify:\/\/collections\/preserved-moss"}},"template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-2":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/IMG_4567.jpg","content-alignment":"center","overlay-color":"#f5f4f2","title":"PRESERVED MOSS PIECES","subheading":"Bring the Beauty of Nature Indoors to any space","cta":"Shop Now","url":"shopify:\/\/collections\/preserved-moss"}},"template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-3":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/IMG_4595_2.png","content-alignment":"center","overlay-color":"#f5f4f2","title":"PRESERVED MOSS PIECES","subheading":"Bring the Beauty of Nature Indoors to any space","cta":"Shop Now","url":"shopify:\/\/collections\/preserved-moss"}}},"block_order":["7cf4a07b-d664-450d-8fb8-ca236f0250a5","template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-1","template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-2","template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-3"],"disabled":true,"custom_css":["img {margin-left: auto; margin-right: auto; width: 70%;}","h1 {font-size: 32px;}","p {font-size: 16px;}",".home-slideshow-slide-content {top: 20%;}"],"settings":{"layout":"content-width","controls-color":"#807a71","autoplay":false,"autoplay_delay":3,"autoplay-hover-pause":false}},"16554079153a27eaac":{"type":"pxs-image-with-text-overlay","settings":{"section_height":"small","image":"shopify:\/\/shop_images\/IMG_4595.jpg","position":"center center","title":"PRESERVED MOSS PIECES","text":"","content_position":"top-left","color":"#ffffff","overlay_background":"#000000","overlay_opacity":29,"link":"shopify:\/\/collections\/preserved-moss","button_text":"Shop Moss Pieces"}},"1655407661f286e5f3":{"type":"home-message","blocks":{"165540766176efd73a-0":{"type":"rich-text","settings":{"rich_text":"<p>We feature a wide collection of items that require no maintenance, without losing any of the magic of bringing a green plant to your home or office. Whether you have a green or black thumb, anyone can appreciate having a plant in the home without worrying about possibly killing it. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike.<\/p>"}}},"block_order":["165540766176efd73a-0"],"disabled":true,"settings":{"border":false,"heading":"HANDCRAFTED & PRESERVED BOTANICALS"}},"1656008870849f1c73":{"type":"pxs-map","disabled":true,"settings":{"section_height":"small","title":"Location","content":"<p>202 Nassau Street, <\/p><p>Princeton NJ, 08540<\/p>","text_alignment":"center","layout":"overlay-center-center","layout_mobile":"below","address":"202 Nassau Street, Princeton NJ, 08540","api_key":"","enable_custom_colors":false,"foreground_color":"#292929","background_color":"#ffffff","zoom":2,"image":"shopify:\/\/shop_images\/frontPage2.jpg","image_position":"center center","overlay_color":"#000000","opacity":10}},"1660163797d88a74c5":{"type":"home-message","blocks":{"16601637972346de90-0":{"type":"rich-text","settings":{"rich_text":"<p>Follow us on instagram<\/p>"}}},"block_order":["16601637972346de90-0"],"disabled":true,"settings":{"border":true,"heading":"Follow us on Instagram"}},"1658946557d534a62a":{"type":"home-message","blocks":{"1658946557ad13de8d-0":{"type":"rich-text","settings":{"rich_text":"<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you. <a href=\"\/pages\/contact\" title=\"Contact\">Contact us now!<\/a><\/p>"}}},"block_order":["1658946557ad13de8d-0"],"settings":{"border":true,"heading":"Beautifully Styled"}},"home_promotion_4nkdLy":{"type":"home-promotion","settings":{"layout":"full-width","text_alignment":"center","text_color":"#000000","title":"","subtitle":"","button_text":"","button_url":"","image":"shopify:\/\/shop_images\/Screenshot_2022-01-27_at_7.20.59_PM_def32ba2-0f90-4520-b41c-aba2b435bbfa.jpg"}},"16589464375375a638":{"type":"home-masonry","blocks":{"1658946437e462a284-2":{"type":"image_feature","settings":{"title":"","subheading":"","url":"","color":"black","mobile":true,"image":"shopify:\/\/shop_images\/Screenshot_2022-01-27_at_7.20.59_PM_f50669a6-b446-48c3-93a2-11e344a9ddad.jpg","show_overlay":false,"overlay_color":"#000000","opacity":50}},"1658946437e462a284-3":{"type":"image_feature","disabled":true,"settings":{"title":"Masonry feature","subheading":"Showcase up to six features with overlaying text","url":"","color":"black","mobile":true,"show_overlay":false,"overlay_color":"#000000","opacity":50}},"1658946437e462a284-4":{"type":"image_feature","disabled":true,"settings":{"title":"Masonry feature","subheading":"Showcase up to six features with overlaying text","url":"","color":"black","mobile":true,"show_overlay":false,"overlay_color":"#000000","opacity":50}},"1658946437e462a284-5":{"type":"image_feature","disabled":true,"settings":{"title":"Masonry feature","subheading":"Showcase up to six features with overlaying text","url":"","color":"black","mobile":true,"show_overlay":false,"overlay_color":"#000000","opacity":50}}},"block_order":["1658946437e462a284-2","1658946437e462a284-3","1658946437e462a284-4","1658946437e462a284-5"],"disabled":true,"settings":{"layout":"content-width","gutters":true,"hover":false,"hover-animation":true}},"1656441300b2f74041":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":""}},"16588638653e1c38c6":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":""}},"1656617534e56aa4ac":{"type":"pxs-newsletter","disabled":true,"settings":{"title":"Let's work together","text":"<p>Get in touch so we can start working together.<\/p>","desktop_alignment":"left","mobile_alignment":"top"}},"1656008826607fcee3":{"type":"home-testimonials","blocks":{"16560088266d0b36aa-0":{"type":"testimonial","settings":{"quote":"By far the best looking moss that wasn't alive I've seen","title":"Logan Levine","role":"President of the World"}},"16560088266d0b36aa-1":{"type":"testimonial","settings":{"quote":"By far the best looking moss that wasn't alive I've seen","title":"Logan Levine","role":"President of the World"}},"16560088266d0b36aa-2":{"type":"testimonial","settings":{"quote":"By far the best looking moss that wasn't alive I've seen","title":"Logan Levine","role":"President of the World"}}},"block_order":["16560088266d0b36aa-0","16560088266d0b36aa-1","16560088266d0b36aa-2"],"disabled":true,"settings":{"title":"Words From Our Clients","per_row":3,"style":"bordered"}},"16601548929e673f4d":{"type":"custom-liquid2","disabled":true,"settings":{"custom_liquid":"<p><\/p>\n<h2 style=\"\ntext-align:center;\npadding: 0px 470px 0px;\n\">\nFollow us on Instagram\n<\/h2>\n<br><br>"}},"ca34755b-3d6b-4b9c-8e46-77dc44242e57":{"type":"custom-liquid","settings":{"custom_liquid":"<p><\/p>\n<h2 style=\"\ntext-align:center;\npadding: 0px 390px 0px;\n\">\nFollow us on Instagram @viburnum.home\n<\/h2>\n<br><br>"}},"168979388989282118":{"type":"apps","blocks":{"tagembed_social_post_review_app_block_h8zHzx":{"type":"shopify:\/\/apps\/google-reviews-social-proof\/blocks\/app-block\/16930ea9-fb6e-46ac-90fd-526ff0431478","settings":{"tagembed_widget":"2223587","tagembed_widget_position":"center","tagembed_widget_height":"450","tagembed_widget_width":100}}},"block_order":["tagembed_social_post_review_app_block_h8zHzx"],"settings":{}}},"order":["home_image_with_text_overlay","pxs_image_with_text_overlay_6TgDKd","1658862662062fc7f4","1658951788a00a7e69","1656616785f8d7d132","pxs_image_with_text_overlay_LB6DnR","home_products-2","home_masonry","34b94f90-185e-44ee-b800-f3154b80c838","16554079153a27eaac","1655407661f286e5f3","1656008870849f1c73","1660163797d88a74c5","1658946557d534a62a","home_promotion_4nkdLy","16589464375375a638","1656441300b2f74041","16588638653e1c38c6","1656617534e56aa4ac","1656008826607fcee3","16601548929e673f4d","ca34755b-3d6b-4b9c-8e46-77dc44242e57","168979388989282118"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "home_image_with_text_overlay": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "large",
+        "image": "shopify://shop_images/mossPanelOnWall.jpg",
+        "position": "center left",
+        "title": "Bring the Beauty of Nature Indoors",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "shopify://collections",
+        "button_text": "Shop Now"
+      }
+    },
+    "pxs_image_with_text_overlay_6TgDKd": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "small",
+        "image": "shopify://shop_images/IMG_4597.jpg",
+        "position": "bottom center",
+        "title": "Holiday Elegance Awaits!",
+        "text": "<p>This holiday season, let Viburnum Designs bring elegance and warmth to your celebrations. Shop our WINTER COLLECTION, with stunning faux stems and festive arrangements, we create magic for every moment. Make your holidays bloom with beauty!</p><p>Coming November 2024!</p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "shopify://collections/winter",
+        "button_text": "SHOP NOW"
+      }
+    },
+    "1658862662062fc7f4": {
+      "type": "pxs-image-with-text-overlay",
+      "custom_css": [
+        ".pxs-image-with-text-content {width: 25%; border-style: none; background: #fffff0aa; text-align: left; padding-left: 15px; font-size: 14px; font-style: \"garamond\";}",
+        ".pxs-image-with-text-heading {font-size: 20px; font-style: \"garamond\";}"
+      ],
+      "settings": {
+        "section_height": "original",
+        "image": "shopify://shop_images/IMG_4558_2.jpg",
+        "position": "top center",
+        "title": "FAUX ORCHID ARRANGEMENT",
+        "text": "<p>Bring the Beauty of Nature Indoors to Any Space</p>",
+        "content_position": "top-right",
+        "color": "#313131",
+        "overlay_background": "#000000",
+        "overlay_opacity": 10,
+        "link": "shopify://collections/faux-arrangements",
+        "button_text": "Shop Now"
+      }
+    },
+    "1658951788a00a7e69": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div>\n<h2 align=\"center\">Bring the Beauty of Nature Indoors</h2>\n<p style=\"\ntext-align:center;\npadding: 0px 50px 0px;\n\">Inspired by nature, our designers create stunning faux succulent gardens \n\nand preserved moss arrangements that are exclusive to Viburnum Home.   \n\nWith the beauty and style of our faux arrangements, you can bring a \n\nnatural aesthetic into your home with ease. Our moss and preserved pieces are created by hand, so no two are quite \n\nalike.\n<br>\n<span class=\"pxs-image-with-text-button\"><a href=/collections/preserved-moss style=\"color:white;\">\n            Shop our Moss Pieces </a>\n          </span>\n</p>\n</div>"
+      }
+    },
+    "1656616785f8d7d132": {
+      "type": "home-message",
+      "blocks": {
+        "1656616785559ed98d-0": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>We feature a wide collection of dried, faux and preserved moss pieces which require no maintenance, without losing any of the magic of bringing the beauty of natural and organic elements to your home or office.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1656616785559ed98d-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": false,
+        "heading": "Bring the Beauty of Nature Indoors"
+      }
+    },
+    "pxs_image_with_text_overlay_LB6DnR": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "small",
+        "image": "shopify://shop_images/Screenshot_2024-07-09_161437_c4980fe1-4699-4552-94c7-b64ef5f75a6d.png",
+        "position": "center center",
+        "title": "Fall Collection",
+        "text": "<p>This collection contains a beautiful, wide variety of species selected especially for the season of fall. Each stem designed with lifelike petals and realistic foliage, ensuring that your arrangements look as natural as possible. The durability of our faux stems, branches, and greenery means they’ll stay fresh and beautiful season after season, with no need for watering or maintenance.</p><p>Coming August 2024!</p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "shopify://collections/fall-collection",
+        "button_text": "SHOW NOW"
+      }
+    },
+    "home_products-2": {
+      "type": "home-products",
+      "settings": {
+        "title": "Shop Our Favorites",
+        "collection": "preserved-moss",
+        "product-columns": 4,
+        "product-rows": 1
+      }
+    },
+    "home_masonry": {
+      "type": "home-masonry",
+      "blocks": {
+        "block_1": {
+          "type": "image_feature",
+          "settings": {
+            "title": "Our Story",
+            "subheading": "",
+            "url": "shopify://pages/about-us",
+            "color": "white",
+            "mobile": true,
+            "image": "shopify://shop_images/271491370_388942223002615_6656967018234691111_n.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 1
+          }
+        },
+        "block_2": {
+          "type": "image_feature",
+          "settings": {
+            "title": "Styling Inspiration",
+            "subheading": "",
+            "url": "shopify://pages/styling",
+            "color": "white",
+            "mobile": true,
+            "image": "shopify://shop_images/IMG_7495_90235469-b8ba-4d29-9e6b-678b9f686a0c.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        },
+        "block_3": {
+          "type": "image_feature",
+          "settings": {
+            "title": "Shop Preserved Moss",
+            "subheading": "",
+            "url": "shopify://collections/preserved-moss",
+            "color": "white",
+            "mobile": true,
+            "image": "shopify://shop_images/283740133_375682901254036_6176179174705309275_n.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 15
+          }
+        },
+        "block_4": {
+          "type": "image_feature",
+          "settings": {
+            "title": "Shop Faux Stems",
+            "subheading": "",
+            "url": "shopify://collections/faux-stems",
+            "color": "white",
+            "mobile": true,
+            "image": "shopify://shop_images/ets.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 100
+          }
+        },
+        "block_5": {
+          "type": "image_feature",
+          "disabled": true,
+          "settings": {
+            "title": "Tabletop Pieces",
+            "subheading": "",
+            "url": "",
+            "color": "white",
+            "mobile": true,
+            "image": "shopify://shop_images/frontPage2.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        },
+        "da968052-6e34-4020-8a9a-933608fad985": {
+          "type": "image_feature",
+          "disabled": true,
+          "settings": {
+            "title": "Masonry feature",
+            "subheading": "Showcase up to six features with overlaying text",
+            "url": "",
+            "color": "black",
+            "mobile": true,
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "da968052-6e34-4020-8a9a-933608fad985"
+      ],
+      "settings": {
+        "layout": "content-width",
+        "gutters": true,
+        "hover": true,
+        "hover-animation": true
+      }
+    },
+    "34b94f90-185e-44ee-b800-f3154b80c838": {
+      "type": "home-slideshow",
+      "blocks": {
+        "7cf4a07b-d664-450d-8fb8-ca236f0250a5": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/frontPage2.jpg",
+            "content-alignment": "center",
+            "overlay-color": "#262626",
+            "title": "PRESERVED MOSS PIECES",
+            "subheading": "Bring the Beauty of Nature Indoors to any space",
+            "cta": "Shop Now",
+            "url": "shopify://collections/preserved-moss"
+          }
+        },
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4558_2.jpg",
+            "content-alignment": "center",
+            "overlay-color": "#262626",
+            "title": "PRESERVED MOSS PIECES",
+            "subheading": "Bring the Beauty of Nature Indoors to any space",
+            "cta": "Shop Now",
+            "url": "shopify://collections/preserved-moss"
+          }
+        },
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4567.jpg",
+            "content-alignment": "center",
+            "overlay-color": "#f5f4f2",
+            "title": "PRESERVED MOSS PIECES",
+            "subheading": "Bring the Beauty of Nature Indoors to any space",
+            "cta": "Shop Now",
+            "url": "shopify://collections/preserved-moss"
+          }
+        },
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4595_2.png",
+            "content-alignment": "center",
+            "overlay-color": "#f5f4f2",
+            "title": "PRESERVED MOSS PIECES",
+            "subheading": "Bring the Beauty of Nature Indoors to any space",
+            "cta": "Shop Now",
+            "url": "shopify://collections/preserved-moss"
+          }
+        }
+      },
+      "block_order": [
+        "7cf4a07b-d664-450d-8fb8-ca236f0250a5",
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-1",
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-2",
+        "template--15231779274892__34b94f90-185e-44ee-b800-f3154b80c838-slide-3"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "img {margin-left: auto; margin-right: auto; width: 70%;}",
+        "h1 {font-size: 32px;}",
+        "p {font-size: 16px;}",
+        ".home-slideshow-slide-content {top: 20%;}"
+      ],
+      "settings": {
+        "layout": "content-width",
+        "controls-color": "#807a71",
+        "autoplay": false,
+        "autoplay_delay": 3,
+        "autoplay-hover-pause": false
+      }
+    },
+    "16554079153a27eaac": {
+      "type": "pxs-image-with-text-overlay",
+      "settings": {
+        "section_height": "small",
+        "image": "shopify://shop_images/IMG_4595.jpg",
+        "position": "center center",
+        "title": "PRESERVED MOSS PIECES",
+        "text": "",
+        "content_position": "top-left",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 29,
+        "link": "shopify://collections/preserved-moss",
+        "button_text": "Shop Moss Pieces"
+      }
+    },
+    "1655407661f286e5f3": {
+      "type": "home-message",
+      "blocks": {
+        "165540766176efd73a-0": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>We feature a wide collection of items that require no maintenance, without losing any of the magic of bringing a green plant to your home or office. Whether you have a green or black thumb, anyone can appreciate having a plant in the home without worrying about possibly killing it. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "165540766176efd73a-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": false,
+        "heading": "HANDCRAFTED & PRESERVED BOTANICALS"
+      }
+    },
+    "1656008870849f1c73": {
+      "type": "pxs-map",
+      "disabled": true,
+      "settings": {
+        "section_height": "small",
+        "title": "Location",
+        "content": "<p>202 Nassau Street, </p><p>Princeton NJ, 08540</p>",
+        "text_alignment": "center",
+        "layout": "overlay-center-center",
+        "layout_mobile": "below",
+        "address": "202 Nassau Street, Princeton NJ, 08540",
+        "api_key": "",
+        "enable_custom_colors": false,
+        "foreground_color": "#292929",
+        "background_color": "#ffffff",
+        "zoom": 2,
+        "image": "shopify://shop_images/frontPage2.jpg",
+        "image_position": "center center",
+        "overlay_color": "#000000",
+        "opacity": 10
+      }
+    },
+    "1660163797d88a74c5": {
+      "type": "home-message",
+      "blocks": {
+        "16601637972346de90-0": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>Follow us on instagram</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16601637972346de90-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": true,
+        "heading": "Follow us on Instagram"
+      }
+    },
+    "1658946557d534a62a": {
+      "type": "home-message",
+      "blocks": {
+        "1658946557ad13de8d-0": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you. <a href=\"/pages/contact\" title=\"Contact\">Contact us now!</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "1658946557ad13de8d-0"
+      ],
+      "settings": {
+        "border": true,
+        "heading": "Beautifully Styled"
+      }
+    },
+    "home_promotion_4nkdLy": {
+      "type": "home-promotion",
+      "settings": {
+        "layout": "full-width",
+        "text_alignment": "center",
+        "text_color": "#000000",
+        "title": "",
+        "subtitle": "",
+        "button_text": "",
+        "button_url": "",
+        "image": "shopify://shop_images/Screenshot_2022-01-27_at_7.20.59_PM_def32ba2-0f90-4520-b41c-aba2b435bbfa.jpg"
+      }
+    },
+    "16589464375375a638": {
+      "type": "home-masonry",
+      "blocks": {
+        "1658946437e462a284-2": {
+          "type": "image_feature",
+          "settings": {
+            "title": "",
+            "subheading": "",
+            "url": "",
+            "color": "black",
+            "mobile": true,
+            "image": "shopify://shop_images/Screenshot_2022-01-27_at_7.20.59_PM_f50669a6-b446-48c3-93a2-11e344a9ddad.jpg",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        },
+        "1658946437e462a284-3": {
+          "type": "image_feature",
+          "disabled": true,
+          "settings": {
+            "title": "Masonry feature",
+            "subheading": "Showcase up to six features with overlaying text",
+            "url": "",
+            "color": "black",
+            "mobile": true,
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        },
+        "1658946437e462a284-4": {
+          "type": "image_feature",
+          "disabled": true,
+          "settings": {
+            "title": "Masonry feature",
+            "subheading": "Showcase up to six features with overlaying text",
+            "url": "",
+            "color": "black",
+            "mobile": true,
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        },
+        "1658946437e462a284-5": {
+          "type": "image_feature",
+          "disabled": true,
+          "settings": {
+            "title": "Masonry feature",
+            "subheading": "Showcase up to six features with overlaying text",
+            "url": "",
+            "color": "black",
+            "mobile": true,
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "1658946437e462a284-2",
+        "1658946437e462a284-3",
+        "1658946437e462a284-4",
+        "1658946437e462a284-5"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "content-width",
+        "gutters": true,
+        "hover": false,
+        "hover-animation": true
+      }
+    },
+    "1656441300b2f74041": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": ""
+      }
+    },
+    "16588638653e1c38c6": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": ""
+      }
+    },
+    "1656617534e56aa4ac": {
+      "type": "pxs-newsletter",
+      "disabled": true,
+      "settings": {
+        "title": "Let's work together",
+        "text": "<p>Get in touch so we can start working together.</p>",
+        "desktop_alignment": "left",
+        "mobile_alignment": "top"
+      }
+    },
+    "1656008826607fcee3": {
+      "type": "home-testimonials",
+      "blocks": {
+        "16560088266d0b36aa-0": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "By far the best looking moss that wasn't alive I've seen",
+            "title": "Logan Levine",
+            "role": "President of the World"
+          }
+        },
+        "16560088266d0b36aa-1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "By far the best looking moss that wasn't alive I've seen",
+            "title": "Logan Levine",
+            "role": "President of the World"
+          }
+        },
+        "16560088266d0b36aa-2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "By far the best looking moss that wasn't alive I've seen",
+            "title": "Logan Levine",
+            "role": "President of the World"
+          }
+        }
+      },
+      "block_order": [
+        "16560088266d0b36aa-0",
+        "16560088266d0b36aa-1",
+        "16560088266d0b36aa-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Words From Our Clients",
+        "per_row": 3,
+        "style": "bordered"
+      }
+    },
+    "16601548929e673f4d": {
+      "type": "custom-liquid2",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<p></p>\n<h2 style=\"\ntext-align:center;\npadding: 0px 470px 0px;\n\">\nFollow us on Instagram\n</h2>\n<br><br>"
+      }
+    },
+    "ca34755b-3d6b-4b9c-8e46-77dc44242e57": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<p></p>\n<h2 style=\"\ntext-align:center;\npadding: 0px 390px 0px;\n\">\nFollow us on Instagram @viburnum.home\n</h2>\n<br><br>"
+      }
+    },
+    "168979388989282118": {
+      "type": "apps",
+      "blocks": {
+        "tagembed_social_post_review_app_block_h8zHzx": {
+          "type": "shopify://apps/google-reviews-social-proof/blocks/app-block/16930ea9-fb6e-46ac-90fd-526ff0431478",
+          "settings": {
+            "tagembed_widget": "2223587",
+            "tagembed_widget_position": "center",
+            "tagembed_widget_height": "450",
+            "tagembed_widget_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "tagembed_social_post_review_app_block_h8zHzx"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "home_image_with_text_overlay",
+    "pxs_image_with_text_overlay_6TgDKd",
+    "1658862662062fc7f4",
+    "1658951788a00a7e69",
+    "1656616785f8d7d132",
+    "pxs_image_with_text_overlay_LB6DnR",
+    "home_products-2",
+    "home_masonry",
+    "34b94f90-185e-44ee-b800-f3154b80c838",
+    "16554079153a27eaac",
+    "1655407661f286e5f3",
+    "1656008870849f1c73",
+    "1660163797d88a74c5",
+    "1658946557d534a62a",
+    "home_promotion_4nkdLy",
+    "16589464375375a638",
+    "1656441300b2f74041",
+    "16588638653e1c38c6",
+    "1656617534e56aa4ac",
+    "1656008826607fcee3",
+    "16601548929e673f4d",
+    "ca34755b-3d6b-4b9c-8e46-77dc44242e57",
+    "168979388989282118"
+  ]
+}
