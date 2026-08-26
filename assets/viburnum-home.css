@@ -179,6 +179,12 @@ Pages
   text-align: right;
 }
 
+.__address-grid{
+  display: grid;
+  gap: var(--min-spacing);
+  grid-template-columns: 20px auto;
+}
+
 /* Components
 =============*/
 .__colored-grid{
@@ -1054,6 +1060,15 @@ body.scroll-locked {
   display: none;
 }
 
+.surface-pick-up-item__in-stock-icon{
+  margin-right: var(--min-spacing);
+}
+
+.icon-phone, .icon-map-pin{
+  width: 13px;
+  aspect-ratio: 1 / 1;
+}
+
 .surface-pick-up-items{
   display: grid;
   align-items: start;
@@ -1068,8 +1083,8 @@ body.scroll-locked {
 }
 
 .surface-pick-up-embed {
-  text-align: center;
-  justify-content: center;
+  text-align: left;
+  justify-content: start;
 }
 
 .surface-pick-up-embed__location-info {
