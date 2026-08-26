@@ -2,11 +2,6 @@
   #shopify-section-{{ section.id }} {
 
   }
-  .v-grid__image{
-    width: 100%;
-    height: auto;
-    display: block;
-  }
   #shopify-section-{{ section.id }} .v-grid{
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
@@ -17,9 +12,6 @@
     column-gap: {{ section.settings.column-gap }};
     row-gap: {{ section.settings.row-gap }};
     text-align: {{ section.settings.text_alignment }};
-    img{
-      display: block;
-    }
     @media screen and (max-width: {{ section.settings.custom-breakpoint }}px) {
       {% if section.settings.reverse-on-mobile %}
         display: flex;
@@ -28,6 +20,12 @@
         grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
       {%  endif %}
     }
+  }
+
+  .v-grid__image{
+    width: 100%;
+    height: auto;
+    display: block;
   }
 {%- endstyle -%}
 
@@ -47,7 +45,7 @@
       </h2>
     </div>
   {% endif %}
-  <ul class="v-grid __align-{{section.settings.align_items}}">
+  <ul class="v-grid __align-{{section.settings.align_items}} __justify-{{section.settings.justify_items}}">
     {%- for block in section.blocks -%}
       <li class="v-grid__grid-item">
         {% case block.type %}
@@ -91,7 +89,7 @@
             {%- endif -%}
 
           {% when 'read_more_text' %}
-            <style>
+            {% style %}
               .read-more-text__toggle {
                 background: none;
                 border: none;
@@ -105,7 +103,7 @@
                   text-decoration: none;
                 }
               }
-            </style>
+            {% endstyle %}
             {% assign raw_text = block.settings.read_more_text_description | strip_html %}
             {% assign word_limit = 30 %}
             {% comment %} Adjust desired word limit here {% endcomment %}
@@ -135,39 +133,128 @@
                 {% endif %}
               {% endif %}
             </div>
+          {% when 'gallery_image' %}
+            {% style %}
+              .v-gallery-thumb__btn {
+                display: block;
+                padding: 0;
+                border: 0;
+                aspect-ratio: 1 / 1;
+              }
+              .v-gallery-thumb__img {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+              }
+            {% endstyle %}
+            <button
+              type="button"
+              class="v-gallery-thumb__btn"
+              data-index="{{ forloop.index0 }}"
+              data-full-src="{{ block.settings.image | image_url: width: 1600 }}"
+              data-alt="{{ block.settings.image.alt | escape }}"
+              aria-label="Open image {{ forloop.index }} in lightbox"
+            >
+              <img
+                src="{{ block.settings.image | image_url: width: 400 }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                class="v-gallery-thumb__img"
+                loading="lazy"
+              />
+            </button>
         {% endcase %}
       </li>
     {%- endfor -%}
   </ul>
 
-  <script>
-    let readMoreTextBtns = document.querySelectorAll('.js--read-more-text__toggle');
+  {%- comment -%}
+    ======================================================
+    CONDITIONAL MODAL & SCRIPTS (Rendered once outside loop)
+    ======================================================
+  {%- endcomment -%}
 
-    readMoreTextBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const container = btn.closest('.read-more-text__description');
-        const shortText = container.querySelector('.read-more-text__short');
-        const fullText = container.querySelector('.read-more-text__full');
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-        if (isExpanded) {
-          shortText.style.display = 'block';
-          fullText.style.display = 'none';
-          btn.textContent = 'Read more';
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
-          shortText.style.display = 'none';
-          fullText.style.display = 'block';
-          btn.textContent = 'Read less';
-          btn.setAttribute('aria-expanded', 'true');
-        }
+  {%- assign gallery_blocks = section.blocks | where: 'type', 'gallery_image' -%}
+  {%- if gallery_blocks.size > 0 -%}
+    <!-- Single Modal Markup -->
+    <div
+      id="v-gallery-modal"
+      class="v-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image Gallery"
+      aria-hidden="true"
+    >
+      <div class="v-modal-overlay" data-close></div>
+      <div class="v-modal-content">
+        <div class="v-modal-top-bar">
+          <button type="button" class="icon-btn close-btn" data-close aria-label="Close modal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="v-modal-image-wrapper">
+          <img id="modal-active-img" src="" alt="" />
+        </div>
+
+        <button type="button" class="icon-btn nav-btn prev-btn" id="modal-prev" aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn nav-btn next-btn" id="modal-next" aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script></script>
+  {%- endif -%}
+
+  {%- assign read_more_blocks = section.blocks | where: 'type', 'read_more_text' -%}
+  {%- if read_more_blocks.size > 0 -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Event delegation handles all 'read more' buttons at once
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.js--read-more-text__toggle');
+          if (!btn) return;
+
+          const container = btn.closest('.read-more-text__description');
+          const shortText = container.querySelector('.read-more-text__short');
+          const fullText = container.querySelector('.read-more-text__full');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+          if (isExpanded) {
+            shortText.style.display = 'block';
+            fullText.style.display = 'none';
+            btn.textContent = 'Read more';
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            shortText.style.display = 'none';
+            fullText.style.display = 'block';
+            btn.textContent = 'Read less';
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
-    });
-  </script>
+    </script>
+  {%- endif -%}
 </section>
 {% schema %}
 {
   "name": "Viburnum Grid",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_css_class",
+      "label": "Section CSS Class"
+    },
     {
       "type": "select",
       "id": "layout",
@@ -189,11 +276,6 @@
       "id": "bleed",
       "default": false,
       "label": "Left and Right Padding"
-    },
-    {
-      "type": "text",
-      "id": "section_css_class",
-      "label": "Section CSS Class"
     },
     {
       "type": "checkbox",
@@ -238,6 +320,10 @@
       "id": "align_items",
       "options": [
         {
+          "value": "none",
+          "label": "None"
+        },
+        {
           "value": "start",
           "label": "Start"
         },
@@ -252,6 +338,30 @@
       ],
       "default": "center",
       "label": "Align Items"
+    },
+    {
+      "type": "select",
+      "id": "justify_items",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center",
+      "label": "Justify Items"
     },
 
     {
@@ -402,6 +512,17 @@
           "type": "richtext",
           "id": "read_more_text_description",
           "label": "Read More Text Description"
+        }
+      ]
+    },
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Gallery Image"
         }
       ]
     }

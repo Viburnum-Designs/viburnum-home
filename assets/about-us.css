@@ -1,3 +1,15 @@
+
+.shopify-section:has(.shop-studio-grid){
+  margin-bottom: 0
+}
+
+.shop-studio-grid p{
+  font-family: var(--heading-font);
+  font-size: 24px;
+  margin-top: var(--min-spacing);
+}
+
+
 .mission__grid .v-grid{
 
 }
@@ -5,7 +17,6 @@
 
 .pxs-image-with-text-wrapper{
   overflow: hidden;
-  
 }
 
 @media screen and (min-width: 999px){
@@ -33,3 +44,10 @@
   padding: 50px;  
 }
  
+.shopify-section:has(.our-story-text){
+  margin-top: 0; 
+}
+
+.home-message{
+  margin: 0;
+}

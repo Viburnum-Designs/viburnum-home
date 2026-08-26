@@ -14,6 +14,11 @@
       "disabled": true,
       "settings": {}
     },
+    "home_message_3LtUrB": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
     "v_file_loader_yq9wma": {
       "type": "v-file-loader",
       "name": "V CSS & JS Files Loader",
@@ -22,120 +27,153 @@
         "js_name": ""
       }
     },
-    "pxs_image_with_text_overlay_3QdcKV": {
-      "type": "pxs-image-with-text-overlay",
-      "name": "Image with text overlay",
+    "v_page_banner_txPxQz": {
+      "type": "v-page-banner",
+      "name": "V Page Banner",
       "settings": {
-        "section_height": "medium",
-        "image": "shopify://shop_images/about-us__mobile-bg.avif",
-        "video": "shopify://files/videos/about-us-video-bg__optimized__v5.mp4",
-        "video_behavior": "image_on_mobile_video_on_desktop",
-        "position": "center center",
-        "title": "OUR STORY",
-        "text": "<p><em>With over a decade of experience in the fresh flower and home décor industries, we have cultivated a deep understanding of the importance of exceptional quality, meticulous attention to detail, and the enduring value of an elevated customer experience. It is with this foundation - and a genuine passion for beauty and design - that we introduce Viburnum Home: a thoughtfully curated online boutique offering our signature collection of refined products, now available for delivery throughout the United States. We warmly invite you to welcome the timeless elegance of Viburnum style into your home.</em></p>",
+        "image": "shopify://shop_images/about-us__desktop.webp",
+        "title": "About Us",
+        "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
-        "overlay_opacity": 50,
+        "overlay_opacity": 48,
         "link": "",
         "button_text": ""
       }
     },
-    "v_grid_XQ3GiP": {
+    "v_grid_Tgz6G6": {
       "type": "v-grid",
       "blocks": {
-        "feature_card_xfFkhT": {
+        "feature_card_jpBhhQ": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/d41459_79ebd10e8d2f48e388866370b08b535a_mv2.avif",
+            "image": "shopify://shop_images/158ba7af-952b-4a36-837f-c53e36ff3aae.png",
             "feature_card_heading": "",
-            "feature_card_text": "",
+            "feature_card_text": "<p>Shop Online </p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
         },
-        "feature_card_UUwgA7": {
+        "feature_card_dwVcwq": {
           "type": "feature_card",
           "settings": {
-            "feature_card_heading": "Mission",
-            "feature_card_text": "<p>At Viburnum Home, our passion is to elevate your living space with timeless beauty and refined design. Our talented team of designers draws inspiration from pure, natural forms to create stunning arrangements featuring lush faux botanicals and verdant preserved moss. Complementing these statement pieces is a thoughtfully curated collection of home décor - including candles, baskets, vases, and trays - each selected to bring an elegant, effortless finishing touch to any room.</p>",
+            "image": "shopify://shop_images/2023.07_2_.25_Hydrangea-Chloris-Abigail-Ahern-4.jpg",
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Princeton Studio</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "feature_card_NE7iWY": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4191_1.jpg",
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Sumit Studio</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
         }
       },
       "block_order": [
-        "feature_card_xfFkhT",
-        "feature_card_UUwgA7"
+        "feature_card_jpBhhQ",
+        "feature_card_dwVcwq",
+        "feature_card_NE7iWY"
       ],
       "name": "V Grid",
       "settings": {
-        "layout": "full-width",
-        "bleed": false,
-        "section_css_class": "mission__grid",
+        "section_css_class": "shop-studio-grid",
+        "layout": "content-width",
+        "bleed": true,
         "detect_when_in_view": false,
-        "column-gap": "0",
+        "column-gap": "20px",
         "row-gap": "25px",
-        "text_alignment": "center",
-        "align_items": "center",
+        "text_alignment": "left",
+        "align_items": "none",
+        "justify_items": "none",
         "section_heading": "",
-        "columns_desktop": "2",
+        "columns_desktop": "3",
         "custom-breakpoint": "767",
         "columns_mobile": "1",
         "reverse-on-mobile": false
       }
     },
-    "v_grid_fYeGkx": {
+    "home_message_Ne8MFr": {
+      "type": "home-message",
+      "blocks": {
+        "rich_text_qKmnUN": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": "<p><em>With over a decade of experience in the fresh flower and home décor industries, we have cultivated a deep understanding of the importance of exceptional quality, meticulous attention to detail, and the enduring value of an elevated customer experience. It is with this foundation - and a genuine passion for beauty and design - that we introduce Viburnum Home: a thoughtfully curated online boutique offering our signature collection of refined products, now available for delivery throughout the United States. We warmly invite you to welcome the timeless elegance of Viburnum style into your home.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_qKmnUN"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "section_css_class": "our-story-text",
+        "border": true,
+        "heading": "Our Story"
+      }
+    },
+    "v_page_banner_QgijwK": {
+      "type": "v-page-banner",
+      "name": "V Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/about-us__mid-page-banner__desktop.jpg",
+        "title": "",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 0,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "v_grid_U33DwJ": {
       "type": "v-grid",
       "blocks": {
-        "feature_card_nY3Kcm": {
+        "feature_card_qkVTKt": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/about-us__grid-image-2.avif",
+            "image": "shopify://shop_images/insperation-01.webp",
             "feature_card_heading": "",
             "feature_card_text": "",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
         },
-        "feature_card_CUHnDp": {
+        "feature_card_8ycnLe": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/about-us__grid-image-1.avif",
             "feature_card_heading": "",
-            "feature_card_text": "",
-            "feature_card_url": "",
-            "feature_card_button_text": ""
-          }
-        },
-        "feature_card_PkeCKN": {
-          "type": "feature_card",
-          "settings": {
-            "image": "shopify://shop_images/about-us__grid-image-3.avif",
-            "feature_card_heading": "",
-            "feature_card_text": "",
+            "feature_card_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
         }
       },
       "block_order": [
-        "feature_card_nY3Kcm",
-        "feature_card_CUHnDp",
-        "feature_card_PkeCKN"
+        "feature_card_qkVTKt",
+        "feature_card_8ycnLe"
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
-        "bleed": false,
-        "section_css_class": "about-us__grid __colored-grid",
+        "bleed": true,
         "detect_when_in_view": false,
-        "column-gap": "50px",
-        "row-gap": "25px",
+        "column-gap": "20px",
+        "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
+        "justify_items": "center",
         "section_heading": "",
-        "columns_desktop": "3",
+        "columns_desktop": "2",
         "custom-breakpoint": "767",
         "columns_mobile": "1",
         "reverse-on-mobile": false
@@ -144,9 +182,12 @@
   },
   "order": [
     "main",
+    "home_message_3LtUrB",
     "v_file_loader_yq9wma",
-    "pxs_image_with_text_overlay_3QdcKV",
-    "v_grid_XQ3GiP",
-    "v_grid_fYeGkx"
+    "v_page_banner_txPxQz",
+    "v_grid_Tgz6G6",
+    "home_message_Ne8MFr",
+    "v_page_banner_QgijwK",
+    "v_grid_U33DwJ"
   ]
 }

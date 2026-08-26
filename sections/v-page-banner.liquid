@@ -1,0 +1,216 @@
+{% assign onboarding = false %}
+
+{% if section.settings.image == blank %}
+  {% assign onboarding = true %}
+{% endif %}
+
+{% style %}
+  #shopify-section-{{ section.id }}  .v-page-banner__section {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }}  .v-page-banner__section:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    inset: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{section.settings.overlay_background}};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+  .v-page-banner__section__img img {
+    display: block;
+    width: 100%;
+  }
+
+  .v-page-banner__section__txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .v-page-banner__heading{
+    text-shadow: 0 0 .75em #000;
+  }
+{% endstyle %}
+<section class="v-page-banner__section">
+  <div class="v-page-banner__section__img">
+    {% if section.settings.video != blank and section.settings.image != blank %}
+      <div class=" __hide-on-tablet __hide-on-mobile">
+        {{
+          section.settings.video
+          | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true
+        }}
+      </div>
+
+    {% elsif section.settings.video != blank %}
+      {{
+        section.settings.video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'pxs-video-element'
+      }}
+    {% elsif section.settings.image != blank %}
+      <div class="">
+        {% render 'rimg', img: section.settings.image, size: '1400x', lazy: true %}
+      </div>
+    {% elsif onboarding %}
+      {{ 'lifestyle-1' | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+
+  <div class="v-page-banner__section__txt __text-center">
+    <div class="" style="color: {{ section.settings.color }};">
+      {% if section.settings.title != blank %}
+        <h2
+          class="v-page-banner__heading __h1"
+          style="color: {{ section.settings.color }}"
+        >
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif %}
+
+      {% if section.settings.text != blank %}
+        <div class=" rte" style="color: {{ section.settings.color }};">
+          {{ section.settings.text }}
+        </div>
+      {%- endif %}
+
+      {% if section.settings.button_text != blank %}
+        {% if section.settings.link != blank %}
+          <a class="__cta" href="{{ section.settings.link }}">{{ section.settings.button_text | escape }}</a>
+        {% else %}
+          <div style="color: {{ section.settings.color }};">{{ section.settings.button_text | escape }}</div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Page Banner"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "center-left",
+          "label": "Center left"
+        },
+        {
+          "value": "center-center",
+          "label": "Center center"
+        },
+        {
+          "value": "center-right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center-center"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_background",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Background color opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Page Banner"
+    }
+  ]
+}
+{% endschema %}

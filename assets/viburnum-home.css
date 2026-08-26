@@ -102,6 +102,7 @@ Pages
   font-weight: 400;
   &:hover{
     background-color: var(--hover-color); 
+    color: #fff;
   }
   :active{
     translate: 0,-1px;
@@ -166,6 +167,17 @@ Pages
   }
 }
 
+.__text-left{
+  text-align: left;
+}
+
+.__text-center{
+  text-align: center;
+}
+
+.__text-right{
+  text-align: right;
+}
 
 /* Components
 =============*/
@@ -892,6 +904,9 @@ input[type='submit'].header-search-button {
 
 /* Collections
 ====================== */
+.collection-header{
+  margin-top: 16px;
+} 
 .collection-header-content{
   max-width: 1260px;
   align-self: center;
@@ -968,6 +983,100 @@ input[type='submit'].header-search-button {
   margin-bottom: 0;
 }
 
+.template-product.scroll-locked{
+  overflow-y: scroll;
+}
+
+.product-gallery--media-wrapper,
+.product-gallery--media-thumbnail{
+  background-color: #fff;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+
+[data-modal-id="surface-pick-up"] {
+  position: static !important;
+  transform: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1rem 0 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.surface-pick-up-modal.modal-opened {
+  display: block;
+}
+
+.modal-inner{
+  opacity: 1 
+}
+
+.surface-pick-up-embed__modal-btn,
+[data-modal-id="surface-pick-up"] [data-modal-close],
+[data-modal-id="surface-pick-up"] .spinner {
+  display: none !important;
+}
+body.scroll-locked {
+  overflow: auto !important; /* prevent the modal's scroll-lock from freezing the page */
+}
+
+.surface-pick-up-modal{
+  padding: 0;
+}
+.surface-pick-up-modal .modal-inner{
+  padding: 0;
+  background: transparent;
+}
+
+.modal-header{
+  display: none;
+}
+
+.surface-pick-up-items{
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.surface-pick-up-item{
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.surface-pick-up-embed {
+  text-align: center;
+  justify-content: center;
+}
+
+.surface-pick-up-embed__location-info {
+  font-weight: bold;
+}
+
+.surface-pick-up-modal .modal-inner {
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: var(--spacing);
+  width: 100%;
+}
+
+.surface-pick-up-item.surface-pick-up-item--available {
+  padding-bottom: 0;
+}
+
+.surface-pick-up-item__pick-up-distance {
+  margin: 0 0 0 0;
+}
 
 /* Product Images 
 ==================== */

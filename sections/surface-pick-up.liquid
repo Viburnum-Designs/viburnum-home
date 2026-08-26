@@ -3,28 +3,93 @@
   {% assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true %}
   {% if product_variant.available and pick_up_availabilities.size > 0 %}
     {% assign closest_location = pick_up_availabilities.first %}
-  
+    <style>
+      .surface-pick-up-embed {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .surface-pick-up-embed__location-info {
+        font-weight: bold;
+      }
+
+      .surface-pick-up-modal .modal-inner {
+        max-width: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: var(--spacing);
+        width: 100%;
+      }
+
+      .surface-pick-up-item.surface-pick-up-item--available {
+        padding-bottom: 0;
+      }
+
+      .surface-pick-up-item__pick-up-distance {
+        margin: 0 0 0 0;
+      }
+    </style>
     <div class="surface-pick-up-embed surface-pick-up-embed--{% if closest_location.available %}available{% else %}unavailable{% endif %}">
-      {% if closest_location.available %}
-        <svg class="surface-pick-up-embed__in-stock-icon surface-pick-up-embed__svg-placeholder" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" focusable=”false” aria-hidden=”true”>
-          <path d="M4.33346 10.5625L3.80311 11.0928L4.33344 11.6232L4.86379 11.0928L4.33346 10.5625ZM0.191824 7.48134L3.80311 11.0928L4.8638 10.0322L1.25251 6.4207L0.191824 7.48134ZM4.86379 11.0928L12.9888 2.96783L11.9281 1.90717L3.80313 10.0322L4.86379 11.0928Z"/>
-        </svg>
-      {% else %}
-        <svg class="surface-pick-up-embed__out-of-stock-icon surface-pick-up-embed__svg-placeholder" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" focusable=”false” aria-hidden=”true”>
-          <path d="M1.46967 2.53033L5.96967 7.03033L7.03033 5.96967L2.53033 1.46967L1.46967 2.53033ZM5.96967 7.03033L10.4697 11.5303L11.5303 10.4697L7.03033 5.96967L5.96967 7.03033ZM7.03033 7.03033L11.5303 2.53033L10.4697 1.46967L5.96967 5.96967L7.03033 7.03033ZM10.4697 1.46967L1.46967 10.4697L2.53033 11.5303L11.5303 2.53033L10.4697 1.46967Z"/>
-        </svg>
-      {% endif %}
-  
-      <div class="surface-pick-up-embed__location-info">
+      {% comment %}
         {% if closest_location.available %}
-          <h3 class="surface-pick-up-embed__location-availability">{{ 'store_availability.general.available_for_pick_up_at_html' | t: location_name: closest_location.location.name }}</h3>
-          <small class="surface-pick-up-embed__location-pick-up-time">{{ closest_location.pick_up_time }}</small>
+          <svg
+            class="surface-pick-up-embed__in-stock-icon surface-pick-up-embed__svg-placeholder"
+            width="13"
+            height="13"
+            viewBox="0 0 13 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path d="M4.33346 10.5625L3.80311 11.0928L4.33344 11.6232L4.86379 11.0928L4.33346 10.5625ZM0.191824 7.48134L3.80311 11.0928L4.8638 10.0322L1.25251 6.4207L0.191824 7.48134ZM4.86379 11.0928L12.9888 2.96783L11.9281 1.90717L3.80313 10.0322L4.86379 11.0928Z"/>
+          </svg>
         {% else %}
-          <h3 class="surface-pick-up-embed__location-availability">{{ 'store_availability.general.unavailable_for_pick_up_at_html' | t: location_name: closest_location.location.name }}</h3>
+          <svg
+            class="surface-pick-up-embed__out-of-stock-icon surface-pick-up-embed__svg-placeholder"
+            width="13"
+            height="13"
+            viewBox="0 0 13 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path d="M1.46967 2.53033L5.96967 7.03033L7.03033 5.96967L2.53033 1.46967L1.46967 2.53033ZM5.96967 7.03033L10.4697 11.5303L11.5303 10.4697L7.03033 5.96967L5.96967 7.03033ZM7.03033 7.03033L11.5303 2.53033L10.4697 1.46967L5.96967 5.96967L7.03033 7.03033ZM10.4697 1.46967L1.46967 10.4697L2.53033 11.5303L11.5303 2.53033L10.4697 1.46967Z"/>
+          </svg>
         {% endif %}
+      {% endcomment %}
+
+      <div class="surface-pick-up-embed__location-info">
+        <h3 class="surface-pick-up-embed__location-availability __text-center">
+          Pickup available - Usually ready in 24 hours
+        </h3>
+        {% comment %}
+          {% if closest_location.available %}
+            <h3 class="surface-pick-up-embed__location-availability">
+              {{
+                'store_availability.general.available_for_pick_up_at_html'
+                | t: location_name: closest_location.location.name
+              }}
+            </h3>
+            <small class="surface-pick-up-embed__location-pick-up-time">{{ closest_location.pick_up_time }}</small>
+          {% else %}
+            <h3 class="surface-pick-up-embed__location-availability">
+                {{
+                'store_availability.general.unavailable_for_pick_up_at_html'
+                | t: location_name: closest_location.location.name
+              }}
+            </h3>
+          {% endif %}
+        {% endcomment %}
       </div>
-  
-      <button class="surface-pick-up-embed__modal-btn" type="button" aria-haspopup=”dialog” data-surface-pick-up-embed-modal-btn>
+
+      <button
+        class="surface-pick-up-embed__modal-btn"
+        type="button"
+        aria-haspopup="dialog"
+        data-surface-pick-up-embed-modal-btn
+      >
         {% if pick_up_availabilities.size > 1 %}
           {{ 'store_availability.general.check_other_stores' | t }}
         {% else %}
@@ -34,14 +99,13 @@
     </div>
   {% endif %}
   {% comment %}Inject @pixelunion/shopify-surface-pick-up/surface-pick-up-embed end{% endcomment %}
-
 </template>
 
 <template data-html="surface-pick-up-items">
   {% assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true %}
   {% if product_variant.available and pick_up_availabilities.size > 0 %}
     {%- assign closest_location_country_code = pick_up_availabilities.first.location.address.country_code -%}
-    {%- assign imperialSystemCountries = 'US,MM,LR'  | split: ',' -%}
+    {%- assign imperialSystemCountries = 'US,MM,LR' | split: ',' -%}
     {%- if imperialSystemCountries contains closest_location_country_code -%}
       {%- assign unit_system = 'imperial' -%}
     {%- else -%}
@@ -76,17 +140,35 @@
               </span>
             </p>
           </div>
-        
+
           {% if location.available %}
-            <svg class="surface-pick-up-item__in-stock-icon surface-pick-up-item__svg-placeholder" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" focusable=”false” aria-hidden=”true”>
+            <svg
+              class="surface-pick-up-item__in-stock-icon surface-pick-up-item__svg-placeholder"
+              width="13"
+              height="13"
+              viewBox="0 0 13 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+              aria-hidden="true"
+            >
               <path d="M4.33346 10.5625L3.80311 11.0928L4.33344 11.6232L4.86379 11.0928L4.33346 10.5625ZM0.191824 7.48134L3.80311 11.0928L4.8638 10.0322L1.25251 6.4207L0.191824 7.48134ZM4.86379 11.0928L12.9888 2.96783L11.9281 1.90717L3.80313 10.0322L4.86379 11.0928Z"/>
             </svg>
           {% else %}
-            <svg class="surface-pick-up-item__out-of-stock-icon surface-pick-up-item__svg-placeholder" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" focusable=”false” aria-hidden=”true”>
+            <svg
+              class="surface-pick-up-item__out-of-stock-icon surface-pick-up-item__svg-placeholder"
+              width="13"
+              height="13"
+              viewBox="0 0 13 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+              aria-hidden="true"
+            >
               <path d="M1.46967 2.53033L5.96967 7.03033L7.03033 5.96967L2.53033 1.46967L1.46967 2.53033ZM5.96967 7.03033L10.4697 11.5303L11.5303 10.4697L7.03033 5.96967L5.96967 7.03033ZM7.03033 7.03033L11.5303 2.53033L10.4697 1.46967L5.96967 5.96967L7.03033 7.03033ZM10.4697 1.46967L1.46967 10.4697L2.53033 11.5303L11.5303 2.53033L10.4697 1.46967Z"/>
             </svg>
           {% endif %}
-        
+
           <div class="surface-pick-up-item__availability">
             {% if location.available %}
               {% assign pick_up_time = location.pick_up_time | downcase %}
@@ -95,16 +177,20 @@
               {{ 'store_availability.general.unavailable_for_pick_up_at_time_html' | t }}
             {% endif %}
           </div>
-        
+
           <address class="surface-pick-up-item__address-info">
             {{ location.location.address | format_address }}
             {%- if location.location.phone.size > 0 %}
-              <a href="tel:{{ location.location.phone }}">{{ location.location.phone }}</a>
+              {% assign phone = location.location.phone | strip %}
+
+              <a href="tel:{{ location.location.phone }}">
+                {{ phone | slice: 0, 2 }} ({{ phone | slice: 2, 3 }})-{{ phone | slice: 5, 3 }}-
+                {{- phone | slice: 8, 4 -}}
+              </a>
             {%- endif -%}
           </address>
         </li>
         {% comment %}Inject @pixelunion/shopify-surface-pick-up/surface-pick-up-item end{% endcomment %}
-
       {% endfor %}
     </ul>
   {% endif %}
@@ -116,5 +202,4 @@
   "settings": [],
   "presets": []
 }
-
 {% endschema %}

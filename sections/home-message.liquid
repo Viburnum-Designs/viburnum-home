@@ -2,10 +2,10 @@
 
 {%- for block in section.blocks -%}
   {%- case block.type -%}
-  {%- when 'rich-text' -%}
-    {%- assign caption = block.settings.rich_text -%}
-  {%- when 'page' -%}
-    {%- assign caption = pages[block.settings.page].content -%}
+    {%- when 'rich-text' -%}
+      {%- assign caption = block.settings.rich_text -%}
+    {%- when 'page' -%}
+      {%- assign caption = pages[block.settings.page].content -%}
   {%- endcase -%}
 {%- endfor -%}
 
@@ -15,12 +15,13 @@
 {%- endif -%}
 
 <section
-  class="home-message"
+  class="home-message {{section.settings.section_css_class}}"
   data-section-id="{{ section.id }}"
-  data-section-type="home-message">
+  data-section-type="home-message"
+>
   <div class="home-message-content {% if section.settings.border %}home-message-content-border{% endif %}">
     {% if heading != blank %}
-      <h2>{{ heading }}</h2>
+      <h2 class="__h1">{{ heading }}</h2>
     {% endif %}
 
     {% if caption != blank %}
@@ -35,6 +36,11 @@
   "class": "shopify-section--rich-text",
   "max_blocks": 1,
   "settings": [
+    {
+      "type": "text",
+      "id": "section_css_class",
+      "label": "Section CSS Class"
+    },
     {
       "type": "checkbox",
       "id": "border",
@@ -77,11 +83,8 @@
     {
       "category": "Text",
       "name": "Rich text",
-      "blocks": [
-        { "type": "rich-text" }
-      ]
+      "blocks": [{ "type": "rich-text" }]
     }
   ]
 }
-
 {% endschema %}

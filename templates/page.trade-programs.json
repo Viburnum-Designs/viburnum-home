@@ -14,6 +14,32 @@
       "disabled": true,
       "settings": {}
     },
+    "v_file_loader_CJ9hpi": {
+      "type": "v-file-loader",
+      "name": "V CSS & JS Files Loader",
+      "settings": {
+        "css_name": "trade-program.css",
+        "js_name": ""
+      }
+    },
+    "pxs_image_with_text_overlay_APgLcG": {
+      "type": "pxs-image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "section_height": "medium",
+        "image": "shopify://shop_images/Closeup_of_Leaf.avif",
+        "video_behavior": "image_on_mobile_video_on_desktop",
+        "position": "center center",
+        "title": "",
+        "text": "<h1>BECOME A VIBURNUM & CO.</h1><h2>TRADE MEMBER</h2>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
+      }
+    },
     "home_message_pXAhkB": {
       "type": "home-message",
       "blocks": {
@@ -29,13 +55,15 @@
       ],
       "name": "Rich text",
       "settings": {
-        "border": false,
+        "border": true,
         "heading": "Trade Program"
       }
     }
   },
   "order": [
     "main",
+    "v_file_loader_CJ9hpi",
+    "pxs_image_with_text_overlay_APgLcG",
     "home_message_pXAhkB"
   ]
 }

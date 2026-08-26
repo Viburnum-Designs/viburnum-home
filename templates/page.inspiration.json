@@ -1,0 +1,228 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "pxs_image_with_text_overlay_DqVXkp": {
+      "type": "pxs-image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "section_height": "medium",
+        "image": "shopify://shop_images/about-us__mobile-bg.avif",
+        "video": "shopify://files/videos/about-us-video-bg__optimized__v5.mp4",
+        "video_behavior": "image_on_mobile_video_on_desktop",
+        "position": "center center",
+        "title": "INSPIRATION",
+        "text": "<p><em>Styles come and go. Good design is a language, not a style.”  <br/>— Massimo Vignelli</em></p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "v_grid_DFUXac": {
+      "type": "v-grid",
+      "blocks": {
+        "gallery_image_X48BVw": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-01.webp"
+          }
+        },
+        "gallery_image_DyEFA4": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-11.webp"
+          }
+        },
+        "gallery_image_GPye7L": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-13.webp"
+          }
+        },
+        "gallery_image_Lfb3Xh": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-22.webp"
+          }
+        },
+        "gallery_image_FbMjNN": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-09.webp"
+          }
+        },
+        "gallery_image_DzrDYH": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-10.webp"
+          }
+        },
+        "gallery_image_Ex64WP": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-06.webp"
+          }
+        },
+        "gallery_image_yAWrVf": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-18.webp"
+          }
+        },
+        "gallery_image_HdHFJX": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-07.webp"
+          }
+        },
+        "gallery_image_W49wbP": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-21.webp"
+          }
+        },
+        "gallery_image_3E3RRF": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-08.webp"
+          }
+        },
+        "gallery_image_GhxTBy": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-05.webp"
+          }
+        },
+        "gallery_image_PxLN7f": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-03.webp"
+          }
+        },
+        "gallery_image_CrwBmP": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-20.webp"
+          }
+        },
+        "gallery_image_F7XVt4": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-04.webp"
+          }
+        },
+        "gallery_image_YYaghA": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-15.webp"
+          }
+        },
+        "gallery_image_QBTAxr": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-16.webp"
+          }
+        },
+        "gallery_image_qFaCDD": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-02.webp"
+          }
+        },
+        "gallery_image_DEyCi9": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-12.webp"
+          }
+        },
+        "gallery_image_a9TCcG": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-14.webp"
+          }
+        },
+        "gallery_image_PWL7yY": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-17.webp"
+          }
+        },
+        "gallery_image_pKq93b": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/insperation-19.webp"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_X48BVw",
+        "gallery_image_DyEFA4",
+        "gallery_image_GPye7L",
+        "gallery_image_Lfb3Xh",
+        "gallery_image_FbMjNN",
+        "gallery_image_DzrDYH",
+        "gallery_image_Ex64WP",
+        "gallery_image_yAWrVf",
+        "gallery_image_HdHFJX",
+        "gallery_image_W49wbP",
+        "gallery_image_3E3RRF",
+        "gallery_image_GhxTBy",
+        "gallery_image_PxLN7f",
+        "gallery_image_CrwBmP",
+        "gallery_image_F7XVt4",
+        "gallery_image_YYaghA",
+        "gallery_image_QBTAxr",
+        "gallery_image_qFaCDD",
+        "gallery_image_DEyCi9",
+        "gallery_image_a9TCcG",
+        "gallery_image_PWL7yY",
+        "gallery_image_pKq93b"
+      ],
+      "name": "V Grid",
+      "settings": {
+        "layout": "full-width",
+        "bleed": false,
+        "section_css_class": "",
+        "detect_when_in_view": false,
+        "column-gap": "10px",
+        "row-gap": "10px",
+        "text_alignment": "center",
+        "align_items": "center",
+        "section_heading": "",
+        "columns_desktop": "3",
+        "custom-breakpoint": "767",
+        "columns_mobile": "2",
+        "reverse-on-mobile": false
+      }
+    },
+    "v_file_loader_E63x8P": {
+      "type": "v-file-loader",
+      "name": "V CSS & JS Files Loader",
+      "settings": {
+        "css_name": "inspiration.css",
+        "js_name": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pxs_image_with_text_overlay_DqVXkp",
+    "v_grid_DFUXac",
+    "v_file_loader_E63x8P"
+  ]
+}

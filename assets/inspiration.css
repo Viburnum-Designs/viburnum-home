@@ -1,0 +1,40 @@
+.pxs-image-with-text{
+  position: relative;
+  overflow: hidden;
+
+}
+ 
+
+@media screen and (min-width: 999px){
+  .pxs-image-with-text-background{
+    background-image: none!important;
+  }
+}
+
+
+.pxs-image-with-text-wrapper{
+  position: static;
+}
+
+.pxs-image-with-text-subheading :where(h1,h2){
+  color: #fff;
+  
+}
+.pxs-image-with-text-subheading h1{
+  letter-spacing: .2em;
+  font-size: 20px;
+}
+
+.pxs-image-with-text-subheading h2{ 
+  font-size: 70px;
+  margin-top: 0;
+  font-family: var(--heading-font);
+}
+
+@media (min-width: 720px) {
+    .pxs-image-with-text-content {
+        width: 80%;
+        padding: 12px 0;
+    }
+}
+

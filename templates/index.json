@@ -171,30 +171,14 @@
         "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "50px",
+        "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
-        "row-gap": "0",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
         "columns_mobile": "1",
         "reverse-on-mobile": false
-      }
-    },
-    "pxs_image_with_text_overlay_ERN8kB": {
-      "type": "pxs-image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "section_height": "medium",
-        "position": "center center",
-        "title": "BEAUTIFULLY STYLED",
-        "text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
-        "content_position": "center-center",
-        "color": "#ffffff",
-        "overlay_background": "#000000",
-        "overlay_opacity": 50,
-        "link": "",
-        "button_text": ""
       }
     },
     "home_message_jymXnQ": {
@@ -222,9 +206,9 @@
         "feature_card_YVhVLX": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/square-image3.webp",
+            "image": "shopify://shop_images/square_image4.webp",
             "feature_card_heading": "",
-            "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease. </p>",
+            "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -234,7 +218,7 @@
           "settings": {
             "image": "shopify://shop_images/square-image2.webp",
             "feature_card_heading": "",
-            "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home. </p>",
+            "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home.</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -262,9 +246,9 @@
         "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "25px",
+        "row-gap": "0",
         "text_alignment": "center",
         "align_items": "start",
-        "row-gap": "0",
         "section_heading": "Bring The Beauty Of Nature Indoors",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
@@ -285,6 +269,7 @@
       "block_order": [
         "rich_text_DA6jB6"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "border": false,
@@ -300,6 +285,40 @@
         "collection": "home-decor",
         "product-columns": 3,
         "product-rows": 3
+      }
+    },
+    "pxs_image_with_text_overlay_ERN8kB": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "name": "Image with text overlay",
+      "settings": {
+        "section_height": "original",
+        "image": "shopify://shop_images/beauty-styled-v2.webp",
+        "video_behavior": "image_on_mobile_video_on_desktop",
+        "position": "center center",
+        "title": "BEAUTIFULLY STYLED",
+        "text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 53,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "v_page_banner_NUKAfQ": {
+      "type": "v-page-banner",
+      "name": "V Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/fall-arrivals__desktop.jpg",
+        "title": "Fall New Arrivals",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#683a05",
+        "overlay_opacity": 35,
+        "link": "shopify://collections/holiday",
+        "button_text": "Shop Fall"
       }
     },
     "v_featured_collection_carousel_myXTbe": {
@@ -335,16 +354,37 @@
         "border": false,
         "heading": ""
       }
+    },
+    "1787583460df67f7bf": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_social_proof_app_block_LaYjwL": {
+          "type": "shopify://apps/google-reviews-social-proof/blocks/app-block/16930ea9-fb6e-46ac-90fd-526ff0431478",
+          "settings": {
+            "tagembed_widget": "2223587",
+            "tagembed_widget_position": "center",
+            "tagembed_widget_height": "450",
+            "tagembed_widget_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_social_proof_app_block_LaYjwL"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
     "v_home_slideshow_nKq3G9",
     "v_home_collections_F4AJx3",
-    "pxs_image_with_text_overlay_ERN8kB",
+    "v_grid_BUc7Tt",
     "home_message_jymXnQ",
     "home_products_znFfpt",
+    "pxs_image_with_text_overlay_ERN8kB",
+    "v_page_banner_NUKAfQ",
     "v_featured_collection_carousel_myXTbe",
-    "home_message_e6Tyy4"
+    "home_message_e6Tyy4",
+    "1787583460df67f7bf"
   ]
 }
