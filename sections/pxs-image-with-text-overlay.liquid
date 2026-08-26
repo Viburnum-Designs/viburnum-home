@@ -89,17 +89,6 @@
       ></div>
     {% endif %}
 
-    <style>
-      .pxs-image-with-text-heading,
-      .pxs-image-with-text-subheading {
-        text-shadow: 0 0 0.5em #000;
-      }
-
-      .pxs-image-with-text {
-        padding: 0;
-        margin: 0;
-      }
-    </style>
     <div
       class="
         pxs-image-with-text-content-wrapper
@@ -107,13 +96,13 @@
         pxs-image-with-text-content-position-x-{{ section.settings.content_position | split: '-' | last }}
       "
     >
-      <div
-        class="pxs-image-with-text-content"
-        style="color: {{ section.settings.color }};"
-      >
+        <div
+          class="pxs-image-with-text-content"
+          style="color: {{ section.settings.color }};"
+        >
         {% if section.settings.title != blank %}
           <h2
-            class="pxs-image-with-text-heading section-title"
+            class="pxs-image-with-text-heading"
           >
             {{ section.settings.title | escape }}
           </h2>
@@ -139,7 +128,7 @@
             href="{{ section.settings.link }}"
           ></a>
         {% endif %}
-      </div>
+        </div>
     </div>
   </div>
 
