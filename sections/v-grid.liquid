@@ -2,11 +2,6 @@
   #shopify-section-{{ section.id }} {
 
   }
-  .v-grid__image{
-    width: 100%;
-    height: auto;
-    display: block;
-  }
   #shopify-section-{{ section.id }} .v-grid{
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
@@ -17,9 +12,6 @@
     column-gap: {{ section.settings.column-gap }};
     row-gap: {{ section.settings.row-gap }};
     text-align: {{ section.settings.text_alignment }};
-    img{
-      display: block;
-    }
     @media screen and (max-width: {{ section.settings.custom-breakpoint }}px) {
       {% if section.settings.reverse-on-mobile %}
         display: flex;
@@ -28,6 +20,12 @@
         grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
       {%  endif %}
     }
+  }
+
+  .v-grid__image{
+    width: 100%;
+    height: auto;
+    display: block;
   }
 {%- endstyle -%}
 
@@ -253,6 +251,11 @@
   "name": "Viburnum Grid",
   "settings": [
     {
+      "type": "text",
+      "id": "section_css_class",
+      "label": "Section CSS Class"
+    },
+    {
       "type": "select",
       "id": "layout",
       "label": "Layout",
@@ -273,11 +276,6 @@
       "id": "bleed",
       "default": false,
       "label": "Left and Right Padding"
-    },
-    {
-      "type": "text",
-      "id": "section_css_class",
-      "label": "Section CSS Class"
     },
     {
       "type": "checkbox",
@@ -322,6 +320,10 @@
       "id": "align_items",
       "options": [
         {
+          "value": "none",
+          "label": "None"
+        },
+        {
           "value": "start",
           "label": "Start"
         },
@@ -341,6 +343,10 @@
       "type": "select",
       "id": "justify_items",
       "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
         {
           "value": "start",
           "label": "Start"

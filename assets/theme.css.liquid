@@ -1535,6 +1535,18 @@ body.scroll-locked {
   margin: 40px 0;
   font-size:16px;
 }
+
+.main-content .shopify-section:first-child,
+.shopify-section:has(link.v-file-loader__css-link),
+.shopify-section:has(link.v-file-loader__css-link) + .shopify-section {
+  margin-top: 0; 
+  margin-bottom: 0;
+} 
+
+.main-content .shopify-section:last-child{
+  margin-bottom: 0; 
+} 
+
 .main-content .customer-section,
 .main-content .shopify-policy__container {
   margin-top: 40px;
