@@ -45,21 +45,6 @@
     "v_grid_4QmpRH": {
       "type": "v-grid",
       "blocks": {
-        "feature_card_dRhKU7": {
-          "type": "feature_card",
-          "settings": {
-            "feature_card_heading": "",
-            "feature_card_text": "<p>Can I cancel my order?</p>",
-            "feature_card_url": "",
-            "feature_card_button_text": ""
-          }
-        },
-        "read_more_text_fyxbg6": {
-          "type": "read_more_text",
-          "settings": {
-            "read_more_text_description": "<p>We offer a 24-hour grace period for order cancellations as long as your order has not shipped. Should you wish to cancel your order, please contact us at <a href=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a> or call us at 908 6798855within 24 hours for assistance.</p>"
-          }
-        },
         "feature_card_Jggram": {
           "type": "feature_card",
           "settings": {
@@ -169,7 +154,7 @@
           "type": "feature_card",
           "settings": {
             "feature_card_heading": "",
-            "feature_card_text": "<p>Do you charge sales tax?</p>",
+            "feature_card_text": "<p>Do you offer home styling or interior decor consultation?</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -179,11 +164,24 @@
           "settings": {
             "read_more_text_description": "<p>Yes, however we only offer in-person styling sessions in the Tri-State Area to help you curate pieces that perfectly suit your space.</p>"
           }
+        },
+        "feature_card_dRhKU7": {
+          "type": "feature_card",
+          "settings": {
+            "feature_card_heading": "",
+            "feature_card_text": "<p>Can I cancel my order?</p>",
+            "feature_card_url": "",
+            "feature_card_button_text": ""
+          }
+        },
+        "read_more_text_fyxbg6": {
+          "type": "read_more_text",
+          "settings": {
+            "read_more_text_description": "<p>We offer a 24-hour grace period for order cancellations as long as your order has not shipped. Should you wish to cancel your order, please contact us at <a href=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a> or call us at 908 6798855within 24 hours for assistance.</p>"
+          }
         }
       },
       "block_order": [
-        "feature_card_dRhKU7",
-        "read_more_text_fyxbg6",
         "feature_card_Jggram",
         "read_more_text_97gBxj",
         "feature_card_wHQPkL",
@@ -199,7 +197,9 @@
         "feature_card_KTNDLa",
         "read_more_text_EqNBgd",
         "feature_card_MnNm3E",
-        "read_more_text_riYCHw"
+        "read_more_text_riYCHw",
+        "feature_card_dRhKU7",
+        "read_more_text_fyxbg6"
       ],
       "name": "V Grid",
       "settings": {

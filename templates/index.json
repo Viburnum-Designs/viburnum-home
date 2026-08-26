@@ -154,14 +154,15 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "50px",
         "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
+        "justify_items": "center",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
@@ -185,6 +186,7 @@
       "disabled": true,
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": true,
         "heading": "Explore our Decor Collection"
       }
@@ -230,14 +232,15 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "25px",
         "row-gap": "0",
         "text_alignment": "center",
         "align_items": "start",
+        "justify_items": "center",
         "section_heading": "Bring The Beauty Of Nature Indoors",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
@@ -261,6 +264,7 @@
       "disabled": true,
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": false,
         "heading": ""
       }
@@ -299,7 +303,7 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/fall-arrivals__desktop.jpg",
+        "image": "shopify://shop_images/fall-collection-banner__desktop.webp",
         "title": "Fall New Arrivals",
         "text": "",
         "content_position": "center-center",
@@ -315,14 +319,13 @@
       "name": "V Featured Collection Carousel",
       "settings": {
         "title": "Fall New Arrivals",
-        "collection": "holiday",
+        "collection": "fall-collection",
         "controls-color": "#000000",
         "autoplay": false,
         "autoplay_delay": 3,
         "autoplay-hover-pause": false,
         "product-columns": 4,
-        "product-limit": 6,
-        "view_more_image": "shopify://shop_images/holiday-collection--thumbnail.webp"
+        "product-limit": 6
       }
     },
     "home_message_e6Tyy4": {
@@ -340,6 +343,7 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": false,
         "heading": ""
       }

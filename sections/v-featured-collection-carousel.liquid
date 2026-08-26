@@ -47,7 +47,14 @@
                 </div>
               {% endif %}
 
-              <div class=" __h1 carousel-slide__title">Shop {{ collection.title }} Collection</div>
+              {% if collection.image != blank %}
+                {% assign view_alt = collection.image.alt | default: collection.title %}
+                <div class="product-list-item-view-all__image">
+                  {% render 'rimg', img: collection.image, alt: view_alt, size: '300x400', lazy: false %}
+                </div>
+              {% endif %}
+
+              <div class=" __h1 carousel-slide__title">Shop {{ collection.title }}</div>
               <div class="__cta view-all-link">View More</div>
               <a href="{{ collection.url }}" class="__link-covered"></a>
             </div>
@@ -239,6 +246,8 @@
   .product-list-item-view-all__image img{
     object-fit: cover;
     transform: scale(1.25);
+    min-height: 100%;
+    min-width: 100%;
   }
 
   .product-list-item-view-all__image:after{
