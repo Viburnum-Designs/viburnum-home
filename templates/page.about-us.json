@@ -114,6 +114,7 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "our-story-text",
         "border": true,
         "heading": "Our Story"
       }
