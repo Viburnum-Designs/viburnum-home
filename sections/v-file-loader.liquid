@@ -1,5 +1,10 @@
 {%- if section.settings.css_name != blank -%}
-  {{ section.settings.css_name | asset_url | stylesheet_tag }}
+  {{
+    section.settings.css_name
+    | asset_url
+    | stylesheet_tag
+    | replace: '<link ', '<link class="v-file-loader__css-link" '
+  }}
 {%- endif %}
 {%- if section.settings.js_name != blank -%}
   <script src="{{ section.settings.js_name | asset_url }}" async></script>

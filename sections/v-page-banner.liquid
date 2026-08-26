@@ -5,10 +5,11 @@
 {% endif %}
 
 {% style %}
-  .v-page-banner__section {
+  #shopify-section-{{ section.id }}  .v-page-banner__section {
     position: relative;
   }
-  .v-page-banner__section:after {
+
+  #shopify-section-{{ section.id }}  .v-page-banner__section:after {
     content: ' ';
     display: block;
     position: absolute;

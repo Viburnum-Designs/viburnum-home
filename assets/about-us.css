@@ -1,3 +1,10 @@
+.shop-studio-grid p{
+  font-family: var(--heading-font);
+  font-size: 24px;
+  margin-top: var(--min-spacing);
+}
+
+
 .mission__grid .v-grid{
 
 }

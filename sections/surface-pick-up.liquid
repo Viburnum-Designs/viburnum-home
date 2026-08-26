@@ -3,7 +3,32 @@
   {% assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true %}
   {% if product_variant.available and pick_up_availabilities.size > 0 %}
     {% assign closest_location = pick_up_availabilities.first %}
+    <style>
+      .surface-pick-up-embed {
+        text-align: center;
+        justify-content: center;
+      }
 
+      .surface-pick-up-embed__location-info {
+        font-weight: bold;
+      }
+
+      .surface-pick-up-modal .modal-inner {
+        max-width: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: var(--spacing);
+        width: 100%;
+      }
+
+      .surface-pick-up-item.surface-pick-up-item--available {
+        padding-bottom: 0;
+      }
+
+      .surface-pick-up-item__pick-up-distance {
+        margin: 0 0 0 0;
+      }
+    </style>
     <div class="surface-pick-up-embed surface-pick-up-embed--{% if closest_location.available %}available{% else %}unavailable{% endif %}">
       {% comment %}
         {% if closest_location.available %}
