@@ -13,7 +13,7 @@
       "type": "v-page-contact",
       "name": "V Contact Form",
       "settings": {
-        "image": "shopify://shop_images/d41459_7777c3e9d6614bbe9a2537c891fb64e4_mv2_1.avif"
+        "image": "shopify://shop_images/contact-us__side-image__v2.avif"
       }
     },
     "1658927878ca6ea7a1": {
@@ -78,6 +78,7 @@
         "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
+        "justify_items": "center",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",

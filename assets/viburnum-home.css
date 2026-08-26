@@ -1106,3 +1106,19 @@ body.scroll-locked {
 .product-list-item-thumbnail__link__image-container img{
   object-fit: cover;
 }
+
+/* Search Results
+==================== */
+.search-results-products{
+  --columns: 2;
+  display: grid;
+  gap: var(--spacing);
+  grid-template-columns: repeat(var(--columns), 1fr);
+  @media screen and (min-width: 750px){
+     --columns: 3;
+  }
+}
+
+.search-results-products .product-list-item{
+  width: 100%;
+}
