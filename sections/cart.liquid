@@ -21,6 +21,48 @@
   }
 </script>
 
+<style>
+  .loading:not(.no-js) .main-header,
+  .loading:not(.no-js) .masonry-features-wrapper,
+  .loading:not(.no-js) .main-content,
+  .loading:not(.no-js) .main-footer {
+    opacity: 1;
+  }
+
+  .cart-page--grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto 300px;
+  }
+
+  .cart-form {
+    margin-top: 0;
+    {% comment %} padding: 30px;
+    background-color: #fff; {% endcomment %}
+  }
+
+  .cart-items {
+    margin-top: 0;
+  }
+
+  .cart-item {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .additional-checkout-buttons {
+    display: block;
+  }
+  .cart-page--grid .__h2 {
+      text-align: left;
+      padding-left: var(--min-spacing);
+    }
+
+    .cart-checkout {
+      padding-top: 21px;
+      padding-bottom: 21px;
+    }
+</style>
+
 <section
   class="cart"
   {% if section.settings['shipping-calculator'] %}
@@ -33,20 +75,16 @@
 
   {% render 'breadcrumbs' %}
 
-  {% if cart.item_count > 0 %}
-    <form class="cart-form" action="{{ routes.cart_url }}" method="post">
-      {% render 'cart-table' %}
-      <div class="cart-tools {% if section.settings.shipping-calculator %}has-shipping-calculator{% endif %} {% if section.settings.special-instructions %}has-special-instructions{% endif %}">
-        {% if section.settings['special-instructions'] %}
-          <div class="cart-instructions">
-            <h2>{{ 'cart.general.special_instructions' | t }}</h2>
-            <textarea
-              placeholder="{{ section.settings.special-instructions-placeholder | escape }}"
-              name="note"
-            >{{ cart.note }}</textarea>
-          </div>
+  <form class="cart-form" action="{{ routes.cart_url }}" method="post">
+    <div class="cart-page--grid __container __container-bleed">
+      <div class="cart-page--grid__item">
+        <h2 class="__h2">Cart</h2>
+        {% if cart.item_count > 0 %}
+          {% render 'cart-table' %}
         {% endif %}
-
+      </div>
+      <div class="cart-page--grid__item">
+        <h2 class="__h2">Order Summary</h2>
         <div class="cart-totals">
           {% render 'cart-discounts' %}
           <p class="cart-price">
@@ -79,18 +117,73 @@
           {% endif %}
         </div>
       </div>
-    </form>
+    </div>
+  </form>
 
-    {% if section.settings['shipping-calculator'] %}
-      {% render 'shipping-calculator' %}
+  <div class="cart-page--grid">
+    <div class="cart-page--grid__item">
+      {% if cart.item_count > 0 %}
+        <form class="cart-form" action="{{ routes.cart_url }}" method="post">
+          {% render 'cart-table' %}
+
+          <div class="cart-tools {% if section.settings.shipping-calculator %}has-shipping-calculator{% endif %} {% if section.settings.special-instructions %}has-special-instructions{% endif %}">
+            {% if section.settings['special-instructions'] %}
+              <div class="cart-instructions">
+                <h2>{{ 'cart.general.special_instructions' | t }}</h2>
+                <textarea
+                  placeholder="{{ section.settings.special-instructions-placeholder | escape }}"
+                  name="note"
+                >{{ cart.note }}</textarea>
+              </div>
+            {% endif %}
+
+            <div class="cart-totals">
+              {% render 'cart-discounts' %}
+              <p class="cart-price">
+                <span class="money" data-total-price>{{ cart.total_price | money }}</span>
+              </p>
+              <p class="cart-message">{{ taxes_shipping_checkout }}</p>
+              <div class="cart-buttons-container">
+                <noscript>
+                  <input
+                    class="cart-update button secondary"
+                    type="submit"
+                    name="update"
+                    value="{{ 'general.general.update' | t }}"
+                  >
+                </noscript>
+                <button
+                  class="cart-checkout button"
+                  type="submit"
+                  name="checkout"
+                  value="{{ 'cart.general.submit' | t }}"
+                >
+                  {% if section.settings.enable_checkout_lock_icon %}
+                    {% render 'icons', id: 'checkout-lock' %}
+                  {% endif %}
+                  <span>{{ 'cart.general.submit' | t }}</span>
+                </button>
+              </div>
+              {% if additional_checkout_buttons %}
+                <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+              {% endif %}
+            </div>
+          </div>
+        </form>
+      {% else %}
+        {% capture continueLink %}
+          <a href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_link' | t }}</a>
+        {% endcapture %}
+        <p class="empty">{{ 'cart.general.empty_html' | t: continue_link: continueLink }}</p>
+      {% endif %}
+    </div>
+
+    {% if cart.item_count > 0 and section.settings['shipping-calculator'] %}
+      <div class="cart-page--grid__item">
+        {% render 'shipping-calculator' %}
+      </div>
     {% endif %}
-
-  {% else %}
-    {% capture continueLink %}
-      <a href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_link' | t }}</a>
-    {% endcapture %}
-    <p class="empty">{{ 'cart.general.empty_html' | t: continue_link: continueLink }}</p>
-  {% endif %}
+  </div>
 </section>
 
 {% schema %}
