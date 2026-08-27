@@ -1124,6 +1124,12 @@ body.scroll-locked {
 
 /* Search Results
 ==================== */
+
+
+.search .page-title{
+  padding-top: 40px;
+}
+
 .search-results-products{
   --columns: 2;
   display: grid;
