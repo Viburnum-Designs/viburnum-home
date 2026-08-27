@@ -40,7 +40,7 @@
             width="138"
             height="150"
             class="v--header-grid__grid-item__logo__image"
-            alt="A minimalist white circular logo with the text 'V & C O.' in a light gray serif font, set against a solid white background."
+            alt="Viburnum Icon Logo"
           >
           <div class="v--header-grid__grid-item__logo__text">VIBURNUM HOME</div>
         </a>
@@ -104,7 +104,7 @@
         {% if shop.customer_accounts_enabled %}
           <div class="customer-links">
             {% if customer %}
-              <a href="{{ routes.account_url }}">
+              <a href="{{ routes.account_url }}" aria-label="Customer Logout Button">
                 <div class="account-icon">
                   {% render 'icons', id: 'account_logged_in' %}
                 </div>
@@ -131,7 +131,7 @@
               </div>
 
             {% else %}
-              <a class="customer-login-link" href="{{ routes.account_login_url }}">
+              <a class="customer-login-link" href="{{ routes.account_login_url }}" aria-label="Customer Login Button">
                 <div class="account-icon">
                   {% render 'icons', id: 'account_logged_out' %}
                 </div>
@@ -153,10 +153,17 @@
           {% render 'mini-cart' %}
         </div>
 
-        <div class="toggle-search-section js--toggle-search-btn">
-          <button class="search-icon__btn" aria-label="Search">
+        <div class="toggle-search-section ">
+          <button
+            class="search-icon__btn js--toggle-search-btn"
+            aria-label="Search"
+            aria-expanded="false"
+            aria-controls="predictive-search"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              focusable="false"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -172,11 +179,6 @@
             </svg>
           </button>
         </div>
-        {% comment %}
-          <form class="checkout-link" action="{{ routes.cart_url }}" method="POST">
-            <button class="checkout-link__button" type="submit" name="checkout">{{ 'layout.header.checkout' | t }}</button>
-          </form>
-        {% endcomment %}
       </div>
     </section>
 

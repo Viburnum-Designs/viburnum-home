@@ -5,7 +5,7 @@
 {% if block and collection %}
   {% if custom_image %}
     {% capture image %}
-      {% render 'rimg', img: custom_image, size: '1024x1024', lazy: true %}
+      {% render 'rimg', img: custom_image, size: '1024x1024', lazy: true, alt: custom_image.alt %}
     {% endcapture %}
   {% else %}
     {% capture image %}
@@ -51,7 +51,11 @@
         Placeholder
       {% endif %}
       {% if collection.url != blank %}
-        <a class="home-collection__link __link-covered" href="{{ collection.url }}"></a>
+        <a
+          class="home-collection__link __link-covered"
+          href="{{ collection.url }}"
+          aria-label="View {{ collection.title }}"
+        ></a>
       {% endif %}
     </div>
 
