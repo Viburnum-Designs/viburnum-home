@@ -29,7 +29,7 @@
         "rich_text_zKynaD": {
           "type": "rich-text",
           "settings": {
-            "rich_text": "<p>Use this section to welcome customers to your store, say a bit about your brand, or share news and seasonal promotions</p><p><a href=\"mailto:info@viburnumhome.com\" title=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a></p>"
+            "rich_text": "<p>If you have any questions, need assistance with an order, or have a customer service inquiry, please feel free to contact our stores directly. Our team is happy to assist you and ensure you have a wonderful experience.</p><p><a href=\"mailto:info@viburnumhome.com\" title=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a></p>"
           }
         }
       },
@@ -38,8 +38,9 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": true,
-        "heading": "Customer Service Inquiries"
+        "heading": "Welcome, and thank you for choosing us!"
       }
     },
     "v_grid_ttNnat": {
@@ -70,9 +71,9 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "0",
         "row-gap": "0",
