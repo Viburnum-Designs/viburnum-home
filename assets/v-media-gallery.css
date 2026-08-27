@@ -41,22 +41,23 @@
 .v-modal-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .v-modal-content {
   position: relative;
   z-index: 1;
-  width: 90vw;
-  max-width: 1200px;
+  width: 100vw;
+  /* max-width: 1200px; */
   height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .v-modal-image-wrapper {
-  max-width: 100%;
+  max-width: calc(100% - 120px );
   max-height: 100%;
   display: flex;
   align-items: center;
@@ -85,8 +86,7 @@
 
 .v-icon-btn:hover,
 .v-icon-btn:focus-visible {
-  background-color: rgba(255, 255, 255, 0.2);
-  outline: 2px solid #000;
+  background-color: rgba(255, 255, 255, 0.2); 
 }
 
 .v-modal-top-bar {
@@ -104,10 +104,34 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
-.prev-btn { left: -20px; }
-.next-btn { right: -20px; }
+.v-gallery-modal button{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 50px;
+  height: 50px;
+  aspect-ratio: 1 / 1;
+}
 
-@media (max-width: 768px) {
+.v-gallery-modal button svg{
+  width: 50px;
+  height: 50px;
+}
+
+.v-gallery-modal .close-btn{
+  background-color: transparent;
+}
+
+.prev-btn ,.next-btn{
+  position: absolute;
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* @media (max-width: 768px) {
   .prev-btn { left: 10px; }
   .next-btn { right: 10px; }
-}
+} */
