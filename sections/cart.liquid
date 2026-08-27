@@ -23,34 +23,44 @@
 
 <section
   class="cart"
-  {% if section.settings.shipping-calculator %}data-shipping-calculator{% endif %}
+  {% if section.settings['shipping-calculator'] %}
+    data-shipping-calculator
+  {% endif %}
   data-section-id="{{ section.id }}"
-  data-section-type="cart">
-  <h1 class="page-title">{{ 'cart.general.header' | t }}</h1>
+  data-section-type="cart"
+>
+  <h1 class="__h1 page-title">{{ 'cart.general.header' | t }}</h1>
 
   {% render 'breadcrumbs' %}
 
   {% if cart.item_count > 0 %}
-
     <form class="cart-form" action="{{ routes.cart_url }}" method="post">
-
       {% render 'cart-table' %}
       <div class="cart-tools {% if section.settings.shipping-calculator %}has-shipping-calculator{% endif %} {% if section.settings.special-instructions %}has-special-instructions{% endif %}">
-
-        {% if section.settings.special-instructions %}
+        {% if section.settings['special-instructions'] %}
           <div class="cart-instructions">
             <h2>{{ 'cart.general.special_instructions' | t }}</h2>
-            <textarea placeholder="{{ section.settings.special-instructions-placeholder | escape }}" name="note">{{ cart.note }}</textarea>
+            <textarea
+              placeholder="{{ section.settings.special-instructions-placeholder | escape }}"
+              name="note"
+            >{{ cart.note }}</textarea>
           </div>
         {% endif %}
 
         <div class="cart-totals">
           {% render 'cart-discounts' %}
-          <p class="cart-price"><span class="money" data-total-price>{{ cart.total_price | money }}</span></p>
+          <p class="cart-price">
+            <span class="money" data-total-price>{{ cart.total_price | money }}</span>
+          </p>
           <p class="cart-message">{{ taxes_shipping_checkout }}</p>
           <div class="cart-buttons-container">
             <noscript>
-              <input class="cart-update button secondary" type="submit" name="update" value="{{ 'general.general.update' | t }}">
+              <input
+                class="cart-update button secondary"
+                type="submit"
+                name="update"
+                value="{{ 'general.general.update' | t }}"
+              >
             </noscript>
             <button
               class="cart-checkout button"
@@ -59,9 +69,7 @@
               value="{{ 'cart.general.submit' | t }}"
             >
               {% if section.settings.enable_checkout_lock_icon %}
-                {% render 'icons',
-                  id: 'checkout-lock',
-                %}
+                {% render 'icons', id: 'checkout-lock' %}
               {% endif %}
               <span>{{ 'cart.general.submit' | t }}</span>
             </button>
@@ -70,22 +78,18 @@
             <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
           {% endif %}
         </div>
-
       </div>
-
     </form>
 
-    {% if section.settings.shipping-calculator %}
+    {% if section.settings['shipping-calculator'] %}
       {% render 'shipping-calculator' %}
     {% endif %}
 
   {% else %}
-
     {% capture continueLink %}
       <a href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_link' | t }}</a>
     {% endcapture %}
     <p class="empty">{{ 'cart.general.empty_html' | t: continue_link: continueLink }}</p>
-
   {% endif %}
 </section>
 
@@ -131,5 +135,4 @@
     }
   ]
 }
-
 {% endschema %}

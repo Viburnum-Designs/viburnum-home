@@ -2,14 +2,14 @@
   type="application/json"
   data-section-type="static-blog"
   data-section-id="{{ section.id }}"
->
-</script>
+></script>
 
 <section
-  {% if section.settings.tag-filter %}data-tag-filter{% endif %}
+  {% if section.settings['tag-filter'] %}
+    data-tag-filter
+  {% endif %}
 >
-
-  <h1 class="page-title">{{ blog.title }}</h1>
+  <h1 class="__h1 page-title">{{ blog.title }}</h1>
 
   {% render 'breadcrumbs' %}
 
@@ -17,7 +17,6 @@
 
   <div class="blog-wrapper">
     {% paginate blog.articles by section.settings.articles_per_page %}
-
       <div class="blog-posts">
         {% for article in blog.articles %}
           {% render 'section-blog-post', article: article %}
@@ -29,13 +28,12 @@
           {% render 'pagination', paginate: paginate %}
         {% endif %}
       </div>
-
     {% endpaginate %}
 
     {%- for block in section.blocks -%}
       {%- case block.type -%}
-      {%- when 'promotional-image' -%}
-        {% render 'block-blog-promo', block: block %}
+        {%- when 'promotional-image' -%}
+          {% render 'block-blog-promo', block: block %}
       {%- endcase -%}
     {%- endfor -%}
   </div>
@@ -95,5 +93,4 @@
     }
   ]
 }
-
 {% endschema %}

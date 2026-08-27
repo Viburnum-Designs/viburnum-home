@@ -1,22 +1,25 @@
 <div class="customer-section">
-  <h1 class="page-title">{{ 'customers.login.header' | t }}</h1>
+  <h1 class="__h1 page-title">{{ 'customers.login.header' | t }}</h1>
 
   {% render 'breadcrumbs' %}
 
   <div class="customer-wrapper">
-
     <p class="successful-reset">{{ 'customers.login.message' | t }}</p>
 
     <div class="customer-login">
       {% form 'customer_login' %}
-
         {% if form.errors %}
           <p class="error-message banner">{{ 'customers.login.error' | t }}</p>
         {% endif %}
 
         <div class="input-wrapper">
           <label for="customer[email]">{{ 'general.general.email' | t }}</label>
-          <input type="text" placeholder="{{ 'general.general.email_placeholder' | t }}" value="{{ form.email }}" name="customer[email]">
+          <input
+            type="text"
+            placeholder="{{ 'general.general.email_placeholder' | t }}"
+            value="{{ form.email }}"
+            name="customer[email]"
+          >
         </div>
 
         <div class="input-wrapper">
@@ -28,13 +31,11 @@
           <input type="submit" value="{{ 'customers.login.submit' | t }}">
           <span class="toggle-forgetfulness">{{ 'customers.login.forgot_your_password' | t }}</span>
         </div>
-
       {% endform %}
     </div>
 
     <div class="recover-password">
       {% form 'recover_customer_password' %}
-
         <p>{{ 'customers.login.recover_password_message' | t }}</p>
 
         {% if form.posted_successfully? %}
@@ -43,10 +44,16 @@
 
         <div class="input-wrapper">
           <label for="customer[email]">{{ 'general.general.email' | t }}</label>
-          <input type="text" placeholder="{{ 'general.general.email_placeholder' | t }}" value="{{ form.email }}" name="email" class="{% if form.errors %}error{% endif %}">
+          <input
+            type="text"
+            placeholder="{{ 'general.general.email_placeholder' | t }}"
+            value="{{ form.email }}"
+            name="email"
+            class="{% if form.errors %}error{% endif %}"
+          >
 
           {% if form.errors %}
-            <p class="error-message">{{ form.errors.messages['form'] }}</p>
+            <p class="error-message">{{ form.errors.messages.form }}</p>
           {% endif %}
         </div>
 
@@ -54,7 +61,6 @@
           <input type="submit" value="{{ 'customers.reset_password.submit' | t }}">
           <span class="toggle-forgetfulness">{{ 'general.general.cancel' | t }}</span>
         </div>
-
       {% endform %}
     </div>
 
