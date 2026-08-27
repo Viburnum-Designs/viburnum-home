@@ -1,5 +1,5 @@
 <div class="customer-section">
-  <h1 class="page-title">
+  <h1 class="__h1 page-title">
     {% if customer.first_name != blank %}
       {{ 'customers.account.header' | t: customer_name: customer.first_name }}
     {% else %}
@@ -11,11 +11,13 @@
 
   <div class="customer-wrapper">
     <div class="account-info">
-
-      {% if customer.default_address != nil %}
+      {% if customer.default_address != null %}
         <p class="customer-address">
           {% assign address = customer.default_address %}
-          <span class="section-title">{{ address.first_name }} {{ address.last_name }}</span>
+          <span class="section-title">
+            {{- address.first_name }}
+            {{ address.last_name -}}
+          </span>
           {% if address.company != blank %}
             <span>{{ address.company }}</span><br>
           {% endif %}
@@ -23,10 +25,16 @@
             <span>{{ address.street }}</span><br>
           {% endif %}
           {% if address.city != blank or address.province_code != blank %}
-            <span>{{ address.city }}{% if address.province_code %}, {{ address.province_code }}{% endif %}</span><br>
+            <span>
+              {{- address.city -}}
+              {%- if address.province_code %}, {{ address.province_code }}{% endif -%}</span
+            ><br>
           {% endif %}
           {% if address.country != blank or address.zip != blank %}
-            <span>{{ address.country }} {{ address.zip }}</span><br>
+            <span>
+              {{- address.country }}
+              {{ address.zip -}}</span
+            ><br>
           {% endif %}
           {% if address.phone != blank %}
             <span>{{ address.phone }}</span><br>
@@ -40,13 +48,13 @@
         {% endcapture %}
         <p>{{ 'customers.account.no_addresses_html' | t: new_address_link: newAddressLink }}</p>
       {% else %}
-        <p><a href="{{ routes.account_addresses_url }}">{{ 'customers.account.edit_addresses' | t }}</a></p>
+        <p>
+          <a href="{{ routes.account_addresses_url }}">{{ 'customers.account.edit_addresses' | t }}</a>
+        </p>
       {% endif %}
-
     </div>
 
     <div class="account-history">
-
       {% if customer.orders.size > 0 %}
         <table class="account-orders">
           <thead>
@@ -61,10 +69,25 @@
           <tbody>
             {% for order in customer.orders %}
               <tr class="{% render 'for-looper', forloop: forloop %} {% if order.cancelled %}cancelled_order{% endif %}">
-                <td class="account-order-number first" data-title="{{ 'customers.account.order' | t }}">{{ order.name | link_to: order.customer_url }} <span class="date">- {{ order.created_at | date: format: 'short_month' }}</span></td>
-                <td class="account-order-payment-status {{ order.financial_status }}" data-title="{{ 'customers.account.payment' | t }}">{{ order.financial_status_label | capitalize }}</td>
-                <td class="account-order-fulfillment-status {{ order.fulfillment_status }}" data-title="{{ 'customers.account.fulfillment' | t }}">{{ order.fulfillment_status_label | capitalize }}</td>
-                <td class="account-order-total last" data-title="{{ 'general.general.total' | t }}"><span class="money">{{ order.total_price | money }}</span></td>
+                <td class="account-order-number first" data-title="{{ 'customers.account.order' | t }}">
+                  {{ order.name | link_to: order.customer_url }}
+                  <span class="date">- {{ order.created_at | date: format: 'short_month' }}</span>
+                </td>
+                <td
+                  class="account-order-payment-status {{ order.financial_status }}"
+                  data-title="{{ 'customers.account.payment' | t }}"
+                >
+                  {{ order.financial_status_label | capitalize }}
+                </td>
+                <td
+                  class="account-order-fulfillment-status {{ order.fulfillment_status }}"
+                  data-title="{{ 'customers.account.fulfillment' | t }}"
+                >
+                  {{ order.fulfillment_status_label | capitalize }}
+                </td>
+                <td class="account-order-total last" data-title="{{ 'general.general.total' | t }}">
+                  <span class="money">{{ order.total_price | money }}</span>
+                </td>
               </tr>
             {% endfor %}
           </tbody>

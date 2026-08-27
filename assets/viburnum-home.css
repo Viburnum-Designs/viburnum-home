@@ -187,6 +187,10 @@ Pages
 
 /* Components
 =============*/
+.page-title{
+  padding-top: 40px;
+}
+
 .__colored-grid{
   background-color: var(--colored-grid__bg-color);
   color:  var(--colored-grid__text-color);
@@ -1126,7 +1130,7 @@ body.scroll-locked {
 ==================== */
 
 
-.search .page-title{
+.page-title{
   padding-top: 40px;
 }
 

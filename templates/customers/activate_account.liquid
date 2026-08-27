@@ -1,12 +1,10 @@
 <div class="customer-section">
-  <h1 class="page-title">{{ 'customers.activate_account.header' | t }}</h1>
+  <h1 class="__h1 page-title">{{ 'customers.activate_account.header' | t }}</h1>
 
   {% render 'breadcrumbs' %}
 
   <div class="customer-wrapper">
-
     {% form 'activate_customer_password', class: 'activate-account' %}
-
       <p>{{ 'customers.activate_account.message' | t }}</p>
 
       {% if form.errors %}
@@ -25,8 +23,9 @@
 
       <input type="submit" value="{{ 'customers.activate_account.submit' | t }}">
 
-      <a class="active-account-decline" href="{{ routes.account_register_url }}">{{ 'customers.activate_account.decline_activation' | t }}</a>
-
+      <a class="active-account-decline" href="{{ routes.account_register_url }}">
+        {{- 'customers.activate_account.decline_activation' | t -}}
+      </a>
     {% endform %}
   </div>
 </div>
