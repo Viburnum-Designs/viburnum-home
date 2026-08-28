@@ -32,8 +32,8 @@
       "name": "V Page Banner",
       "settings": {
         "image": "shopify://shop_images/about-us__desktop.webp",
-        "title": "About Us",
-        "text": "",
+        "title": "Viburnum Home ",
+        "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",

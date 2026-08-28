@@ -304,14 +304,14 @@
       "name": "V Page Banner",
       "settings": {
         "image": "shopify://shop_images/fall-collection-banner__desktop.webp",
-        "title": "Fall New Arrivals",
+        "title": "Our Fall Collection",
         "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#683a05",
         "overlay_opacity": 35,
-        "link": "shopify://collections/holiday",
-        "button_text": "Shop Fall"
+        "link": "shopify://collections/fall-collection",
+        "button_text": "Explore"
       }
     },
     "v_featured_collection_carousel_myXTbe": {
