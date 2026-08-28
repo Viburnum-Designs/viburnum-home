@@ -119,8 +119,11 @@ Pages
   text-decoration: none;
 }
 
-.section-title, .__h1, .__h2{
+.section-title{
   text-align: center;
+}
+
+.section-title, .__h1, .__h2{
   font-size: 40px;
   font-family: var(--heading-font);
   font-weight: 300;
@@ -294,7 +297,7 @@ button:active{
   display: grid;
   align-items: stretch; 
   padding-block: var(--min-spacing); 
-  grid-template-columns: 250px auto 160px;
+  grid-template-columns: 290px auto 160px;
   gap: 0;
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 60px auto 160px;
@@ -331,9 +334,13 @@ button:active{
   font-family: var(--heading-font);
   white-space: nowrap;
   letter-spacing: .2em;
+  @media (max-width: 1099px){
+    font-size: 15px;
+  }
   @media  (max-width: 520px){
     display: none;
   }
+  
 }
 
 .customer-login-link, .__account-icon{
@@ -537,6 +544,7 @@ button:active{
   }
   .main-nav-bar__links__menu__item__link {
     font-size: 15px;
+    line-height: 1;
     color: #333;
     text-transform: uppercase;
   }
@@ -895,6 +903,11 @@ input[type='submit'].header-search-button {
 
 /* Product Lists
 ===================*/
+.collection-header__grid{
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
 .collections-list-section{
   padding-top: var(--max-spacing);
 }
