@@ -27,6 +27,7 @@
   place-self: center;
   background-color: #edebec;
   padding: var(--p)!important;
+  
   @media screen and (min-width: 768px){
     --p: 50px;
   }
@@ -38,12 +39,13 @@
 
 .faqs-grid  .v-grid__grid-item:nth-child(odd){ 
   font-weight: bold;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px){
   .faqs-grid  .v-grid__grid-item:nth-child(odd){
     padding-right: calc(var(--spacing) * 2);
-    text-align: left;
+    text-align: right;
     font-weight: bold;
     
   }
