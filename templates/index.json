@@ -303,13 +303,13 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/fall-collection-banner__desktop.webp",
+        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
         "title": "Our Fall Collection",
         "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#683a05",
-        "overlay_opacity": 35,
+        "overlay_opacity": 10,
         "link": "shopify://collections/fall-collection",
         "button_text": "Explore"
       }
