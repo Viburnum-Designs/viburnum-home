@@ -7,7 +7,7 @@
     display: none;
     @media screen and (min-width: 769px) {
       display: grid;
-      grid-template-columns: 2fr repeat(2, 1fr);
+      grid-template-columns: 2.5fr repeat(2, 1fr);
       background-color: #fff;
       padding: var(--min-spacing);
     }
@@ -94,6 +94,18 @@
     font-family: var(--body-font);
     font-weight: 200;
     font-size: 16px;
+    @media screen and (min-width: 770px) {
+      display: none;
+    }
+  }
+
+  .cart-item .remove__desktop {
+    display: none;
+    @media screen and (min-width: 770px) {
+      display: block;
+      grid-area: remove;
+      text-align: right;
+    }
   }
 
   .quantity-and-remove-btn {
@@ -103,24 +115,33 @@
   }
 
   @media screen and (min-width: 770px) {
+    .cart-items__header .last {
+      text-align: right;
+    }
     .cart-item .product-item-details {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas: 'col1 col2 col3';
+      grid-template-columns: 1.25fr 0.5fr 1fr;
+      grid-template-areas: 'col1 col2 col3' 'col1 col2 remove';
+      align-items: start;
+      width: 100%;
+      padding: 0;
     }
 
-    .cart-title,
-    .cart-variant {
+    .cart-product-titles {
       grid-area: col1;
     }
 
-    .cart-item-properties {
+    .quantity-and-remove-btn {
       grid-area: col2;
     }
 
-    .quantity-and-remove-btn,
-    .total {
+    .cart-item .quantity {
+      width: 100%;
+    }
+
+    .cart-item .total {
       grid-area: col3;
+      width: 100%;
     }
   }
 </style>
@@ -152,14 +173,15 @@
             </a>
           </div>
           <div class="product-item-details">
-            {% if settings['product-vendor'] %}
-              <span class="cart-brand">{{ item.vendor | link_to_vendor }}</span>
-            {% endif %}
-            <span class="cart-title">{{ item.product.title | link_to: item.product.url }}</span>
-            {% unless item.variant.title == 'Default Title' %}
-              <span class="cart-variant">{{ item.variant.title }}</span>
-            {% endunless %}
-
+            <div class="cart-product-titles">
+              {% if settings['product-vendor'] %}
+                <span class="cart-brand">{{ item.vendor | link_to_vendor }}</span>
+              {% endif %}
+              <span class="cart-title">{{ item.product.title | link_to: item.product.url }}</span>
+              {% unless item.variant.title == 'Default Title' %}
+                <span class="cart-variant">{{ item.variant.title }}</span>
+              {% endunless %}
+            </div>
             {% if item.selling_plan_allocation.selling_plan %}
               <span class="cart-item-subscriptions">{{ item.selling_plan_allocation.selling_plan.name }}</span>
             {% endif %}
@@ -275,6 +297,12 @@
                 >Remove</a
               >
             </div>
+            <a
+              href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0"
+              class="remove remove__desktop"
+              data-remove-item="{{ item.key }}"
+              >Remove</a
+            >
           </div>
         </div>
         <!-- product-item -->
