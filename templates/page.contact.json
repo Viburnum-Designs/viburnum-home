@@ -30,7 +30,7 @@
         "rich_text_zKynaD": {
           "type": "rich-text",
           "settings": {
-            "rich_text": "<p>If you have any questions, need assistance with an order, or have a customer service inquiry, please feel free to contact our stores directly. Our team is happy to assist you and ensure you have a wonderful experience.</p><p><a href=\"mailto:info@viburnumhome.com\" title=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a></p>"
+            "rich_text": "<p>If you have any questions, need assistance with an order, or have a customer service inquiry, please feel free to contact our stores directly. Our team is happy to assist you and ensure you have a wonderful experience.</p><p>Online Support: <a href=\"mailto:info@viburnumhome.com\" title=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a></p>"
           }
         }
       },
