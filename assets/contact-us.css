@@ -31,12 +31,12 @@
     margin-top: var(--min-spacing);
     display: grid;
     grid-template-columns: 10px auto;
-    column-gap: var(--spacing);
+    column-gap: var(--min-spacing);
     font-style: normal;
   }
   h3{
     margin-block: 0;
-    margin-left: 34px;
+    margin-left: 20px;
   }
   p{
     margin-block: 0;
