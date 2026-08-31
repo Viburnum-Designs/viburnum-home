@@ -43,6 +43,21 @@
                 {{ section.settings.connect_info }}
               </div>
             {% endif %}
+
+            {%- assign address_blocks = section.blocks | where: 'type', 'address' -%}
+            {%- if address_blocks.size > 0 -%}
+              <div>Design Studios:</div>
+              <ul class="address-list">
+                {%- for block in address_blocks -%}
+                  {%- if block -%}
+                    <li class="address-list__item">
+                      {% render 'icons', id: 'map-pin' %}
+                      {{ block.settings.address_text }}
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
           </div>
         </div>
         <div class="footer-grid__logo-and-signup">
@@ -53,6 +68,7 @@
                 class="footer-logo__image"
                 width="182"
                 height="193"
+                alt="Viburnum Home Footer Logo Icon"
               >
               <div class="footer-logo__site-name">VIBURNUM HOME</div>
             </div>
@@ -150,6 +166,18 @@
         }
       ],
       "limit": 1
+    },
+    {
+      "type": "address",
+      "name": "Address",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "address_text",
+          "label": "Address text",
+          "default": "<p>Add Address Here</p>"
+        }
+      ]
     },
     {
       "type": "newsletter",

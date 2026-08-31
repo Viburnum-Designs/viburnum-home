@@ -30,7 +30,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +38,12 @@
 
   .v-page-banner__heading{
     text-shadow: 0 0 .75em #000;
+    margin-bottom: 0;
+  }
+
+  .v-page-banner__heading + .__cta{
+    margin-top: 40px;
+    display: inline-block;
   }
 {% endstyle %}
 <section class="v-page-banner__section">

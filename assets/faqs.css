@@ -4,6 +4,11 @@
   margin: 0;
   padding: 0;
 }
+
+.home-message{
+  padding-top: 40px;
+}
+
 .home-message-content h2{
   font-family: var(--heading-font);
   font-size: 56px;
@@ -22,6 +27,7 @@
   place-self: center;
   background-color: #edebec;
   padding: var(--p)!important;
+  
   @media screen and (min-width: 768px){
     --p: 50px;
   }
@@ -33,12 +39,13 @@
 
 .faqs-grid  .v-grid__grid-item:nth-child(odd){ 
   font-weight: bold;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px){
   .faqs-grid  .v-grid__grid-item:nth-child(odd){
     padding-right: calc(var(--spacing) * 2);
-    text-align: left;
+    text-align: right;
     font-weight: bold;
     
   }

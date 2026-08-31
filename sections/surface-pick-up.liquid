@@ -3,32 +3,7 @@
   {% assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true %}
   {% if product_variant.available and pick_up_availabilities.size > 0 %}
     {% assign closest_location = pick_up_availabilities.first %}
-    <style>
-      .surface-pick-up-embed {
-        text-align: center;
-        justify-content: center;
-      }
 
-      .surface-pick-up-embed__location-info {
-        font-weight: bold;
-      }
-
-      .surface-pick-up-modal .modal-inner {
-        max-width: 100%;
-        background-color: #fff;
-        border-radius: 4px;
-        padding: var(--spacing);
-        width: 100%;
-      }
-
-      .surface-pick-up-item.surface-pick-up-item--available {
-        padding-bottom: 0;
-      }
-
-      .surface-pick-up-item__pick-up-distance {
-        margin: 0 0 0 0;
-      }
-    </style>
     <div class="surface-pick-up-embed surface-pick-up-embed--{% if closest_location.available %}available{% else %}unavailable{% endif %}">
       {% comment %}
         {% if closest_location.available %}
@@ -61,9 +36,9 @@
       {% endcomment %}
 
       <div class="surface-pick-up-embed__location-info">
-        <h3 class="surface-pick-up-embed__location-availability __text-center">
+        <h2 class="surface-pick-up-embed__location-availability __text-center">
           Pickup available - Usually ready in 24 hours
-        </h3>
+        </h2>
         {% comment %}
           {% if closest_location.available %}
             <h3 class="surface-pick-up-embed__location-availability">
@@ -178,16 +153,21 @@
             {% endif %}
           </div>
 
-          <address class="surface-pick-up-item__address-info">
-            {{ location.location.address | format_address }}
-            {%- if location.location.phone.size > 0 %}
-              {% assign phone = location.location.phone | strip %}
+          <address class="surface-pick-up-item__address-info __address-grid">
+            <div>{% render 'icons', id: 'map-pin' %}</div>
+            <div>{{ location.location.address | format_address }}</div>
 
-              <a href="tel:{{ location.location.phone }}">
-                {{ phone | slice: 0, 2 }} ({{ phone | slice: 2, 3 }})-{{ phone | slice: 5, 3 }}-
-                {{- phone | slice: 8, 4 -}}
-              </a>
-            {%- endif -%}
+            <div>{% render 'icons', id: 'phone' %}</div>
+            <div>
+              {%- if location.location.phone.size > 0 %}
+                {% assign phone = location.location.phone | strip %}
+
+                <a href="tel:{{ location.location.phone }}">
+                  {{ phone | slice: 0, 2 }} ({{ phone | slice: 2, 3 }})-{{ phone | slice: 5, 3 }}-
+                  {{- phone | slice: 8, 4 -}}
+                </a>
+              {%- endif -%}
+            </div>
           </address>
         </li>
         {% comment %}Inject @pixelunion/shopify-surface-pick-up/surface-pick-up-item end{% endcomment %}

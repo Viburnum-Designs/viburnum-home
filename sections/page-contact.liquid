@@ -1,4 +1,4 @@
-<h1 class="page-title">{{ page.title }}</h1>
+<h1 class="__h1 page-title">{{ page.title }}</h1>
 
 {% render 'breadcrumbs' %}
 
@@ -6,9 +6,10 @@
   {{ page.content }}
 
   {% form 'contact' %}
-
     {% if form.errors %}
-      <div class="error-message"><span>{{ 'general.contact.error' | t }}</span></div>
+      <div class="error-message">
+        <span>{{ 'general.contact.error' | t }}</span>
+      </div>
     {% endif %}
 
     {% if form.posted_successfully? %}
@@ -16,12 +17,24 @@
     {% else %}
       <div class="field-wrap name">
         <label for="contact[name]">{{ 'general.general.name' | t }}</label>
-        <input type="text" placeholder="{{ 'general.general.name_placeholder' | t }}" value="" name="contact[name]" class="{% if form.errors contains "author" %}error{% endif %}">
+        <input
+          type="text"
+          placeholder="{{ 'general.general.name_placeholder' | t }}"
+          value=""
+          name="contact[name]"
+          class="{% if form.errors contains "author" %}error{% endif %}"
+        >
       </div>
 
       <div class="field-wrap email">
         <label for="contact[email]">{{ 'general.general.email' | t }}</label>
-        <input type="text" placeholder="{{ 'general.general.email_placeholder' | t }}" value="" name="contact[email]" class="{% if form.errors contains "email" %}error{% endif %}">
+        <input
+          type="text"
+          placeholder="{{ 'general.general.email_placeholder' | t }}"
+          value=""
+          name="contact[email]"
+          class="{% if form.errors contains "email" %}error{% endif %}"
+        >
       </div>
 
       <div class="field-wrap message">
@@ -32,7 +45,5 @@
       <input type="hidden" class="comment-check" value="" />
       <input type="submit" value="{{ 'general.contact.submit' | t }}">
     {% endif %}
-
   {% endform %}
-
 </div>

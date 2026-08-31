@@ -20,10 +20,10 @@
         "slide_DAiX6d": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/slider-image-1v2.webp",
-            "content_bg": "#CED7B5",
+            "image": "shopify://shop_images/slider-banner-1__v4.webp",
+            "content_bg": "#474d48",
             "content-alignment": "left",
-            "overlay-color": "#272121",
+            "overlay-color": "#ffffff",
             "title": "Artistry In Full Bloom",
             "subheading": "Sculptural, premium faux greenery crafted to complement modern luxury living spaces.",
             "cta": "Shop Decor",
@@ -33,19 +33,8 @@
         "slide_HktfCb": {
           "type": "slide",
           "settings": {
-            "content_bg": "",
-            "content-alignment": "center",
-            "overlay-color": "#262626",
-            "title": "Slide",
-            "subheading": "Introduce customers to your shop with lifestyle imagery and product photography",
-            "cta": "Button",
-            "url": ""
-          }
-        },
-        "slide_6mjcBW": {
-          "type": "slide",
-          "settings": {
-            "content_bg": "",
+            "image": "shopify://shop_images/slider-banner-2__v4.webp",
+            "content_bg": "#474d48",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
             "title": "Modern Living Greenery",
@@ -57,8 +46,7 @@
       },
       "block_order": [
         "slide_DAiX6d",
-        "slide_HktfCb",
-        "slide_6mjcBW"
+        "slide_HktfCb"
       ],
       "name": "V Slideshow",
       "settings": {
@@ -96,7 +84,7 @@
           "type": "collection",
           "settings": {
             "collection": "signature-designs",
-            "collection_custom_image": "shopify://shop_images/signature-designs.webp",
+            "collection_custom_image": "shopify://shop_images/signature-designs-collection.webp",
             "overlay-color": "black",
             "subheading": "",
             "description": ""
@@ -166,14 +154,15 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "50px",
         "row-gap": "0",
         "text_alignment": "center",
         "align_items": "center",
+        "justify_items": "center",
         "section_heading": "",
         "columns_desktop": "2",
         "custom-breakpoint": "767",
@@ -194,8 +183,10 @@
       "block_order": [
         "rich_text_h63K6Y"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": true,
         "heading": "Explore our Decor Collection"
       }
@@ -241,14 +232,15 @@
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
         "layout": "content-width",
         "bleed": true,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "25px",
         "row-gap": "0",
         "text_alignment": "center",
         "align_items": "start",
+        "justify_items": "center",
         "section_heading": "Bring The Beauty Of Nature Indoors",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
@@ -272,6 +264,7 @@
       "disabled": true,
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": false,
         "heading": ""
       }
@@ -281,8 +274,8 @@
       "disabled": true,
       "name": "Featured collection",
       "settings": {
-        "title": "Featured collection",
-        "collection": "home-decor",
+        "title": "Fall New Arrivals",
+        "collection": "holiday",
         "product-columns": 3,
         "product-rows": 3
       }
@@ -310,15 +303,15 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/fall-arrivals__desktop.jpg",
-        "title": "Fall New Arrivals",
+        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "title": "Our Fall Collection",
         "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#683a05",
-        "overlay_opacity": 35,
-        "link": "shopify://collections/holiday",
-        "button_text": "Shop Fall"
+        "overlay_opacity": 10,
+        "link": "shopify://collections/fall-collection",
+        "button_text": "Explore"
       }
     },
     "v_featured_collection_carousel_myXTbe": {
@@ -326,14 +319,13 @@
       "name": "V Featured Collection Carousel",
       "settings": {
         "title": "Fall New Arrivals",
-        "collection": "holiday",
+        "collection": "fall-collection",
         "controls-color": "#000000",
         "autoplay": false,
         "autoplay_delay": 3,
         "autoplay-hover-pause": false,
         "product-columns": 4,
-        "product-limit": 6,
-        "view_more_image": "shopify://shop_images/holiday-collection--thumbnail.webp"
+        "product-limit": 6
       }
     },
     "home_message_e6Tyy4": {
@@ -351,6 +343,7 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "",
         "border": false,
         "heading": ""
       }
@@ -380,6 +373,8 @@
     "v_home_collections_F4AJx3",
     "v_grid_BUc7Tt",
     "home_message_jymXnQ",
+    "v_grid_pFxBLk",
+    "home_message_3LtUrB",
     "home_products_znFfpt",
     "pxs_image_with_text_overlay_ERN8kB",
     "v_page_banner_NUKAfQ",

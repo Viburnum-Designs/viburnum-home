@@ -1,1 +1,46 @@
-{"sections":{"pxs_image_with_text_overlay_iCBCXd":{"type":"pxs-image-with-text-overlay","disabled":true,"settings":{"section_height":"medium","image":"shopify:\/\/shop_images\/Screenshot_2024-07-09_161437_c4980fe1-4699-4552-94c7-b64ef5f75a6d.png","position":"top center","title":"Fall Collection","text":"<p>This collection contains a beautiful, wide variety of species selected especially for the season of fall. Each stem designed with lifelike petals and realistic foliage, ensuring that your arrangements look as natural as possible. The durability of our faux stems, branches, and greenery means they’ll stay fresh and beautiful season after season, with no need for watering or maintenance.<\/p><p>Coming August 2024!<\/p>","content_position":"center-left","color":"#ffffff","overlay_background":"#000000","overlay_opacity":50,"link":"shopify:\/\/collections\/fall-collection-1","button_text":"Shop Fall"}},"main":{"type":"collection","settings":{"show_collection_image":false,"show_description":false,"sorting":true,"show_filters":true,"layout":"masonry","products_per_row":4,"number_of_rows":3}}},"order":["pxs_image_with_text_overlay_iCBCXd","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pxs_image_with_text_overlay_iCBCXd": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "medium",
+        "image": "shopify://shop_images/Screenshot_2024-07-09_161437_c4980fe1-4699-4552-94c7-b64ef5f75a6d.png",
+        "position": "top center",
+        "title": "Fall Collection",
+        "text": "<p>This collection contains a beautiful, wide variety of species selected especially for the season of fall. Each stem designed with lifelike petals and realistic foliage, ensuring that your arrangements look as natural as possible. The durability of our faux stems, branches, and greenery means they’ll stay fresh and beautiful season after season, with no need for watering or maintenance.</p><p>Coming August 2024!</p>",
+        "content_position": "center-left",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "shopify://collections/fall-collection",
+        "button_text": "Shop Fall"
+      }
+    },
+    "main": {
+      "type": "collection",
+      "settings": {
+        "show_collection_image": false,
+        "show_description": false,
+        "sorting": true,
+        "show_filters": true,
+        "layout": "masonry",
+        "products_per_row": 4,
+        "number_of_rows": 3
+      }
+    }
+  },
+  "order": [
+    "pxs_image_with_text_overlay_iCBCXd",
+    "main"
+  ]
+}

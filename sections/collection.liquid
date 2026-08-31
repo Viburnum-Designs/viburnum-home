@@ -28,11 +28,15 @@
   endif
 %}
 
-<div>
-  {% unless use_masonry %}
-    <h1 class="page-title">{{ collection.title }}</h1>
-    {% render 'breadcrumbs' %}
-  {% endunless %}
+<div class="__container __container-bleed">
+  <h1 class="__h1 page-title">{{ collection.title }}</h1>
+  {% render 'breadcrumbs' %}
+  {% comment %}
+    {% unless use_masonry %}
+      <h1 class="__h1 page-title">{{ collection.title }}</h1>
+      {% render 'breadcrumbs' %}
+    {% endunless %}
+  {% endcomment %}
 
   {% paginate collection.products by products_per_page %}
     <section
@@ -56,53 +60,64 @@
             {% endif %}
           "
         >
-          {% if show_collection_image %}
-            <div class="collection-featured-image">
-              {% render 'rimg', img: collection.image, size: '1024x1024', lazy: true %}
+          {% comment %}
+            <div class="collection-header__grid">
+              {% if show_collection_image %}
+                <div class="collection-featured-image">
+                  {% render 'rimg', img: collection.image, size: '1024x1024', lazy: true %}
+                </div>
+              {% endif %}
+
+              {% if collection.description != blank and section.settings.show_description %}
+                <div class="collection-description rte">
+                  {{ collection.description }}
+                </div>
+              {% endif %}
+            </div>
+          {% endcomment %}
+          {% comment %}
+            <div class="collection-header-content">
+              {% if use_masonry %}
+                {% render 'breadcrumbs' %}
+                <h1 class="page-title">{{ collection.title }}</h1>
+              {% endif %}
+
+              {% if collection.description != blank and section.settings.show_description %}
+                <div class="collection-description rte">
+                  {{ collection.description }}
+                </div>
+              {% endif %}
+            </div>
+          {% endcomment %}
+
+          {% if show_filters or show_sorting %}
+            <div class="collection-filters">
+              {% if show_filters and collection.filters.size > 0 %}
+                <div class="faceted-filters" data-faceted-filter>
+                  {% render 'faceted-filters', filters: collection.filters, class_prefix: 'collection' %}
+                </div>
+              {% endif %}
+              {% if show_sorting %}
+                <div class="collection-sorting__wrapper">
+                  <div class="collection-filters__title">{{ 'collections.collection.sort_title' | t }}:</div>
+                  <div class="collection-dropdown collection-dropdown--sort select-wrapper {% if collection.current_vendor %}vendor-collection{% endif %}">
+                    {% assign current_sort = collection.sort_by | default: collection.default_sort_by %}
+
+                    <span class="selected-text"></span>
+                    <select data-collection-sorting>
+                      {%- for option in collection.sort_options -%}
+                        {% if current_sort == option.value %}
+                          <option value="{{ option.value }}" selected="selected">{{ option.name }}</option>
+                        {% else %}
+                          <option value="{{ option.value }}">{{ option.name }}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              {% endif %}
             </div>
           {% endif %}
-
-          <div class="collection-header-content">
-            {% if use_masonry %}
-              {% render 'breadcrumbs' %}
-              <h1 class="page-title">{{ collection.title }}</h1>
-            {% endif %}
-
-            {% if collection.description != blank and section.settings.show_description %}
-              <div class="collection-description rte">
-                {{ collection.description }}
-              </div>
-            {% endif %}
-
-            {% if show_filters or show_sorting %}
-              <div class="collection-filters">
-                {% if show_filters and collection.filters.size > 0 %}
-                  <div class="faceted-filters" data-faceted-filter>
-                    {% render 'faceted-filters', filters: collection.filters, class_prefix: 'collection' %}
-                  </div>
-                {% endif %}
-                {% if show_sorting %}
-                  <div class="collection-sorting__wrapper">
-                    <div class="collection-filters__title">{{ 'collections.collection.sort_title' | t }}:</div>
-                    <div class="collection-dropdown collection-dropdown--sort select-wrapper {% if collection.current_vendor %}vendor-collection{% endif %}">
-                      {% assign current_sort = collection.sort_by | default: collection.default_sort_by %}
-
-                      <span class="selected-text"></span>
-                      <select data-collection-sorting>
-                        {%- for option in collection.sort_options -%}
-                          {% if current_sort == option.value %}
-                            <option value="{{ option.value }}" selected="selected">{{ option.name }}</option>
-                          {% else %}
-                            <option value="{{ option.value }}">{{ option.name }}</option>
-                          {% endif %}
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
 
           {% if show_filters and collection.filters.size > 0 %}
             {% for filter in collection.filters %}

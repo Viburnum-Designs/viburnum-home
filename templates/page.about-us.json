@@ -31,13 +31,13 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/about-us__desktop.webp",
-        "title": "About Us",
-        "text": "",
+        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "title": "Viburnum Home ",
+        "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
-        "overlay_background": "#000000",
-        "overlay_opacity": 48,
+        "overlay_background": "#683a05",
+        "overlay_opacity": 10,
         "link": "",
         "button_text": ""
       }
@@ -70,7 +70,7 @@
           "settings": {
             "image": "shopify://shop_images/IMG_4191_1.jpg",
             "feature_card_heading": "",
-            "feature_card_text": "<p>Sumit Studio</p>",
+            "feature_card_text": "<p>Summit Studio</p>",
             "feature_card_url": "",
             "feature_card_button_text": ""
           }
@@ -114,7 +114,7 @@
       ],
       "name": "Rich text",
       "settings": {
-        "section_css_class": "our-story-text",
+        "section_css_class": "our-story-text __container __container-bleed",
         "border": true,
         "heading": "Our Story"
       }

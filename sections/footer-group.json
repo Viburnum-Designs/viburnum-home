@@ -14,6 +14,18 @@
     "v_footer_QY46Jr": {
       "type": "v-footer",
       "blocks": {
+        "address_8hT6Py": {
+          "type": "address",
+          "settings": {
+            "address_text": "<p>434 Springfield Ave, <br/>Summit NJ 07901​​​</p>"
+          }
+        },
+        "address_xEHWMq": {
+          "type": "address",
+          "settings": {
+            "address_text": "<p>202 Nassau St <br/>Princeton, NJ 08542</p>"
+          }
+        },
         "newsletter_bjXQNq": {
           "type": "newsletter",
           "settings": {}
@@ -24,12 +36,14 @@
         }
       },
       "block_order": [
+        "address_8hT6Py",
+        "address_xEHWMq",
         "newsletter_bjXQNq",
         "social_links_eK8JPD"
       ],
       "name": "V Footer",
       "settings": {
-        "connect_info": "<p>Customer Service:​​<br/><a href=\"mailto:info@viburnumhome.com?subject=Viburnum%20Home%20Inquiry\" target=\"_self\">info@viburnumhome.com</a></p><p>Design Studios:<br/>434 Springfield Ave, <br/>Summit NJ 07901​​​<br/><br/>202 Nassau St <br/>Princeton, NJ 08542</p>"
+        "connect_info": "<p>Customer Service:​​<br/><a href=\"mailto:info@viburnumhome.com?subject=Viburnum%20Home%20Inquiry\" target=\"_self\">info@viburnumhome.com</a></p>"
       }
     },
     "footer": {

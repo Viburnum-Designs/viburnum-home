@@ -2,12 +2,12 @@
   type="application/json"
   data-section-id="{{ section.id }}"
   data-section-type="static-article"
->
-</script>
+></script>
 
 <section
-  class="article">
-  <h2 class="page-title">{{ blog.title }}</h2>
+  class="article"
+>
+  <h2 class="__h1 page-title">{{ blog.title }}</h2>
 
   {% render 'breadcrumbs' %}
 
@@ -18,19 +18,20 @@
 
     {% if blog.next_article or blog.previous_article %}
       <div class="single-post-pagination">
-        {% if blog.previous_article %}<a class="previous" href="{{ blog.previous_article }}">&#xe601;</a>{% endif %}
-        {% if blog.next_article %}<a class="next" href="{{ blog.next_article }}">&#xe600;</a>{% endif %}
+        {% if blog.previous_article -%}
+          <a class="previous" href="{{ blog.previous_article }}">&#xe601;</a>
+        {%- endif %}
+        {% if blog.next_article -%}
+          <a class="next" href="{{ blog.next_article }}">&#xe600;</a>
+        {%- endif %}
       </div>
     {% endif %}
 
     {% if article.comments_enabled? %}
-
       <div class="post-comments">
-
         {% if article.comments_count > 0 %}
           <div class="post-comments-list">
-
-            {% if section.settings.comment-count %}
+            {% if section.settings['comment-count'] %}
               <h3>{{ 'blogs.article_item.comment_count' | t: count: article.comments_count }}</h3>
             {% endif %}
 
@@ -40,8 +41,11 @@
                   <span class="post-comment-date">{{ comment.created_at | date: format: 'short_month' }}</span>
                   <div class="rte">{{ comment.content }}</div>
                   <div class="post-comment-details">
-                    {% if section.settings.comment-author-avatar %}
-                      <img class="post-comment-author-avatar" src="http://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
+                    {% if section.settings['comment-author-avatar'] %}
+                      <img
+                        class="post-comment-author-avatar"
+                        src="http://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}"
+                      />
                     {% endif %}
                     <span class="post-comment-author-name">{{ comment.author }}</span>
                   </div>
@@ -51,7 +55,6 @@
               {% if paginate.previous or paginate.next %}
                 {% render 'pagination', paginate: paginate %}
               {% endif %}
-
             {% endpaginate %}
           </div>
         {% endif %}
@@ -60,14 +63,13 @@
           <h3>{{ 'blogs.article_item.leave_a_comment' | t }}</h3>
 
           {% form article %}
-
             {% if form.posted_successfully? %}
               <p>
-              {% if blog.moderated? %}
-                {{ 'blogs.article_item.comment_pending' | t }}
-              {% else %}
-                {{ 'blogs.article_item.comment_success' | t }}
-              {% endif %}
+                {% if blog.moderated? %}
+                  {{ 'blogs.article_item.comment_pending' | t }}
+                {% else %}
+                  {{ 'blogs.article_item.comment_success' | t }}
+                {% endif %}
               </p>
             {% endif %}
 
@@ -76,35 +78,66 @@
             {% endif %}
 
             <div class="input-wrapper">
-              <label for="comment[author]">{{ 'general.general.name' | t }} {{ form.errors.messages["author"] }}</label>
-              <input {% if form.errors contains 'author' %}class="error"{% endif %} type="text" placeholder="Name" value="{{ form.author }}" name="comment[author]" required>
+              <label for="comment[author]">
+                {{- 'general.general.name' | t }}
+                {{ form.errors.messages.author -}}
+              </label>
+              <input
+                {% if form.errors contains 'author' %}
+                  class="error"
+                {% endif %}
+                type="text"
+                placeholder="Name"
+                value="{{ form.author }}"
+                name="comment[author]"
+                required
+              >
             </div>
 
             <div class="input-wrapper">
-              <label for="comment[email]">{{ 'general.general.email' | t }} {{ form.errors.messages["email"] }}</label>
-              <input {% if form.errors contains 'email' %}class="error"{% endif %} type="email" placeholder="{{ 'general.general.email_placeholder' | t }}" value="{{ form.email }}" name="comment[email]" required>
+              <label for="comment[email]">
+                {{- 'general.general.email' | t }}
+                {{ form.errors.messages.email -}}
+              </label>
+              <input
+                {% if form.errors contains 'email' %}
+                  class="error"
+                {% endif %}
+                type="email"
+                placeholder="{{ 'general.general.email_placeholder' | t }}"
+                value="{{ form.email }}"
+                name="comment[email]"
+                required
+              >
             </div>
 
             <div class="input-wrapper">
-              <label for="comment[body]">{{ 'general.general.message' | t }} {{ form.errors.messages["body"] }}</label>
-              <textarea {% if form.errors contains 'body' %}class="error"{% endif %} name="comment[body]" required>{{ form.body }}</textarea>
+              <label for="comment[body]">
+                {{- 'general.general.message' | t }}
+                {{ form.errors.messages.body -}}
+              </label>
+              <textarea
+                {% if form.errors contains 'body' %}
+                  class="error"
+                {% endif %}
+                name="comment[body]"
+                required
+              >{{ form.body }}</textarea>
             </div>
 
             <div class="input-wrapper">
               <input type="submit" value="{{ 'blogs.article_item.submit' | t }}">
             </div>
-
           {% endform %}
         </div>
-
       </div>
     {% endif %}
   </div>
 
   {%- for block in section.blocks -%}
     {%- case block.type -%}
-    {%- when 'promotional-image' -%}
-      {% render 'block-blog-promo', block: block %}
+      {%- when 'promotional-image' -%}
+        {% render 'block-blog-promo', block: block %}
     {%- endcase -%}
   {%- endfor -%}
 </section>
@@ -181,5 +214,4 @@
     }
   ]
 }
-
 {% endschema %}
