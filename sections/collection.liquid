@@ -28,11 +28,15 @@
   endif
 %}
 
-<div>
-  {% unless use_masonry %}
-    <h1 class="__h1 page-title">{{ collection.title }}</h1>
-    {% render 'breadcrumbs' %}
-  {% endunless %}
+<div class="__container __container-bleed">
+  <h1 class="__h1 page-title">{{ collection.title }}</h1>
+  {% render 'breadcrumbs' %}
+  {% comment %}
+    {% unless use_masonry %}
+      <h1 class="__h1 page-title">{{ collection.title }}</h1>
+      {% render 'breadcrumbs' %}
+    {% endunless %}
+  {% endcomment %}
 
   {% paginate collection.products by products_per_page %}
     <section
