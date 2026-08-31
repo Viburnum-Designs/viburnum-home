@@ -36,7 +36,7 @@
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
-        "overlay_background": "#683A05",
+        "overlay_background": "#683a05",
         "overlay_opacity": 10,
         "link": "",
         "button_text": ""
@@ -114,7 +114,7 @@
       ],
       "name": "Rich text",
       "settings": {
-        "section_css_class": "our-story-text",
+        "section_css_class": "our-story-text __container __container-bleed",
         "border": true,
         "heading": "Our Story"
       }
