@@ -51,8 +51,9 @@
             "image": "shopify://shop_images/158ba7af-952b-4a36-837f-c53e36ff3aae.png",
             "feature_card_heading": "",
             "feature_card_text": "<p>Shop Online </p>",
-            "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_url": "https://www.viburnumhome.com/collections/all",
+            "feature_card_button_text": "",
+            "link_whole_feature_card": true
           }
         },
         "feature_card_dwVcwq": {
@@ -62,17 +63,19 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Princeton Studio</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "feature_card_NE7iWY": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/IMG_4191_1.jpg",
+            "image": "shopify://shop_images/summit-store.webp",
             "feature_card_heading": "",
             "feature_card_text": "<p>Summit Studio</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         }
       },
@@ -92,7 +95,7 @@
         "text_alignment": "left",
         "align_items": "none",
         "justify_items": "none",
-        "section_heading": "",
+        "section_heading": "Ways To Shop",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
         "columns_mobile": "1",
@@ -144,7 +147,8 @@
             "feature_card_heading": "",
             "feature_card_text": "",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "feature_card_8ycnLe": {
@@ -153,7 +157,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         }
       },
