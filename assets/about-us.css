@@ -50,4 +50,5 @@
 
 .home-message{
   margin: 0;
+  margin-inline: auto;
 }
