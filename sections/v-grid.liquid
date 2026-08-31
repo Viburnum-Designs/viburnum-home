@@ -52,6 +52,7 @@
           {% when 'feature_card' %}
             {%- liquid
               assign card_alt = block.settings.image.alt | default: block.settings.feature_card_text | strip_html
+              assign full_card_link = block.settings.link_whole_feature_card
             -%}
 
             {% if block.settings.video != blank %}
@@ -82,10 +83,21 @@
             {%- endif -%}
             {%- if block.settings.feature_card_url -%}
               <div>
-                <a href="{{ block.settings.feature_card_url }}" class="__cta">
+                <a
+                  href="{{ block.settings.feature_card_url }}"
+                  class="__cta {%- if block.settings.feature_card_url -%} full_card_link {%- endif -%}"
+                >
                   {{ block.settings.feature_card_button_text }}
                 </a>
               </div>
+            {%- endif -%}
+
+            {%- if block.settings.feature_card_url and block.settings.feature_card_url -%}
+              <a
+                href="{{ block.settings.feature_card_url }}"
+                class="__link-covered"
+              >
+              </a>
             {%- endif -%}
 
           {% when 'read_more_text' %}
@@ -476,6 +488,12 @@
           "type": "text",
           "id": "feature_card_button_text",
           "label": "Feature Card Button Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "link_whole_feature_card",
+          "default": false,
+          "label": "Link Whole Feature Card"
         }
       ]
     },
