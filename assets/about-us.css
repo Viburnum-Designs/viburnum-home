@@ -32,6 +32,7 @@
   font-family: var(--heading-font);
   font-size: 24px;
   margin-top: var(--min-spacing);
+  margin-bottom: 0;
 }
 
 
