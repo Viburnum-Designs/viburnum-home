@@ -32,12 +32,13 @@
       "name": "V Page Banner",
       "settings": {
         "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "image_mobile": "shopify://shop_images/inspirational__banner-image__mobile.webp",
         "title": "Viburnum Home ",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#683a05",
-        "overlay_opacity": 10,
+        "overlay_opacity": 25,
         "link": "",
         "button_text": ""
       }
