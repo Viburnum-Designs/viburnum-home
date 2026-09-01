@@ -22,11 +22,16 @@
     }
   }
 
+  .v-grid__grid-item{
+    width: 100%;
+  }
+
   .v-grid__image{
     width: 100%;
     height: auto;
     display: block;
   }
+  .
 {%- endstyle -%}
 
 {% comment %} {% assign detect_when_in_view = section.settings.detect_when_in_view %} {% endcomment %}
@@ -38,6 +43,9 @@
     {%if section.settings.section_css_class %} {{section.settings.section_css_class}} {% endif %}
   "
 >
+  {% if section.settings.top_padding == '40' %}
+    <div class="__padding-t"></div>
+  {% endif %}
   {% if section.settings.section_heading != blank %}
     <div class="title-wrapper">
       <h2 class="section-title">
@@ -232,7 +240,12 @@
   {%- if read_more_blocks.size > 0 -%}
     <script src="{{ 'v-read-more-toggle.js' | asset_url }}" defer></script>
   {%- endif -%}
+
+  {% if section.settings.bottom_padding == '40' %}
+    <div class="__padding-b"></div>
+  {% endif %}
 </section>
+
 {% schema %}
 {
   "name": "Viburnum Grid",
@@ -241,6 +254,38 @@
       "type": "text",
       "id": "section_css_class",
       "label": "Section CSS Class"
+    },
+    {
+      "type": "select",
+      "id": "top_padding",
+      "label": "Top Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding",
+      "label": "Bottom Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
     },
     {
       "type": "select",
