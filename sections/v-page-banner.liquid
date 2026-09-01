@@ -50,14 +50,14 @@
   <div class="v-page-banner__section__img">
     {% if section.settings.image != blank and section.settings.image_mobile != blank %}
       <div class="__hide-on-mobile">
-        {% render 'rimg', img: section.settings.image, size: '1400x', lazy: true %}
+        {% render 'rimg', img: section.settings.image, size: '1400x' %}
       </div>
       <div class="__hide-on-tablet __hide-on-desktop">
-        {% render 'rimg', img: section.settings.image_mobile, size: '760x', lazy: true %}
+        {% render 'rimg', img: section.settings.image_mobile, size: '760x' %}
       </div>
     {% elsif section.settings.image != blank %}
       <div class="">
-        {% render 'rimg', img: section.settings.image, size: '1400x', lazy: true %}
+        {% render 'rimg', img: section.settings.image, size: '1400x' %}
       </div>
 
     {% elsif onboarding %}
