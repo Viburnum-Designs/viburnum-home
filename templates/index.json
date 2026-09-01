@@ -122,6 +122,8 @@
       "settings": {
         "title": "Shop Our Collection",
         "css_class": "",
+        "top_padding": "0",
+        "bottom_padding": "40",
         "columns_range": 5
       }
     },
@@ -135,7 +137,8 @@
             "feature_card_heading": "",
             "feature_card_text": "",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "feature_card_8twitn": {
@@ -144,7 +147,8 @@
             "feature_card_heading": "BEAUTIFULLY STYLED",
             "feature_card_text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         }
       },
@@ -155,6 +159,8 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
+        "top_padding": "40",
+        "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,
@@ -201,7 +207,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>With the beauty and style of our faux arrangements, you can bring a natural aesthetic into your home with ease.</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "feature_card_CBbTbw": {
@@ -211,7 +218,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Inspired by nature, our designers create stunning faux succulent gardens and preserved moss arrangements that are exclusive to Viburnum Home.</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "feature_card_Rdj77N": {
@@ -221,7 +229,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Our moss and preserved pieces are created by hand, so no two are quite alike.</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         }
       },
@@ -233,6 +242,8 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
+        "top_padding": "0",
+        "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,
@@ -304,6 +315,7 @@
       "name": "V Page Banner",
       "settings": {
         "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "image_mobile": "shopify://shop_images/inspirational__banner-image__mobile.webp",
         "title": "Our Fall Collection",
         "text": "",
         "content_position": "center-center",
@@ -319,6 +331,8 @@
       "name": "V Featured Collection Carousel",
       "settings": {
         "title": "Fall New Arrivals",
+        "top_padding": "0",
+        "bottom_padding": "40",
         "collection": "fall-collection",
         "controls-color": "#000000",
         "autoplay": false,
