@@ -34,6 +34,9 @@
   data-section-id="{{ section.id }}"
   data-section-type="home-collection-list"
 >
+  {% if section.settings.top_padding == '40' %}
+    <div class="__padding-t"></div>
+  {% endif %}
   {% if section.settings.title %}
     <h2 class="section-title">
       {{ section.settings.title | escape }}
@@ -151,6 +154,9 @@
     </div>
     <div class="empty-column"></div>
   </div>
+  {% if section.settings.bottom_padding == '40' %}
+    <div class="__padding-b"></div>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -168,6 +174,38 @@
       "type": "text",
       "id": "css_class",
       "label": "CSS Class"
+    },
+    {
+      "type": "select",
+      "id": "top_padding",
+      "label": "Top Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding",
+      "label": "Bottom Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
     },
     {
       "type": "range",

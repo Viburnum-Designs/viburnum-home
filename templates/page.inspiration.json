@@ -180,12 +180,6 @@
           "settings": {
             "image": "shopify://shop_images/insperation-17.webp"
           }
-        },
-        "gallery_image_pKq93b": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/insperation-19.webp"
-          }
         }
       },
       "block_order": [
@@ -209,12 +203,13 @@
         "gallery_image_qFaCDD",
         "gallery_image_DEyCi9",
         "gallery_image_a9TCcG",
-        "gallery_image_PWL7yY",
-        "gallery_image_pKq93b"
+        "gallery_image_PWL7yY"
       ],
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
+        "top_padding": "40",
+        "bottom_padding": "0",
         "layout": "full-width",
         "bleed": false,
         "detect_when_in_view": false,

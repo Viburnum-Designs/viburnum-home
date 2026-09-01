@@ -17,6 +17,9 @@
   class="home-products home-products-columns-{{ section.settings['product-columns'] }}"
   data-product-hover="{{ settings.product_hover | default: 'quick-shop' }}"
 >
+  {% if section.settings.top_padding == '40' %}
+    <div class="__padding-t"></div>
+  {% endif %}
   {% if section.settings.title != blank %}
     <h2 class="section-title">{{ section.settings.title | escape }}</h2>
   {% endif %}
@@ -82,6 +85,9 @@
 
     <div class="carousel-dots" data-carousel-dots></div>
   </div>
+  {% if section.settings.bottom_padding == '40' %}
+    <div class="__padding-b">{{ section.settings.bottom_padding }}</div>
+  {% endif %}
 </section>
 
 <style>
@@ -117,6 +123,10 @@
     font-size: 28px;
     color: #fff;
     text-shadow: 0 0em .25em rgba(0,0,0,1);
+  }
+
+  #shopify-section-{{ section.id }} .carousel .product-list-item{
+    height: 100%;
   }
 
 
@@ -384,6 +394,38 @@
       "id": "title",
       "type": "text",
       "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "top_padding",
+      "label": "Top Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding",
+      "label": "Bottom Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "40",
+          "label": "40 pixels"
+        }
+      ],
+      "default": "0"
     },
     {
       "id": "collection",
