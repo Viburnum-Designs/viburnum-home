@@ -48,35 +48,24 @@
 {% endstyle %}
 <section class="v-page-banner__section">
   <div class="v-page-banner__section__img">
-    {% if section.settings.video != blank and section.settings.image != blank %}
-      <div class=" __hide-on-tablet __hide-on-mobile">
-        {{
-          section.settings.video
-          | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true
-        }}
+    {% if section.settings.image != blank and section.settings.image_mobile != blank %}
+      <div class="__hide-on-mobile">
+        {% render 'rimg', img: section.settings.image, size: '1400x', lazy: true %}
       </div>
-
-    {% elsif section.settings.video != blank %}
-      {{
-        section.settings.video
-        | video_tag:
-          autoplay: true,
-          loop: true,
-          muted: true,
-          controls: false,
-          playsinline: true,
-          class: 'pxs-video-element'
-      }}
+      <div class="__hide-on-tablet __hide-on-desktop">
+        {% render 'rimg', img: section.settings.image_mobile, size: '760x', lazy: true %}
+      </div>
     {% elsif section.settings.image != blank %}
       <div class="">
         {% render 'rimg', img: section.settings.image, size: '1400x', lazy: true %}
       </div>
+
     {% elsif onboarding %}
       {{ 'lifestyle-1' | placeholder_svg_tag }}
     {% endif %}
   </div>
 
-  <div class="v-page-banner__section__txt __text-center">
+  <div class="v-page-banner__section__txt __text-center __container-bleed">
     <div class="" style="color: {{ section.settings.color }};">
       {% if section.settings.title != blank %}
         <h2
@@ -92,7 +81,9 @@
           {{ section.settings.text }}
         </div>
       {%- endif %}
-
+      {% for block in section.settings.block %}
+        <div class="v-banner-text ">{{ block.content }}</div>
+      {% endfor %}
       {% if section.settings.button_text != blank %}
         {% if section.settings.link != blank %}
           <a class="__cta" href="{{ section.settings.link }}">{{ section.settings.button_text | escape }}</a>
@@ -210,6 +201,44 @@
       "id": "button_text",
       "label": "Button text",
       "default": "Button"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Banner Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "range",
+          "id": "desktop_size",
+          "label": "Desktop Size",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "select",
+          "id": "text_font",
+          "label": "Font",
+          "options": [
+            {
+              "value": "heading_font",
+              "label": "Heading Font"
+            },
+            {
+              "value": "body_font",
+              "label": "Body Font"
+            }
+          ],
+          "default": "heading_font"
+        }
+      ]
     }
   ],
   "presets": [
