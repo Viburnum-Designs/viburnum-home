@@ -64,6 +64,9 @@ Pages
 .__padding-t {
     padding-top: var(--spacing);
 }
+.__padding-b {
+    padding-bottom: var(--spacing);
+}
 
 *:has( > .__link-covered){
   position: relative;
@@ -128,6 +131,9 @@ Pages
   font-family: var(--heading-font);
   font-weight: 300;
   letter-spacing: .05em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-block: 40px;
 }
 
 .__h2{
@@ -207,6 +213,9 @@ Pages
 =============*/
 body{
   color: var(--text-color);
+  /* * {
+    outline: 1px solid #f00;
+  } */
 }
 
 video{
@@ -218,6 +227,11 @@ video{
 
 button:active{
   translate: 0 1px;
+}
+
+article{
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 a[href^="mailto:"] {

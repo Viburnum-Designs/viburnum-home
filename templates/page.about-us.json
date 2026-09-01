@@ -31,13 +31,14 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "image": "shopify://shop_images/about-us-banner__desktop.webp",
+        "image_mobile": "shopify://shop_images/about-us-banner__mobile.webp",
         "title": "Viburnum Home ",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
-        "color": "#ffffff",
-        "overlay_background": "#683a05",
-        "overlay_opacity": 10,
+        "color": "#FFFFFF",
+        "overlay_background": "#000000",
+        "overlay_opacity": 40,
         "link": "",
         "button_text": ""
       }
@@ -87,6 +88,8 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "shop-studio-grid",
+        "top_padding": "0",
+        "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,
@@ -155,7 +158,7 @@
           "type": "feature_card",
           "settings": {
             "feature_card_heading": "",
-            "feature_card_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "feature_card_text": "<p>Viburnum Home elevates living spaces with timeless beauty, refined design, lush faux botanicals, preserved moss, and thoughtfully curated décor, creating elegant, effortless finishing touches for every room.</p>",
             "feature_card_url": "",
             "feature_card_button_text": "",
             "link_whole_feature_card": false
@@ -169,6 +172,8 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
+        "top_padding": "40",
+        "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,
