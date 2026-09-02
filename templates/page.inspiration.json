@@ -208,7 +208,7 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
-        "top_padding": "40",
+        "top_padding": "max",
         "bottom_padding": "0",
         "layout": "full-width",
         "bleed": false,
