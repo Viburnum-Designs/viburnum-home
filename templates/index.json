@@ -243,7 +243,7 @@
       "settings": {
         "section_css_class": "",
         "top_padding": "0",
-        "bottom_padding": "0",
+        "bottom_padding": "max",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,
