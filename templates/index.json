@@ -332,7 +332,7 @@
       "settings": {
         "title": "Fall New Arrivals",
         "top_padding": "0",
-        "bottom_padding": "0",
+        "bottom_padding": "max",
         "collection": "fall-collection",
         "controls-color": "#000000",
         "autoplay": false,

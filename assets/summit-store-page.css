@@ -1,0 +1,31 @@
+.store-map__grid{
+  padding-block: var(--max-spacing);
+  display: grid; 
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (width < 768px){
+    text-align: center;
+  }
+  @media (width > 768px){
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.store-map__grid .__h1{
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.store-map__grid address{
+  font-style: normal;
+  margin-top: 0;
+}
+
+.store-map__grid  .__cta{
+  margin-top: var(--spacing);
+  display: inline-block;
+}
