@@ -61,11 +61,35 @@ Pages
     padding-bottom: var(--spacing);
 }
 
-.__padding-t {
+.__padding-t, .__padding-t__med {
     padding-top: var(--spacing);
 }
-.__padding-b {
+.__padding-b,.__padding-b__med {
     padding-bottom: var(--spacing);
+}
+  
+.__padding-t__min {
+    padding-top: var(--min-spacing);
+}
+.__padding-b__min {
+    padding-bottom: var(--min-spacing);
+}
+
+.__padding-t__max {
+    padding-top: var(--max-spacing);
+}
+.__padding-b__max {
+    padding-bottom: var(--max-spacing);
+}
+
+.__height__min {
+    height: var(--min-spacing);
+}
+.__height__med {
+    height: var(--spacing);
+}
+.__height__max {
+    height: var(--max-spacing);
 }
 
 *:has( > .__link-covered){

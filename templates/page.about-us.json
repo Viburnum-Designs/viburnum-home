@@ -36,7 +36,7 @@
         "title": "Viburnum Home ",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
-        "color": "#FFFFFF",
+        "color": "#ffffff",
         "overlay_background": "#000000",
         "overlay_opacity": 40,
         "link": "",
@@ -54,7 +54,7 @@
             "feature_card_text": "<p>Shop Online </p>",
             "feature_card_url": "https://www.viburnumhome.com/collections/all",
             "feature_card_button_text": "",
-            "link_whole_feature_card": true
+            "link_whole_feature_card": false
           }
         },
         "feature_card_dwVcwq": {
@@ -172,7 +172,7 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
-        "top_padding": "40",
+        "top_padding": "max",
         "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,

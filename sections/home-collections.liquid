@@ -34,9 +34,7 @@
   data-section-id="{{ section.id }}"
   data-section-type="home-collection-list"
 >
-  {% if section.settings.top_padding == '40' %}
-    <div class="__padding-t"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.top_padding %}
 
   {% if section.settings.title %}
     <h2 class="section-title">
@@ -82,9 +80,7 @@
       {% endfor %}
     {% endunless %}
   </div>
-  {% if section.settings.bottom_padding == '40' %}
-    <div class="__padding-b"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.bottom_padding %}
 </section>
 
 {% schema %}

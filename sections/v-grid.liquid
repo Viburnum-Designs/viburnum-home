@@ -43,9 +43,8 @@
     {%if section.settings.section_css_class %} {{section.settings.section_css_class}} {% endif %}
   "
 >
-  {% if section.settings.top_padding == '40' %}
-    <div class="__padding-t"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.top_padding %}
+
   {% if section.settings.section_heading != blank %}
     <div class="title-wrapper">
       <h2 class="section-title">
@@ -241,9 +240,7 @@
     <script src="{{ 'v-read-more-toggle.js' | asset_url }}" defer></script>
   {%- endif -%}
 
-  {% if section.settings.bottom_padding == '40' %}
-    <div class="__padding-b"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.bottom_padding %}
 </section>
 
 {% schema %}
@@ -265,8 +262,16 @@
           "label": "None"
         },
         {
-          "value": "40",
-          "label": "40 pixels"
+          "value": "min",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "med",
+          "label": "Medium Spacing"
+        },
+        {
+          "value": "max",
+          "label": "Maximum Spacing"
         }
       ],
       "default": "0"
@@ -281,8 +286,16 @@
           "label": "None"
         },
         {
-          "value": "40",
-          "label": "40 pixels"
+          "value": "min",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "med",
+          "label": "Medium Spacing"
+        },
+        {
+          "value": "max",
+          "label": "Maximum Spacing"
         }
       ],
       "default": "0"
