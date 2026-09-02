@@ -123,7 +123,7 @@
         "title": "Shop Our Collection",
         "css_class": "",
         "top_padding": "0",
-        "bottom_padding": "40",
+        "bottom_padding": "0",
         "columns_range": 5
       }
     },
@@ -159,7 +159,7 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "",
-        "top_padding": "40",
+        "top_padding": "max",
         "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
@@ -332,7 +332,7 @@
       "settings": {
         "title": "Fall New Arrivals",
         "top_padding": "0",
-        "bottom_padding": "40",
+        "bottom_padding": "max",
         "collection": "fall-collection",
         "controls-color": "#000000",
         "autoplay": false,

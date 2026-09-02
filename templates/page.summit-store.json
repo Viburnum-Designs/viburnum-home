@@ -1,0 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "home_message_3LtUrB": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "v_file_loader_yq9wma": {
+      "type": "v-file-loader",
+      "name": "V CSS & JS Files Loader",
+      "settings": {
+        "css_name": "summit-store-page.css",
+        "js_name": ""
+      }
+    },
+    "v_page_banner_txPxQz": {
+      "type": "v-page-banner",
+      "name": "V Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/summit-store__banner__desktop.webp",
+        "image_mobile": "shopify://shop_images/about-us-banner__mobile.webp",
+        "title": "The Summit Store",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 40,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "custom_liquid_JqFmyz": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n          width=\"100%\"\n          height=\"350\"\n          style=\"border: 0\"\n          loading=\"lazy\"\n          allowfullscreen\n          referrerpolicy=\"no-referrer-when-downgrade\"\n          src=\"https://maps.google.com/maps?q=434+Springfield+Ave,+Summit,+NJ+07901&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n        >\n        </iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Summit Store</h2>\n        <address>\n          434 Springfield Ave,<br />\n          Summit, NJ 07901\n        </address>\n        <div>\n          Mon-Sat 10am - 5pm<br />\n          ​​​908 - 555 - 1234\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/place/434+Springfield+Ave,+Summit,+NJ+07901/@40.7177364,-74.3598388,798m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c3afb2b8b2e317:0xcf8987abec8d6703!8m2!3d40.7177364!4d-74.3598388!16s%2Fg%2F11nnks7mqh?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_message_3LtUrB",
+    "v_file_loader_yq9wma",
+    "v_page_banner_txPxQz",
+    "custom_liquid_JqFmyz"
+  ]
+}
