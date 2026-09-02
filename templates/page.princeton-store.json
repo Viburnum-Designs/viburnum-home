@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "home_message_3LtUrB": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "v_file_loader_yq9wma": {
+      "type": "v-file-loader",
+      "name": "V CSS & JS Files Loader",
+      "settings": {
+        "css_name": "summit-store-page.css",
+        "js_name": ""
+      }
+    },
+    "home_slideshow_yeQeE6": {
+      "type": "home-slideshow",
+      "blocks": {
+        "slide_D7NGtn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/summit-store__banner__desktop.webp",
+            "content-alignment": "center",
+            "overlay-color": "#ffffff",
+            "title": "The Princeton Store",
+            "subheading": "",
+            "cta": "",
+            "url": ""
+          }
+        },
+        "slide_4APpWK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/about-us-banner__desktop__slide2_5ada6c9f-9ed6-4167-8c73-87eac26c4ac3.webp",
+            "content-alignment": "center",
+            "overlay-color": "#ffffff",
+            "title": "Transform your home into a living, breathing sanctuary",
+            "subheading": "",
+            "cta": "",
+            "url": ""
+          }
+        },
+        "slide_ca8y9X": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/about-us-banner__desktop__slide3.webp",
+            "content-alignment": "center",
+            "overlay-color": "#ffffff",
+            "title": "Discover extraordinary botanical living at",
+            "subheading": "",
+            "cta": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_D7NGtn",
+        "slide_4APpWK",
+        "slide_ca8y9X"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "layout": "full-width",
+        "controls-color": "#ffffff",
+        "autoplay": false,
+        "autoplay_delay": 3,
+        "autoplay-hover-pause": false
+      }
+    },
+    "v_page_banner_txPxQz": {
+      "type": "v-page-banner",
+      "disabled": true,
+      "name": "V Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/summit-store__banner__desktop.webp",
+        "image_mobile": "shopify://shop_images/about-us-banner__mobile.webp",
+        "title": "The Summit Store",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 40,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "custom_liquid_JqFmyz": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n  width=\"100%\"\n  height=\"350\"\n  style=\"border: 0\"\n  loading=\"lazy\"\n  allowfullscreen\n  referrerpolicy=\"no-referrer-when-downgrade\"\n  src=\"https://maps.google.com/maps?q=202+Nassau+St,+Princeton,+NJ+08542&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n>\n</iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Princeton Store</h2>\n        <address>\n          202 Nassau St,<br />\n          Princeton, NJ 08542\n        </address>\n        <div>\n          Mon-Sat 9am - 5pm<br />Closed Sunday\n<br />\n          ​​​609 - 683 - 8800\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/dir/?api=1&destination=202+Nassau+St,+Princeton,+NJ+08542\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_message_3LtUrB",
+    "v_file_loader_yq9wma",
+    "home_slideshow_yeQeE6",
+    "v_page_banner_txPxQz",
+    "custom_liquid_JqFmyz"
+  ]
+}
