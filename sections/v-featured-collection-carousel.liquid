@@ -17,9 +17,7 @@
   class="home-products home-products-columns-{{ section.settings['product-columns'] }}"
   data-product-hover="{{ settings.product_hover | default: 'quick-shop' }}"
 >
-  {% if section.settings.top_padding == '40' %}
-    <div class="__padding-t"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.top_padding %}
   {% if section.settings.title != blank %}
     <h2 class="section-title">{{ section.settings.title | escape }}</h2>
   {% endif %}
@@ -85,9 +83,7 @@
 
     <div class="carousel-dots" data-carousel-dots></div>
   </div>
-  {% if section.settings.bottom_padding == '40' %}
-    <div class="__padding-b"></div>
-  {% endif %}
+  {% render 'v-spacing', size: section.settings.bottom_padding %}
 </section>
 
 <style>
@@ -405,8 +401,16 @@
           "label": "None"
         },
         {
-          "value": "40",
-          "label": "40 pixels"
+          "value": "min",
+          "label": "Min Padding"
+        },
+        {
+          "value": "mid",
+          "label": "Medium Padding"
+        },
+        {
+          "value": "max",
+          "label": "Max Padding"
         }
       ],
       "default": "0"
@@ -421,8 +425,16 @@
           "label": "None"
         },
         {
-          "value": "40",
-          "label": "40 pixels"
+          "value": "min",
+          "label": "Min Padding"
+        },
+        {
+          "value": "mid",
+          "label": "Medium Padding"
+        },
+        {
+          "value": "max",
+          "label": "Max Padding"
         }
       ],
       "default": "0"
