@@ -14,21 +14,40 @@
       "disabled": true,
       "settings": {}
     },
-    "pxs_image_with_text_overlay_DqVXkp": {
-      "type": "pxs-image-with-text-overlay",
-      "name": "Image with text overlay",
+    "v_page_banner_Uicyi7": {
+      "type": "v-page-banner",
+      "blocks": {
+        "text_VfeQtA": {
+          "type": "text",
+          "settings": {
+            "content": "\"Styles com and go. Good design is a language not a style.\"",
+            "desktop_size": 3,
+            "text_font": "heading_font"
+          }
+        },
+        "text_CTcAWw": {
+          "type": "text",
+          "settings": {
+            "content": "Inspiration",
+            "desktop_size": 3,
+            "text_font": "heading_font"
+          }
+        }
+      },
+      "block_order": [
+        "text_VfeQtA",
+        "text_CTcAWw"
+      ],
+      "name": "V Page Banner",
       "settings": {
-        "section_height": "medium",
-        "image": "shopify://shop_images/about-us__mobile-bg.avif",
-        "video": "shopify://files/videos/about-us-video-bg__optimized__v5.mp4",
-        "video_behavior": "image_on_mobile_video_on_desktop",
-        "position": "center center",
+        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
+        "image_mobile": "shopify://shop_images/inspirational__banner-image__mobile.webp",
         "title": "INSPIRATION",
-        "text": "<p><em>Styles come and go. Good design is a language, not a style.”  <br/>— Massimo Vignelli</em></p>",
+        "text": "<p><em>\"Styles come and go. Good design is a language, not a style.”  <br/>— Massimo Vignelli</em></p>",
         "content_position": "center-center",
         "color": "#ffffff",
-        "overlay_background": "#000000",
-        "overlay_opacity": 50,
+        "overlay_background": "#683a05",
+        "overlay_opacity": 30,
         "link": "",
         "button_text": ""
       }
@@ -161,12 +180,6 @@
           "settings": {
             "image": "shopify://shop_images/insperation-17.webp"
           }
-        },
-        "gallery_image_pKq93b": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/insperation-19.webp"
-          }
         }
       },
       "block_order": [
@@ -190,19 +203,21 @@
         "gallery_image_qFaCDD",
         "gallery_image_DEyCi9",
         "gallery_image_a9TCcG",
-        "gallery_image_PWL7yY",
-        "gallery_image_pKq93b"
+        "gallery_image_PWL7yY"
       ],
       "name": "V Grid",
       "settings": {
+        "section_css_class": "",
+        "top_padding": "max",
+        "bottom_padding": "0",
         "layout": "full-width",
         "bleed": false,
-        "section_css_class": "",
         "detect_when_in_view": false,
         "column-gap": "10px",
         "row-gap": "10px",
         "text_alignment": "center",
         "align_items": "center",
+        "justify_items": "center",
         "section_heading": "",
         "columns_desktop": "3",
         "custom-breakpoint": "767",
@@ -221,7 +236,7 @@
   },
   "order": [
     "main",
-    "pxs_image_with_text_overlay_DqVXkp",
+    "v_page_banner_Uicyi7",
     "v_grid_DFUXac",
     "v_file_loader_E63x8P"
   ]
