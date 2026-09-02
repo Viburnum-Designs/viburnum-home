@@ -74,9 +74,9 @@
             "image": "shopify://shop_images/summit-store.webp",
             "feature_card_heading": "",
             "feature_card_text": "<p>Summit Studio</p>",
-            "feature_card_url": "",
+            "feature_card_url": "shopify://pages/summit-store",
             "feature_card_button_text": "",
-            "link_whole_feature_card": false
+            "link_whole_feature_card": true
           }
         }
       },
