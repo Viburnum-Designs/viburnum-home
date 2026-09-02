@@ -35,7 +35,7 @@
           "settings": {
             "image": "shopify://shop_images/summit-store__banner__desktop.webp",
             "content-alignment": "center",
-            "overlay-color": "#FFFFFF",
+            "overlay-color": "#ffffff",
             "title": "The Summit Store",
             "subheading": "",
             "cta": "",
@@ -47,7 +47,7 @@
           "settings": {
             "image": "shopify://shop_images/about-us-banner__desktop__slide2_5ada6c9f-9ed6-4167-8c73-87eac26c4ac3.webp",
             "content-alignment": "center",
-            "overlay-color": "#FFFFFF",
+            "overlay-color": "#ffffff",
             "title": "Transform your home into a living, breathing sanctuary",
             "subheading": "",
             "cta": "",
@@ -59,7 +59,7 @@
           "settings": {
             "image": "shopify://shop_images/about-us-banner__desktop__slide3.webp",
             "content-alignment": "center",
-            "overlay-color": "#FFFFFF",
+            "overlay-color": "#ffffff",
             "title": "Discover extraordinary botanical living at",
             "subheading": "",
             "cta": "",
@@ -75,7 +75,7 @@
       "name": "Slideshow",
       "settings": {
         "layout": "full-width",
-        "controls-color": "#FFFFFF",
+        "controls-color": "#ffffff",
         "autoplay": false,
         "autoplay_delay": 3,
         "autoplay-hover-pause": false
@@ -102,7 +102,7 @@
       "type": "custom-liquid",
       "name": "Custom liquid",
       "settings": {
-        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n          width=\"100%\"\n          height=\"350\"\n          style=\"border: 0\"\n          loading=\"lazy\"\n          allowfullscreen\n          referrerpolicy=\"no-referrer-when-downgrade\"\n          src=\"https://maps.google.com/maps?q=434+Springfield+Ave,+Summit,+NJ+07901&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n        >\n        </iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Summit Store</h2>\n        <address>\n          434 Springfield Ave,<br />\n          Summit, NJ 07901\n        </address>\n        <div>\n          Mon-Sat 10am - 5pm<br />\n          ​​​908 - 555 - 1234\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/place/434+Springfield+Ave,+Summit,+NJ+07901/@40.7177364,-74.3598388,798m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c3afb2b8b2e317:0xcf8987abec8d6703!8m2!3d40.7177364!4d-74.3598388!16s%2Fg%2F11nnks7mqh?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
+        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n          width=\"100%\"\n          height=\"350\"\n          style=\"border: 0\"\n          loading=\"lazy\"\n          allowfullscreen\n          referrerpolicy=\"no-referrer-when-downgrade\"\n          src=\"https://maps.google.com/maps?q=434+Springfield+Ave,+Summit,+NJ+07901&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n        >\n        </iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Summit Store</h2>\n        <address>\n          434 Springfield Ave,<br />\n          Summit, NJ 07901\n        </address>\n        <div>\n          Mon-Sat 9am - 5pm<br />\n          ​​​908 - 555 - 1234\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/place/434+Springfield+Ave,+Summit,+NJ+07901/@40.7177364,-74.3598388,798m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c3afb2b8b2e317:0xcf8987abec8d6703!8m2!3d40.7177364!4d-74.3598388!16s%2Fg%2F11nnks7mqh?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
       }
     }
   },
