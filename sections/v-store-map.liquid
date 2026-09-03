@@ -1,0 +1,190 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} { }
+
+  .v-store-map__grid{
+    padding-block: var(--max-spacing);
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    @media (width < 768px){
+      text-align: center;
+    }
+    @media (width > 768px){
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .v-store-map__grid-item{
+    width: 100%;
+  }
+
+
+
+  .v-store-map__grid-item :where(.__h1, address, p){
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .v-store-map__grid-item .__h1{
+    padding-left: 20px;
+  }
+
+  .v-store-map__grid-item address{
+    font-style: normal;
+    margin-top: 0;
+  }
+
+  .v-store-map__grid-item  .__cta{
+    margin-top: var(--spacing);
+    display: inline-block;
+  }
+
+  .v-store-info__row{
+    display: grid;
+    grid-template-columns: 20px auto;
+    padding-top: var(--min-spacing);
+  }
+
+  .v-store-info__row .icon{
+    width: 13px;
+    aspect-ratio: 1 / 1;
+  }
+{%- endstyle -%}
+
+<section
+  class="
+       v-store-map  __container __container-bleed
+    {%if section.settings.section_css_class %} {{section.settings.section_css_class}} {% endif %}
+  "
+>
+  {% render 'v-spacing', size: section.settings.top_padding %}
+
+  <ul class="v-store-map__grid __align-center ">
+    <li class="v-store-map__grid-item">
+      {{ section.settings.google_map }}
+    </li>
+    <li class="v-store-map__grid-item">
+      <h2 class="__h1">{{ section.settings.store_title }}</h2>
+
+      <div class="v-store-info__row">
+        <div>{% render 'icons', id: 'map-pin' %}</div>
+        <address>
+          {{ section.settings.store_address }}
+        </address>
+      </div>
+
+      <div class="v-store-info__row">
+        <div>{% render 'icons', id: 'store' %}</div>
+        <div>{{ section.settings.store_hours }}</div>
+      </div>
+      <div class="v-store-info__row">
+        <div>{% render 'icons', id: 'phone' %}</div>
+        <div>{{ section.settings.store_phone }}</div>
+      </div>
+      <div class="v-store-info__row">
+        <div></div>
+        <div><a href="{{ section.settings.directions_link }}" class="__cta" target="_blank">Get Directions</a></div>
+      </div>
+    </li>
+  </ul>
+
+  {% render 'v-spacing', size: section.settings.bottom_padding %}
+</section>
+
+{% schema %}
+{
+  "name": "V Store Map",
+  "settings": [
+    {
+      "type": "select",
+      "id": "top_padding",
+      "label": "Top Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "min",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "med",
+          "label": "Medium Spacing"
+        },
+        {
+          "value": "max",
+          "label": "Maximum Spacing"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bottom_padding",
+      "label": "Bottom Padding",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "min",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "med",
+          "label": "Medium Spacing"
+        },
+        {
+          "value": "max",
+          "label": "Maximum Spacing"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "html",
+      "id": "google_map",
+      "label": "Google Map"
+    },
+    {
+      "type": "text",
+      "id": "store_title",
+      "label": "Store Title"
+    },
+    {
+      "type": "richtext",
+      "id": "store_address",
+      "label": "Store Address"
+    },
+    {
+      "type": "richtext",
+      "id": "store_hours",
+      "label": "Store Hours"
+    },
+    {
+      "type": "richtext",
+      "id": "store_phone",
+      "label": "Phone number link",
+      "info": "Format: tel:+15551234567"
+    },
+    {
+      "type": "url",
+      "id": "directions_link",
+      "label": "Directions Link"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Store Map"
+    }
+  ]
+}
+{% endschema %}
