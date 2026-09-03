@@ -1021,16 +1021,69 @@ input[type='submit'].header-search-button {
   }
 }
 
+/* Collections Filters
+====================== */
+
+.collection-filters{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.collection-filters__title{
+  @media screen and (width < 768px){
+    display: none;  
+  }
+}
+
+.faceted-filters{
+  margin-top: 0; 
+  display: grid;  
+  justify-items: start;
+}
+
+.collection-dropdown--filter{
+  justify-content: start; 
+}
+
+
+.collection-sorting__wrapper {
+    text-align: center;
+    display: flex;
+    justify-content: end;
+}
+
+.collection-sorting__wrapper .select-wrapper{
+  margin-right: 0;
+}
+
+.selected-text{
+  padding-right: 24px;
+}
+
+
 /* Collections
 ====================== */
+.collection{
+  margin: 0;
+  padding: 0; 
+}
 .collection-header{
   margin-top: 16px;
 }
+.collection-title{
+  padding-top: var(--spacing);
+  padding-bottom: 0;
+  @media screen and (width < 767px){
+    font-size: 32px;
+  }
+}
+
 .collection-header-items{
   max-width: 1260px;
   align-self: center;
   padding-top: calc( var(--spacing) * 2);
 }
+
 
 .main-items > .shopify-section{
   margin-top: 0;
@@ -1171,7 +1224,9 @@ body.scroll-locked {
 .surface-pick-up-items{
   display: grid;
   align-items: start;
-  grid-template-columns: repeat(2,1fr);
+  @media (width > 500px) {
+    grid-template-columns: repeat(2,1fr);
+  } 
   gap: 20px;
 }
 
@@ -1225,7 +1280,7 @@ body.scroll-locked {
 ==================== */
 
 
-.page-title{
+.template-search .page-title{
   padding-top: 40px;
 }
 
