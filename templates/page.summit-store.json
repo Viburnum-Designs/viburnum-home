@@ -98,11 +98,18 @@
         "button_text": ""
       }
     },
-    "custom_liquid_JqFmyz": {
-      "type": "custom-liquid",
-      "name": "Custom liquid",
+    "v_store_map_VQKhU7": {
+      "type": "v-store-map",
+      "name": "V Store Map",
       "settings": {
-        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n          width=\"100%\"\n          height=\"350\"\n          style=\"border: 0\"\n          loading=\"lazy\"\n          allowfullscreen\n          referrerpolicy=\"no-referrer-when-downgrade\"\n          src=\"https://maps.google.com/maps?q=434+Springfield+Ave,+Summit,+NJ+07901&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n        >\n        </iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Summit Store</h2>\n        <address>\n          434 Springfield Ave,<br />\n          Summit, NJ 07901\n        </address>\n        <div>\n          Mon-Sat 9am - 5pm<br />\n          ​​​908 - 555 - 1234\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/place/434+Springfield+Ave,+Summit,+NJ+07901/@40.7177364,-74.3598388,798m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c3afb2b8b2e317:0xcf8987abec8d6703!8m2!3d40.7177364!4d-74.3598388!16s%2Fg%2F11nnks7mqh?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
+        "top_padding": "0",
+        "bottom_padding": "0",
+        "google_map": "<iframe width=\"100%\" height=\"350\" style=\"border: 0\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" src=\"https://maps.google.com/maps?q=434+Springfield+Ave,+Summit,+NJ+07901&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed\">\n        </iframe>",
+        "store_title": "Summit Store",
+        "store_address": "<p>434 Springfield Ave,<br/>Summit, NJ 07901</p>",
+        "store_hours": "<p>Mon-Sat 9am - 5pm<br/>Closed Sunday</p>",
+        "store_phone": "<p><a href=\"tel:+19085551234\" title=\"tel:+19085551234\">(908)-555-1234</a></p>",
+        "directions_link": ""
       }
     }
   },
@@ -112,6 +119,6 @@
     "v_file_loader_yq9wma",
     "home_slideshow_yeQeE6",
     "v_page_banner_txPxQz",
-    "custom_liquid_JqFmyz"
+    "v_store_map_VQKhU7"
   ]
 }

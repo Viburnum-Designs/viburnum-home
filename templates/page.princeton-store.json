@@ -98,11 +98,18 @@
         "button_text": ""
       }
     },
-    "custom_liquid_JqFmyz": {
-      "type": "custom-liquid",
-      "name": "Custom liquid",
+    "v_store_map_gBAJMe": {
+      "type": "v-store-map",
+      "name": "V Store Map",
       "settings": {
-        "custom_liquid": "<div class=\"store-map__grid\">\n      <div class=\"store-map__grid-item\">\n        <iframe\n  width=\"100%\"\n  height=\"350\"\n  style=\"border: 0\"\n  loading=\"lazy\"\n  allowfullscreen\n  referrerpolicy=\"no-referrer-when-downgrade\"\n  src=\"https://maps.google.com/maps?q=202+Nassau+St,+Princeton,+NJ+08542&t=&z=15&ie=UTF8&iwloc=&output=embed\"\n>\n</iframe>\n      </div>\n      <div class=\"store-map__grid-item\">\n        <h2 class=\"__h1\">Princeton Store</h2>\n        <address>\n          202 Nassau St,<br />\n          Princeton, NJ 08542\n        </address>\n        <div>\n          Mon-Sat 9am - 5pm<br />Closed Sunday\n<br />\n          ​​​609 - 683 - 8800\n        </div>\n        <div>\n          <a\n           class=\"__cta\" href=\"https://www.google.com/maps/dir/?api=1&destination=202+Nassau+St,+Princeton,+NJ+08542\"\n            >Get Direction</a\n          >\n        </div>\n      </div>\n    </div>"
+        "top_padding": "0",
+        "bottom_padding": "0",
+        "google_map": "<iframe width=\"100%\" height=\"350\" style=\"border: 0\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" src=\"https://maps.google.com/maps?q=202+Nassau+St,+Princeton,+NJ+08542&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed\">\n</iframe>",
+        "store_title": "Princeton Store",
+        "store_address": "<p>202 Nassau St,<br/>Princeton, NJ 08542</p>",
+        "store_hours": "<p>Mon-Sat 9am - 5pm<br/>Closed Sunday</p>",
+        "store_phone": "<p><a href=\"tel:+16096838800\" title=\"tel:+16096838800\">(609)-683-8800</a></p>",
+        "directions_link": "https://www.google.com/maps/dir/?api=1&destination=202+Nassau+St,+Princeton,+NJ+08542"
       }
     }
   },
@@ -112,6 +119,6 @@
     "v_file_loader_yq9wma",
     "home_slideshow_yeQeE6",
     "v_page_banner_txPxQz",
-    "custom_liquid_JqFmyz"
+    "v_store_map_gBAJMe"
   ]
 }
