@@ -29,7 +29,7 @@
 %}
 
 <div class="__container __container-bleed">
-  <h1 class="__h1 page-title">{{ collection.title }}</h1>
+  <h1 class="__h1 page-title collection-title">{{ collection.title }}</h1>
   {% render 'breadcrumbs' %}
   {% comment %}
     {% unless use_masonry %}
@@ -40,7 +40,7 @@
 
   {% paginate collection.products by products_per_page %}
     <section
-      class="collection collection-image--{{ show_collection_image }} __container __container-bleed"
+      class="collection collection-image--{{ show_collection_image }}"
       data-product-hover="{{ settings.product_hover }}"
       {% if use_masonry %}
         data-collection-masonry
