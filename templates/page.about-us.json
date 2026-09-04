@@ -31,8 +31,8 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/about-us-banner__desktop.webp",
-        "image_mobile": "shopify://shop_images/about-us-banner__mobile.webp",
+        "image": "shopify://shop_images/about-us-banner__desktop__v2.webp",
+        "image_mobile": "shopify://shop_images/about-us-banner__mobile__v2.webp",
         "title": "Viburnum Home ",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
