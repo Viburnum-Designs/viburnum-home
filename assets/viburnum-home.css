@@ -979,6 +979,26 @@ input[type='submit'].header-search-button {
   background-color: var(--footer-bg)!important;
 }
 
+/* Instagram
+==================*/
+
+.tagembed-socialwall{
+  position: relative;
+}
+.tb_app_container > div:first-child{
+  width: 1px;
+  height: 1px;
+  transform: translateX(-100vw);
+  :before{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 36px;
+    background-color: #f9f7f3;
+    left: 0;
+  }
+}
+
 /* Product Lists
 ===================*/
 .collection-header__grid{
