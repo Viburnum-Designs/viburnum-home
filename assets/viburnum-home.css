@@ -1029,16 +1029,22 @@ input[type='submit'].header-search-button {
   grid-template-columns: auto auto;
 }
 
-.collection-filters__title{
-  @media screen and (width < 768px){
-    display: none;  
-  }
+.collection-filters__title{ 
+  @media screen and (max-width: 767px){
+    display: none;
+  }  
 }
 
 .faceted-filters{
   margin-top: 0; 
   display: grid;  
   justify-items: start;
+  
+  @media screen and (min-width: 7678px){
+   grid-template-columns: 55px auto;
+  } 
+  align-items: center;
+  gap: var(--min-spacing);
 }
 
 .collection-dropdown--filter{
@@ -1047,13 +1053,21 @@ input[type='submit'].header-search-button {
 
 
 .collection-sorting__wrapper {
-    text-align: center;
-    display: flex;
-    justify-content: end;
+  text-align: center;
+  display: flex;
+  justify-content: end;
+  align-items: center; 
+  gap: var(--min-spacing);
 }
 
 .collection-sorting__wrapper .select-wrapper{
-  margin-right: 0;
+  margin-right: 0; 
+}
+
+.collection-dropdown{
+  display: flex;
+  align-items: center;
+  margin: 0; 
 }
 
 .selected-text{
