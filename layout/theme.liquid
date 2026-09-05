@@ -47,7 +47,7 @@
     {% endif %}
 
     <link rel="preload" href="{{ 'grid.js' | asset_url }}" as="script">
-
+    {{ 'v-faceted-filters-fix.js' | asset_url | script_tag }}
     <title>
       {{ page_title }}
 
@@ -595,7 +595,7 @@
       })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.14.1/runtime.js" defer></script>
-    <script src="{{ 'grid.js' | asset_url }}" defer></script>
+    {% comment %} <script src="{{ 'grid.js' | asset_url }}" defer></script> {% endcomment %}
     <script src="{{ 'v-pickup-inline.js' | asset_url }}" defer></script>
   </body>
 </html>

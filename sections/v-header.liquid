@@ -1,14 +1,3 @@
-<script
-  type="application/json"
-  data-section-type="static-header"
-  data-section-id="{{ section.id }}"
-  data-section-data
->
-  {
-    "stickyHeader": {{ section.settings.sticky_header }},
-    "compactCenter": "{{ section.settings.header_layout }}"
-  }
-</script>
 <section data-section-header>
   <header
     class="v--main-header"
@@ -33,18 +22,36 @@
         </button>
       </div>
 
-      <h1 class="v--header-grid__grid-item__logo">
+      {%- assign logo_tag = 'div' -%}
+      {%- if template.name == 'index' -%}
+        {%- assign logo_tag = 'h1' -%}
+      {%- endif -%}
+      <{{ logo_tag }} class="v--header-grid__grid-item__logo">
         <a href="/" class="v--header-grid__grid-item__logo__link">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/header-logo.avif?v=1785773201"
-            width="138"
-            height="150"
-            class="v--header-grid__grid-item__logo__image"
-            alt="Viburnum Icon Logo"
-          >
-          <div class="v--header-grid__grid-item__logo__text">VIBURNUM HOME</div>
+          {%- if section.settings.logo != blank -%}
+            <img
+              src="{{ section.settings.logo | image_url: width: 276 }}"
+              width="{{ section.settings.logo.width }}"
+              height="{{ section.settings.logo.height }}"
+              class="v--header-grid__grid-item__logo__image"
+              alt="{{ section.settings.logo.alt | default: section.settings.logo_text | escape }}"
+              loading="eager"
+              fetchpriority="high"
+            >
+          {%- else -%}
+            <img
+              src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/header-logo.avif?v=1785773201"
+              width="138"
+              height="150"
+              class="v--header-grid__grid-item__logo__image"
+              alt="{{ section.settings.logo_text | escape }}"
+              loading="eager"
+              fetchpriority="high"
+            >
+          {%- endif -%}
+          <div class="v--header-grid__grid-item__logo__text">{{ section.settings.logo_text | default: shop.name }}</div>
         </a>
-      </h1>
+      </{{ logo_tag }}>
 
       <div class="v--header-grid__grid-item__nav">
         <div class="mobile-navbar__wrapper">
@@ -108,8 +115,6 @@
                 <div class="account-icon">
                   {% render 'icons', id: 'account_logged_in' %}
                 </div>
-
-                {% comment %} {{ 'layout.header.my_account' | t }} {% endcomment %}
               </a>
               <div class="customer-links-inner">
                 <span class="arrow"></span>
@@ -135,8 +140,6 @@
                 <div class="account-icon">
                   {% render 'icons', id: 'account_logged_out' %}
                 </div>
-                {% comment %} {% render 'icons', id: 'account' %} {% endcomment %}
-                {% comment %} <span class="__screen-reader">{{ 'layout.header.account' | t -}}</span> {% endcomment %}
               </a>
             {% endif %}
           </div>
@@ -228,7 +231,7 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initViburnumHeader() {
     const toggleBtn = document.querySelector('.js--toggle-mobile-menu');
     const menuNav = document.querySelector('.mobile-navbar__wrapper');
     const subMenuBtns = document.querySelectorAll('.js--submenu-toggle');
@@ -236,6 +239,8 @@
     const searchPanel = document.querySelector('.js--toggle-search-panel');
     const closeSearchBtn = document.querySelector('.js--close-search-btn');
     const searchInput = searchPanel ? searchPanel.querySelector('input[type="search"], input[type="text"]') : null;
+
+    if (!toggleBtn || !menuNav) return;
 
     function closeMenu() {
       menuNav.classList.remove('is-open');
@@ -369,16 +374,40 @@
         }
       });
     }
+  }
+
+  // Run on first page load, and re-run whenever the Theme Editor replaces
+  // this section's markup (e.g. a merchant tweaking a header setting) -
+  // without this, the mobile menu and search toggle go dead after any
+  // customizer edit until a full page reload, since the original elements
+  // (and their listeners) are removed from the DOM.
+  document.addEventListener('DOMContentLoaded', initViburnumHeader);
+  document.addEventListener('shopify:section:load', (event) => {
+    if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+      initViburnumHeader();
+    }
   });
 </script>
 
 {% schema %}
 {
   "name": "V Header",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "VIBURNUM HOME"
+    }
+  ],
   "presets": [
     {
-      "name": "V Footer",
+      "name": "V Header",
       "category": "Viburnum Sections"
     }
   ]
