@@ -72,7 +72,7 @@
           class="v-page-banner__heading __h1"
           style="color: {{ section.settings.color }}"
         >
-          {{ section.settings.title | escape }}
+          {{- section.settings.title | strip_html | escape -}}
         </h2>
       {%- endif %}
 
