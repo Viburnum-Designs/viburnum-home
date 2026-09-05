@@ -1069,6 +1069,7 @@ input[type='submit'].header-search-button {
 
 .collection-dropdown--filter{
   justify-content: start; 
+  margin-top: 0;
 }
 
 
