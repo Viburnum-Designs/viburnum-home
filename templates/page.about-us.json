@@ -33,12 +33,12 @@
       "settings": {
         "image": "shopify://shop_images/about-us-banner__desktop__v2.webp",
         "image_mobile": "shopify://shop_images/about-us-banner__mobile__v2.webp",
-        "title": "Viburnum Home ",
+        "title": "Viburnum Home",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
-        "overlay_opacity": 40,
+        "overlay_opacity": 14,
         "link": "",
         "button_text": ""
       }
