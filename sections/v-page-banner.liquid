@@ -36,9 +36,13 @@
     align-items: center;
   }
 
-  .v-page-banner__heading{
+  #shopify-section-{{ section.id }} .v-page-banner__heading{
     text-shadow: 0 0 .75em #000;
-    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: {{section.settings.title_mobile_bottom_margin}};
+    @media (width > 768px){
+       margin-bottom: {{section.settings.title_bottom_margin}};
+    }
   }
 
   .v-page-banner__heading + .__cta{
@@ -118,6 +122,62 @@
       "id": "title",
       "label": "Heading",
       "default": "Page Banner"
+    },
+    {
+      "type": "select",
+      "id": "title_bottom_margin",
+      "label": "Heading Bottom Margin",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "min-spacing",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "spacing",
+          "label": "Mid Spacing"
+        },
+        {
+          "value": "max-spacing",
+          "label": "Max Spacing"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "title_mobile_bottom_margin",
+      "label": "Heading Mobile Bottom Margin",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "min-spacing",
+          "label": "Min Spacing"
+        },
+        {
+          "value": "spacing",
+          "label": "Mid Spacing"
+        },
+        {
+          "value": "max-spacing",
+          "label": "Max Spacing"
+        }
+      ],
+      "default": "0"
     },
     {
       "type": "richtext",

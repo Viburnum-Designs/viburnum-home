@@ -33,7 +33,7 @@
         "slide_D7NGtn": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/summit-store__banner__desktop.webp",
+            "image": "shopify://shop_images/princeton-store__desktop.webp",
             "content-alignment": "center",
             "overlay-color": "#ffffff",
             "title": "The Princeton Store",
@@ -41,36 +41,10 @@
             "cta": "",
             "url": ""
           }
-        },
-        "slide_4APpWK": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/about-us-banner__desktop__slide2_5ada6c9f-9ed6-4167-8c73-87eac26c4ac3.webp",
-            "content-alignment": "center",
-            "overlay-color": "#ffffff",
-            "title": "Transform your home into a living, breathing sanctuary",
-            "subheading": "",
-            "cta": "",
-            "url": ""
-          }
-        },
-        "slide_ca8y9X": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/about-us-banner__desktop__slide3.webp",
-            "content-alignment": "center",
-            "overlay-color": "#ffffff",
-            "title": "Discover extraordinary botanical living at",
-            "subheading": "",
-            "cta": "",
-            "url": ""
-          }
         }
       },
       "block_order": [
-        "slide_D7NGtn",
-        "slide_4APpWK",
-        "slide_ca8y9X"
+        "slide_D7NGtn"
       ],
       "name": "Slideshow",
       "settings": {
@@ -89,6 +63,8 @@
         "image": "shopify://shop_images/summit-store__banner__desktop.webp",
         "image_mobile": "shopify://shop_images/about-us-banner__mobile.webp",
         "title": "The Summit Store",
+        "title_bottom_margin": "0",
+        "title_mobile_bottom_margin": "0",
         "text": "",
         "content_position": "center-center",
         "color": "#ffffff",
