@@ -51,7 +51,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>How do I care for faux plants and stems?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_97gBxj": {
@@ -66,13 +67,14 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>How do I care for preserved moss?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_N3FGm3": {
           "type": "read_more_text",
           "settings": {
-            "read_more_text_description": "<p>Preserved moss is completely maintenance-free - no watering, trimming, or sunlight needed. It’s real moss that’s been naturally preserved to stay soft and vibrant for years. To keep it looking its best, display it indoors, out of direct sunlight and humidity. Dust gently with a soft brush or compressed air if needed. Avoid water and cleaning products, as they can damage the moss. With proper care, it will remain beautiful and lush without any effort.<br/></p>"
+            "read_more_text_description": "<p>Preserved moss is completely maintenance-free - no watering, trimming, or sunlight needed. It’s real moss that’s been preserved to stay soft and vibrant for years. To keep it looking its best, display it indoors, out of direct sunlight and humidity. Dust gently with a soft brush or compressed air if needed. Avoid water and cleaning products, as they can damage the moss. With proper care, it will remain beautiful and lush without any effort.</p>"
           }
         },
         "feature_card_UdKXqG": {
@@ -81,7 +83,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Do you ship internationally?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_EhrUx3": {
@@ -96,7 +99,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Where can I shop Viburnum Home?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_C7cHnp": {
@@ -111,7 +115,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Can I bring my clients into your studio to see the products in person?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_VGaVaL": {
@@ -126,7 +131,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Do you charge sales tax?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_8dfD4H": {
@@ -141,7 +147,8 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Do I qualify for Viburnum & Co. Trade Program?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_EqNBgd": {
@@ -156,13 +163,14 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Do you offer home styling or interior decor consultation?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_riYCHw": {
           "type": "read_more_text",
           "settings": {
-            "read_more_text_description": "<p>Yes, however we only offer in-person styling sessions in the Tri-State Area to help you curate pieces that perfectly suit your space.</p>"
+            "read_more_text_description": "<p>Yes, absolutely! We love hosting you and your clients in the studio. Seeing the textures, scale, and colors in person makes selecting the perfect pieces so much easier. Most items at Viburnum Home are custom made once your order is placed, so exact product samples aren't always guaranteed to be on display. However, our studios regularly feature similar designs that highlight our craft and material quality. If you are looking for something specific, give us a quick call before visiting so we can confirm current availability. We also love welcoming you and your clients into our studio space—it's the best way to explore custom design possibilities together!</p>"
           }
         },
         "feature_card_dRhKU7": {
@@ -171,13 +179,14 @@
             "feature_card_heading": "",
             "feature_card_text": "<p>Can I cancel my order?</p>",
             "feature_card_url": "",
-            "feature_card_button_text": ""
+            "feature_card_button_text": "",
+            "link_whole_feature_card": false
           }
         },
         "read_more_text_fyxbg6": {
           "type": "read_more_text",
           "settings": {
-            "read_more_text_description": "<p>We offer a 24-hour grace period for order cancellations as long as your order has not shipped. Should you wish to cancel your order, please contact us at <a href=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a> or call us at 908 6798855within 24 hours for assistance.</p>"
+            "read_more_text_description": "<p>We move quickly to get your order on its way! You can cancel your order for a full refund as long as it has not yet entered the fulfillment or shipping process.</p><ul><li><strong>If your order hasn't shipped:</strong> Reach out to us as soon as possible with your Order Number at <a href=\"mailto:info@viburnumhome.com\">info@viburnumhome.com</a>.</li><li><strong>If your order has already shipped:</strong> We are unable to stop the shipment once it is with the carrier. Simply wait for the package to arrive, then contact us to initiate a return.</li></ul><p>·  I<strong>n-Store Purchases / Local Pickup:</strong></p><ul><li>If a customer buys an item in your NJ retail store or purchases it online and picks it up in person, New Jersey sales tax (standard rate is 6.625%) will be charged.</li></ul><p>·  <strong>Items Shipped to a NJ Address:</strong></p><ul><li>If an online order is shipped to any address within New Jersey, NJ sales tax is charged on both the item and the shipping charges.</li></ul><p><strong>Items Shipped Out of State:</strong></p><ul><li><strong>No NJ Sales Tax:</strong> You do <strong>not</strong> charge New Jersey sales tax on items packed and shipped directly to an address outside New Jersey</li></ul>"
           }
         }
       },
@@ -204,6 +213,8 @@
       "name": "V Grid",
       "settings": {
         "section_css_class": "faqs-grid",
+        "top_padding": "0",
+        "bottom_padding": "0",
         "layout": "content-width",
         "bleed": true,
         "detect_when_in_view": false,

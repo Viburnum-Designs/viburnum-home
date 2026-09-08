@@ -355,11 +355,32 @@
       "block_order": [
         "rich_text_pPcVjy"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "section_css_class": "",
         "border": false,
         "heading": ""
+      }
+    },
+    "home_message_4T7nip": {
+      "type": "home-message",
+      "blocks": {
+        "rich_text_rRjzVr": {
+          "type": "rich-text",
+          "settings": {
+            "rich_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "rich_text_rRjzVr"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "section_css_class": "instagram-heading",
+        "border": true,
+        "heading": "Follow Us On Instagram"
       }
     },
     "1787583460df67f7bf": {
@@ -394,6 +415,7 @@
     "v_page_banner_NUKAfQ",
     "v_featured_collection_carousel_myXTbe",
     "home_message_e6Tyy4",
+    "home_message_4T7nip",
     "1787583460df67f7bf"
   ]
 }

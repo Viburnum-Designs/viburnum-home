@@ -277,8 +277,14 @@ a[href^="mailto:"]::before {
 
 /* Header
 ==================== */
+.shopify-section:has(.v--main-header){
+  position: relative;
+  z-index: 1000;
+
+}
 .v--main-header {
   position: relative;
+  z-index: 1000;
 }
 
 @media screen and (max-width: 1099px){
@@ -1336,7 +1342,6 @@ body.scroll-locked {
 /* Policy pages
 ===================*/
 
-
 .shopify-policy__title{
   font-family: var(--heading-font); 
 }
@@ -1353,4 +1358,13 @@ body.scroll-locked {
 
 .shopify-policy__body h2 + p{
   margin-top: 0;
+}
+
+.instagram-heading .__h1{
+  padding-bottom: 0; 
+  padding-top: 0;
+}
+
+.instagram-heading.home-message{
+  padding-bottom: 0;
 }

@@ -33,12 +33,12 @@
       "settings": {
         "image": "shopify://shop_images/about-us-banner__desktop__v2.webp",
         "image_mobile": "shopify://shop_images/about-us-banner__mobile__v2.webp",
-        "title": "Viburnum Home ",
+        "title": "Viburnum Home",
         "text": "<p>is a destination that makes your home look and feel truly beautiful</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
-        "overlay_opacity": 40,
+        "overlay_opacity": 14,
         "link": "",
         "button_text": ""
       }
@@ -111,7 +111,7 @@
         "rich_text_qKmnUN": {
           "type": "rich-text",
           "settings": {
-            "rich_text": "<p><em>With over a decade of experience in the fresh flower and home décor industries, we have cultivated a deep understanding of the importance of exceptional quality, meticulous attention to detail, and the enduring value of an elevated customer experience. It is with this foundation - and a genuine passion for beauty and design - that we introduce Viburnum Home: a thoughtfully curated online boutique offering our signature collection of refined products, now available for delivery throughout the United States. We warmly invite you to welcome the timeless elegance of Viburnum style into your home.</em></p>"
+            "rich_text": "<p><strong>Welcome to Viburnum Home<br/></strong>17 years, we rooted our business in a simple love for nature’s beauty—hand-curating fresh flowers, vibrant plants, cozy candles, and decorative home touches. Over the years, our passion for bringing warmth into everyday spaces evolved, leading to the birth of Viburnum Home.</p><p>Today, we specialize in premium, ultra-realistic faux greenery and florals alongside timeless home decor. Every stem, plant, and decorative accent in our collection is thoughtfully hand-picked to mirror the texture, detail, and organic feel of the real thing—without any of the maintenance.</p><p>We believe home should be your favorite sanctuary. Whether you are adding a subtle pop of life to a coffee table or transforming an entire room, our pieces are designed to bring lasting warmth, style, and effortlessness to your space</p>"
           }
         }
       },
