@@ -138,7 +138,7 @@
         "read_more_text_8dfD4H": {
           "type": "read_more_text",
           "settings": {
-            "read_more_text_description": "<p>Viburnum & Co. is required to collect sales tax based on the laws and regulations of the state or province indicated in the shipping address. As tax regulations continue to evolve, we will continue to monitor state and local tax laws to ensure compliance.</p>"
+            "read_more_text_description": "<p>Viburnum & Co. is required to collect sales tax based on the laws and regulations of the state or province indicated in the shipping address. As tax regulations continue to evolve, we will continue to monitor state and local tax laws to ensure compliance.</p><p><strong>In-Store Purchases / Local Pickup:</strong></p><ul><li>If a customer buys an item in your NJ retail store or purchases it online and picks it up in person, New Jersey sales tax (standard rate is 6.625%) will be charged.</li></ul><p><strong>Items Shipped to a NJ Address:</strong></p><ul><li>If an online order is shipped to any address within New Jersey, NJ sales tax is charged on both the item and the shipping charges.</li></ul><p><strong>Items Shipped Out of State:</strong></p><ul><li>No NJ Sales Tax: We do not charge New Jersey sales tax on items packed and shipped directly to an address outside New Jersey</li></ul>"
           }
         },
         "feature_card_KTNDLa": {
