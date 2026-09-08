@@ -27,8 +27,7 @@
  * `new FormData(element.closest('form'))`). If your collection template
  * wraps filters in a form with a specific id, add it to
  * `FORM_SELECTORS` below.
- */
-console.log("loaded");
+ */ 
 (function () {
   'use strict';
 
