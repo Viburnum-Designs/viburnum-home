@@ -1380,7 +1380,7 @@ body.scroll-locked {
 /* Search page
 ===================*/
 #snize_results{
-  padding-top: var(--spacing);
+  padding-top: var(--spacing)!important;
 }
 
 #snize-search-results-grid-mode .snize-thumbnail-wrapper{
