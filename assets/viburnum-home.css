@@ -1383,3 +1383,6 @@ body.scroll-locked {
   padding-top: var(--spacing);
 }
 
+.snize-thumbnail-wrapper{
+  background-color: #fff;
+}
