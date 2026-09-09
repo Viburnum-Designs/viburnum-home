@@ -279,8 +279,7 @@ a[href^="mailto:"]::before {
 ==================== */
 .shopify-section:has(.v--main-header){
   position: relative;
-  z-index: 1000;
-
+  z-index: 1000; 
 }
 .v--main-header {
   position: relative;
@@ -290,6 +289,14 @@ a[href^="mailto:"]::before {
 @media screen and (max-width: 1099px){
   .v--main-header{
     border-bottom: 1px solid #ccc;
+  }
+}
+
+
+.v--header-grid__grid-item__logo__link{
+  color: #6e776b;
+  &:hover{
+    color: #6e776b;
   }
 }
 
