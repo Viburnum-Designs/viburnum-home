@@ -761,6 +761,10 @@ input[type='submit'].header-search-button {
   color: #fff;
 }
 
+.v--main-footer .errors{
+  color: #fff;
+}
+
 .v--copyright-bar {
   background-color: #000;
   @media screen and (max-width: 768px){
