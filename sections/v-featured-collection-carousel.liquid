@@ -70,7 +70,9 @@
       data-carousel-prev
       aria-label="Previous"
     >
-      &lsaquo;
+      <svg class="flickity-button-icon" viewBox="0 0 100 100">
+        <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path>
+      </svg>
     </button>
     <button
       type="button"
@@ -78,7 +80,9 @@
       data-carousel-next
       aria-label="Next"
     >
-      &rsaquo;
+      <svg class="flickity-button-icon" viewBox="0 0 100 100">
+        <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path>
+      </svg>
     </button>
 
     <div class="carousel-dots" data-carousel-dots></div>
@@ -125,7 +129,6 @@
     height: 100%;
   }
 
-
   @media screen and (max-width: 989px) {
     #shopify-section-{{ section.id }} .carousel-track {
       grid-auto-columns: 33.333%;
@@ -145,14 +148,16 @@
     z-index: 2;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    {% comment %} border-radius: 50%;
     border: 1px solid {{ section.settings.controls-color | default: '#000' }};
-    background: #fff;
+    background: #fff; {% endcomment %}
     color: {{ section.settings.controls-color | default: '#000' }};
     font-size: 20px;
     line-height: 1;
     cursor: pointer;
-
+    background-color: transparent;
+    border: none;
+    fill: #666;
   }
 
   #shopify-section-{{ section.id }} .carousel-arrow-prev {
