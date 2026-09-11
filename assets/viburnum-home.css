@@ -1251,6 +1251,10 @@ input[type='submit'].header-search-button {
   justify-content: center;
   align-items: center;
 }
+
+.product-gallery--media-thumbnail {
+  flex-shrink: 0;
+}
  
 [data-modal-id="surface-pick-up"] {
   position: static !important;
