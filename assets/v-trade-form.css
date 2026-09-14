@@ -1,0 +1,206 @@
+.v-trade-form-section {
+  --v-border: #d0d0d0;
+  --v-border-focus: #111;
+  --v-black: #111;
+  --v-error: #c0392b;
+  padding: 4rem 1.5rem;
+}
+
+.v-trade-form-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.v-trade-form__heading {
+  margin-bottom: 0.5rem;
+}
+
+.v-trade-form__intro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.v-trade-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 350px;
+  margin: auto; 
+}
+
+.v-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 600px) {
+  .v-field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.v-field,
+.v-field-row .v-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.v-field label,
+.v-field__label,
+.v-fieldset legend {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.v-field input[type='text'],
+.v-field input[type='email'],
+.v-field input[type='tel'],
+.v-field input[type='url'] {
+  border: 1px solid var(--v-border);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.v-field input:focus-visible {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 1px;
+}
+
+.v-field input[aria-invalid='true'] {
+  border-color: var(--v-error);
+}
+
+.v-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--v-black);
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.85rem 1.5rem;
+  width: fit-content;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.v-upload-btn:focus-within,
+.v-upload-btn:has(+ input:focus-visible) {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 2px;
+}
+
+.v-upload-btn__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.v-upload-filename {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.v-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.v-fieldset legend {
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+.v-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.v-checkbox input[type='radio'] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.v-toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.v-toggle-btn {
+  border: 1px solid var(--v-border);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.v-toggle-btn input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.v-toggle-btn:has(input:checked) {
+  background: var(--v-black);
+  color: #fff;
+  border-color: var(--v-black);
+}
+
+.v-toggle-btn:has(input:focus-visible) {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 2px;
+}
+
+.v-submit-btn {
+  background: var(--v-black);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.v-submit-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.v-trade-form__status {
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 4px;
+}
+
+.v-trade-form__status[data-state='success'] {
+  background: #e7f6ec;
+  color: #1e6b3c;
+}
+
+.v-trade-form__status[data-state='error'] {
+  background: #fbe9e7;
+  color: var(--v-error);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
