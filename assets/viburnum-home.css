@@ -1255,6 +1255,10 @@ input[type='submit'].header-search-button {
 .product-gallery--media-thumbnail {
   flex-shrink: 0;
 }
+
+.product-list-item-title{
+  text-transform: capitalize;
+}
  
 [data-modal-id="surface-pick-up"] {
   position: static !important;
