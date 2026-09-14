@@ -122,7 +122,7 @@
       <p class="product-list-item-vendor">{{ item.vendor | link_to_vendor }}</p>
     {% endif %}
     <h2 class="product-list-item-title">
-      <a href="{{ item.url | within: collection }}">{{ item.title }}</a>
+      <a href="{{ item.url | within: collection }}">{{ item.title | capitalize }}</a>
     </h2>
     <p class="product-list-item-price">
       {% if item.price_varies %}
