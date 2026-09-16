@@ -1,0 +1,103 @@
+{%- liquid
+  assign has_dimensions = false
+  assign p_width = product.metafields.custom.width
+  assign p_length = product.metafields.custom.length
+  assign p_height = product.metafields.custom.height
+
+  if product.has_only_default_variant
+    if p_width != blank or p_length != blank or p_height != blank
+      assign has_dimensions = true
+    endif
+  else
+    for variant in product.variants
+      assign v_width = variant.metafields.custom.variant_width
+      assign v_length = variant.metafields.custom.variant_length
+      assign v_height = variant.metafields.custom.variant_height
+      if v_width != blank or v_length != blank or v_height != blank
+        assign has_dimensions = true
+      endif
+    endfor
+  endif
+-%}
+
+{%- if has_dimensions -%}
+  <details class="collapsible-tab" {{ block.shopify_attributes }}>
+    <summary class="collapsible-tab__heading">
+      <span style="font-weight: bold">Dimensions</span>
+      {% render 'icons', id: 'chevron-right' %}
+    </summary>
+
+    <style>
+      .collapsible-tab__text {
+        display: flex;
+        gap: var(--spacing);
+      }
+      .collapsible-tab__text:before,
+      .collapsible-tab__text:after {
+        display: none;
+      }
+    </style>
+
+    <div class="collapsible-tab__text rte">
+      {%- if product.has_only_default_variant -%}
+        <div class="product-dimensions">
+          {%- if p_width != blank -%}
+            <div class="product-dimensions__width">
+              Width: {{ p_width.value -}}
+              "
+              {{- p_width.unit -}}
+            </div>
+          {%- endif -%}
+          {%- if p_length != blank -%}
+            <div class="product-dimensions__length">
+              Length: {{ p_length.value -}}
+              "
+              {{- p_length.unit -}}
+            </div>
+          {%- endif -%}
+          {%- if p_height != blank -%}
+            <div class="product-dimensions__height">
+              Height: {{ p_height.value -}}
+              "
+              {{- p_height.unit }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        {%- for variant in product.variants -%}
+          {%- assign v_width = variant.metafields.custom.variant_width -%}
+          {%- assign v_length = variant.metafields.custom.variant_length -%}
+          {%- assign v_height = variant.metafields.custom.variant_height -%}
+          {%- if v_length != blank or v_width != blank or v_height != blank -%}
+            <div class="product-dimensions">
+              <div class="product-dimensions__title">
+                <strong>{{ variant.title }}</strong>
+              </div>
+              {%- if v_width != blank -%}
+                <div class="product-dimensions__width">
+                  Width: {{ v_width.value -}}
+                  "
+                  {{- v_width.unit -}}
+                </div>
+              {%- endif -%}
+              {%- if v_length != blank -%}
+                <div class="product-dimensions__length">
+                  Length: {{ v_length.value -}}
+                  "
+                  {{- v_length.unit -}}
+                </div>
+              {%- endif -%}
+              {%- if v_height != blank -%}
+                <div class="product-dimensions__height">
+                  Height: {{ v_height.value -}}
+                  "
+                  {{- v_height.unit }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </details>
+{%- endif -%}

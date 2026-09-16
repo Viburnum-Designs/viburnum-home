@@ -13,22 +13,28 @@
 {% for block in section.blocks %}
   {% case block.type %}
     {% when 'vendor' %}
-      <a class="product-vendor" href="{{ product.vendor | url_for_vendor }}" {{ block.shopify_attributes }}>{{ product.vendor }}</a>
+      <a class="product-vendor" href="{{ product.vendor | url_for_vendor }}" {{ block.shopify_attributes }}>
+        {{- product.vendor -}}
+      </a>
 
     {% when 'title' %}
-      <h1 class="product-title" {{ block.shopify_attributes }}>
-        {% if product != blank %}
-          {% if link_to %}
-            <a href="{{ product.url }}">
+      <div class="product-title-wishlist__wrapper">
+        <h1 class="product-title __h1" {{ block.shopify_attributes }}>
+          {% if product != blank %}
+            {% if link_to %}
+              <a href="{{ product.url }}">
+                {{ product.title }}
+              </a>
+            {% else %}
               {{ product.title }}
-            </a>
+            {% endif %}
           {% else %}
-            {{ product.title }}
+            {{ 'products.product.onboarding.title' | t }}
           {% endif %}
-        {% else %}
-          {{ 'products.product.onboarding.title' | t }}
-        {% endif %}
-      </h1>
+        </h1>
+
+        {% render 'add-to-wishlist', product: product %}
+      </div>
 
     {% when '@app' %}
       <div class="product-app" {{ block.shopify_attributes }}>
@@ -47,10 +53,7 @@
         <details class="collapsible-tab" {{ block.shopify_attributes }}>
           <summary class="collapsible-tab__heading">
             <span>{{ block.settings.collapsible_tab_heading | escape }}</span>
-            {%
-              render 'icons',
-              id: 'chevron-right',
-            %}
+            {% render 'icons', id: 'chevron-right' %}
           </summary>
 
           {% if block.settings.collapsible_tab_text != blank %}
@@ -75,17 +78,17 @@
           >
 
           <label class="product-tabs__label" for="product-tabs__radio-{{ section.id }}">
-            {{ 'onboarding.tab_title'| t }}
+            {{ 'onboarding.tab_title' | t }}
           </label>
 
           <div class="product-tabs__panel rte" tabindex="0">
             {% if onboarding %}
-              {{ 'onboarding.tab_content'| t }}
+              {{ 'onboarding.tab_content' | t }}
             {% else %}
               {% if product.description != blank %}
                 {{ product.description }}
               {% else %}
-                {{ 'onboarding.tab_content'| t }}
+                {{ 'onboarding.tab_content' | t }}
               {% endif %}
             {% endif %}
           </div>
@@ -147,14 +150,13 @@
           @param tax_text
             String containing 'tax included' text
         {% endcomment %}
-        
+
         {% capture total_quantity %}
           <span class="product-price__unit-price-total-quantity" data-unit-price-quantity>
             {{ variant_for_unit_price.unit_price_measurement.quantity_value }}{{ variant_for_unit_price.unit_price_measurement.quantity_unit }}
           </span>
         {% endcapture %}
-        
-        
+
         {% capture unit_price %}
           <span class="product-price__unit-price-amount money" data-unit-price-amount>
             {{ variant_for_unit_price.unit_price | money }}
@@ -168,7 +170,7 @@
             {{ variant_for_unit_price.unit_price_measurement.reference_unit }}
           </span>
         {% endcapture %}
-        
+
         <div
           class="
             product-price__unit-price
@@ -176,21 +178,25 @@
           "
           data-unit-price
         >
-          {{ 'products.product.price_per_unit_html' | t: total_quantity: total_quantity, unit_price: unit_price, unit_measure: unit_measure | strip_newlines }}
+          {{
+            'products.product.price_per_unit_html'
+            | t: total_quantity: total_quantity, unit_price: unit_price, unit_measure: unit_measure
+            | strip_newlines
+          }}
         </div>
-        
+
         {% assign variant_for_unit_price = blank %}
         {% comment %}Inject unit-price end{% endcomment %}
-
 
         {%- capture tax_text -%}
         {{ 'products.product.tax_line_html' | t }}
         {%- endcapture -%}
 
         {%- if tax_text != blank -%}
-          <div class="
-            product-price__tax
-            {% unless selected_variant.taxable %}hidden{% endunless %}
+          <div
+            class="
+              product-price__tax
+              {% unless selected_variant.taxable %}hidden{% endunless %}
             "
             data-tax-line
           >
@@ -203,14 +209,9 @@
 
     {% when 'form' %}
       <div class="product__form" {{ block.shopify_attributes }}>
-
         {% unless product.has_only_default_variant %}
           <div class="product-options">
-            {%-
-              render 'product-options-dropdown',
-              product: product,
-              form_id: product_id
-            -%}
+            {%- render 'product-options-dropdown', product: product, form_id: product_id -%}
 
             <label
               class="
@@ -244,8 +245,13 @@
                 {% for variant in product.variants %}
                   {% if variant.available %}
                     <option
-                      {% if variant == selected_variant %}selected="selected"{% endif %}
-                      value="{{ variant.id }}" data-variant-id="{{ variant.id }}" data-sku="{{ variant.sku }}">
+                      {% if variant == selected_variant %}
+                        selected="selected"
+                      {% endif %}
+                      value="{{ variant.id }}"
+                      data-variant-id="{{ variant.id }}"
+                      data-sku="{{ variant.sku }}"
+                    >
                       {{ variant.title }} - {{ variant.price | money }}
                     </option>
                   {% else %}
@@ -306,7 +312,7 @@
           {% if selected_variant.available and template.name != 'password' %}
             <input class="add-to-cart" type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
           {% else %}
-            <input class="add-to-cart disabled" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled/>
+            <input class="add-to-cart disabled" type="submit" value="{{ 'products.product.sold_out' | t }}" disabled />
           {% endif %}
 
           {% if show_payment_button %}
@@ -316,11 +322,7 @@
         <div class="product-message"></div>
 
         <div data-surface-pick-up></div>
-        {%-
-          render 'modal',
-          modal_id: 'surface-pick-up',
-          modal_class: 'surface-pick-up-modal',
-        -%}
+        {%- render 'modal', modal_id: 'surface-pick-up', modal_class: 'surface-pick-up-modal' -%}
       </div>
 
     {% when 'social' %}
@@ -342,19 +344,25 @@
     {%- when 'rating' -%}
       {%- if product.metafields.reviews.rating.value != blank -%}
         <div class="product__rating rating" {{ block.shopify_attributes }}>
-          {%
-            render 'rating-stars',
+          {% render 'rating-stars',
             value: product.metafields.reviews.rating.value.rating,
-            scale_max: product.metafields.reviews.rating.value.scale_max,
+            scale_max: product.metafields.reviews.rating.value.scale_max
           %}
           <p class="rating__text">
-            <span aria-hidden="true">{{ product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max }}</span>
+            <span aria-hidden="true">
+              {{- product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max -}}
+            </span>
           </p>
           <p class="rating__count">
             <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
-            <span class="visually-hidden">{{ product.metafields.reviews.rating_count }} {{ "general.accessibility.total_reviews" | t }}</span>
+            <span class="visually-hidden">
+              {{- product.metafields.reviews.rating_count }}
+              {{ 'general.accessibility.total_reviews' | t -}}
+            </span>
           </p>
         </div>
       {%- endif -%}
   {% endcase %}
 {% endfor %}
+
+{% render 'v-product-dimensions', product: product %}
