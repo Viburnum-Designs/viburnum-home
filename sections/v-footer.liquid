@@ -134,7 +134,11 @@
           {{ shop.name }}
         {% endcapture %}
         <div class="copyright" role="contentinfo">
-          {{ 'general.general.copyright_html' | t: year: year, shop_name: shopName }}
+          {% comment %} {{ 'general.general.copyright_html' | t: year: year, shop_name: shopName | strip }} {% endcomment %}
+
+          Copyright &copy; {{ 'now' | date: '%Y' }}
+          {{- shop.name | strip -}}
+          .
         </div>
       </div>
     </div>
