@@ -1295,7 +1295,7 @@ input[type='submit'].header-search-button {
 }
 
 .surface-pick-up-modal.modal-opened {
-  display: block;
+  display: block; 
 }
 
 .modal-inner{
@@ -1316,7 +1316,13 @@ body.scroll-locked {
 }
 .surface-pick-up-modal .modal-inner{
   padding: 0;
-  background: transparent;
+  background: transparent; 
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: var(--spacing);
+  width: 100%;
+  z-index: 0;
 }
 
 .modal-header{
@@ -1354,14 +1360,6 @@ body.scroll-locked {
 
 .surface-pick-up-embed__location-info {
   font-weight: bold;
-}
-
-.surface-pick-up-modal .modal-inner {
-  max-width: 100%;
-  background-color: #fff;
-  border-radius: 4px;
-  padding: var(--spacing);
-  width: 100%;
 }
 
 .surface-pick-up-item.surface-pick-up-item--available {
