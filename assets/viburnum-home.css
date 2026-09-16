@@ -988,8 +988,8 @@ input[type='submit'].header-search-button {
     display: flex;
     align-items: start;
     gap: var(--min-spacing);
-    text-align: left;
-    justify-self: center;
+    text-align: center;
+    justify-content: center;
   }
 }
 
