@@ -1,24 +1,22 @@
-{%- comment -%} snippet/add-to-wishlist.liquid {%- endcomment -%}
-
-{%- if customer and customer.email == 'j_kollias@yahoo.com' -%}
-  {%- assign wishlist_products = customer.metafields.custom.wishlist.value -%}
-  {%- assign is_wishlisted = false -%}
-  {%- if wishlist_products -%}
-    {%- assign wishlist_ids = wishlist_products | map: 'id' -%}
-    {%- if wishlist_ids contains product.id -%}
-      {%- assign is_wishlisted = true -%}
-    {%- endif -%}
+{% comment %} {%- if customer and customer.email == 'j_kollias@yahoo.com' -%} {% endcomment %}
+{%- assign wishlist_products = customer.metafields.custom.wishlist.value -%}
+{%- assign is_wishlisted = false -%}
+{%- if wishlist_products -%}
+  {%- assign wishlist_ids = wishlist_products | map: 'id' -%}
+  {%- if wishlist_ids contains product.id -%}
+    {%- assign is_wishlisted = true -%}
   {%- endif -%}
-
-  <button
-    type="button"
-    class="add-to-wishlist-btn  {% if is_wishlisted %} is-active{% endif %}"
-    data-wishlist-toggle
-    data-product-id="{{ product.id }}"
-    aria-pressed="{{ is_wishlisted }}"
-    aria-label="{% if is_wishlisted %}Remove from wishlist{% else %}Add to wishlist{% endif %}"
-  >
-    {%- render 'icons', id: 'v-heart-empty' -%}
-    {% comment %} {%- render 'icons', id: 'v-heart-full' -%} {% endcomment %}
-  </button>
 {%- endif -%}
+
+<button
+  type="button"
+  class="add-to-wishlist-btn  {% if is_wishlisted %} is-active{% endif %}"
+  data-wishlist-toggle
+  data-product-id="{{ product.id }}"
+  aria-pressed="{{ is_wishlisted }}"
+  aria-label="{% if is_wishlisted %}Remove from wishlist{% else %}Add to wishlist{% endif %}"
+>
+  {%- render 'icons', id: 'v-heart-empty' -%}
+  {% comment %} {%- render 'icons', id: 'v-heart-full' -%} {% endcomment %}
+</button>
+{% comment %} {%- endif -%} {% endcomment %}
