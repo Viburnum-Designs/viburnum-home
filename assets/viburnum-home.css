@@ -1281,6 +1281,10 @@ input[type='submit'].header-search-button {
     margin-top: 10px;
 }
  
+.add-to-wishlist-btn.is-active svg {
+    fill: currentColor;
+}
+
 [data-modal-id="surface-pick-up"] {
   position: static !important;
   transform: none !important;
