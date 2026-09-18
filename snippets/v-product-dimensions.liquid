@@ -53,25 +53,32 @@
     <div class="collapsible-tab__text rte">
       {%- if product.has_only_default_variant -%}
         <div class="product-dimensions">
-          {%- if p_length != blank -%}
+          {%- assign has_length = false -%}
+          {%- if p_length != blank -%}{%- assign has_length = true -%}{%- endif -%}
+
+          {%- assign has_width = false -%}
+          {%- if p_width != blank -%}{%- assign has_width = true -%}{%- endif -%}
+
+          {%- assign has_height = false -%}
+          {%- if p_height != blank -%}{%- assign has_height = true -%}{%- endif -%}
+
+          {%- if has_length -%}
             <div class="product-dimensions__length">
               {{ p_length.value | replace: 'in', '"L' }}
-              {% comment %} {{- p_length.unit -}} {% endcomment %}
             </div>
           {%- endif -%}
-          {%- if p_width != blank -%}
-            {%- if p_length != blank %} x {% endif -%}
+
+          {%- if has_width -%}
+            {%- if has_length %} x {% endif -%}
             <div class="product-dimensions__width">
               {{ p_width.value | replace: 'in', '"W' }}
-              {% comment %} {{- p_width.unit -}} {% endcomment %}
             </div>
           {%- endif -%}
-          {%- if p_height != blank %}
-            {%- if p_width != blank %} x {% endif -%}
+
+          {%- if has_height -%}
+            {%- if has_width or has_length %} x {% endif -%}
             <div class="product-dimensions__height">
               {{ p_height.value | replace: 'in', '"H' }}
-              {% comment %} {{- p_height.unit }} {% endcomment %}
-              " H
             </div>
           {%- endif -%}
         </div>
@@ -95,7 +102,7 @@
               {%- endif -%}
 
               {%- if v_width != blank -%}
-                {%- if p_length != blank %} x {% endif -%}
+                {%- if v_length != blank %} x {% endif -%}
                 <div class="product-dimensions__width">
                   {{ v_width.value | replace: 'in', '"W' }}
                   {% comment %} {{- v_width.unit -}}  {% endcomment %}
@@ -103,7 +110,7 @@
               {%- endif -%}
 
               {%- if v_height != blank -%}
-                {%- if p_width != blank %} x {% endif -%}
+                {%- if v_width != blank %} x {% endif -%}
                 <div class="product-dimensions__height">
                   {{ v_height.value | replace: 'in', '"H' }}
                   {% comment %} {{- v_height.unit }}  {% endcomment %}
