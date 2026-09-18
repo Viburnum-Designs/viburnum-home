@@ -24,39 +24,54 @@
   <details class="collapsible-tab" {{ block.shopify_attributes }}>
     <summary class="collapsible-tab__heading">
       <span style="font-weight: bold">Dimensions</span>
-      {% render 'icons', id: 'chevron-right' %}
+      <span class="collapsible-tab__icon"></span>
     </summary>
 
     <style>
-      .collapsible-tab__text {
+      {% comment %} .collapsible-tab__text {
         display: flex;
         gap: var(--spacing);
-      }
+      } {% endcomment %}
       .collapsible-tab__text:before,
       .collapsible-tab__text:after {
         display: none;
+      }
+
+      .product-dimensions {
+        display: flex;
+        gap: 4px;
+        margin-top: 10px;
+      }
+
+      .product-dimensions__length,
+      .product-dimensions__width,
+      .product-dimensions__height {
+        display: inline;
       }
     </style>
 
     <div class="collapsible-tab__text rte">
       {%- if product.has_only_default_variant -%}
         <div class="product-dimensions">
-          {%- if p_width != blank -%}
-            <div class="product-dimensions__width">
-              Width: {{ p_width.value -}}
-              {{- p_width.unit -}}
-            </div>
-          {%- endif -%}
           {%- if p_length != blank -%}
             <div class="product-dimensions__length">
-              Length: {{ p_length.value -}}
-              {{- p_length.unit -}}
+              {{ p_length.value | replace: 'in', '"L' }}
+              {% comment %} {{- p_length.unit -}} {% endcomment %}
             </div>
           {%- endif -%}
-          {%- if p_height != blank -%}
+          {%- if p_width != blank -%}
+            {%- if p_length != blank %} x {% endif -%}
+            <div class="product-dimensions__width">
+              {{ p_width.value | replace: 'in', '"W' }}
+              {% comment %} {{- p_width.unit -}} {% endcomment %}
+            </div>
+          {%- endif -%}
+          {%- if p_height != blank %}
+            {%- if p_width != blank %} x {% endif -%}
             <div class="product-dimensions__height">
-              Height: {{ p_height.value -}}
-              {{- p_height.unit }}
+              {{ p_height.value | replace: 'in', '"H' }}
+              {% comment %} {{- p_height.unit }} {% endcomment %}
+              " H
             </div>
           {%- endif -%}
         </div>
@@ -67,29 +82,41 @@
           {%- assign v_height = variant.metafields.custom.variant_height -%}
           {%- if v_length != blank or v_width != blank or v_height != blank -%}
             <div class="product-dimensions">
-              <div class="product-dimensions__title">
-                <strong>{{ variant.title }}</strong>
-              </div>
-              {%- if v_width != blank -%}
-                <div class="product-dimensions__width">
-                  Width: {{ v_width.value -}}
-                  {{- v_width.unit -}}
+              {% comment %}
+                <div class="product-dimensions__title">
+                  <strong>{{ variant.title }}</strong>
                 </div>
-              {%- endif -%}
+              {% endcomment %}
               {%- if v_length != blank -%}
                 <div class="product-dimensions__length">
-                  Length: {{ v_length.value -}}
-                  {{- v_length.unit -}}
+                  {{ v_length.value | replace: 'in', '"L' }}
+                  {% comment %} {{- v_length.unit -}}  {% endcomment %}
                 </div>
               {%- endif -%}
+
+              {%- if v_width != blank -%}
+                {%- if p_length != blank %} x {% endif -%}
+                <div class="product-dimensions__width">
+                  {{ v_width.value | replace: 'in', '"W' }}
+                  {% comment %} {{- v_width.unit -}}  {% endcomment %}
+                </div>
+              {%- endif -%}
+
               {%- if v_height != blank -%}
+                {%- if p_width != blank %} x {% endif -%}
                 <div class="product-dimensions__height">
-                  Height: {{ v_height.value -}}
-                  {{- v_height.unit }}
+                  {{ v_height.value | replace: 'in', '"H' }}
+                  {% comment %} {{- v_height.unit }}  {% endcomment %}
                 </div>
               {%- endif -%}
             </div>
           {%- endif -%}
+          {% comment %}
+            {%- unless forloop.last -%}
+              <br>
+              <br>
+            {% endunless -%}
+          {% endcomment %}
         {%- endfor -%}
       {%- endif -%}
     </div>

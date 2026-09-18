@@ -204,7 +204,7 @@
           </div>
         {%- endif -%}
 
-        {{ form | payment_terms }}
+        {% comment %} {{ form | payment_terms }} {% endcomment %}
       </div>
 
     {% when 'form' %}
@@ -320,9 +320,6 @@
           {% endif %}
         </div>
         <div class="product-message"></div>
-
-        <div data-surface-pick-up></div>
-        {%- render 'modal', modal_id: 'surface-pick-up', modal_class: 'surface-pick-up-modal' -%}
       </div>
 
     {% when 'social' %}
@@ -340,6 +337,11 @@
           {{ 'products.product.onboarding.description' | t }}
         </div>
       {% endif %}
+
+      {% render 'v-product-dimensions', product: product %}
+
+      <div data-surface-pick-up></div>
+      {%- render 'modal', modal_id: 'surface-pick-up', modal_class: 'surface-pick-up-modal' -%}
 
     {%- when 'rating' -%}
       {%- if product.metafields.reviews.rating.value != blank -%}
@@ -364,5 +366,3 @@
       {%- endif -%}
   {% endcase %}
 {% endfor %}
-
-{% render 'v-product-dimensions', product: product %}
