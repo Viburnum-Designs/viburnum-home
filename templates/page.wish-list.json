@@ -14,14 +14,16 @@
       "disabled": true,
       "settings": {}
     },
-    "v_wish_list_FEHXMe": {
+    "v_wish_list_p6teCb": {
       "type": "v-wish-list",
       "name": "V Wishlist",
-      "settings": {}
+      "settings": {
+        "heading": "My Wishlist"
+      }
     }
   },
   "order": [
     "main",
-    "v_wish_list_FEHXMe"
+    "v_wish_list_p6teCb"
   ]
 }
