@@ -1,4 +1,4 @@
-{%- if customer and customer.email == 'j_kollias@yahoo.com' -%}
+{%- if customer -%}
   {%- assign wishlist_products = customer.metafields.custom.wishlist.value -%}
   {%- assign is_wishlisted = false -%}
   {%- if wishlist_products -%}
