@@ -37,7 +37,7 @@ Pages
     --footer-bg: #474d48;
     --text-color: rgb(44 44 44);
     --icon-color: #aaa;
-    --hover-color: rgb(117, 71, 56);
+    --hover-color: #CBD0CC;
     --colored-grid__bg-color: #edebec;
     --colored-grid__text-color: #333;
     --btn-radius: 8px;
@@ -130,7 +130,7 @@ Pages
   font-weight: 400;
   &:hover{
     background-color: var(--hover-color); 
-    color: #fff;
+    color: #333;
   }
   :active{
     translate: 0,-1px;
@@ -1498,6 +1498,7 @@ body.scroll-locked {
 .surface-pick-up-embed {
   text-align: left;
   justify-content: start;
+  display: block;
 }
 
 .surface-pick-up-embed__location-info {
