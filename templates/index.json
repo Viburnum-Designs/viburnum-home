@@ -145,7 +145,7 @@
         "feature_card_8twitn": {
           "type": "feature_card",
           "settings": {
-            "feature_card_heading": "BEAUTIFULLY STYLED",
+            "feature_card_heading": "Beautifully Styled",
             "feature_card_text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
             "feature_card_url": "",
             "feature_card_button_text": "",
@@ -175,27 +175,6 @@
         "custom-breakpoint": "767",
         "columns_mobile": "1",
         "reverse-on-mobile": false
-      }
-    },
-    "home_message_jymXnQ": {
-      "type": "home-message",
-      "blocks": {
-        "rich_text_h63K6Y": {
-          "type": "rich-text",
-          "settings": {
-            "rich_text": "<p>Elevate your home with our beautifully crafted decorative bowls and artisan pots. Each piece is designed to bring warmth and style to your space.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "rich_text_h63K6Y"
-      ],
-      "disabled": true,
-      "name": "Rich text",
-      "settings": {
-        "section_css_class": "",
-        "border": true,
-        "heading": "Explore our Decor Collection"
       }
     },
     "v_grid_pFxBLk": {
@@ -260,57 +239,6 @@
         "reverse-on-mobile": false
       }
     },
-    "home_message_3LtUrB": {
-      "type": "home-message",
-      "blocks": {
-        "rich_text_DA6jB6": {
-          "type": "rich-text",
-          "settings": {
-            "rich_text": "<p>Learn More About Us</p>"
-          }
-        }
-      },
-      "block_order": [
-        "rich_text_DA6jB6"
-      ],
-      "disabled": true,
-      "name": "Rich text",
-      "settings": {
-        "section_css_class": "",
-        "border": false,
-        "heading": ""
-      }
-    },
-    "home_products_znFfpt": {
-      "type": "home-products",
-      "disabled": true,
-      "name": "Featured collection",
-      "settings": {
-        "title": "Fall New Arrivals",
-        "collection": "holiday",
-        "product-columns": 3,
-        "product-rows": 3
-      }
-    },
-    "pxs_image_with_text_overlay_ERN8kB": {
-      "type": "pxs-image-with-text-overlay",
-      "disabled": true,
-      "name": "Image with text overlay",
-      "settings": {
-        "section_height": "original",
-        "image": "shopify://shop_images/beauty-styled-v2.webp",
-        "video_behavior": "image_on_mobile_video_on_desktop",
-        "position": "center center",
-        "title": "BEAUTIFULLY STYLED",
-        "text": "<p>With our help, you are guaranteed to find a statement piece that lasts for any location and every occasion. Our faux succulent and moss gardens are hand-crafted to ensure the highest quality, and custom made so that no two pieces are quite alike. And if you don't see the perfect design, our team of designers is ready to start putting together the perfect custom piece for you.</p>",
-        "content_position": "center-center",
-        "color": "#ffffff",
-        "overlay_background": "#000000",
-        "overlay_opacity": 53,
-        "link": "",
-        "button_text": ""
-      }
-    },
     "v_page_banner_NUKAfQ": {
       "type": "v-page-banner",
       "name": "V Page Banner",
@@ -343,27 +271,6 @@
         "autoplay-hover-pause": false,
         "product-columns": 4,
         "product-limit": 6
-      }
-    },
-    "home_message_e6Tyy4": {
-      "type": "home-message",
-      "blocks": {
-        "rich_text_pPcVjy": {
-          "type": "rich-text",
-          "settings": {
-            "rich_text": "<p>Follow Us | @viburnum.home</p>"
-          }
-        }
-      },
-      "block_order": [
-        "rich_text_pPcVjy"
-      ],
-      "disabled": true,
-      "name": "Rich text",
-      "settings": {
-        "section_css_class": "",
-        "border": false,
-        "heading": ""
       }
     },
     "home_message_4T7nip": {
@@ -410,14 +317,9 @@
     "v_home_slideshow_nKq3G9",
     "v_home_collections_F4AJx3",
     "v_grid_BUc7Tt",
-    "home_message_jymXnQ",
     "v_grid_pFxBLk",
-    "home_message_3LtUrB",
-    "home_products_znFfpt",
-    "pxs_image_with_text_overlay_ERN8kB",
     "v_page_banner_NUKAfQ",
     "v_featured_collection_carousel_myXTbe",
-    "home_message_e6Tyy4",
     "home_message_4T7nip",
     "1787583460df67f7bf"
   ]
