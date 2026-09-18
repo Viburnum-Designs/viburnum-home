@@ -1405,7 +1405,8 @@ input[type='submit'].header-search-button {
 }
 
 .product-smart-payments .add-to-cart{
-    background-color: var(--hover-color);
+    border: 1px solid #000;
+    background-color: #000;
     color: #fff;
     line-height: normal;
     padding: 15px 20px;
@@ -1416,6 +1417,7 @@ input[type='submit'].header-search-button {
 
 .product-smart-payments .add-to-cart:hover:not(:disabled){
   background-color: var(--secondary-color);
+  border-color: #dedede;
   background-color: #fff;
   color: #333;
 }
