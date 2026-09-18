@@ -1,0 +1,124 @@
+{%- liquid
+  assign has_dimensions = false
+  assign p_width = product.metafields.custom.width
+  assign p_length = product.metafields.custom.length
+  assign p_height = product.metafields.custom.height
+
+  if product.has_only_default_variant
+    if p_width != blank or p_length != blank or p_height != blank
+      assign has_dimensions = true
+    endif
+  else
+    for variant in product.variants
+      assign v_width = variant.metafields.custom.variant_width
+      assign v_length = variant.metafields.custom.variant_length
+      assign v_height = variant.metafields.custom.variant_height
+      if v_width != blank or v_length != blank or v_height != blank
+        assign has_dimensions = true
+      endif
+    endfor
+  endif
+-%}
+
+{%- if has_dimensions -%}
+  <details class="collapsible-tab" {{ block.shopify_attributes }}>
+    <summary class="collapsible-tab__heading">
+      <span style="font-weight: bold">Dimensions</span>
+      <span class="collapsible-tab__icon"></span>
+    </summary>
+
+    <style>
+      {% comment %} .collapsible-tab__text {
+        display: flex;
+        gap: var(--spacing);
+      } {% endcomment %}
+      .collapsible-tab__text:before,
+      .collapsible-tab__text:after {
+        display: none;
+      }
+
+      .product-dimensions {
+        display: flex;
+        gap: 4px;
+        margin-top: 10px;
+      }
+
+      .product-dimensions__length,
+      .product-dimensions__width,
+      .product-dimensions__height {
+        display: inline;
+      }
+    </style>
+
+    <div class="collapsible-tab__text rte">
+      {%- if product.has_only_default_variant -%}
+        <div class="product-dimensions">
+          {%- if p_length != blank -%}
+            <div class="product-dimensions__length">
+              {{ p_length.value | replace: 'in', '"L' }}
+              {% comment %} {{- p_length.unit -}} {% endcomment %}
+            </div>
+          {%- endif -%}
+          {%- if p_width != blank -%}
+            {%- if p_length != blank %} x {% endif -%}
+            <div class="product-dimensions__width">
+              {{ p_width.value | replace: 'in', '"W' }}
+              {% comment %} {{- p_width.unit -}} {% endcomment %}
+            </div>
+          {%- endif -%}
+          {%- if p_height != blank %}
+            {%- if p_width != blank %} x {% endif -%}
+            <div class="product-dimensions__height">
+              {{ p_height.value | replace: 'in', '"H' }}
+              {% comment %} {{- p_height.unit }} {% endcomment %}
+              " H
+            </div>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        {%- for variant in product.variants -%}
+          {%- assign v_width = variant.metafields.custom.variant_width -%}
+          {%- assign v_length = variant.metafields.custom.variant_length -%}
+          {%- assign v_height = variant.metafields.custom.variant_height -%}
+          {%- if v_length != blank or v_width != blank or v_height != blank -%}
+            <div class="product-dimensions">
+              {% comment %}
+                <div class="product-dimensions__title">
+                  <strong>{{ variant.title }}</strong>
+                </div>
+              {% endcomment %}
+              {%- if v_length != blank -%}
+                <div class="product-dimensions__length">
+                  {{ v_length.value | replace: 'in', '"L' }}
+                  {% comment %} {{- v_length.unit -}}  {% endcomment %}
+                </div>
+              {%- endif -%}
+
+              {%- if v_width != blank -%}
+                {%- if p_length != blank %} x {% endif -%}
+                <div class="product-dimensions__width">
+                  {{ v_width.value | replace: 'in', '"W' }}
+                  {% comment %} {{- v_width.unit -}}  {% endcomment %}
+                </div>
+              {%- endif -%}
+
+              {%- if v_height != blank -%}
+                {%- if p_width != blank %} x {% endif -%}
+                <div class="product-dimensions__height">
+                  {{ v_height.value | replace: 'in', '"H' }}
+                  {% comment %} {{- v_height.unit }}  {% endcomment %}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {% comment %}
+            {%- unless forloop.last -%}
+              <br>
+              <br>
+            {% endunless -%}
+          {% endcomment %}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </details>
+{%- endif -%}
