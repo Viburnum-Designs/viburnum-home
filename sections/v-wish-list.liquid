@@ -1,5 +1,5 @@
 <div class="__container __container-bleed">
-  {%- if customer and customer.email == 'j_kollias@yahoo.com' -%}
+  {%- if customer -%}
     {%- assign wishlist_products = customer.metafields.custom.wishlist.value -%}
 
     <div class="wishlist-page">
