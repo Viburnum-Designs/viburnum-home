@@ -14,62 +14,9 @@
       </div>
 
       <div class="footer-grid__item">
-        <div class="footer-grid__links __padding-t ">
-          <div class="footer-grid__links-item ">
-            <h2 class="footer-grid__links-heading">INFO</h2>
-            <ul class="footer-info-menu">
-              {% for link in linklists['footer-info-menu'].links %}
-                <li class="footer-info-menu__item">
-                  <a href="{{ link.url }}" class="footer-info-menu__item__link">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="footer-grid__links-item">
-            <h2 class="footer-grid__links-heading">FOLLOW US</h2>
-
-            <div class="upper-footer-item footer-linklist">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'social-links' -%}
-                  {%- render 'v-social' -%}
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-          <div class="footer-grid__links-item">
-            <h2 class="footer-grid__links-heading">CONNECT</h2>
-            {% if section.settings.connect_info != blank %}
-              <div class="connect-info-wrapper">
-                {{ section.settings.connect_info }}
-              </div>
-            {% endif %}
-
-            {%- assign address_blocks = section.blocks | where: 'type', 'address' -%}
-            {%- if address_blocks.size > 0 -%}
-              <div>Retail Stores:</div>
-              <ul class="address-list">
-                {%- for block in address_blocks -%}
-                  {%- if block -%}
-                    <li class="address-list__item">
-                      {% render 'icons', id: 'map-pin' %}
-                      {{ block.settings.address_text }}
-                    </li>
-                  {%- endif -%}
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
-          </div>
-        </div>
         <div class="footer-grid__logo-and-signup">
           <div class="footer-grid__logo-and-signup__item">
             <div class="footer-logo">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-logo.avif?v=1785438917"
-                class="footer-logo__image"
-                width="182"
-                height="193"
-                alt="Viburnum Home Footer Logo Icon"
-              >
               <div class="footer-logo__site-name">VIBURNUM HOME</div>
             </div>
           </div>
@@ -94,16 +41,16 @@
                         class="mailing-list-email"
                         name="contact[email]"
                         type="email"
-                        placeholder="your@email.com"
+                        placeholder="Email Address"
                         value=""
                       >
                       <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter" />
                       <div class="mailing-list-submit">
                         <input
                           class="submit"
-                          name="subscribe"
+                          name="Sign Up"
                           type="submit"
-                          value="{{ 'general.newsletter.subscribe'| t }}"
+                          value="Sign Up"
                         >
                       </div>
                     </div>
@@ -114,13 +61,89 @@
           </div>
         </div>
 
-        <ul class="footer-policy-menu">
-          {% for link in linklists['footer-policy-menu'].links %}
-            <li class="footer-policy-menu__item">
-              <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+        <div class="footer-grid__links  ">
+          <div class="footer-grid__links-item ">
+            <details class="collapsible-tab">
+              <summary class="collapsible-tab__heading">
+                <h2 class="footer-grid__links-heading">Info</h2>
+                <span class="collapsible-tab__icon"></span>
+              </summary>
+              <ul class="footer-info-menu">
+                {% for link in linklists['footer-info-menu'].links %}
+                  <li class="footer-info-menu__item">
+                    <a href="{{ link.url }}" class="footer-info-menu__item__link">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </div>
+          <div class="footer-grid__links-item">
+            <details class="collapsible-tab">
+              <summary class="collapsible-tab__heading">
+                <h2 class="footer-grid__links-heading">Follow Us</h2>
+                <span class="collapsible-tab__icon"></span>
+              </summary>
+              <div class="upper-footer-item footer-linklist">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'social-links' -%}
+                    {%- render 'v-social' -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </details>
+          </div>
+          <div class="footer-grid__links-item">
+            <details class="collapsible-tab">
+              <summary class="collapsible-tab__heading">
+                <h2 class="footer-grid__links-heading">Connect</h2>
+                <span class="collapsible-tab__icon"></span>
+              </summary>
+              <div class="upper-footer-item footer-linklist">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'social-links' -%}
+                    {%- render 'v-social' -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              {% if section.settings.connect_info != blank %}
+                <div class="connect-info-wrapper">
+                  {{ section.settings.connect_info }}
+                </div>
+              {% endif %}
+
+              {%- assign address_blocks = section.blocks | where: 'type', 'address' -%}
+              {%- if address_blocks.size > 0 -%}
+                <div>Retail Stores:</div>
+                <ul class="address-list">
+                  {%- for block in address_blocks -%}
+                    {%- if block -%}
+                      <li class="address-list__item">
+                        {% render 'icons', id: 'map-pin' %}
+                        {{ block.settings.address_text }}
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </details>
+          </div>
+        </div>
+
+        <div class="footer__policy-links">
+          <details class="collapsible-tab">
+            <summary class="collapsible-tab__heading">
+              <h2 class="footer-grid__links-heading">Policies</h2>
+              <span class="collapsible-tab__icon"></span>
+            </summary>
+            <ul class="footer-policy-menu">
+              {% for link in linklists['footer-policy-menu'].links %}
+                <li class="footer-policy-menu__item">
+                  <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </div>
       </div>
     </div>
   </div>
