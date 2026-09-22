@@ -292,9 +292,10 @@ a[href^="mailto:"]::before {
 
 
 .v--header-grid__grid-item__logo__link{
-  color: #6e776b;
+  --logo-link-color: #777;
+  color: var(--logo-link-color);
   &:hover{
-    color: #6e776b;
+    color: var(--logo-link-color);
   }
 }
 
@@ -365,7 +366,6 @@ a[href^="mailto:"]::before {
   padding-block: var(--min-spacing); 
   grid-template-columns: 290px auto 160px;
   gap: 0;
-   
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 160px auto 160px;
     padding-left: 0;
@@ -397,20 +397,15 @@ a[href^="mailto:"]::before {
   align-items: center; 
 }
 
-.v--header-grid__grid-item__logo__image{
-  width: 100%;
-  height: auto;
-}
-
 .v--header-grid__grid-item__logo__text{
   font-size: 20px;
   font-family: var(--heading-font);
+  font-weight: bold;
   white-space: nowrap;
   letter-spacing: .2em;
   @media (max-width: 1099px){
     font-size: 15px;
   } 
-  
 }
 
 .customer-login-link, .__account-icon{
