@@ -665,7 +665,7 @@ a[href^="mailto:"]::before {
     position: absolute;
     display: block;
     width: 200px;
-    top: 60px;
+    top: calc(100% + 6px);
     z-index: 100;
     padding: var(--min-spacing);
     background: #fff;
