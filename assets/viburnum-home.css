@@ -364,7 +364,7 @@ a[href^="mailto:"]::before {
   display: grid;
   align-items: stretch; 
   padding-block: var(--min-spacing); 
-  grid-template-columns: 290px auto 160px;
+  grid-template-columns: 230px auto 160px;
   gap: 0;
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 160px auto 160px;
