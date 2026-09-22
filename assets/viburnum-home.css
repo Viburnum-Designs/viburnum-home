@@ -324,8 +324,6 @@ a[href^="mailto:"]::before {
 
 .secondary-nav-bar {
   background-color: #edece6;
-  padding-top: var(--min-spacing);
-  padding-bottom: var(--min-spacing);
 }
 
 .secondary-nav-bar__menu{
@@ -363,13 +361,15 @@ a[href^="mailto:"]::before {
 .v--header-grid{
   display: grid;
   align-items: stretch; 
-  padding-block: var(--min-spacing); 
+  /* padding-block: var(--min-spacing);  */
   grid-template-columns: 230px auto 160px;
   gap: 0;
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 160px auto 160px;
     padding-left: 0;
     padding-right: 0;
+    padding-top: var(--min-spacing);
+    padding-bottom: var(--min-spacing);
   }
   @media  (max-width: 760px){  
     padding-left: 0;
@@ -575,7 +575,7 @@ a[href^="mailto:"]::before {
   .main-nav-bar__links__menu__item{
     display: flex;
     align-items: start;
-    flex-direction: column;
+    flex-direction: column; 
   }
 
   .main-nav-bar__submenu{
@@ -595,7 +595,7 @@ a[href^="mailto:"]::before {
   .main-nav-bar__links__menu,
   .secondary-nav-bar__menu{
     display: flex;
-    justify-items: stretch;
+    justify-items: stretch; 
     flex-direction: column;  
     width: 100%;
     gap: var(--min-spacing);
@@ -642,10 +642,18 @@ a[href^="mailto:"]::before {
 ==================== */
 @media screen and (min-width: 1100px) {
 
+  .secondary-nav-bar__menu {
+    display: flex;
+    /* align-self: flex-end;
+    margin-right: 0;
+    margin-left: auto;  */
+    justify-content: end;
+  }
+
   .main-nav-bar__links__menu {
     display: flex;
     justify-items: flex-end; /* Standard syntax: flex-end instead of end */
-    gap: var(--spacing);
+    gap: var(--min-spacing);
     margin-top: 0;
     margin-bottom: 0; 
   } 
@@ -657,15 +665,15 @@ a[href^="mailto:"]::before {
 
   .main-nav-bar__links__menu__item{
     position: relative;
-    justify-content: center
-    
+    justify-content: center; 
+    padding: var(--min-spacing);
   }
 
   .main-nav-bar__links__menu__item:hover .main-nav-bar__submenu{
     position: absolute;
     display: block;
     width: 200px;
-    top: calc(100% + 6px);
+    top: 100%;
     z-index: 100;
     padding: var(--min-spacing);
     background: #fff;
@@ -678,6 +686,11 @@ a[href^="mailto:"]::before {
     padding-top: 5px;
     left: calc( var(--min-spacing) * -1 );
     border-radius: 0 0 5px 5px;
+  }
+
+  .v--header-grid__grid-item__nav .main-nav-bar__links__menu__item{
+    padding-top: var(--spacing);
+    padding-bottom: var(--spacing);
   }
   
 }
