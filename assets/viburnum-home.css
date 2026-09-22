@@ -238,9 +238,6 @@ Pages
 =============*/
 body{
   color: var(--text-color);
-  /* * {
-    outline: 1px solid #f00;
-  } */
 }
 
 video{
@@ -295,9 +292,10 @@ a[href^="mailto:"]::before {
 
 
 .v--header-grid__grid-item__logo__link{
-  color: #6e776b;
+  --logo-link-color: #777;
+  color: var(--logo-link-color);
   &:hover{
-    color: #6e776b;
+    color: var(--logo-link-color);
   }
 }
 
@@ -326,8 +324,6 @@ a[href^="mailto:"]::before {
 
 .secondary-nav-bar {
   background-color: #edece6;
-  padding-top: var(--min-spacing);
-  padding-bottom: var(--min-spacing);
 }
 
 .secondary-nav-bar__menu{
@@ -365,11 +361,19 @@ a[href^="mailto:"]::before {
 .v--header-grid{
   display: grid;
   align-items: stretch; 
-  padding-block: var(--min-spacing); 
-  grid-template-columns: 290px auto 160px;
+  /* padding-block: var(--min-spacing);  */
+  grid-template-columns: 230px auto 160px;
   gap: 0;
   @media  (max-width: 1099px){ 
-    grid-template-columns: 40px 60px auto 160px;
+    grid-template-columns: 40px 160px auto 160px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: var(--min-spacing);
+    padding-bottom: var(--min-spacing);
+  }
+  @media  (max-width: 760px){  
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -384,32 +388,24 @@ a[href^="mailto:"]::before {
 
 .v--header-grid__grid-item__logo{
   margin: 0;
-}
-
-.v--header-grid__grid-item__logo__link{
-  display: grid;
-  grid-template-columns: 60px auto;
-  gap: var(--min-spacing);
+  display: flex;
   align-items: center;
 }
 
-.v--header-grid__grid-item__logo__image{
-  width: 100%;
-  height: auto;
+.v--header-grid__grid-item__logo__link{ 
+  display: flex;
+  align-items: center; 
 }
 
 .v--header-grid__grid-item__logo__text{
   font-size: 20px;
   font-family: var(--heading-font);
+  font-weight: bold;
   white-space: nowrap;
   letter-spacing: .2em;
   @media (max-width: 1099px){
     font-size: 15px;
-  }
-  @media  (max-width: 520px){
-    display: none;
-  }
-  
+  } 
 }
 
 .customer-login-link, .__account-icon{
@@ -538,7 +534,7 @@ a[href^="mailto:"]::before {
   }
 
   .main-nav-bar__links {
-    --w: 350px;
+    --w: 300px;
     display: flex;
     flex-direction: column; 
     gap: var(--min-spacing);
@@ -551,6 +547,7 @@ a[href^="mailto:"]::before {
     margin-top: 0;
     transform: translateX(var(--w));
     transition: transform .5s .25s;
+    overflow-y: auto;
   } 
   
   .main-nav-bar__top-level-grid{
@@ -575,6 +572,12 @@ a[href^="mailto:"]::before {
     color: var(--icon-color);
   } 
 
+  .main-nav-bar__links__menu__item{
+    display: flex;
+    align-items: start;
+    flex-direction: column; 
+  }
+
   .main-nav-bar__submenu{
     margin-top: 0;
     max-height: 0;
@@ -592,7 +595,7 @@ a[href^="mailto:"]::before {
   .main-nav-bar__links__menu,
   .secondary-nav-bar__menu{
     display: flex;
-    justify-items: stretch;
+    justify-items: stretch; 
     flex-direction: column;  
     width: 100%;
     gap: var(--min-spacing);
@@ -618,6 +621,7 @@ a[href^="mailto:"]::before {
     color: #333;
     text-transform: uppercase;
   }
+  
 
   .mobile-navbar__wrapper.is-open {
     transition: opacity .25s;
@@ -638,10 +642,18 @@ a[href^="mailto:"]::before {
 ==================== */
 @media screen and (min-width: 1100px) {
 
+  .secondary-nav-bar__menu {
+    display: flex;
+    /* align-self: flex-end;
+    margin-right: 0;
+    margin-left: auto;  */
+    justify-content: end;
+  }
+
   .main-nav-bar__links__menu {
     display: flex;
     justify-items: flex-end; /* Standard syntax: flex-end instead of end */
-    gap: var(--spacing);
+    gap: var(--min-spacing);
     margin-top: 0;
     margin-bottom: 0; 
   } 
@@ -653,15 +665,15 @@ a[href^="mailto:"]::before {
 
   .main-nav-bar__links__menu__item{
     position: relative;
-    justify-content: center
-    
+    justify-content: center; 
+    padding: var(--min-spacing);
   }
 
   .main-nav-bar__links__menu__item:hover .main-nav-bar__submenu{
     position: absolute;
     display: block;
     width: 200px;
-    top: 60px;
+    top: 100%;
     z-index: 100;
     padding: var(--min-spacing);
     background: #fff;
@@ -674,6 +686,11 @@ a[href^="mailto:"]::before {
     padding-top: 5px;
     left: calc( var(--min-spacing) * -1 );
     border-radius: 0 0 5px 5px;
+  }
+
+  .v--header-grid__grid-item__nav .main-nav-bar__links__menu__item{
+    padding-top: var(--spacing);
+    padding-bottom: var(--spacing);
   }
   
 }

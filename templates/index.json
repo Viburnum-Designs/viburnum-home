@@ -40,7 +40,7 @@
             "title": "Modern Living Greenery",
             "subheading": "Elevate your space with timeless, hand-crafted botanical art.",
             "cta": "Shop Signature Moss",
-            "url": "shopify://collections/preserved-moss"
+            "url": "shopify://collections/signature-moss"
           }
         }
       },
@@ -63,7 +63,7 @@
         "collection_AyxwAF": {
           "type": "collection",
           "settings": {
-            "collection": "preserved-moss",
+            "collection": "signature-moss",
             "collection_custom_image": "shopify://shop_images/signature-moss.webp",
             "overlay-color": "black",
             "subheading": "",
@@ -93,7 +93,7 @@
         "collection_ky7WMK": {
           "type": "collection",
           "settings": {
-            "collection": "faux-floral",
+            "collection": "faux-florals",
             "collection_custom_image": "shopify://shop_images/faux-floral.webp",
             "overlay-color": "black",
             "subheading": "",
