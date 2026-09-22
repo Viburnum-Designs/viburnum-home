@@ -238,9 +238,6 @@ Pages
 =============*/
 body{
   color: var(--text-color);
-  /* * {
-    outline: 1px solid #f00;
-  } */
 }
 
 video{
@@ -368,8 +365,7 @@ a[href^="mailto:"]::before {
   padding-block: var(--min-spacing); 
   grid-template-columns: 290px auto 160px;
   gap: 0;
-  
-  border: 1px solid #f00;
+   
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 160px auto 160px;
     padding-left: 0;
