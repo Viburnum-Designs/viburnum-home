@@ -1,13 +1,11 @@
-<footer
-  class="v--main-footer "
->
-  <div class="  __container-bleed">
+<footer class="v--main-footer">
+  <div class="__container-bleed">
     <div class="footer-grid">
       <div class="footer-grid__item footer-grid__image">
         <img
-          src=" https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-image-smaller.webp?v=1786037312"
+          src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-image-smaller.webp?v=1786037312"
           class="footer-image"
-          alt="empty"
+          alt=""
           width="536"
           height="552"
         >
@@ -44,7 +42,7 @@
                         placeholder="Email Address"
                         value=""
                       >
-                      <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter" />
+                      <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter">
                       <div class="mailing-list-submit">
                         <input
                           class="submit"
@@ -56,13 +54,13 @@
                     </div>
                   {% endform %}
                 </div>
-              {% endif %}
-            {% endfor %}
+              {%- endif -%}
+            {%- endfor -%}
           </div>
         </div>
 
-        <div class="footer-grid__links  ">
-          <div class="footer-grid__links-item ">
+        <div class="footer-grid__links">
+          <div class="footer-grid__links-item">
             <details class="collapsible-tab">
               <summary class="collapsible-tab__heading">
                 <h2 class="footer-grid__links-heading">Info</h2>
@@ -77,6 +75,7 @@
               </ul>
             </details>
           </div>
+
           <div class="footer-grid__links-item">
             <details class="collapsible-tab">
               <summary class="collapsible-tab__heading">
@@ -92,73 +91,66 @@
               </div>
             </details>
           </div>
-          <div class="footer-grid__links-item">
-            <details class="collapsible-tab">
-              <summary class="collapsible-tab__heading">
-                <h2 class="footer-grid__links-heading">Connect</h2>
-                <span class="collapsible-tab__icon"></span>
-              </summary>
-              <div class="upper-footer-item footer-linklist">
-                {%- for block in section.blocks -%}
-                  {%- if block.type == 'social-links' -%}
-                    {%- render 'v-social' -%}
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-              {% if section.settings.connect_info != blank %}
-                <div class="connect-info-wrapper">
-                  {{ section.settings.connect_info }}
-                </div>
-              {% endif %}
 
-              {%- assign address_blocks = section.blocks | where: 'type', 'address' -%}
-              {%- if address_blocks.size > 0 -%}
-                <div>Retail Stores:</div>
-                <ul class="address-list">
-                  {%- for block in address_blocks -%}
-                    {%- if block -%}
+          <div class="footer-grid__links-item">
+            {%- assign address_blocks = section.blocks | where: 'type', 'address' -%}
+            {%- if address_blocks.size > 0 -%}
+              <div class="retail-stores">
+                <details class="collapsible-tab">
+                  <summary class="collapsible-tab__heading">
+                    <h2 class="footer-grid__links-heading">Connect</h2>
+                    <span class="collapsible-tab__icon"></span>
+                  </summary>
+                  {% if section.settings.connect_info != blank %}
+                    <div class="connect-info-wrapper">
+                      {{ section.settings.connect_info }}
+                    </div>
+                  {% endif %}
+                  <h3 class="footer__sub-heading">Retail Stores</h3>
+                  <ul class="address-list">
+                    {%- for block in address_blocks -%}
                       <li class="address-list__item">
                         {% render 'icons', id: 'map-pin' %}
                         {{ block.settings.address_text }}
                       </li>
-                    {%- endif -%}
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-            </details>
+                    {%- endfor -%}
+                  </ul>
+                </details>
+              </div>
+            {%- endif -%}
           </div>
-        </div>
 
-        <div class="footer__policy-links">
-          <details class="collapsible-tab">
-            <summary class="collapsible-tab__heading">
-              <h2 class="footer-grid__links-heading">Policies</h2>
-              <span class="collapsible-tab__icon"></span>
-            </summary>
-            <ul class="footer-policy-menu">
-              {% for link in linklists['footer-policy-menu'].links %}
-                <li class="footer-policy-menu__item">
-                  <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </details>
+          <div class="footer-grid__links-item footer-grid__links-item__policy-links">
+            <div class="footer__policy-links">
+              <details class="collapsible-tab">
+                <summary class="collapsible-tab__heading">
+                  <h2 class="footer-grid__links-heading">Policies</h2>
+                  <span class="collapsible-tab__icon"></span>
+                </summary>
+                <ul class="footer-policy-menu">
+                  {% for link in linklists['footer-policy-menu'].links %}
+                    <li class="footer-policy-menu__item">
+                      <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </details>
+            </div>
+          </div>
+          <!-- /footer-grid__links-item (Policies) -->
         </div>
+        <!-- /footer-grid__links -->
       </div>
+      <!-- /footer-grid__item -->
     </div>
+    <!-- /footer-grid -->
   </div>
+  <!-- /__container-bleed -->
+
   <div class="v--copyright-bar __container-v-padding">
     <div class="__container __container-bleed">
       <div class="">
-        {% capture year %}
-          {{ "now" | date: "%Y" }}
-        {% endcapture %}
-        {% capture shopName %}
-          {{ shop.name }}
-        {% endcapture %}
         <div class="copyright" role="contentinfo">
-          {% comment %} {{ 'general.general.copyright_html' | t: year: year, shop_name: shopName | strip }} {% endcomment %}
-
           Copyright &copy; {{ 'now' | date: '%Y' }}
           {{- shop.name | strip -}}
           .
@@ -167,6 +159,30 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    const mq = window.matchMedia('(min-width: 750px)'); // match your theme's breakpoint
+    const tabs = document.querySelectorAll('.v--main-footer details.collapsible-tab');
+
+    function syncTabs() {
+      tabs.forEach((el) => {
+        if (mq.matches) el.setAttribute('open', '');
+        else el.removeAttribute('open');
+      });
+    }
+
+    // Block toggling on desktop (Enter/Space on a summary also fire click)
+    tabs.forEach((el) => {
+      el.querySelector('summary').addEventListener('click', (e) => {
+        if (mq.matches) e.preventDefault();
+      });
+    });
+
+    mq.addEventListener('change', syncTabs);
+    syncTabs();
+  })();
+</script>
 
 {% schema %}
 {
