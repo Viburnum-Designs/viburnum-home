@@ -1,7 +1,7 @@
 <footer class="v--main-footer">
   <div class="__container-bleed">
     <div class="footer-grid">
-      <div class="footer-grid__item footer-grid__image">
+      <div class="footer-grid__item footer-grid__image __hide-on-tablet __hide-on-mobile">
         <img
           src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/footer-image-smaller.webp?v=1786037312"
           class="footer-image"
@@ -11,7 +11,7 @@
         >
       </div>
 
-      <div class="footer-grid__item">
+      <div class="footer-grid__item footer__logo-and-signup__footer-menus">
         <div class="footer-grid__logo-and-signup">
           <div class="footer-grid__logo-and-signup__item">
             <div class="footer-logo">
@@ -22,7 +22,7 @@
             {%- for block in section.blocks -%}
               {%- if block.type == 'newsletter' -%}
                 <div class="v--mailing-list">
-                  <h2 class="signup-heading">Subscribe to our newsletter!</h2>
+                  <h2 class="signup-heading">Join our newsletter!</h2>
                   {% form 'customer' %}
                     {% if form.posted_successfully? %}
                       <p class="mailing-list-success">
@@ -120,14 +120,14 @@
             {%- endif -%}
           </div>
 
-          <div class="footer-grid__links-item footer-grid__links-item__policy-links">
+          <div class="footer-grid__links-item footer-grid__links-item__policy-links __hide-on-desktop">
             <div class="footer__policy-links">
               <details class="collapsible-tab">
                 <summary class="collapsible-tab__heading">
                   <h2 class="footer-grid__links-heading">Policies</h2>
                   <span class="collapsible-tab__icon"></span>
                 </summary>
-                <ul class="footer-policy-menu">
+                <ul class="footer-policy-menu ">
                   {% for link in linklists['footer-policy-menu'].links %}
                     <li class="footer-policy-menu__item">
                       <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
@@ -149,12 +149,20 @@
 
   <div class="v--copyright-bar __container-v-padding">
     <div class="__container __container-bleed">
-      <div class="">
+      <div class="copyright-bar__grid">
         <div class="copyright" role="contentinfo">
           Copyright &copy; {{ 'now' | date: '%Y' }}
           {{- shop.name | strip -}}
           .
         </div>
+
+        <ul class="footer-policy-menu __hide-on-mobile __hide-on-tablet">
+          {% for link in linklists['footer-policy-menu'].links %}
+            <li class="footer-policy-menu__item">
+              <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
