@@ -188,20 +188,23 @@ Pages
 }
 
 .__hide-on-mobile {
-  @media (max-width: 767px) {
-    display: none;
+  @media (width < 768px) {
+    display: none!important;
+    outline: 1px solid #f00;
   }
 }
  
 .__hide-on-tablet {
-  @media (min-width: 768px) and (max-width: 998px) {
-    display: none;
+  @media (width >= 768px) and (width < 1024px) {
+    display: none!important;
+    outline: 1px solid #ff0;
   }
 }
  
 .__hide-on-desktop {
-  @media (min-width: 1000px) {
-    display: none;
+  @media (width >= 1024px) {
+    display: none!important;
+    outline: 1px solid #0ff;
   }
 }
 
@@ -221,6 +224,12 @@ Pages
   display: grid;
   gap: var(--min-spacing);
   grid-template-columns: 20px auto;
+}
+
+/* Icons
+=============*/
+.icon-map-pin{
+  fill: #fff;
 }
 
 /* Components
@@ -362,7 +371,7 @@ a[href^="mailto:"]::before {
   display: grid;
   align-items: stretch; 
   /* padding-block: var(--min-spacing);  */
-  grid-template-columns: 230px auto 160px;
+  grid-template-columns: 276px auto 160px;
   gap: 0;
   @media  (max-width: 1099px){ 
     grid-template-columns: 40px 160px auto 160px;
@@ -398,12 +407,12 @@ a[href^="mailto:"]::before {
 }
 
 .v--header-grid__grid-item__logo__text{
-  font-size: 20px;
+  font-size: 25px;
   font-family: var(--heading-font);
   font-weight: bold;
   white-space: nowrap;
   letter-spacing: .2em;
-  @media (max-width: 1099px){
+  @media (max-width: 500px){
     font-size: 15px;
   } 
 }
@@ -801,13 +810,14 @@ input.header-search-input {
 
 .footer-grid {
   --gap: 40px;
-  padding-bottom: var(--gap);
+  padding-block: var(--gap); 
   display: grid;
   gap: var(--gap);
   align-items: center;
-  @media screen and (width > 1024px) {
+  @media screen and (width >= 1024px) {
+    column-gap: 20px;
     grid-template-columns: 0.32fr 0.68fr;
-    padding-bottom: 0; 
+    padding-block: 0;  
   }
 }
 
@@ -833,25 +843,43 @@ input.header-search-input {
   }
 }
 
+
 .footer-grid__links { 
   border-top: 1px solid;
   border-color: var(--border-color);
   margin-top: var(--spacing); 
-  max-width: 900px;
   width: 100%;
   align-self: center;
   gap: var(--gap);
   display: grid;
   display: block;
   grid-template-columns: 1fr;
-  @media screen and (min-width: 770px) {
+  @media screen and (width < 769px) {
+     max-width: 900px;
+  }
+  @media screen and (width >= 770px) {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 0;
     border-top: none;
     margin-top: var(--max-spacing);
   }
+  @media screen and (width >= 1024px) {
+    margin-top: 0;
+    grid-template-columns: .5fr .5fr 1fr;
+  }
+  @media screen and (width >= 1500px) { 
+    grid-template-columns: .5fr .5fr 1fr; 
+  }
 }
 
+@media screen and (width >= 1024px) { 
+  .footer__logo-and-signup__footer-menus{
+    padding: var(--spacing);
+    .footer-grid__logo-and-signup{ order: 2;}
+    .footer-grid__links{ order: 1}
+     
+  }
+}
 
 /* Collapsible Menus */
 
@@ -864,7 +892,7 @@ input.header-search-input {
     margin: 0;
     padding: 16px 0;
   } 
-  @media (width > 760px) {
+  @media (width >= 760px) {
     border-top: none;
     border-bottom: none;
     .collapsible-tab__icon{
@@ -887,19 +915,19 @@ input.header-search-input {
 }
 
 .footer-grid__links  {
-  @media (width > 760px){
+  @media (width >= 760px){
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
-  @media (width > 1024px){
+  @media (width >= 1024px){
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    
   } 
 }
 
-@media (width > 1024px){
+@media (width >= 1024px){
   :is(.footer-grid__links-item__policy-links){
+    display: none;
     grid-column: span 3;
     .collapsible-tab__heading{ padding: 0!important; }
     .footer-grid__links-heading{ display: none;}
@@ -908,21 +936,28 @@ input.header-search-input {
 
 /* Footer Logo and Signup Form  */
 .footer-grid__logo-and-signup{
-  @media (width > 760px){
+  @media (width >= 760px){
       max-width: 500px;
       width: 100%;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
   }
-  @media (width > 1024px){
+  @media (width >= 1024px){
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing);
-    align-items: center;
+    justify-items: start;
+    gap: var(--max-spacing);
+    align-items: end;
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing);
+    padding-top: var(--spacing);
+  }
+  @media screen and (width >= 1500px) { 
+    grid-template-columns: 1fr .5fr; 
   }
 }
 
@@ -946,11 +981,10 @@ input.header-search-input {
   white-space: nowrap;
   letter-spacing: .2em;
   font-family: var(--heading-font);  
-  @media (width > 1024px){
+  @media (width >= 1024px){
     text-align: left;
   }
 }
-
 
 .mailing-list-input{ 
   --btn-radius: 4px;
@@ -980,7 +1014,6 @@ input.mailing-list-email{
   padding: 9px 12px 9px 12px;
 }
 
-
 .mailing-list-submit{  
   .submit{
     height: 100%;
@@ -994,15 +1027,19 @@ input.mailing-list-email{
 
 .footer-policy-menu {
   display: flex;
-  gap: 20px;
-  justify-items: space-between;
+  gap: 20px; 
   max-width: 850px;
   width: 100%;
   align-self: center;
-  @media screen and (max-width: 1023px) {
+  @media screen and (width < 1024px) {
     flex-direction: column;
-    margin-top: 0; 
+    margin-top: 0;  
     border-top: 1px solid #484848;
+  }
+  @media screen and (width >= 1024px) {
+    justify-content: end;
+    max-width: 100%;
+    margin: 0;
   }
 }
 
@@ -1058,7 +1095,7 @@ input.mailing-list-email{
   color: #fff;
   padding-top: var(--spacing);
   padding-bottom: var(--min-spacing);
-  @media (width > 1024px) {
+  @media (width >= 1024px) {
     padding-top: 0;
     text-align: left;
   }
@@ -1086,6 +1123,16 @@ input.mailing-list-email{
     display: flex;
     align-items: start;
     gap: var(--min-spacing);
+  }
+}
+
+.copyright-bar__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  gap: var(--spacing); 
+  @media (width >= 1024px ){
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1388,7 +1435,7 @@ input.mailing-list-email{
   @media (width < 769px){
     margin-top: var(--spacing);
   }
-  @media (width > 770px){
+  @media (width >= 770px){
     justify-content: space-between;
   }
 }
@@ -1578,7 +1625,7 @@ body.scroll-locked {
 .surface-pick-up-items{
   display: grid;
   align-items: start;
-  @media (width > 500px) {
+  @media (width >= 500px) {
     grid-template-columns: repeat(2,1fr);
   } 
   gap: 20px;
