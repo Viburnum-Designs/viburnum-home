@@ -43,7 +43,7 @@
   {% endif %}
 
   {% assign columns = section.settings.columns_range %}
-  <style>
+  {% style %}
     .v--home-collections-content {
       display: grid;
       align-items: stretch;
@@ -52,6 +52,8 @@
       gap: var(--spacing);
       grid-template-columns:  repeat({{columns}}, 1fr) ;
       max-width: 1200px;
+      padding-left: var(--spacing);
+      padding-right: var(--spacing);
       img{
         display: block;
         width: 100%;
@@ -67,10 +69,6 @@
       }
     }
 
-    .empty-column{
-      width: var(--spacing);
-    }
-
     .v--home-collections-content .home-collection{
       height: 100%;
       display: grid;
@@ -78,10 +76,62 @@
     }
 
     .v--home-collection__link{
-      display: block;
+      display: flex;
       background-color: #fff;
+      min-height: 100%;
+      align-items: center;
+      justify-content: center;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
 
+    .v-home-collection {
+      display: flex;
+      gap: var(--min-spacing);
+      justify-items: center;
+      width: calc(50% -  calc(var(--spacing) / 2));
+      @media screen and (min-width:768px){
+        width: 100%;
+      }
+    }
+
+    .v--home-collection-overlay {
+      height: 100%;
+      /* margin-top: var(--min-spacing); */
+    }
+
+    .v--home-collections-content .product-list-item{
+      height: 100%;
+    }
+
+    .v-home-collection-image{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .v--home-collection-overlay-wrapper{
+      flex-grow: 1;
+    }
+
+    /*Styles for tiles */
+    {% if section.settings.mobile_layout == "tiles"  %}
+      @media screen and (max-width: 767px){
+        .empty-column{
+          display: none;
+        }
+        .v--home-collections-content{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding-left: 0;
+          padding-inline: var(--spacing);
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    {% else %}
+    /*Styles for grid */
     .v-home-collection {
       display: grid;
       gap: var(--min-spacing);
@@ -93,15 +143,11 @@
         width: 100%;
       }
     }
-
-    .v--home-collection-overlay {
-      margin-top: var(--min-spacing);
+    .empty-column{
+      width: var(--spacing);
     }
-
-    .v--home-collections-content .product-list-item{
-      height: 100%;
-    }
-  </style>
+    {% endif %}
+  {% endstyle %}
 
   <div class="__x-overflow">
     <div class="empty-column"></div>
@@ -171,6 +217,22 @@
       "type": "text",
       "id": "css_class",
       "label": "CSS Class"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile Layout",
+      "options": [
+        {
+          "value": "tiles",
+          "label": "Tiles"
+        },
+        {
+          "value": "slider",
+          "label": "Slider"
+        }
+      ],
+      "default": "slider"
     },
     {
       "type": "select",

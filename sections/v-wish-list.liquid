@@ -1,0 +1,40 @@
+<div class="__container __container-bleed">
+  {%- if customer -%}
+    {%- assign wishlist_products = customer.metafields.custom.wishlist.value -%}
+
+    <div class="wishlist-page">
+      <h1 class="__h1">{{ section.settings.heading }}</h1>
+
+      {%- if wishlist_products and wishlist_products.size > 0 -%}
+        <div class="wishlist-grid collection-products ">
+          {%- for product in wishlist_products -%}
+            {% render 'product-list-item', product: product %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="__text-center">Your wishlist is empty.</p>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <p class="__text-center">Please log in to view your wishlist.</p>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "V Wishlist",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "My Wishlist"
+    }
+  ],
+  "presets": [
+    {
+      "name": "V Wishlist",
+      "category": "Viburnum Sections"
+    }
+  ]
+}
+{% endschema %}

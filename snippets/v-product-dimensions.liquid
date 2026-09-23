@@ -1,0 +1,173 @@
+{%- liquid
+  assign has_dimensions = false
+  assign volumes = ''
+  assign volume_count = 0
+
+  assign p_width = product.metafields.custom.width
+  assign p_length = product.metafields.custom.length
+  assign p_height = product.metafields.custom.height
+
+  if product.has_only_default_variant
+    if p_width != blank or p_length != blank or p_height != blank
+      assign has_dimensions = true
+    endif
+  else
+    for variant in product.variants
+      assign v_width = variant.metafields.custom.variant_width
+      assign v_length = variant.metafields.custom.variant_length
+      assign v_height = variant.metafields.custom.variant_height
+
+      if v_width != blank or v_length != blank or v_height != blank
+        assign has_dimensions = true
+      endif
+
+      # Turn "12.0 in" into the number 12.0 (blank becomes 0)
+      assign n_width = v_width.value | remove: 'in' | strip | times: 1.0
+      assign n_length = v_length.value | remove: 'in' | strip | times: 1.0
+      assign n_height = v_height.value | remove: 'in' | strip | times: 1.0
+
+      # Only variants with all three dimensions get a volume
+      if n_width > 0 and n_length > 0 and n_height > 0
+        assign volume = n_width | times: n_length | times: n_height
+        assign volumes = volumes | append: volume | append: ','
+        assign volume_count = volume_count | plus: 1
+      endif
+    endfor
+
+    assign volume_list = volumes | split: ','
+    assign max_rank = volume_count | minus: 1
+  endif
+-%}
+
+{%- if has_dimensions -%}
+  <details class="collapsible-tab" {{ block.shopify_attributes }}>
+    <summary class="collapsible-tab__heading">
+      <span style="font-weight: bold">Dimensions</span>
+      <span class="collapsible-tab__icon"></span>
+    </summary>
+
+    <style>
+      .collapsible-tab__text:before,
+      .collapsible-tab__text:after {
+        display: none;
+      }
+
+      .product-dimensions {
+        display: flex;
+        gap: 4px;
+        margin-top: 10px;
+      }
+
+      .product-dimensions__label {
+        margin-right: 4px;
+      }
+
+      .product-dimensions__length,
+      .product-dimensions__width,
+      .product-dimensions__height {
+        display: inline;
+      }
+    </style>
+
+    <div class="collapsible-tab__text rte">
+      {%- if product.has_only_default_variant -%}
+        <div class="product-dimensions">
+          {%- assign has_length = false -%}
+          {%- if p_length != blank -%}{%- assign has_length = true -%}{%- endif -%}
+
+          {%- assign has_width = false -%}
+          {%- if p_width != blank -%}{%- assign has_width = true -%}{%- endif -%}
+
+          {%- assign has_height = false -%}
+          {%- if p_height != blank -%}{%- assign has_height = true -%}{%- endif -%}
+
+          {%- if has_length -%}
+            <div class="product-dimensions__length">
+              {{ p_length.value | replace: 'in', '"L' }}
+            </div>
+          {%- endif -%}
+
+          {%- if has_width -%}
+            {%- if has_length %} x {% endif -%}
+            <div class="product-dimensions__width">
+              {{ p_width.value | replace: 'in', '"W' }}
+            </div>
+          {%- endif -%}
+
+          {%- if has_height -%}
+            {%- if has_width or has_length %} x {% endif -%}
+            <div class="product-dimensions__height">
+              {{ p_height.value | replace: 'in', '"H' }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        {%- for variant in product.variants -%}
+          {%- assign v_width = variant.metafields.custom.variant_width -%}
+          {%- assign v_length = variant.metafields.custom.variant_length -%}
+          {%- assign v_height = variant.metafields.custom.variant_height -%}
+
+          {%- comment -%} Work out this variant's size label {%- endcomment -%}
+          {%- assign size_label = '' -%}
+          {%- assign n_width = v_width.value | remove: 'in' | strip | times: 1.0 -%}
+          {%- assign n_length = v_length.value | remove: 'in' | strip | times: 1.0 -%}
+          {%- assign n_height = v_height.value | remove: 'in' | strip | times: 1.0 -%}
+
+          {%- if volume_count > 1 and n_width > 0 and n_length > 0 and n_height > 0 -%}
+            {%- assign this_volume = n_width | times: n_length | times: n_height -%}
+
+            {%- comment -%} Rank = how many variants are smaller than this one {%- endcomment -%}
+            {%- assign rank = 0 -%}
+            {%- for other in volume_list -%}
+              {%- if other != blank -%}
+                {%- assign other_volume = other | times: 1.0 -%}
+                {%- if other_volume < this_volume -%}
+                  {%- assign rank = rank | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- comment -%} 0-100 position between smallest and largest {%- endcomment -%}
+            {%- assign position = rank | times: 100 | divided_by: max_rank -%}
+
+            {%- if position < 34 -%}
+              {%- assign size_label = 'Small' -%}
+            {%- elsif position < 67 -%}
+              {%- assign size_label = 'Medium' -%}
+            {%- else -%}
+              {%- assign size_label = 'Large' -%}
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if v_length != blank or v_width != blank or v_height != blank -%}
+            <div class="product-dimensions">
+              {%- if size_label != blank -%}
+                <strong class="product-dimensions__label">{{ size_label }}:</strong>
+              {%- endif -%}
+
+              {%- if v_length != blank -%}
+                <div class="product-dimensions__length">
+                  {{ v_length.value | replace: 'in', '"L' }}
+                </div>
+              {%- endif -%}
+
+              {%- if v_width != blank -%}
+                {%- if v_length != blank %} x {% endif -%}
+                <div class="product-dimensions__width">
+                  {{ v_width.value | replace: 'in', '"W' }}
+                </div>
+              {%- endif -%}
+
+              {%- if v_height != blank -%}
+                {%- if v_width != blank %} x {% endif -%}
+                <div class="product-dimensions__height">
+                  {{ v_height.value | replace: 'in', '"H' }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </details>
+{%- endif -%}

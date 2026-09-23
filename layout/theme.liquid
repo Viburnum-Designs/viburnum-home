@@ -597,5 +597,8 @@
     <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.14.1/runtime.js" defer></script>
     {% comment %} <script src="{{ 'grid.js' | asset_url }}" defer></script> {% endcomment %}
     <script src="{{ 'v-pickup-inline.js' | asset_url }}" defer></script>
+    {%- if customer -%}
+      <script src="{{ 'wish-list.js' | asset_url }}" defer></script>
+    {%- endif -%}
   </body>
 </html>

@@ -28,27 +28,6 @@
       {%- endif -%}
       <{{ logo_tag }} class="v--header-grid__grid-item__logo">
         <a href="/" class="v--header-grid__grid-item__logo__link">
-          {%- if section.settings.logo != blank -%}
-            <img
-              src="{{ section.settings.logo | image_url: width: 276 }}"
-              width="{{ section.settings.logo.width }}"
-              height="{{ section.settings.logo.height }}"
-              class="v--header-grid__grid-item__logo__image"
-              alt="{{ section.settings.logo.alt | default: section.settings.logo_text | escape }}"
-              loading="eager"
-              fetchpriority="high"
-            >
-          {%- else -%}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/header-logo.avif?v=1785773201"
-              width="138"
-              height="150"
-              class="v--header-grid__grid-item__logo__image"
-              alt="{{ section.settings.logo_text | escape }}"
-              loading="eager"
-              fetchpriority="high"
-            >
-          {%- endif -%}
           <div class="v--header-grid__grid-item__logo__text">{{ section.settings.logo_text | default: shop.name }}</div>
         </a>
       </{{ logo_tag }}>
@@ -126,6 +105,9 @@
                   </li>
                   <li>
                     <a href="{{ routes.account_addresses_url }}">{{ 'customers.addresses.header' | t }}</a>
+                  </li>
+                  <li>
+                    <a href="/pages/account-wish-list">Wishlist</a>
                   </li>
                   <li>
                     {{ 'layout.header.logout' | t | customer_logout_link -}}
