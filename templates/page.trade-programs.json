@@ -55,7 +55,7 @@
       ],
       "name": "Rich text",
       "settings": {
-        "section_css_class": "__container",
+        "section_css_class": "__container __container-bleed",
         "border": true,
         "heading": "Trade Program"
       }
@@ -63,7 +63,10 @@
     "v_trade_form_simple_Rz9yLR": {
       "type": "v-trade-form__simple",
       "name": "V Trade Form Simple",
-      "settings": {}
+      "settings": {
+        "intro": "",
+        "success_message": "Thanks for applying to the Trade Program. We'll review your application and be in touch soon."
+      }
     }
   },
   "order": [
