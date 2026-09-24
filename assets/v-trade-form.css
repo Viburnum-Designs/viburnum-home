@@ -1,0 +1,287 @@
+.v-trade-form-section {
+  --v-border: #8a8a8a; /* 3.4:1 on white — meets WCAG 1.4.11 non-text contrast */
+  --v-border-focus: #111;
+  --v-black: #111;
+  --v-error: #c0392b;
+  --v-form-width: 350px;
+  margin-top: 0;
+}
+
+.v-trade-form-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.v-trade-form__heading {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  padding-top: 0; 
+}
+
+.v-trade-form__intro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.v-trade-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: var(--v-form-width);
+  margin: auto;
+  container-type: inline-size;
+}
+
+.v-field__hint{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Email + phone stack by default; they sit side by side only if the form is wide enough.
+   At 350px they'd be ~160px each, too narrow once the phone field's country picker is added. */
+.v-field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@container (min-width: 520px) {
+  .v-field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.v-field,
+.v-field-row .v-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.v-field label,
+.v-field__label,
+.v-fieldset legend {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.v-field input[type='text'],
+.v-field input[type='email'],
+.v-field input[type='tel'],
+.v-field input[type='url'] {
+  border: 1px solid var(--v-border);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* intl-tel-input wraps the phone input in an inline-block .iti; make it fill the field */
+.v-field .iti {
+  width: 100%;
+}
+
+.v-field input:focus-visible {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 1px;
+}
+
+.v-field input[aria-invalid='true'] {
+  border-color: var(--v-error);
+}
+
+/* ---------- File upload ---------- */
+
+.v-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--v-black);
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.85rem 1.5rem;
+  width: fit-content;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* The file input is visually hidden and sits right after its label */
+.v-upload-btn:has(+ input:focus-visible) {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 2px;
+}
+
+.v-upload-btn__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.v-upload-filename {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.v-upload-filename:empty {
+  display: none;
+}
+
+/* ---------- Radio groups ---------- */
+
+.v-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.v-fieldset legend {
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+.v-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.v-checkbox input[type='radio'] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--v-black);
+}
+
+.v-toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.v-toggle-btn {
+  border: 1px solid var(--charcoal);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.v-toggle-btn:hover {
+  border-color: var(--charcoal);
+}
+
+.v-toggle-btn input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.v-toggle-btn:has(input:checked) {
+  background: var(--charcoal);
+  color: #fff;
+  border-color: var(--charcoal);
+}
+
+.v-toggle-btn:has(input:focus-visible) {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Error states (set by v-trade-form.js) ---------- */
+
+.v-field__error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--v-error);
+}
+
+.v-field--file.is-invalid .v-upload-btn {
+  outline: 2px solid var(--v-error);
+  outline-offset: 2px;
+}
+
+.v-fieldset.is-invalid .v-toggle-btn:not(:has(input:checked)) {
+  border-color: var(--v-error);
+}
+
+.v-fieldset.is-invalid .v-checkbox input[type='radio'] {
+  outline: 2px solid var(--v-error);
+  outline-offset: 1px;
+}
+
+/* ---------- Submit + status ---------- */
+
+.v-submit-btn {
+  background: var(--v-black);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.v-submit-btn:focus-visible {
+  outline: 2px solid var(--v-border-focus);
+  outline-offset: 2px;
+}
+
+.v-submit-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.v-trade-form__status {
+  max-width: var(--v-form-width);
+  margin: 0 auto 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 4px;
+}
+
+.v-trade-form__status[data-state='success'] {
+  background: #e7f6ec;
+  color: #1e6b3c;
+}
+
+.v-trade-form__status[data-state='error'] {
+  background: #fbe9e7;
+  color: var(--v-error);
+}
+
+/* ---------- Honeypot (spam trap) ---------- */
+
+.v-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.apply-btn{
+  background-color: #fff;
+  color: var(--charcoal);
+}
+
+.apply-btn:hover{
+  background-color: var(--charcoal);
+  color: #fff;
+}
