@@ -3,7 +3,7 @@
   --v-border-focus: #111;
   --v-black: #111;
   --v-error: #c0392b;
-  --v-form-width: 350px;
+  --v-form-width: 375px;
   margin-top: 0;
 }
 
@@ -16,6 +16,10 @@
   margin-bottom: 0.5rem;
   margin-top: 0;
   padding-top: 0; 
+  font-size: 26px;
+  @media screen and (width >= 768px) {
+    font-size: 32px;
+  }
 }
 
 .v-trade-form__intro {
@@ -242,6 +246,7 @@
   margin: 0 auto 1.5rem;
   padding: 0.85rem 1rem;
   border-radius: 4px;
+  text-align: center;
 }
 
 .v-trade-form__status[data-state='success'] {
