@@ -16,9 +16,27 @@
 }
 
 .pxs-image-with-text-subheading h2{ 
-  font-size: 70px;
+  font-size: 36px;
   margin-top: 0;
   font-family: var(--heading-font);
+  @media screen and (width < 800px){
+     white-space: nowrap;
+  }
+  @media screen and (width >= 800px){
+     font-size: 70px;
+  }
+}
+
+.home-message-content .__h1{
+  @media screen and (width < 800px){
+     font-size: 32px;
+  }
+}
+
+.home-message-content h2{ 
+  @media screen and (width < 800px){
+     font-size: 24px;
+  }
 }
 
 @media (min-width: 720px) {
