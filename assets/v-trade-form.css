@@ -34,6 +34,10 @@
   max-width: var(--v-form-width);
   margin: auto;
   container-type: inline-size;
+  align-items: center;
+  @media screen and (width < 400px){
+    --v-form-width: 350px;
+  }
 }
 
 .v-field__hint{
@@ -47,6 +51,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.75rem;
+  width: 100%;
 }
 
 @container (min-width: 520px) {
@@ -60,6 +65,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25em;
+  width: 100%;
 }
 
 .v-field label,
