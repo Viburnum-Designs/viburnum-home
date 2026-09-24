@@ -18,6 +18,11 @@
       data-endpoint="{{ section.settings.submit_endpoint }}"
       novalidate
     >
+      <div class="v-hp" aria-hidden="true">
+        <label for="Website-{{ section.id }}">Website</label>
+        <input type="text" id="Website-{{ section.id }}" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
       <div class="v-field">
         <label for="CompanyName-{{ section.id }}">Company name <span aria-hidden="true">*</span></label>
         <input
@@ -199,7 +204,7 @@
 
 {% schema %}
 {
-  "name": "V Trade Form",
+  "name": "V Trade Form Complex",
   "tag": "section",
   "class": "v-trade-form-shopify-section",
   "settings": [
@@ -224,7 +229,7 @@
   "presets": [
     {
       "category": "Viburnum Sections",
-      "name": "V Trade Form"
+      "name": "V Trade Form Complex"
     }
   ]
 }

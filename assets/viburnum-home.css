@@ -25,6 +25,11 @@ Pages
 ==================== */
 
 :root {
+    --charcoal: #414042;
+    --moss-green: #828434;
+    --sage-green: #CCD0AC; 
+    --cream: #E9EADA;
+    --cool-grey: #D1D3D5;
     --heading-font: 'Cormorant Garamond', serif;
     --body-font: 'Montserrat', sans-serif;
     --footer-link-color: #fff;
@@ -128,6 +133,7 @@ Pages
   border-radius: var(--btn-radius);
   font-style: normal;
   font-weight: 400;
+  border: 1px solid #ccc;
   &:hover{
     background-color: var(--hover-color); 
     color: #333;

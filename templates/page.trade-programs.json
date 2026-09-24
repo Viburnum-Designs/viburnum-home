@@ -55,15 +55,22 @@
       ],
       "name": "Rich text",
       "settings": {
+        "section_css_class": "__container",
         "border": true,
         "heading": "Trade Program"
       }
+    },
+    "v_trade_form_simple_Rz9yLR": {
+      "type": "v-trade-form__simple",
+      "name": "V Trade Form Simple",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "v_file_loader_CJ9hpi",
     "pxs_image_with_text_overlay_APgLcG",
-    "home_message_pXAhkB"
+    "home_message_pXAhkB",
+    "v_trade_form_simple_Rz9yLR"
   ]
 }
