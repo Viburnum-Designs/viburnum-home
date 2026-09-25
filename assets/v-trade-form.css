@@ -239,7 +239,7 @@
   padding: 1rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
-  width: fit-content;
+
 }
 
 .v-submit-btn:focus-visible {
@@ -293,11 +293,12 @@
 }
 
 .apply-btn{
-  background-color: #fff;
-  color: var(--charcoal);
+  background-color: var(--charcoal);
+  color: #fff;
+  width: 100%;
 }
 
 .apply-btn:hover{
-  background-color: var(--charcoal);
-  color: #fff;
+  background-color: #fff;
+  color: var(--charcoal);
 }
