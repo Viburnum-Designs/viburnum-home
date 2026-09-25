@@ -46,10 +46,13 @@
     }
 }
 
-.home-message-content ul{
+.home-message-content :not(.__h1):where(h2,p,ul){
   text-align: left;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   list-style-position: outside;
+  @media screen and (width >= 768px){
+    max-width: 752px;
+  }
 }
