@@ -66,6 +66,11 @@
   flex-direction: column;
   gap: 0.25em;
   width: 100%;
+  input[type=text], input[type=email], input[type=password], input[type=search], input[type=telephone], input[type=tel], input[type=number], textarea{
+    max-width: 100%;
+  }
+ 
+ 
 }
 
 .v-field label,
