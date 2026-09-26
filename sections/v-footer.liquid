@@ -15,7 +15,13 @@
         <div class="footer-grid__logo-and-signup">
           <div class="footer-grid__logo-and-signup__item">
             <div class="footer-logo">
-              <div class="footer-logo__site-name">VIBURNUM HOME</div>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/viburnum-curated-home-logo.svg?v=1790364769"
+                alt="Viburnum Curated Home"
+                width="300px"
+                height="59px"
+                class="footer-logo__svg"
+              >
             </div>
           </div>
           <div class="footer-grid__logo-and-signup__item">
@@ -140,6 +146,14 @@
           <!-- /footer-grid__links-item (Policies) -->
         </div>
         <!-- /footer-grid__links -->
+
+        <ul class="footer-policy-menu __hide-on-mobile __hide-on-tablet">
+          {% for link in linklists['footer-policy-menu'].links %}
+            <li class="footer-policy-menu__item">
+              <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
       <!-- /footer-grid__item -->
     </div>
@@ -155,14 +169,6 @@
           {{- shop.name | strip -}}
           .
         </div>
-
-        <ul class="footer-policy-menu __hide-on-mobile __hide-on-tablet">
-          {% for link in linklists['footer-policy-menu'].links %}
-            <li class="footer-policy-menu__item">
-              <a href="{{ link.url }}" class="footer-policy-menu__item__link">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
       </div>
     </div>
   </div>
