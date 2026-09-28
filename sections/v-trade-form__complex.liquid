@@ -1,0 +1,236 @@
+{{ 'v-trade-form.css' | asset_url | stylesheet_tag }}
+
+<section class="v-trade-form-section" id="v-trade-form-{{ section.id }}">
+  <div class="v-trade-form-wrap">
+    {% if section.settings.heading != blank %}
+      <h2 class="v-trade-form__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.intro != blank %}
+      <div class="v-trade-form__intro">{{ section.settings.intro }}</div>
+    {% endif %}
+
+    <div class="v-trade-form__status" data-form-status role="status" aria-live="polite" hidden></div>
+
+    <form
+      id="VTradeForm-{{ section.id }}"
+      class="v-trade-form"
+      data-v-trade-form
+      data-endpoint="{{ section.settings.submit_endpoint }}"
+      novalidate
+    >
+      <div class="v-hp" aria-hidden="true">
+        <label for="Website-{{ section.id }}">Website</label>
+        <input type="text" id="Website-{{ section.id }}" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="v-field">
+        <label for="CompanyName-{{ section.id }}">Company name <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="CompanyName-{{ section.id }}"
+          name="company_name"
+          autocomplete="organization"
+          required
+          aria-required="true"
+        >
+      </div>
+
+      <div class="v-field">
+        <label for="FirstName-{{ section.id }}">First name <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="FirstName-{{ section.id }}"
+          name="first_name"
+          autocomplete="given-name"
+          required
+          aria-required="true"
+        >
+      </div>
+
+      <div class="v-field">
+        <label for="LastName-{{ section.id }}">Last name <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="LastName-{{ section.id }}"
+          name="last_name"
+          autocomplete="family-name"
+          required
+          aria-required="true"
+        >
+      </div>
+
+      <div class="v-field">
+        <label for="Position-{{ section.id }}">Position</label>
+        <input type="text" id="Position-{{ section.id }}" name="position" autocomplete="organization-title">
+      </div>
+
+      <div class="v-field-row">
+        <div class="v-field">
+          <label for="Email-{{ section.id }}">Email <span aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="Email-{{ section.id }}"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <div class="v-field">
+          <label for="Phone-{{ section.id }}">Phone <span aria-hidden="true">*</span></label>
+          <input
+            type="tel"
+            id="Phone-{{ section.id }}"
+            name="phone"
+            autocomplete="tel"
+            required
+            aria-required="true"
+            aria-describedby="PhoneFormat-{{ section.id }}"
+          >
+          <span id="PhoneFormat-{{ section.id }}" class="v-field__hint visually-hidden"
+            >Enter your phone number including area code</span
+          >
+        </div>
+      </div>
+
+      <div class="v-field v-field--file">
+        <span class="v-field__label" id="ResaleLabel-{{ section.id }}"
+          >Resale Tax ID (Jpg. or PDF) <span aria-hidden="true">*</span></span
+        >
+        <label class="v-upload-btn" for="ResaleTaxId-{{ section.id }}">
+          <span class="v-upload-btn__icon" aria-hidden="true">+</span> Upload File
+        </label>
+        <input
+          type="file"
+          id="ResaleTaxId-{{ section.id }}"
+          name="resale_tax_id"
+          accept=".jpg,.jpeg,.pdf"
+          class="visually-hidden"
+          aria-labelledby="ResaleLabel-{{ section.id }}"
+          required
+          aria-required="true"
+          data-file-input
+        >
+        <span class="v-upload-filename" data-file-name aria-live="polite"></span>
+      </div>
+
+      <div class="v-field v-field--file">
+        <span class="v-field__label" id="PortfolioLabel-{{ section.id }}">Portfolio (Jpg. or PDF)</span>
+        <label class="v-upload-btn" for="Portfolio-{{ section.id }}">
+          <span class="v-upload-btn__icon" aria-hidden="true">+</span> Upload File
+        </label>
+        <input
+          type="file"
+          id="Portfolio-{{ section.id }}"
+          name="portfolio"
+          accept=".jpg,.jpeg,.pdf"
+          class="visually-hidden"
+          aria-labelledby="PortfolioLabel-{{ section.id }}"
+          data-file-input
+        >
+        <span class="v-upload-filename" data-file-name aria-live="polite"></span>
+      </div>
+
+      <div class="v-field">
+        <label for="SocialLink-{{ section.id }}">Link to Social Media</label>
+        <input type="url" id="SocialLink-{{ section.id }}" name="social_link" inputmode="url">
+      </div>
+
+      <div class="v-field">
+        <label for="CvLink-{{ section.id }}">Link to CV/LinkedIn</label>
+        <input type="url" id="CvLink-{{ section.id }}" name="cv_link" inputmode="url">
+      </div>
+
+      <fieldset class="v-field v-fieldset">
+        <legend>
+          Approximately how many projects do you complete a year that you think Viburnum Home might be of help to you?
+          <span aria-hidden="true">*</span>
+        </legend>
+
+        <div class="v-checkbox">
+          <input type="radio" id="Projects1-{{ section.id }}" name="projects_per_year" value="1-3" required>
+          <label for="Projects1-{{ section.id }}">1-3 projects a year</label>
+        </div>
+
+        <div class="v-checkbox">
+          <input type="radio" id="Projects2-{{ section.id }}" name="projects_per_year" value="5-10">
+          <label for="Projects2-{{ section.id }}">5-10 projects a year</label>
+        </div>
+
+        <div class="v-checkbox">
+          <input type="radio" id="Projects3-{{ section.id }}" name="projects_per_year" value="10+">
+          <label for="Projects3-{{ section.id }}">10+ projects a year</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="v-field v-fieldset">
+        <legend>
+          Can we share photos of your finished projects with our products on our social media?
+          <span aria-hidden="true">*</span>
+        </legend>
+
+        <div class="v-toggle-group" role="radiogroup">
+          <label class="v-toggle-btn">
+            <input type="radio" name="can_share_photos" value="yes" required>
+            <span>Yes! Absolutely</span>
+          </label>
+          <label class="v-toggle-btn">
+            <input type="radio" name="can_share_photos" value="no">
+            <span>No, please don't</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="v-submit-btn" data-submit-btn>
+        <span data-btn-label>Submit application</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<script src="{{ 'v-trade-form.js' | asset_url }}" defer="defer"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
+<script
+  src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInputWithUtils.min.js"
+  defer="defer"
+></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.VTradeForm && window.VTradeForm.init('{{ section.id }}');
+  });
+</script>
+
+{% schema %}
+{
+  "name": "V Trade Form Complex",
+  "tag": "section",
+  "class": "v-trade-form-shopify-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trade Program Application"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text"
+    },
+    {
+      "type": "url",
+      "id": "submit_endpoint",
+      "label": "Form submission endpoint",
+      "info": "URL of the serverless function that handles file uploads and creates the application record."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Viburnum Sections",
+      "name": "V Trade Form Complex"
+    }
+  ]
+}
+{% endschema %}

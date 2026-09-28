@@ -16,9 +16,27 @@
 }
 
 .pxs-image-with-text-subheading h2{ 
-  font-size: 70px;
+  font-size: 36px;
   margin-top: 0;
   font-family: var(--heading-font);
+  @media screen and (width < 800px){
+     white-space: nowrap;
+  }
+  @media screen and (width >= 800px){
+     font-size: 70px;
+  }
+}
+
+.home-message-content .__h1{
+  @media screen and (width < 800px){
+     font-size: 32px;
+  }
+}
+
+.home-message-content h2{ 
+  @media screen and (width < 800px){
+     font-size: 24px;
+  }
 }
 
 @media (min-width: 720px) {
@@ -26,4 +44,18 @@
         width: 80%;
         padding: 12px 0;
     }
+}
+
+.home-message-content :not(.__h1):where(h2,p,ul){
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-position: outside;
+  @media screen and (width >= 768px){
+    max-width: 752px;
+  }
+  @media screen and (width >= 1000px){
+    max-width: 832px;
+  }
 }

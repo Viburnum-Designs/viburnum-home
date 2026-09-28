@@ -15,77 +15,37 @@
         </ul>
       </nav>
     </section>
-    <section class="v--header-grid  __container  __container-bleed">
+
+    <section class="v--header-grid     __container-bleed">
       <div class="v--header-grid__grid-item__menu-btn">
         <button class="js--toggle-mobile-menu" aria-label="Menu">
           <span class="material-symbols-outlined">menu</span>
         </button>
       </div>
 
-      {%- assign logo_tag = 'div' -%}
-      {%- if template.name == 'index' -%}
-        {%- assign logo_tag = 'h1' -%}
-      {%- endif -%}
-      <{{ logo_tag }} class="v--header-grid__grid-item__logo">
-        <a href="/" class="v--header-grid__grid-item__logo__link">
-          <div class="v--header-grid__grid-item__logo__text">{{ section.settings.logo_text | default: shop.name }}</div>
-        </a>
-      </{{ logo_tag }}>
-
-      <div class="v--header-grid__grid-item__nav">
-        <div class="mobile-navbar__wrapper">
-          <nav class="main-nav-bar__links">
-            <ul class="main-nav-bar__links__menu">
-              {% for link in linklists['header-main-nav'].links %}
-                <li class="main-nav-bar__links__menu__item">
-                  {% if link.links.size > 0 %}
-                    <div class="main-nav-bar__top-level-grid">
-                      <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
-                      <button
-                        type="button"
-                        class="main-nav-bar__submenu-toggle js--submenu-toggle"
-                        aria-expanded="false"
-                        aria-controls="submenu-{{ forloop.index }}"
-                      >
-                        <span class="visually-hidden">Show submenu for {{ link.title }}</span>
-                        <svg
-                          class="main-nav-bar__submenu-toggle__icon"
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          aria-hidden="true"
-                        >
-                          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                      </button>
-                    </div>
-                    <ul id="submenu-{{ forloop.index }}" class="main-nav-bar__submenu">
-                      {% for sublink in link.links %}
-                        <li class="main-nav-bar__submenu__item">
-                          <a href="{{ sublink.url }}" class="main-nav-bar__submenu__item__link">{{ sublink.title }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% else %}
-                    <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-
-            <div class="mobile-secondary-links">
-              <ul class="secondary-nav-bar__menu">
-                {% for link in linklists['header-secondary-nav'].links %}
-                  <li class="main-nav-bar__links__menu__item">
-                    <a href="{{ link.url }}" class="secondary-nav-bar__menu_link">{{ link.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <!-- mobile-nav-wrapper -->
+      <div class="toggle-search-section ">
+        <button
+          class="search-icon__btn js--toggle-search-btn"
+          aria-label="Search"
+          aria-expanded="false"
+          aria-controls="predictive-search"
+        >
+          {% render 'icons', id: 'header_search_icon' %}
+        </button>
       </div>
+
+      <div class="v--header-grid__grid-item__logo">
+        <a href="/" class="v--header-grid__grid-item__logo__link">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0599/9837/1980/files/viburnum-curated-home-logo.svg?v=1790364769"
+            alt="{{shop.name}}"
+            width="300px"
+            height="59px"
+            class="header-logo__svg"
+          >
+        </a>
+      </div>
+
       <div class="v--header-grid__grid-item__account-items">
         {% if shop.customer_accounts_enabled %}
           <div class="customer-links">
@@ -135,18 +95,62 @@
           </a>
           {% render 'mini-cart' %}
         </div>
-
-        <div class="toggle-search-section ">
-          <button
-            class="search-icon__btn js--toggle-search-btn"
-            aria-label="Search"
-            aria-expanded="false"
-            aria-controls="predictive-search"
-          >
-            {% render 'icons', id: 'header_search_icon' %}
-          </button>
-        </div>
       </div>
+    </section>
+
+    <section class="nav-section">
+      <div class="mobile-navbar__wrapper">
+        <nav class="main-nav-bar__links">
+          <ul class="main-nav-bar__links__menu">
+            {% for link in linklists['header-main-nav'].links %}
+              <li class="main-nav-bar__links__menu__item">
+                {% if link.links.size > 0 %}
+                  <div class="main-nav-bar__top-level-grid">
+                    <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                    <button
+                      type="button"
+                      class="main-nav-bar__submenu-toggle js--submenu-toggle"
+                      aria-expanded="false"
+                      aria-controls="submenu-{{ forloop.index }}"
+                    >
+                      <span class="visually-hidden">Show submenu for {{ link.title }}</span>
+                      <svg
+                        class="main-nav-bar__submenu-toggle__icon"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        aria-hidden="true"
+                      >
+                        <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <ul id="submenu-{{ forloop.index }}" class="main-nav-bar__submenu">
+                    {% for sublink in link.links %}
+                      <li class="main-nav-bar__submenu__item">
+                        <a href="{{ sublink.url }}" class="main-nav-bar__submenu__item__link">{{ sublink.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <a href="{{ link.url }}" class="main-nav-bar__links__menu__item__link">{{ link.title }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+
+          <div class="mobile-secondary-links">
+            <ul class="secondary-nav-bar__menu">
+              {% for link in linklists['header-secondary-nav'].links %}
+                <li class="main-nav-bar__links__menu__item">
+                  <a href="{{ link.url }}" class="secondary-nav-bar__menu_link">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- mobile-nav-wrapper -->
     </section>
 
     <section
