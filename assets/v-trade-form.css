@@ -3,12 +3,12 @@
   --v-border-focus: #111;
   --v-black: #111;
   --v-error: #c0392b;
-  --v-form-width: 375px;
+  --v-form-width: var(--content-width);
   margin-top: 0;
 }
 
 .v-trade-form-wrap {
-  max-width: 700px;
+  max-width: 824px;
   margin: 0 auto;
 }
 
@@ -34,10 +34,7 @@
   max-width: var(--v-form-width);
   margin: auto;
   container-type: inline-size;
-  align-items: center;
-  @media screen and (width < 400px){
-    --v-form-width: 350px;
-  }
+  align-items: center; 
 }
 
 .v-field__hint{
