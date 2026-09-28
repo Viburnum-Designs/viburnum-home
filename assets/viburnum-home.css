@@ -897,14 +897,23 @@ input.header-search-input {
   }
 }
 
-@media screen and (width >= 1024px) { 
+@media screen and (width < 1024px) { 
   .footer__logo-and-signup__footer-menus{
-    padding: var(--spacing);
-    .footer-grid__logo-and-signup{ order: 2;}
-    .footer-grid__links{ order: 1}
-     
+    flex-direction: column-reverse;
+    gap: var(--spacing);
   }
 }
+
+
+@media screen and (width >= 1024px) { 
+  .footer__logo-and-signup__footer-menus{
+    padding: var(--spacing); 
+    .footer-grid__logo-and-signup{ order: 2;}
+    .footer-grid__links{ order: 1}  
+  }
+}
+
+
 
 /* Collapsible Menus */
 
