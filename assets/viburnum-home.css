@@ -363,7 +363,7 @@ a[href^="mailto:"]::before {
 
 .secondary-nav-bar__menu_link{
   color: #333;
-  @media screen and (max-width: 550px){
+  @media screen and (width < 550px){
       font-size: 12px;
   }
 }
@@ -374,18 +374,14 @@ a[href^="mailto:"]::before {
 
 .v--header-grid{
   display: grid;
-  align-items: stretch; 
-  /* justify-content: space-between; */
-  width: 100%;
-  /* padding-block: var(--min-spacing);  */
+  align-items: stretch;  
+  width: 100%; 
   grid-template-columns: 276px auto 276px;
   gap: 0;
   padding-block: var(--spacing);
   
   @media  (width < 1099px){ 
     grid-template-columns: 40px 40px auto 80px;
-    padding-left: 0;
-    padding-right: 0;
     padding-top: var(--min-spacing);
     padding-bottom: var(--min-spacing);
   }
@@ -396,7 +392,7 @@ a[href^="mailto:"]::before {
   @media  (max-width: 1099px){ 
     display: flex;
     align-items: center;
-    padding-right: var(--spacing)
+    /* padding-right: var(--spacing) */
   }
 }
 
@@ -986,6 +982,8 @@ input.header-search-input {
     margin-right: 0;
     border-top: 1px solid var(--border-color);
     padding-top: var(--spacing);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing);
   }
   /* @media screen and (width >= 1500px) { 
     grid-template-columns: 1fr .5fr; 
@@ -1045,7 +1043,7 @@ input.mailing-list-email{
 
 .footer-policy-menu {
   display: flex;
-  gap: 20px; 
+  column-gap: 20px; 
   max-width: 850px;
   width: 100%;
   align-self: center;
@@ -1059,7 +1057,7 @@ input.mailing-list-email{
     max-width: 100%;
     margin: 0;
     order: 2;
-    margin-top: var(--max-spacing);
+    margin-top: var(--spacing);
   }
 }
 
@@ -1067,7 +1065,7 @@ input.mailing-list-email{
 .footer-policy-menu__item__link,
 .footer-info-menu__item__link {
   line-height: 1.6em;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--footer-link-color);
   &:hover {
     color: var(--footer-link-color-hover);
@@ -1075,6 +1073,10 @@ input.mailing-list-email{
   &:focus-visible {
     color: var(--footer-link-color-hover);
   }
+}
+
+.footer-policy-menu__item{
+  padding: 5px 0;
 }
 
 .connect-info-wrapper p{
