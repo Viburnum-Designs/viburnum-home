@@ -1052,7 +1052,7 @@ input.mailing-list-email{
 
 .footer-policy-menu {
   display: flex;
-  column-gap: 20px; 
+  column-gap: var(--max-spacing); 
   max-width: 850px;
   width: 100%;
   align-self: center;
@@ -1425,7 +1425,7 @@ input.mailing-list-email{
     display: grid;
     grid-template-columns: .6fr .4fr;
     /* grid-template-columns: auto 500px; */
-    gap: var(--spacing);
+    gap: var(--max-spacing);
     &:before, &:after{
       display: none;
     }
