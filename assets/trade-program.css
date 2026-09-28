@@ -1,3 +1,14 @@
+
+:root{
+  --content-width: 400px;
+  @media screen and (width >= 768px){
+    --content-width: 752px;
+  }
+  @media screen and (width >= 1000px){
+    --content-width: 832px;
+  }
+}
+
 .pxs-image-with-text{
   position: relative;
 }
@@ -10,12 +21,12 @@
   color: #fff;
   
 }
-.pxs-image-with-text-subheading h1{
+/* .pxs-image-with-text-subheading h1{
   letter-spacing: .2em;
   font-size: 20px;
-}
+} */
 
-.pxs-image-with-text-subheading h2{ 
+.pxs-image-with-text-subheading h1{ 
   font-size: 36px;
   margin-top: 0;
   font-family: var(--heading-font);
@@ -25,6 +36,11 @@
   @media screen and (width >= 800px){
      font-size: 70px;
   }
+}
+
+.home-message-content {
+  padding-top: var(--max-spacing);
+  border: 1px solid #f00;
 }
 
 .home-message-content .__h1{
@@ -48,14 +64,8 @@
 
 .home-message-content :not(.__h1):where(h2,p,ul){
   text-align: left;
-  max-width: 400px;
+  max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
-  list-style-position: outside;
-  @media screen and (width >= 768px){
-    max-width: 752px;
-  }
-  @media screen and (width >= 1000px){
-    max-width: 832px;
-  }
+  list-style-position: outside; 
 }

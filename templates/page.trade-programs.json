@@ -27,11 +27,11 @@
       "name": "Image with text overlay",
       "settings": {
         "section_height": "medium",
-        "image": "shopify://shop_images/Closeup_of_Leaf.avif",
+        "image": "shopify://shop_images/trade-programs__desktop-banner__v2.webp",
         "video_behavior": "image_on_mobile_video_on_desktop",
         "position": "center center",
         "title": "",
-        "text": "<h1>BECOME A VIBURNUM & CO.</h1><h2>TRADE MEMBER</h2>",
+        "text": "<h1>Trade Program</h1>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
@@ -57,7 +57,7 @@
       "settings": {
         "section_css_class": "__container __container-bleed",
         "border": true,
-        "heading": "Trade Program"
+        "heading": ""
       }
     },
     "v_trade_form_simple_Rz9yLR": {
