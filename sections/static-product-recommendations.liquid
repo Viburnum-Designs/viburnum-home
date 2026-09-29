@@ -18,19 +18,21 @@
     class="product-recommendations-wrapper--section"
     data-product-recommendations-section
     data-product-hover="{{ settings.product_hover }}"
-  >
-  </section>
+  ></section>
 
   {% if recommendations.products_count > 0 %}
     <template data-html="common">
       {%- unless section.settings.product_recommendations_heading == blank -%}
-        <h2 class="section-title">{{ section.settings.product_recommendations_heading }}</h2>
-      {%- endunless  -%}
+        <h2 class="product-recommendation-title section-title">
+          {{ section.settings.product_recommendations_heading }}
+        </h2>
+      {%- endunless -%}
 
-      <div
-        class="product-recommendations rows-of-4"
-        data-masonry-products
-      >
+      <div class="__x-overflow">
+        <div
+          class="product-recommendations rows-of-4"
+          data-masonry-products
+        ></div>
       </div>
     </template>
 
@@ -44,23 +46,18 @@
           {% assign product_attributes = 'data-masonry-only' %}
         {% endif %}
 
-        {%
-          render 'product-list-item',
-          product: product,
-          product_attributes: product_attributes,
-        %}
+        {% render 'product-list-item', product: product, product_attributes: product_attributes %}
       {% endfor %}
     </template>
 
     <template data-html="right">
       {% for product in recommendations.products limit: product_limit %}
         <a title="{{ product.title }}" href="{{ product.url }}">
-          {%
-            render 'rimg',
+          {% render 'rimg',
             img: product.featured_media.preview_image,
             alt: product.title,
             size: '480x480',
-            lazy: true,
+            lazy: true
           %}
         </a>
       {% endfor %}
@@ -95,5 +92,4 @@
     }
   ]
 }
-
 {% endschema %}

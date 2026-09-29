@@ -22,7 +22,7 @@ Pages
 */
 
 /* Custom Properties
-==================== */
+==================== */ 
 
 :root {
     --charcoal: #414042;
@@ -30,8 +30,8 @@ Pages
     --sage-green: #CCD0AC; 
     --cream: #E9EADA;
     --cool-grey: #D1D3D5;
-    --heading-font: 'Cormorant Garamond', serif;
-    --body-font: 'Montserrat', sans-serif;
+    --heading-font: "EB Garamond",serif, sans-serif;
+    --body-font: Jost,sans-serif, serif;
     --footer-link-color: #fff;
     --footer-link-color-hover: #ccc;
     --spacing: 24px;
@@ -40,7 +40,7 @@ Pages
     --primary-color: #6e3d13;
     --secondary-color: #edece6;
     --footer-bg: #474d48;
-    --text-color: rgb(44 44 44);
+    --text-color: var(--charcoal)
     --icon-color: #aaa;
     --hover-color: #CBD0CC;
     --colored-grid__bg-color: #edebec;
@@ -1052,7 +1052,7 @@ input.mailing-list-email{
 
 .footer-policy-menu {
   display: flex;
-  column-gap: 20px; 
+  column-gap: var(--max-spacing); 
   max-width: 850px;
   width: 100%;
   align-self: center;
@@ -1425,7 +1425,7 @@ input.mailing-list-email{
     display: grid;
     grid-template-columns: .6fr .4fr;
     /* grid-template-columns: auto 500px; */
-    gap: var(--spacing);
+    gap: var(--max-spacing);
     &:before, &:after{
       display: none;
     }
@@ -1578,8 +1578,8 @@ input.mailing-list-email{
 }
 
 .product-smart-payments .add-to-cart{
-    border: 1px solid #000;
-    background-color: #000;
+    border: 1px solid var(--charcoal);
+    background-color: var(--charcoal);
     color: #fff;
     line-height: normal;
     padding: 15px 20px;
@@ -1622,6 +1622,7 @@ input.mailing-list-email{
 [data-modal-id="surface-pick-up"] .spinner {
   display: none !important;
 }
+
 body.scroll-locked {
   overflow: auto !important; /* prevent the modal's scroll-lock from freezing the page */
 }
@@ -1684,6 +1685,7 @@ body.scroll-locked {
 
 .surface-pick-up-item__pick-up-distance {
   margin: 0 0 0 0;
+  line-height:1;
 }
 
 /* Product Images 
@@ -1700,6 +1702,40 @@ body.scroll-locked {
 .product-list-item-thumbnail__link__image-container img{
   object-fit: cover;
 }
+
+/* Product Recommendations
+==================== */
+
+.product-recommendations-wrapper--section{ 
+  padding-bottom: var(--spacing);
+}
+.product-recommendations{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: var(--spacing);
+  @media (width < 850px){
+    min-width: 150vw;
+  }
+  @media (width < 750px){
+    min-width: 175vw;
+  }
+  @media (width < 450px){
+    min-width: 220vw;
+  }
+}
+
+.product-recommendation-title{
+  width: auto;
+  padding-top: 70px;
+  margin: 0 20px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+@media (min-width: 1080px) {
+  .product-recommendation-title {
+    margin: 100px 20px 20px;
+  }
+}
+
 
 /* Search Results
 ==================== */

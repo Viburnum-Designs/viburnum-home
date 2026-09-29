@@ -72,6 +72,7 @@
     <div class="collapsible-tab__text rte">
       {%- if product.has_only_default_variant -%}
         <div class="product-dimensions">
+          <strong class="product-dimensions__label">Overall Size:</strong>
           {%- assign has_length = false -%}
           {%- if p_length != blank -%}{%- assign has_length = true -%}{%- endif -%}
 
@@ -106,6 +107,12 @@
           {%- assign v_width = variant.metafields.custom.variant_width -%}
           {%- assign v_length = variant.metafields.custom.variant_length -%}
           {%- assign v_height = variant.metafields.custom.variant_height -%}
+
+          {% comment %}
+            {{ v_width.value }}
+            {{ v_length.value }}
+            {{ v_height.value }}
+          {% endcomment %}
 
           {%- comment -%} Work out this variant's size label {%- endcomment -%}
           {%- assign size_label = '' -%}
