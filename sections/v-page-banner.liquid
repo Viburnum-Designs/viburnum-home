@@ -49,6 +49,10 @@
     margin-top: 40px;
     display: inline-block;
   }
+
+  .v-page-banner__content{
+    margin-bottom: 30px;
+  }
 {% endstyle %}
 <section class="v-page-banner__section">
   <div class="v-page-banner__section__img">
@@ -81,7 +85,7 @@
       {%- endif %}
 
       {% if section.settings.text != blank %}
-        <div class=" rte" style="color: {{ section.settings.color }};">
+        <div class=" rte v-page-banner__content" style="color: {{ section.settings.color }};">
           {{ section.settings.text }}
         </div>
       {%- endif %}
@@ -90,7 +94,9 @@
       {% endfor %}
       {% if section.settings.button_text != blank %}
         {% if section.settings.link != blank %}
-          <a class="__cta" href="{{ section.settings.link }}">{{ section.settings.button_text | escape }}</a>
+          <a class="__cta v-page-banner__cta" href="{{ section.settings.link }}">
+            {{- section.settings.button_text | escape -}}
+          </a>
         {% else %}
           <div style="color: {{ section.settings.color }};">{{ section.settings.button_text | escape }}</div>
         {% endif %}

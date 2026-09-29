@@ -52,7 +52,8 @@ Pages
 /* Utilities 
 ==================== */
 .__container {
-    max-width: 1260px;
+    /* max-width: 1260px; */
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -251,6 +252,14 @@ Pages
 
 /* HTML Tags
 =============*/
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body{
   color: var(--text-color);
 }
@@ -526,6 +535,7 @@ a[href^="mailto:"]::before {
 
 /* Primary Nav Mobile
 ==================== */
+
 .js--toggle-mobile-menu {
   display: none;
 }
@@ -650,8 +660,6 @@ a[href^="mailto:"]::before {
   .is-open  .main-nav-bar__links{
     transform: translateX(0);
   }
-  
-  
 
   .mobile-navbar__wrapper.is-open {
     transition: opacity .25s;
@@ -673,10 +681,7 @@ a[href^="mailto:"]::before {
 @media screen and (min-width: 1100px) {
 
   .secondary-nav-bar__menu {
-    display: flex;
-    /* align-self: flex-end;
-    margin-right: 0;
-    margin-left: auto;  */
+    display: flex; 
     justify-content: end;
   }
 
@@ -1366,13 +1371,13 @@ input.mailing-list-email{
   gap: var(--min-spacing);
   grid-template-columns: repeat(2,1fr);
   justify-self: center;
-  @media screen and ( min-width: 750px){
+  @media screen and ( min-width: 752px){
     grid-template-columns: repeat(3,1fr);
-    max-width: 750px;
+    max-width: 752px;
   }
   @media screen and ( min-width: 1000px){
     grid-template-columns: repeat(4,1fr);
-    max-width: 1260px;
+    max-width: 100%;
     gap: var(--spacing);
   }
 }
