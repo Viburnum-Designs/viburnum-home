@@ -30,8 +30,8 @@ Pages
     --sage-green: #CCD0AC; 
     --cream: #E9EADA;
     --cool-grey: #D1D3D5;
-    --heading-font: "EB Garamond",serif, sans-serif;
-    --body-font: Jost,sans-serif, serif;
+    --heading-font: "EB Garamond", serif;
+    --body-font: Jost, sans-serif;
     --footer-link-color: #fff;
     --footer-link-color-hover: #ccc;
     --spacing: 24px;
@@ -158,9 +158,9 @@ Pages
 }
 
 .section-title, .__h1, .__h2{
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: 32px;
   font-family: var(--heading-font);
-  font-weight: 300;
   letter-spacing: .05em;
   margin-top: 0;
   margin-bottom: 0;
