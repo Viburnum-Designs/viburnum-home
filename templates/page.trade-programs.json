@@ -22,22 +22,35 @@
         "js_name": ""
       }
     },
-    "pxs_image_with_text_overlay_APgLcG": {
-      "type": "pxs-image-with-text-overlay",
-      "name": "Image with text overlay",
+    "v_page_banner_xkMVKt": {
+      "type": "v-page-banner",
+      "blocks": {
+        "text_QKim8H": {
+          "type": "text",
+          "settings": {
+            "content": "",
+            "desktop_size": 3,
+            "text_font": "heading_font"
+          }
+        }
+      },
+      "block_order": [
+        "text_QKim8H"
+      ],
+      "name": "V Page Banner",
       "settings": {
-        "section_height": "medium",
         "image": "shopify://shop_images/trade-programs__desktop-banner__v2.webp",
-        "video_behavior": "image_on_mobile_video_on_desktop",
-        "position": "center center",
-        "title": "",
-        "text": "<h1>Trade Program</h1>",
+        "image_mobile": "shopify://shop_images/trade-programs__mobile-banner__v2.webp",
+        "title": "Trade Program",
+        "title_bottom_margin": "0",
+        "title_mobile_bottom_margin": "0",
+        "text": "<p>Join Viburnum Home’s exclusive trade membership program for interior design professionals.</p>",
         "content_position": "center-center",
         "color": "#ffffff",
         "overlay_background": "#000000",
         "overlay_opacity": 50,
-        "link": "",
-        "button_text": ""
+        "link": "#trade-form",
+        "button_text": "Join Now"
       }
     },
     "home_message_pXAhkB": {
@@ -72,7 +85,7 @@
   "order": [
     "main",
     "v_file_loader_CJ9hpi",
-    "pxs_image_with_text_overlay_APgLcG",
+    "v_page_banner_xkMVKt",
     "home_message_pXAhkB",
     "v_trade_form_simple_Rz9yLR"
   ]

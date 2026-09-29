@@ -9,6 +9,30 @@
   }
 }
 
+.v-page-banner__section__txt{
+  font-size: 24px;
+  .v-page-banner__heading{
+    text-shadow: inherit;
+  }
+  @media screen and (max-width: 767px){
+    font-size: clamp(16px, 4vw, 24px);
+    align-items: start!important;
+  }
+}
+
+.v-page-banner__heading.__h1 {
+  letter-spacing: .2em;
+  font-size: 2em; 
+   @media screen and (max-width: 767px){ margin-top: 50px; }
+}
+
+.v-page-banner__section__txt p{
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.25;
+  max-width: 20em;
+}
+
 .pxs-image-with-text{
   position: relative;
 }
@@ -19,12 +43,12 @@
 
 .pxs-image-with-text-subheading :where(h1,h2){
   color: #fff;
-  
 }
 /* .pxs-image-with-text-subheading h1{
   letter-spacing: .2em;
   font-size: 20px;
 } */
+
 
 .pxs-image-with-text-subheading h1{ 
   font-size: 36px;

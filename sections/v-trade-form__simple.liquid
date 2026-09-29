@@ -1,6 +1,7 @@
 {{ 'v-trade-form.css' | asset_url | stylesheet_tag }}
 
 {%- assign form_id = 'VTradeForm-' | append: section.id -%}
+<div id="trade-form" style="margin-bottom: var(--max-size)"></div>
 
 <section class="v-trade-form-section" id="v-trade-form-{{ section.id }}">
   <div class="v-trade-form-wrap">
