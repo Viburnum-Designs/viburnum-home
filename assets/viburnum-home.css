@@ -1458,6 +1458,7 @@ input.mailing-list-email{
   flex-shrink: 0;
 }
 
+
 .product-title-wishlist__wrapper{
   display: flex;
   gap: var(--spacing);
@@ -1482,6 +1483,10 @@ input.mailing-list-email{
   }
 }
 
+.product__price{
+  padding-top: var(--min-spacing); 
+}
+
 .product-details-wrapper{
   float: none;
   padding: 0;
@@ -1501,18 +1506,18 @@ input.mailing-list-email{
 .product-options{
   margin-top: var(--min-spacing);
   @media (width < 769px) { 
-        display: grid;
-        /* flex-direction: row;
-        flex-wrap: wrap; */
-        grid-template-columns: 1fr;
-        align-items: center;
-        text-align: left;
-        justify-content: start; 
-        margin: 40px auto 0;
-        max-width: 100%;
-        background: #fff;
-        border-radius: var(--btn-radius);
-        padding: var(--min-spacing) var(--spacing) calc( var(--min-spacing) * 3);
+    display: grid;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: left;
+    justify-content: start; 
+    margin: 40px auto 0;
+    max-width: 100%;
+    background: #fff;
+    border-radius: var(--btn-radius);
+    padding: var(--min-spacing) var(--spacing) calc( var(--min-spacing) * 3);
   }
 }
 
