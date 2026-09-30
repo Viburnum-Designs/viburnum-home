@@ -362,6 +362,7 @@ a[href^="mailto:"]::before {
   margin: 0;
   padding: 0; 
   gap: var(--spacing);
+  font-family: var(--heading-font);
   @media screen and (max-width: 1099px){
     padding-top: var(--spacing);
   }
