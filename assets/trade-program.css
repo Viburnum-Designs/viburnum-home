@@ -23,7 +23,9 @@
 .v-page-banner__heading.__h1 {
   letter-spacing: .2em;
   font-size: 2em; 
-   @media screen and (max-width: 767px){ margin-top: 50px; }
+  margin-top: 0; 
+  padding-top: 0;
+  @media screen and (max-width: 767px){ margin-top: 50px; }
 }
 
 .v-page-banner__section__txt p{
