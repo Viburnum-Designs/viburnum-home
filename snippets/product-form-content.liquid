@@ -339,6 +339,7 @@
       {% endif %}
 
       {% render 'v-product-dimensions', product: product %}
+      {% render 'v-product-shipping' %}
 
       <div data-surface-pick-up></div>
       {%- render 'modal', modal_id: 'surface-pick-up', modal_class: 'surface-pick-up-modal' -%}
