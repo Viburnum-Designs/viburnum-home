@@ -13,9 +13,11 @@
 {% for block in section.blocks %}
   {% case block.type %}
     {% when 'vendor' %}
-      <a class="product-vendor" href="{{ product.vendor | url_for_vendor }}" {{ block.shopify_attributes }}>
-        {{- product.vendor -}}
-      </a>
+      {% comment %}
+        <a class="product-vendor" href="{{ product.vendor | url_for_vendor }}" {{ block.shopify_attributes }}>
+          {{- product.vendor -}}
+        </a>
+      {% endcomment %}
 
     {% when 'title' %}
       <div class="product-title-wishlist__wrapper">
