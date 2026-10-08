@@ -424,8 +424,7 @@ a[href^="mailto:"]::before {
 }
 
 .header-logo__svg{
-  max-width: 150px;
-  height: auto;
+  max-width: 200px;
   margin-inline: auto;
   display: block;
   @media (width >= 501px){
@@ -452,23 +451,10 @@ a[href^="mailto:"]::before {
 
 .account-icon{
   width: 20px;
-  display: flex;
-  align-items: center;
-  
-}
-
-.icon-heart-empty{
-  width: 20px;
-  height: auto;
-  stroke: var(--icon-color);
-}
-
-.icon-heart-empty{
-
 }
 
 .v--header-grid__grid-item__account-items{
-  display: grid; 
+  display: grid;
   grid-template-columns: repeat(2,40px);
   justify-items: center;
   justify-self: end;
