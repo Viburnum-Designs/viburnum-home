@@ -393,9 +393,12 @@ a[href^="mailto:"]::before {
   padding-block: var(--spacing);
   
   @media  (width < 1099px){ 
-    grid-template-columns: 40px 40px auto 80px;
-    padding-top: var(--min-spacing);
-    padding-bottom: var(--min-spacing);
+    grid-template-columns: 40px 40px 40px auto 120px;
+    padding-block: var(--min-spacing); 
+  }
+  @media (width < 400px){ 
+    --spacing: 4px;
+    grid-template-columns: 40px 40px 10px auto 90px;
   }
 }
 
@@ -421,10 +424,14 @@ a[href^="mailto:"]::before {
 }
 
 .header-logo__svg{
-  max-width: 200px;
+  max-width: 150px;
+  height: auto;
   margin-inline: auto;
   display: block;
-  @media (width > 1099px){
+  @media (width >= 1099px){
+    max-width: 200px;
+  }
+  @media (width >= 1099px){
     max-width: 300px;
   }
 }
@@ -445,22 +452,45 @@ a[href^="mailto:"]::before {
 
 .account-icon{
   width: 20px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.icon-heart-empty{
+  width: 20px;
+  height: auto;
+  stroke: var(--icon-color);
+}
+
+.icon-heart-empty{
+
 }
 
 .v--header-grid__grid-item__account-items{
-  display: grid;
+  display: grid; 
   grid-template-columns: repeat(2,40px);
   justify-items: center;
   justify-self: end;
   align-items: center;
   gap: var(--min-spacing);
   /* border-right: 1px solid #ccc; */
+  @media (width >= 400px){
+    grid-template-columns: repeat(3,40px);
+  }
   padding-right: var(--min-spacing);
   @media screen and (min-width: 1100px){
     border-right: none;
     padding-right: 0;
   }
 }
+
+@media (width < 400px){
+  .wish-list{
+    display: none;
+  }
+}
+
 
 .cart-count{
   position: relative; 
