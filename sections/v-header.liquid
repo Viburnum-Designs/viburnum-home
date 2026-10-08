@@ -34,6 +34,8 @@
         </button>
       </div>
 
+      <div class="__spacer"></div>
+
       <div class="v--header-grid__grid-item__logo">
         <a href="/" class="v--header-grid__grid-item__logo__link">
           <img
@@ -47,6 +49,14 @@
       </div>
 
       <div class="v--header-grid__grid-item__account-items">
+        <div class="wish-list">
+          <a href="/pages/account-wish-list" class="wish-list__link">
+            <div class="account-icon">
+              {% render 'icons', id: 'v-heart-empty' %}
+            </div>
+          </a>
+        </div>
+
         {% if shop.customer_accounts_enabled %}
           <div class="customer-links">
             {% if customer %}
