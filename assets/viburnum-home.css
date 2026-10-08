@@ -388,7 +388,7 @@ a[href^="mailto:"]::before {
   display: grid;
   align-items: stretch;  
   width: 100%; 
-  grid-template-columns: 276px auto 276px;
+  grid-template-columns: 266px 10px auto 276px;
   gap: 0;
   padding-block: var(--spacing);
   
@@ -396,7 +396,7 @@ a[href^="mailto:"]::before {
     grid-template-columns: 40px 40px 40px auto 120px;
     padding-block: var(--min-spacing); 
   }
-  @media (width < 400px){ 
+  @media (width < 500px){ 
     --spacing: 4px;
     grid-template-columns: 40px 40px 10px auto 90px;
   }
@@ -428,7 +428,7 @@ a[href^="mailto:"]::before {
   height: auto;
   margin-inline: auto;
   display: block;
-  @media (width >= 1099px){
+  @media (width >= 501px){
     max-width: 200px;
   }
   @media (width >= 1099px){
@@ -475,7 +475,7 @@ a[href^="mailto:"]::before {
   align-items: center;
   gap: var(--min-spacing);
   /* border-right: 1px solid #ccc; */
-  @media (width >= 400px){
+  @media (width >= 501px){
     grid-template-columns: repeat(3,40px);
   }
   padding-right: var(--min-spacing);
@@ -485,7 +485,7 @@ a[href^="mailto:"]::before {
   }
 }
 
-@media (width < 400px){
+@media (width <= 500px){
   .wish-list{
     display: none;
   }
@@ -1728,7 +1728,7 @@ body.scroll-locked {
 .surface-pick-up-items{
   display: grid;
   align-items: start;
-  @media (width >= 500px) {
+  @media (width >= 501px) {
     grid-template-columns: repeat(2,1fr);
   } 
   gap: 20px;
