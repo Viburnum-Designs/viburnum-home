@@ -1352,7 +1352,7 @@ input.mailing-list-email{
   text-align: center;
   display: flex;
   justify-content: end;
-  align-items: center; 
+  align-items: start;
   gap: var(--min-spacing);
 }
 
