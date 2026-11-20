@@ -243,9 +243,9 @@
       "type": "v-page-banner",
       "name": "V Page Banner",
       "settings": {
-        "image": "shopify://shop_images/fall-collection-banner__desktop__v2.webp",
-        "image_mobile": "shopify://shop_images/fall-arrivals__v3.webp",
-        "title": "Our Fall Collection",
+        "image": "shopify://shop_images/holiday-collection--desktop.webp",
+        "image_mobile": "shopify://shop_images/holiday-collection--mobile.webp",
+        "title": "Our Winter Collection",
         "title_bottom_margin": "0",
         "title_mobile_bottom_margin": "0",
         "text": "",
@@ -253,7 +253,7 @@
         "color": "#ffffff",
         "overlay_background": "#683a05",
         "overlay_opacity": 10,
-        "link": "shopify://collections/fall-collection",
+        "link": "shopify://collections/holiday-collection",
         "button_text": "Explore"
       }
     },
