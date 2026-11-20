@@ -136,33 +136,50 @@
         </div>
       {% endif %}
 
-      <div
-        class="collection-products "
-      >
+      <div class="collection-products">
         {%- if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 -%}
           {%- for i in (1..section.settings.products_per_row) -%}
             {%- capture productImage -%}
-              {%- cycle 'product-1', 'product-2', 'product-3' -%}
-            {%- endcapture -%}
+        {%- cycle 'product-1', 'product-2', 'product-3' -%}
+      {%- endcapture -%}
             {%- assign image = productImage | placeholder_svg_tag: 'placeholder-svg' -%}
 
             {%- render 'home-onboard-product', image: image -%}
           {%- endfor -%}
         {%- else -%}
-          {% for product in collection.products %}
-            {% render 'product-list-item', product: product %}
-          {% else %}
-            {% capture continueLink %}
-              <a href="{{ routes.all_products_collection_url }}">{{ 'collections.collection.continue_link' | t }}</a>
-            {% endcapture %}
-            <p class="empty">{{ 'collections.collection.empty_html' | t: continue_link: continueLink }}</p>
-          {% endfor %}
+          {%- for product in collection.products -%}
+            {%- render 'product-list-item', product: product -%}
+          {%- endfor -%}
         {%- endif -%}
       </div>
+
+      {%- assign is_onboarding = false -%}
+      {%- if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 -%}
+        {%- assign is_onboarding = true -%}
+      {%- endif -%}
+
+      {%- if collection.products_count == 0 and is_onboarding == false -%}
+        {%- capture continueLink -%}
+          <a href="{{ routes.all_products_collection_url }}">{{ 'collections.collection.continue_link' | t }}</a>
+        {%- endcapture -%}
+        <p class="empty">{{ 'collections.collection.empty_html' | t: continue_link: continueLink }}</p>
+      {%- endif -%}
     </section>
 
     {% render 'pagination', paginate: paginate %}
   {% endpaginate %}
+
+  {% if collection.description != blank and section.settings.show_description %}
+    <style>
+      .collection-description {
+        max-width: 100%;
+        padding-top: var(--max-spacing);
+      }
+    </style>
+    <div class="collection-description rte">
+      {{ collection.description }}
+    </div>
+  {% endif %}
 </div>
 
 {% schema %}
