@@ -261,10 +261,10 @@
       "type": "v-featured-collection-carousel",
       "name": "V Featured Collection Carousel",
       "settings": {
-        "title": "Fall New Arrivals",
+        "title": "Holiday Exclusives",
         "top_padding": "0",
         "bottom_padding": "max",
-        "collection": "fall-collection",
+        "collection": "holiday-collection",
         "controls-color": "#000000",
         "autoplay": false,
         "autoplay_delay": 3,
